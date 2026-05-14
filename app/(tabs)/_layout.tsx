@@ -5,13 +5,21 @@ import { Platform, Text } from "react-native";
 import { COLORS } from "@/constants/styles";
 
 function TabIcon({ emoji, focused }: { emoji: string; focused: boolean }) {
-  return <Text style={{ fontSize: 20, opacity: focused ? 1 : 0.5 }}>{emoji}</Text>;
+  return <Text style={{ fontSize: 22, opacity: focused ? 1 : 0.45 }}>{emoji}</Text>;
 }
 
+/**
+ * 5 تبويبات رئيسية فقط:
+ * 1. الأعضاء   — الكبد / القلب / الكلى / المقارنة (index.tsx)
+ * 2. تشخيص    — diagnostics.tsx (مؤشر الصحة، حاسبة، نوم، خطر، تحاليل)
+ * 3. أدوات    — tools.tsx (بحث، حاسبة جرعة، تعارضات، مخزون، مكتبة)
+ * 4. مساعد AI — ai.tsx (4 خبراء، محادثة، مسح ملصق)
+ * 5. ملفي     — profile.tsx (بيانات، أمراض، هرمونات، جدول، إعدادات)
+ */
 export default function TabLayout() {
   const insets = useSafeAreaInsets();
-  const bottomPadding = Platform.OS === "web" ? 10 : Math.max(insets.bottom, 6);
-  const tabBarHeight = 58 + bottomPadding;
+  const bottomPadding = Platform.OS === "web" ? 10 : Math.max(insets.bottom, 8);
+  const tabBarHeight = 62 + bottomPadding;
 
   return (
     <Tabs
@@ -21,90 +29,30 @@ export default function TabLayout() {
         headerShown: false,
         tabBarButton: HapticTab,
         tabBarStyle: {
-          paddingTop: 4,
+          paddingTop: 6,
           paddingBottom: bottomPadding,
           height: tabBarHeight,
-          backgroundColor: '#0a0a0a',
-          borderTopColor: COLORS.border,
+          backgroundColor: '#000000',
+          borderTopColor: '#1a1a1a',
           borderTopWidth: 1,
         },
         tabBarLabelStyle: {
-          fontSize: 9,
-          fontFamily: 'Cairo',
-          marginTop: 1,
+          fontSize: 10,
+          fontFamily: 'Cairo-Bold',
+          marginTop: 2,
         },
       }}
     >
+      {/* 1 — الأعضاء: الكبد / القلب / الكلى / المقارنة */}
       <Tabs.Screen
         name="index"
         options={{
-          title: "الكبد",
-          tabBarIcon: ({ focused }) => <TabIcon emoji="🟡" focused={focused} />,
+          title: "الأعضاء",
+          tabBarIcon: ({ focused }) => <TabIcon emoji="🫀" focused={focused} />,
         }}
       />
-      <Tabs.Screen
-        name="heart"
-        options={{
-          title: "القلب",
-          tabBarIcon: ({ focused }) => <TabIcon emoji="❤️" focused={focused} />,
-        }}
-      />
-      <Tabs.Screen
-        name="kidney"
-        options={{
-          title: "الكلى",
-          tabBarIcon: ({ focused }) => <TabIcon emoji="🟣" focused={focused} />,
-        }}
-      />
-      <Tabs.Screen
-        name="compare"
-        options={{
-          title: "مقارنة",
-          tabBarIcon: ({ focused }) => <TabIcon emoji="📊" focused={focused} />,
-        }}
-      />
-      <Tabs.Screen
-        name="tools"
-        options={{
-          title: "أدوات",
-          tabBarIcon: ({ focused }) => <TabIcon emoji="🛠️" focused={focused} />,
-        }}
-      />
-      <Tabs.Screen
-        name="schedule"
-        options={{
-          title: "جدولي",
-          tabBarIcon: ({ focused }) => <TabIcon emoji="📅" focused={focused} />,
-        }}
-      />
-      <Tabs.Screen
-        name="ai"
-        options={{
-          title: "AI",
-          tabBarIcon: ({ focused }) => <TabIcon emoji="🤖" focused={focused} />,
-        }}
-      />
-      <Tabs.Screen
-        name="profile"
-        options={{
-          title: "ملفي",
-          tabBarIcon: ({ focused }) => <TabIcon emoji="👤" focused={focused} />,
-        }}
-      />
-      <Tabs.Screen
-        name="inventory"
-        options={{
-          title: "مخزوني",
-          tabBarIcon: ({ focused }) => <TabIcon emoji="💊" focused={focused} />,
-        }}
-      />
-      <Tabs.Screen
-        name="library"
-        options={{
-          title: "المكتبة",
-          tabBarIcon: ({ focused }) => <TabIcon emoji="📚" focused={focused} />,
-        }}
-      />
+
+      {/* 2 — التشخيص المتقدم */}
       <Tabs.Screen
         name="diagnostics"
         options={{
@@ -112,13 +60,42 @@ export default function TabLayout() {
           tabBarIcon: ({ focused }) => <TabIcon emoji="🔬" focused={focused} />,
         }}
       />
+
+      {/* 3 — الأدوات الشاملة */}
       <Tabs.Screen
-        name="settings"
+        name="tools"
         options={{
-          title: "إعدادات",
-          tabBarIcon: ({ focused }) => <TabIcon emoji="⚙️" focused={focused} />,
+          title: "أدوات",
+          tabBarIcon: ({ focused }) => <TabIcon emoji="🛠️" focused={focused} />,
         }}
       />
+
+      {/* 4 — مساعد AI */}
+      <Tabs.Screen
+        name="ai"
+        options={{
+          title: "مساعد AI",
+          tabBarIcon: ({ focused }) => <TabIcon emoji="🤖" focused={focused} />,
+        }}
+      />
+
+      {/* 5 — الملف الشخصي الكامل */}
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: "ملفي",
+          tabBarIcon: ({ focused }) => <TabIcon emoji="👤" focused={focused} />,
+        }}
+      />
+
+      {/* شاشات مخفية — يُصل إليها من داخل التبويبات */}
+      <Tabs.Screen name="heart"     options={{ href: null }} />
+      <Tabs.Screen name="kidney"    options={{ href: null }} />
+      <Tabs.Screen name="compare"   options={{ href: null }} />
+      <Tabs.Screen name="schedule"  options={{ href: null }} />
+      <Tabs.Screen name="inventory" options={{ href: null }} />
+      <Tabs.Screen name="library"   options={{ href: null }} />
+      <Tabs.Screen name="settings"  options={{ href: null }} />
     </Tabs>
   );
 }

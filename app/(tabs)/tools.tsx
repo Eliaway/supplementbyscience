@@ -9,7 +9,7 @@ import { organSections, overallProducts } from '@/assets/data/organData';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from 'expo-router';
 
-type Tool = 'search' | 'favorites' | 'calculator' | 'interactions' | 'labtest' | 'deficiency' | 'protocols' | 'compare';
+type Tool = 'search' | 'favorites' | 'calculator' | 'interactions' | 'labtest' | 'deficiency' | 'protocols' | 'compare' | 'inventory' | 'library' | 'schedule' | 'settings';
 
 // ─── بيانات التعارضات ───
 const INTERACTIONS: Record<string, { item: string; type: 'danger' | 'caution' | 'synergy'; note: string }[]> = {
@@ -198,7 +198,11 @@ export default function ToolsScreen() {
     { id: 'labtest', label: 'تحاليل', emoji: '🧬', color: COLORS.kidney },
     { id: 'deficiency', label: 'اختبار نقص', emoji: '🩺', color: COLORS.liver },
     { id: 'protocols', label: 'بروتوكولات', emoji: '📋', color: COLORS.heart },
-    { id: 'compare', label: 'مقارنة', emoji: '⚖️', color: COLORS.compare },
+    { id: 'compare',   label: 'مقارنة',  emoji: '⚖️', color: COLORS.compare },
+    { id: 'inventory', label: 'مخزوني',  emoji: '💊', color: COLORS.liver },
+    { id: 'library',   label: 'مكتبة',   emoji: '📚', color: COLORS.kidney },
+    { id: 'schedule',  label: 'جدولي',   emoji: '📅', color: COLORS.heart },
+    { id: 'settings',  label: 'إعدادات', emoji: '⚙️', color: COLORS.blue },
   ];
 
   return (
@@ -225,6 +229,22 @@ export default function ToolsScreen() {
 
       <ScrollView style={styles.body} contentContainerStyle={styles.bodyContent} showsVerticalScrollIndicator={false}>
 
+        {/* ─── مخزون ─── */}
+        {activeTool === 'inventory' && (
+          <InventoryEmbed />
+        )}
+        {/* ─── مكتبة ─── */}
+        {activeTool === 'library' && (
+          <LibraryEmbed />
+        )}
+        {/* ─── جدول ─── */}
+        {activeTool === 'schedule' && (
+          <ScheduleEmbed />
+        )}
+        {/* ─── إعدادات ─── */}
+        {activeTool === 'settings' && (
+          <SettingsEmbed />
+        )}
         {/* ─── بحث ─── */}
         {activeTool === 'search' && (
           <View>
@@ -807,3 +827,25 @@ const styles = StyleSheet.create({
   compareOrgan: { fontSize: 11, color: COLORS.textMuted, fontFamily: FONTS.regular, textAlign: 'center' },
   compareVs: { fontSize: 18, fontWeight: '900', color: COLORS.textMuted, fontFamily: FONTS.black },
 });
+
+// ─── مكونات مدمجة للشاشات الإضافية ───────────────────────────────────────────
+
+function InventoryEmbed() {
+  const Inventory = require('./inventory').default;
+  return <Inventory embedded />;
+}
+
+function LibraryEmbed() {
+  const Library = require('./library').default;
+  return <Library embedded />;
+}
+
+function ScheduleEmbed() {
+  const Schedule = require('./schedule').default;
+  return <Schedule embedded />;
+}
+
+function SettingsEmbed() {
+  const Settings = require('./settings').default;
+  return <Settings embedded />;
+}

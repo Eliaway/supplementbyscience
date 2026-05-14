@@ -1,6 +1,6 @@
 import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
-import { I18nManager, View } from "react-native";
+import { I18nManager, View, Appearance } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { ThemeProvider } from "@/lib/theme-provider";
@@ -15,6 +15,9 @@ I18nManager.allowRTL(true);
 I18nManager.forceRTL(true);
 
 SplashScreen.preventAutoHideAsync();
+
+// Force dark mode globally to prevent white background on any device
+try { Appearance.setColorScheme?.('dark'); } catch (_) {}
 
 export default function RootLayout() {
   const [queryClient] = useState(() => new QueryClient());
@@ -40,8 +43,8 @@ export default function RootLayout() {
         <trpc.Provider client={trpcClient} queryClient={queryClient}>
           <QueryClientProvider client={queryClient}>
             <ThemeProvider forcedColorScheme="dark">
-              <View style={{ flex: 1, backgroundColor: '#060d1a' }}>
-                <StatusBar style="light" backgroundColor="#060d1a" />
+              <View style={{ flex: 1, backgroundColor: '#000000' }}>
+                <StatusBar style="light" backgroundColor="#000000" />
                 <Stack screenOptions={{ headerShown: false }}>
                   <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
                 </Stack>
