@@ -1,0 +1,51 @@
+{
+  "build_command": "pnpm run build",
+  "capabilities": [
+    "server",
+    "db",
+    "user"
+  ],
+  "dev_command": "pnpm run dev",
+  "env_vars": {
+    "DATABASE_URL": "mysql://3JBeqfqFGXQwrPm.fe5eee82e184:HIfJzr2GEM2m4GgKr622@gateway05.us-east-1.prod.aws.tidbcloud.com:4000/byUidmvWXtRvfZkcyjWycz?ssl={\"rejectUnauthorized\":true}"
+  },
+  "experiments": [
+    "no_db_push"
+  ],
+  "git_remote": {
+    "repo_url": "s3://vida-prod-gitrepo/webdev-git/118124308/byUidmvWXtRvfZkcyjWycz",
+    "access_key_id": "ASIAZV3A2ECZNGARLYNL",
+    "secret_access_key": "09glsZ9zB3xvgxSNyFISEQ7ZW5pEvmTYsuOkCqJn",
+    "session_token": "IQoJb3JpZ2luX2VjEJj//////////wEaCXVzLWVhc3QtMSJGMEQCIHBWvIPSDW3HUb4rWPm3cyFK5YsFYBJItG5MCCInYaD8AiARWMbitVlpm+5F/mgAyhWyNOWc4XLnbM7I78PHsnJoOirkAwhgEAQaDDY2NTM4NjA5ODg2NiIMnBE0MD9CSBUi1sOlKsEDm0XCb66jfIwT7tAUsZA4ccabbEIm6g+LBs/46g9vFmEgSDwF4F6Iu5vbozxBtAtWLik7j19gne8Dm8DtOxNXSDN1IDlIIHduvaG1v1QCc0PYFehzTCz1Oa+4teKpTpPrGK1p35rPf8VJuiQ1Xj7120FBVKprrMCVuAamrRvbG4QCzc2DVUnGSD4dITahVcrLW+k0Hpvet2mNq/1QpW/rLC6xlPOXi6jAX0xke38qNlcGhWf/TBXBOn4eA9SJPph3FjFBtocUn+S4bCmfrhUGT+WBjxaTRZWelqJxw4S0fJMAD9as3dNMVfX5hVUSBLPBMxF2AksiDeubS1Zc/37EPQvboqzuZZH2GR9Lnm0gpiMPfrsL9ERFjhctXo7BwQDj9IF80jL8C62ViCgCuiu/3sEM2lUWC/pi3m0gzGEgh2YPY8Hs/xUoGY9e8Uvex9tRauSQhbdYgG06xQAm/lKZF00/Lp/mSEPPwWvy2wNY4Azmnytm8QDG/Wg9t6TYpDPywCaHEh04TQXrEaN6A45vFKGsn+cb10JpsE5D64jK73yOPiYKDbLhjXDS6ijJfK5Q2dYgCxztRy9s3RatmGlR9sswn8+X0AY6ngGhdAfMQ8DXrlxPWwY+CQp6uN/ibZPSoQXW0ZuXuZ7vpnUydBEBXO5fslB0M4Uo/CSpuP0jolHmb6IdkkJY+lusNtpMMDkHjgXIt6AFfJhRDbDb6Ai1tTXHIeMsR1Q3cFxkXRCFKWATCkusjFtd7ZJ9TSMYY8Rt4BtunTbu+jsxctxILkx95vkjLw6XGxWdLoOwmxpFn1vIGeR9tH46Yg==",
+    "expiration": "2026-05-15T03:17:51.000Z"
+  },
+  "name": "organ-health-compare",
+  "path": "/home/ubuntu/organ-health-compare",
+  "port": 3000,
+  "secrets": {
+    "BUILT_IN_FORGE_API_KEY": "HV3BybZJBJWLoKipEtPLQX",
+    "BUILT_IN_FORGE_API_URL": "https://forge.manus.ai",
+    "EXPO_APP_QR_URL": "exps://8081-iozpe736x26ic7rqc34ca-977f9a11.sg1.manus.computer",
+    "EXPO_PACKAGER_PROXY_URL": "https://8081-iozpe736x26ic7rqc34ca-977f9a11.sg1.manus.computer",
+    "EXPO_PUBLIC_API_BASE_URL": "https://3000-iozpe736x26ic7rqc34ca-977f9a11.sg1.manus.computer",
+    "EXPO_PUBLIC_OAUTH_PORTAL_URL": "https://manus.im",
+    "EXPO_PUBLIC_OAUTH_SERVER_URL": "https://api.manus.im",
+    "EXPO_PUBLIC_OWNER_NAME": "Ali Hassan",
+    "EXPO_PUBLIC_OWNER_OPEN_ID": "gjuifXHhehtuc9ugrMBgGN",
+    "JWT_SECRET": "TtVxfezuNerEm6opxxe9uy",
+    "OAUTH_SERVER_URL": "https://api.manus.im",
+    "OWNER_NAME": "Ali Hassan",
+    "OWNER_OPEN_ID": "gjuifXHhehtuc9ugrMBgGN",
+    "REACT_NATIVE_PACKAGER_HOSTNAME": "8081-iozpe736x26ic7rqc34ca-977f9a11.sg1.manus.computer",
+    "VITE_ANALYTICS_ENDPOINT": "https://manus-analytics.com",
+    "VITE_ANALYTICS_WEBSITE_ID": "f5c4e1d2-2689-485a-ba33-89533f70de6d",
+    "VITE_APP_ID": "byUidmvWXtRvfZkcyjWycz",
+    "VITE_APP_LOGO": "",
+    "VITE_APP_TITLE": "لوحة المقارنة العلمية — صحة الأعضاء",
+    "VITE_FRONTEND_FORGE_API_KEY": "C5EkUGBRSuyWWTyLTRHgf3",
+    "VITE_FRONTEND_FORGE_API_URL": "https://forge.manus.ai",
+    "VITE_OAUTH_PORTAL_URL": "https://manus.im"
+  },
+  "template_id": "app",
+  "test_command": "pnpm test"
+}
