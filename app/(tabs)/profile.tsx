@@ -29,11 +29,11 @@ export default function ProfileScreen() {
 
   if (loading) {
     return (
-      <ScreenContainer>
+      <View style={styles.rootContainer}>
         <View style={styles.center}>
           <ActivityIndicator color={COLORS.blue} size="large" />
         </View>
-      </ScreenContainer>
+      </View>
     );
   }
 
@@ -84,7 +84,7 @@ export default function ProfileScreen() {
   ];
 
   return (
-    <ScreenContainer containerClassName="bg-background">
+    <View style={styles.rootContainer}>
       {/* هيدر */}
       <View style={[styles.header, { borderBottomColor: COLORS.border }]}>
         <Text style={styles.headerTitle}>👤 ملفي الصحي</Text>
@@ -428,11 +428,15 @@ export default function ProfileScreen() {
         )}
 
       </ScrollView>
-    </ScreenContainer>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
+  rootContainer: {
+    flex: 1,
+    backgroundColor: '#000000',
+  },
   center: { flex: 1, justifyContent: 'center', alignItems: 'center' },
   header: {
     padding: SPACING.lg,

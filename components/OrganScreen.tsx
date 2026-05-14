@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { ScrollView, View, Text, StyleSheet } from 'react-native';
-import { ScreenContainer } from '@/components/screen-container';
 import { IngredientCard } from '@/components/IngredientCard';
 import { ComparisonTable } from '@/components/ComparisonTable';
 import { WinnerCard } from '@/components/WinnerCard';
@@ -13,9 +12,10 @@ import { useFocusEffect } from 'expo-router';
 interface OrganScreenProps {
   section: OrganSection;
   accentColor?: string;
+  noHeader?: boolean;
 }
 
-export function OrganScreen({ section, accentColor = COLORS.blue }: OrganScreenProps) {
+export function OrganScreen({ section, accentColor = COLORS.blue, noHeader = false }: OrganScreenProps) {
   const [favorites, setFavorites] = useState<string[]>([]);
 
   useFocusEffect(
@@ -35,14 +35,20 @@ export function OrganScreen({ section, accentColor = COLORS.blue }: OrganScreenP
   };
 
   return (
-    <ScreenContainer containerClassName="bg-background" edges={['top', 'left', 'right']}>
-      <AppHeader
-        title="🔬 لوحة المقارنة العلمية"
-        subtitle="مبنية على أحدث الدراسات السريرية والأبحاث المحكّمة"
-        badge="✅ جميع الجرعات مستندة إلى تجارب سريرية موثّقة"
-        accentColor={accentColor}
-      />
-      <ScrollView style={styles.scroll} contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
+    <View style={styles.root}>
+      {!noHeader && (
+        <AppHeader
+          title="🔬 لوحة المقارنة العلمية"
+          subtitle="مبنية على أحدث الدراسات السريرية والأبحاث المحكّمة"
+          badge="✅ جميع الجرعات مستندة إلى تجارب سريرية موثّقة"
+          accentColor={accentColor}
+        />
+      )}
+      <ScrollView
+        style={styles.scroll}
+        contentContainerStyle={styles.content}
+        showsVerticalScrollIndicator={false}
+      >
         {/* Section Title */}
         <View style={[styles.sectionBadge, { backgroundColor: accentColor + '18', borderColor: accentColor + '40' }]}>
           <Text style={styles.sectionIcon}>{section.icon}</Text>
@@ -82,13 +88,17 @@ export function OrganScreen({ section, accentColor = COLORS.blue }: OrganScreenP
 
         <View style={{ height: 20 }} />
       </ScrollView>
-    </ScreenContainer>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  scroll: { flex: 1 },
-  content: { padding: 14 },
+  root: {
+    flex: 1,
+    backgroundColor: '#000000',
+  },
+  scroll: { flex: 1, backgroundColor: '#000000' },
+  content: { padding: 14, backgroundColor: '#000000' },
   sectionBadge: {
     flexDirection: 'row',
     alignItems: 'center',

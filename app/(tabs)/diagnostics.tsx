@@ -211,7 +211,7 @@ export default function DiagnosticsScreen() {
   ];
 
   return (
-    <ScreenContainer containerClassName="bg-background">
+    <View style={styles.rootContainer}>
       {/* Header */}
       <View style={styles.header}>
         <Text style={styles.headerTitle}>🔬 التشخيص والتحليل المتقدم</Text>
@@ -765,12 +765,16 @@ export default function DiagnosticsScreen() {
         )}
 
       </ScrollView>
-    </ScreenContainer>
+    </View>
   );
 }
 
 // ─── الأنماط ──────────────────────────────────────────────────────────────────
 const styles = StyleSheet.create({
+  rootContainer: {
+    flex: 1,
+    backgroundColor: '#000000',
+  },
   header: { padding: SPACING.lg, borderBottomWidth: 1, borderBottomColor: COLORS.border, backgroundColor: COLORS.bg },
   headerTitle: { fontSize: 17, fontWeight: '900', color: COLORS.textPrimary, textAlign: 'right' },
   headerSub: { fontSize: 11, color: COLORS.textMuted, textAlign: 'right', marginTop: 2 },

@@ -206,7 +206,7 @@ export default function ToolsScreen() {
   ];
 
   return (
-    <ScreenContainer containerClassName="bg-background" edges={['top', 'left', 'right']}>
+    <View style={styles.rootContainer}>
       {/* Header */}
       <View style={styles.header}>
         <Text style={styles.headerTitle}>🛠️ أدوات علمية</Text>
@@ -562,11 +562,15 @@ export default function ToolsScreen() {
 
         <View style={{ height: 30 }} />
       </ScrollView>
-    </ScreenContainer>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
+  rootContainer: {
+    flex: 1,
+    backgroundColor: '#000000',
+  },
   header: {
     backgroundColor: '#111111',
     paddingHorizontal: 16,

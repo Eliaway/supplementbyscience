@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import { ScreenContainer } from '@/components/screen-container';
+import { View, Text, TouchableOpacity, StyleSheet, StatusBar } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { OrganScreen } from '@/components/OrganScreen';
 import { organSections } from '@/assets/data/organData';
-import { COLORS, FONTS, RADIUS } from '@/constants/styles';
+import { COLORS, FONTS } from '@/constants/styles';
 
 type OrganTab = 'liver' | 'heart' | 'kidney' | 'compare';
 
@@ -16,55 +16,50 @@ const ORGAN_TABS: { id: OrganTab; label: string; emoji: string; color: string }[
 
 export default function OrgansHubScreen() {
   const [activeTab, setActiveTab] = useState<OrganTab>('liver');
-
+  const insets = useSafeAreaInsets();
   const activeOrgan = ORGAN_TABS.find(t => t.id === activeTab)!;
 
-  // شاشة المقارنة الشاملة
-  if (activeTab === 'compare') {
-    const CompareContent = require('./compare').default;
-    return (
-      <View style={styles.root}>
-        <SubTabBar active={activeTab} onSelect={setActiveTab} />
-        <View style={styles.flex}>
-          <CompareContent />
-        </View>
-      </View>
-    );
-  }
-
-  const section = organSections.find(s => s.id === activeTab)!;
-
   return (
-    <View style={styles.root}>
-      <SubTabBar active={activeTab} onSelect={setActiveTab} />
-      <View style={styles.flex}>
-        <OrganScreen section={section} accentColor={activeOrgan.color} />
+    <View style={[styles.root, { paddingTop: insets.top }]}>
+      <StatusBar barStyle="light-content" backgroundColor="#000000" />
+      {/* Sub Tab Bar */}
+      <View style={styles.subBar}>
+        {ORGAN_TABS.map(tab => {
+          const isActive = activeTab === tab.id;
+          return (
+            <TouchableOpacity
+              key={tab.id}
+              style={[styles.subTab, isActive && { borderBottomColor: tab.color, borderBottomWidth: 2.5 }]}
+              onPress={() => setActiveTab(tab.id)}
+              activeOpacity={0.7}
+            >
+              <Text style={styles.subTabEmoji}>{tab.emoji}</Text>
+              <Text style={[styles.subTabLabel, { color: isActive ? tab.color : COLORS.textMuted }]}>
+                {tab.label}
+              </Text>
+            </TouchableOpacity>
+          );
+        })}
+      </View>
+
+      {/* Content */}
+      <View style={styles.content}>
+        {activeTab === 'compare'
+          ? <CompareWrapper />
+          : <OrganScreen
+              section={organSections.find(s => s.id === activeTab)!}
+              accentColor={activeOrgan.color}
+              noHeader
+            />
+        }
       </View>
     </View>
   );
 }
 
-function SubTabBar({ active, onSelect }: { active: OrganTab; onSelect: (t: OrganTab) => void }) {
-  return (
-    <View style={styles.subBar}>
-      {ORGAN_TABS.map(tab => {
-        const isActive = active === tab.id;
-        return (
-          <TouchableOpacity
-            key={tab.id}
-            style={[styles.subTab, isActive && { borderBottomColor: tab.color, borderBottomWidth: 2.5 }]}
-            onPress={() => onSelect(tab.id)}
-            activeOpacity={0.7}
-          >
-            <Text style={styles.subTabEmoji}>{tab.emoji}</Text>
-            <Text style={[styles.subTabLabel, { color: isActive ? tab.color : COLORS.textMuted }]}>
-              {tab.label}
-            </Text>
-          </TouchableOpacity>
-        );
-      })}
-    </View>
-  );
+function CompareWrapper() {
+  const CompareContent = require('./compare').default;
+  return <CompareContent noHeader />;
 }
 
 const styles = StyleSheet.create({
@@ -72,13 +67,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#000000',
   },
-  flex: { flex: 1 },
   subBar: {
     flexDirection: 'row',
-    backgroundColor: '#000000',
+    backgroundColor: '#0a0a0a',
     borderBottomWidth: 1,
     borderBottomColor: '#1a1a1a',
-    paddingTop: 52, // مسافة من أعلى لتجنب status bar
   },
   subTab: {
     flex: 1,
@@ -95,5 +88,9 @@ const styles = StyleSheet.create({
     fontSize: 11,
     fontFamily: FONTS.bold,
     textAlign: 'center',
+  },
+  content: {
+    flex: 1,
+    backgroundColor: '#000000',
   },
 });

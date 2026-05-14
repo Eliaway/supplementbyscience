@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { ScrollView, View, Text, StyleSheet, Pressable } from 'react-native';
-import { ScreenContainer } from '@/components/screen-container';
 import { overallProducts } from '@/assets/data/organData';
 
 type FilterType = 'all' | 'liver' | 'heart' | 'kidney';
@@ -15,7 +14,11 @@ const filters: { id: FilterType; label: string; icon: string; color: string }[] 
 const scoreColors = { s: '#10b981', m: '#0ea5e9', l: '#f59e0b' };
 const ppsColors = { g: '#34d399', m: '#fbbf24', b: '#f87171' };
 
-export default function CompareScreen() {
+interface CompareScreenProps {
+  noHeader?: boolean;
+}
+
+export default function CompareScreen({ noHeader = false }: CompareScreenProps) {
   const [activeFilter, setActiveFilter] = useState<FilterType>('all');
 
   const filtered = overallProducts.filter(p => {
@@ -27,15 +30,17 @@ export default function CompareScreen() {
   });
 
   return (
-    <ScreenContainer containerClassName="bg-background">
-      {/* Header */}
-      <View style={styles.header}>
-        <Text style={styles.headerTitle}>📊 المقارنة الشاملة</Text>
-        <Text style={styles.headerSub}>تقييم موحّد بناءً على الجرعة + الدليل العلمي + القيمة + التوفر</Text>
-        <View style={styles.sciBadge}>
-          <Text style={styles.sciBadgeText}>✅ جميع الجرعات مستندة إلى تجارب سريرية موثّقة</Text>
+    <View style={styles.root}>
+      {/* Header - only shown when standalone */}
+      {!noHeader && (
+        <View style={styles.header}>
+          <Text style={styles.headerTitle}>📊 المقارنة الشاملة</Text>
+          <Text style={styles.headerSub}>تقييم موحّد بناءً على الجرعة + الدليل العلمي + القيمة + التوفر</Text>
+          <View style={styles.sciBadge}>
+            <Text style={styles.sciBadgeText}>✅ جميع الجرعات مستندة إلى تجارب سريرية موثّقة</Text>
+          </View>
         </View>
-      </View>
+      )}
 
       {/* Filter Tabs */}
       <View style={styles.filterRow}>
@@ -142,11 +147,15 @@ export default function CompareScreen() {
 
         <View style={{ height: 20 }} />
       </ScrollView>
-    </ScreenContainer>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
+  root: {
+    flex: 1,
+    backgroundColor: '#000000',
+  },
   header: {
     backgroundColor: '#111111',
     paddingHorizontal: 16,
@@ -210,9 +219,11 @@ const styles = StyleSheet.create({
   },
   scroll: {
     flex: 1,
+    backgroundColor: '#000000',
   },
   content: {
     padding: 16,
+    backgroundColor: '#000000',
   },
   bestSection: {
     marginBottom: 20,
@@ -231,11 +242,11 @@ const styles = StyleSheet.create({
   },
   bestCard: {
     flex: 1,
-    backgroundColor: '#2a2a2a',
+    backgroundColor: '#1a1a1a',
     borderRadius: 10,
     padding: 10,
     borderWidth: 1,
-    borderColor: '#3a3a3a',
+    borderColor: '#2a2a2a',
     borderTopWidth: 2,
     alignItems: 'center',
   },
@@ -271,11 +282,11 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   productCard: {
-    backgroundColor: '#2a2a2a',
+    backgroundColor: '#111111',
     borderRadius: 12,
     padding: 14,
     borderWidth: 1,
-    borderColor: '#3a3a3a',
+    borderColor: '#2a2a2a',
     marginBottom: 10,
     gap: 8,
   },
@@ -331,7 +342,7 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     overflow: 'hidden',
     borderWidth: 1,
-    borderColor: '#3a3a3a',
+    borderColor: '#2a2a2a',
   },
   scoreBarFill: {
     height: '100%',

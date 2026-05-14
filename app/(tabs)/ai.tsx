@@ -189,7 +189,7 @@ export default function AIScreen() {
   const filteredStudies = libraryFilter === 'all' ? STUDIES : STUDIES.filter(s => s.organ === libraryFilter);
 
   return (
-    <ScreenContainer containerClassName="bg-background" edges={['top', 'left', 'right']}>
+    <View style={styles.rootContainer}>
       {/* Header */}
       <View style={styles.header}>
         <Text style={styles.headerTitle}>🤖 مساعد AI العلمي</Text>
@@ -331,11 +331,15 @@ export default function AIScreen() {
           <View style={{ height: 20 }} />
         </ScrollView>
       )}
-    </ScreenContainer>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
+  rootContainer: {
+    flex: 1,
+    backgroundColor: '#000000',
+  },
   header: {
     backgroundColor: '#111111',
     paddingHorizontal: 16,
