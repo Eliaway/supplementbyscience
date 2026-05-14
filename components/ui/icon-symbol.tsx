@@ -1,23 +1,51 @@
-// Fallback for using MaterialIcons on Android and web.
-
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
-import { SymbolViewProps } from "expo-symbols";
+import { SymbolWeight, SymbolViewProps } from "expo-symbols";
 import { ComponentProps } from "react";
 import { OpaqueColorValue, type StyleProp, type TextStyle } from "react-native";
 
-type MaterialIconName = ComponentProps<typeof MaterialIcons>["name"];
-type SFSymbolName = SymbolViewProps["name"];
+type IconMapping = Record<SymbolViewProps["name"], ComponentProps<typeof MaterialIcons>["name"]>;
+type IconSymbolName = keyof typeof MAPPING;
 
-const MAPPING: Partial<Record<SFSymbolName, MaterialIconName>> = {
+const MAPPING = {
   "house.fill": "home",
+  "chevron.left": "chevron-left",
+  "chevron.right": "chevron-right",
+  "xmark": "close",
+  "xmark.circle.fill": "cancel",
+  "arrow.clockwise": "refresh",
+  "arrow.right": "arrow-forward",
+  "arrow.left.arrow.right": "compare-arrows",
+  "checkmark": "check",
+  "checkmark.circle.fill": "check-circle",
+  "magnifyingglass": "search",
+  "plus.circle.fill": "add-circle",
+  "bookmark": "bookmark-border",
+  "bookmark.fill": "bookmark",
+  "info.circle": "info",
+  "star.fill": "star",
+  "trophy.fill": "emoji-events",
+  "sparkles": "auto-awesome",
+  "clock.fill": "schedule",
+  "calendar": "calendar-today",
+  "person.fill": "person",
+  "pills.fill": "medication",
+  "heart.fill": "favorite",
+  "leaf.fill": "eco",
+  "drop.fill": "water-drop",
+  "brain.head.profile": "psychology",
+  "shield.fill": "shield",
+  "bolt.fill": "bolt",
+  "moon.fill": "bedtime",
+  "flame.fill": "local-fire-department",
+  "cross.fill": "add",
+  "flask.fill": "science",
+  "graduationcap.fill": "school",
+  "exclamationmark.triangle.fill": "warning",
   "paperplane.fill": "send",
   "chevron.left.forwardslash.chevron.right": "code",
-  "chevron.right": "chevron-right",
-  "heart.fill": "favorite",
-  "chart.bar.fill": "bar-chart",
-};
-
-type IconSymbolName = keyof typeof MAPPING;
+  "filter": "filter-list",
+  "list.bullet": "list",
+} as unknown as IconMapping;
 
 export function IconSymbol({
   name,
@@ -29,7 +57,7 @@ export function IconSymbol({
   size?: number;
   color: string | OpaqueColorValue;
   style?: StyleProp<TextStyle>;
+  weight?: SymbolWeight;
 }) {
-  const iconName = MAPPING[name] ?? "help";
-  return <MaterialIcons color={color} size={size} name={iconName} style={style} />;
+  return <MaterialIcons color={color} size={size} name={MAPPING[name]} style={style} />;
 }

@@ -1,400 +1,383 @@
-import React, { useState } from 'react';
-import { ScrollView, View, Text, StyleSheet, Pressable } from 'react-native';
-import { overallProducts } from '@/assets/data/organData';
+import { useRouter } from "expo-router";
+import { useState } from "react";
+import {
+  FlatList,
+  I18nManager,
+  Modal,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-type FilterType = 'all' | 'liver' | 'heart' | 'kidney';
+import { IconSymbol } from "@/components/ui/icon-symbol";
+import { useColors } from "@/hooks/use-colors";
+import { CATEGORY_COLORS, CATEGORY_ICONS, Product, useSupplements } from "@/hooks/use-supplements";
 
-const filters: { id: FilterType; label: string; icon: string; color: string }[] = [
-  { id: 'all', label: 'الكل', icon: '📊', color: '#38bdf8' },
-  { id: 'liver', label: 'الكبد', icon: '🟡', color: '#f59e0b' },
-  { id: 'heart', label: 'القلب', icon: '❤️', color: '#ef4444' },
-  { id: 'kidney', label: 'الكلى', icon: '🟣', color: '#8b5cf6' },
-];
+I18nManager.forceRTL(true);
 
-const scoreColors = { s: '#10b981', m: '#0ea5e9', l: '#f59e0b' };
-const ppsColors = { g: '#34d399', m: '#fbbf24', b: '#f87171' };
+export default function CompareScreen() {
+  const colors = useColors();
+  const insets = useSafeAreaInsets();
+  const router = useRouter();
+  const { products } = useSupplements();
 
-interface CompareScreenProps {
-  noHeader?: boolean;
-}
+  const [productA, setProductA] = useState<Product | null>(null);
+  const [productB, setProductB] = useState<Product | null>(null);
+  const [pickingFor, setPickingFor] = useState<"A" | "B" | null>(null);
+  const [search, setSearch] = useState("");
 
-export default function CompareScreen({ noHeader = false }: CompareScreenProps) {
-  const [activeFilter, setActiveFilter] = useState<FilterType>('all');
-
-  const filtered = overallProducts.filter(p => {
-    if (activeFilter === 'all') return true;
-    if (activeFilter === 'liver') return p.organ.includes('الكبد');
-    if (activeFilter === 'heart') return p.organ.includes('القلب');
-    if (activeFilter === 'kidney') return p.organ.includes('الكلى');
-    return true;
+  const filtered = products.filter((p) => {
+    const q = search.toLowerCase();
+    return (
+      !search ||
+      p.name_en.toLowerCase().includes(q) ||
+      p.brand.toLowerCase().includes(q) ||
+      p.category_ar.includes(search)
+    );
   });
 
-  return (
-    <View style={styles.root}>
-      {/* Header - only shown when standalone */}
-      {!noHeader && (
-        <View style={styles.header}>
-          <Text style={styles.headerTitle}>📊 المقارنة الشاملة</Text>
-          <Text style={styles.headerSub}>تقييم موحّد بناءً على الجرعة + الدليل العلمي + القيمة + التوفر</Text>
-          <View style={styles.sciBadge}>
-            <Text style={styles.sciBadgeText}>✅ جميع الجرعات مستندة إلى تجارب سريرية موثّقة</Text>
-          </View>
-        </View>
-      )}
+  function selectProduct(p: Product) {
+    if (pickingFor === "A") setProductA(p);
+    else setProductB(p);
+    setPickingFor(null);
+    setSearch("");
+  }
 
-      {/* Filter Tabs */}
-      <View style={styles.filterRow}>
-        {filters.map(f => (
-          <Pressable
-            key={f.id}
-            style={[
-              styles.filterBtn,
-              activeFilter === f.id && { borderBottomColor: f.color, borderBottomWidth: 2 },
-            ]}
-            onPress={() => setActiveFilter(f.id)}
-          >
-            <Text style={styles.filterIcon}>{f.icon}</Text>
-            <Text style={[styles.filterLabel, activeFilter === f.id && { color: f.color }]}>
-              {f.label}
-            </Text>
+  const CompareRow = ({
+    label, valA, valB, higherIsBetter = true,
+  }: { label: string; valA: number; valB: number; higherIsBetter?: boolean }) => {
+    const aWins = higherIsBetter ? valA > valB : valA < valB;
+    const bWins = higherIsBetter ? valB > valA : valB < valA;
+    return (
+      <View style={[styles.compareRow, { borderBottomColor: colors.border }]}>
+        <View style={[styles.compareCell, aWins && { backgroundColor: colors.success + "15" }]}>
+          <Text style={[styles.compareCellText, { color: aWins ? colors.success : colors.foreground }]}>
+            {valA.toFixed(1)}
+          </Text>
+          {aWins && <IconSymbol name="checkmark" size={12} color={colors.success} />}
+        </View>
+        <View style={styles.compareLabel}>
+          <Text style={[styles.compareLabelText, { color: colors.muted }]}>{label}</Text>
+        </View>
+        <View style={[styles.compareCell, bWins && { backgroundColor: colors.success + "15" }]}>
+          <Text style={[styles.compareCellText, { color: bWins ? colors.success : colors.foreground }]}>
+            {valB.toFixed(1)}
+          </Text>
+          {bWins && <IconSymbol name="checkmark" size={12} color={colors.success} />}
+        </View>
+      </View>
+    );
+  };
+
+  const ProductSlot = ({
+    product, label, onPick, onClear,
+  }: { product: Product | null; label: string; onPick: () => void; onClear: () => void }) => {
+    const catColor = product ? (CATEGORY_COLORS[product.category] || "#64748B") : colors.muted;
+    const catIcon = product ? (CATEGORY_ICONS[product.category] || "pills.fill") : "plus.circle.fill";
+    return (
+      <View style={[styles.slot, { backgroundColor: colors.card, borderColor: product ? catColor + "50" : colors.border }]}>
+        {product ? (
+          <>
+            <Pressable style={styles.clearBtn} onPress={onClear}>
+              <IconSymbol name="xmark.circle.fill" size={20} color={colors.muted} />
+            </Pressable>
+            <View style={[styles.slotIcon, { backgroundColor: catColor + "20" }]}>
+              <IconSymbol name={catIcon as any} size={28} color={catColor} />
+            </View>
+            <Text style={[styles.slotName, { color: colors.foreground }]} numberOfLines={2}>{product.name_en}</Text>
+            <Text style={[styles.slotBrand, { color: colors.muted }]}>{product.brand}</Text>
+            <View style={[styles.slotScore, { backgroundColor: catColor + "20" }]}>
+              <Text style={[styles.slotScoreText, { color: catColor }]}>{product.score.toFixed(1)}/10</Text>
+            </View>
+          </>
+        ) : (
+          <Pressable style={styles.slotEmpty} onPress={onPick}>
+            <IconSymbol name="plus.circle.fill" size={36} color={colors.primary} />
+            <Text style={[styles.slotEmptyText, { color: colors.primary }]}>اختر {label}</Text>
           </Pressable>
-        ))}
+        )}
+      </View>
+    );
+  };
+
+  return (
+    <View style={[styles.container, { backgroundColor: colors.background }]}>
+      <View style={[styles.header, { paddingTop: insets.top + 12, backgroundColor: colors.surface, borderBottomColor: colors.border }]}>
+        <Text style={[styles.headerTitle, { color: colors.foreground }]}>مقارنة المنتجات</Text>
+        <Text style={[styles.headerSub, { color: colors.muted }]}>قارن منتجين جنباً إلى جنب</Text>
       </View>
 
-      <ScrollView
-        style={styles.scroll}
-        contentContainerStyle={styles.content}
-        showsVerticalScrollIndicator={false}
-      >
-        {/* Best of each organ */}
-        {activeFilter === 'all' && (
-          <View style={styles.bestSection}>
-            <Text style={styles.bestTitle}>🏆 الأفضل في كل فئة</Text>
-            <View style={styles.bestGrid}>
-              {[
-                { icon: '🟡', label: 'الكبد', name: 'Infinis LIVER', score: 96, color: '#f59e0b' },
-                { icon: '❤️', label: 'القلب', name: 'Morphogen CARDIO', score: 94, color: '#ef4444' },
-                { icon: '🟣', label: 'الكلى', name: 'Morphogen RENAL', score: 88, color: '#8b5cf6' },
-              ].map((b, i) => (
-                <View key={i} style={[styles.bestCard, { borderTopColor: b.color }]}>
-                  <Text style={styles.bestCardIcon}>{b.icon}</Text>
-                  <Text style={styles.bestCardLabel}>{b.label}</Text>
-                  <Text style={styles.bestCardName}>{b.name}</Text>
-                  <Text style={[styles.bestCardScore, { color: b.color }]}>{b.score}/100</Text>
-                </View>
-              ))}
-            </View>
+      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 32 }}>
+        {/* Product Slots */}
+        <View style={styles.slotsRow}>
+          <ProductSlot
+            product={productA} label="الأول"
+            onPick={() => setPickingFor("A")}
+            onClear={() => setProductA(null)}
+          />
+          <View style={[styles.vsCircle, { backgroundColor: colors.primary }]}>
+            <Text style={styles.vsText}>VS</Text>
           </View>
-        )}
+          <ProductSlot
+            product={productB} label="الثاني"
+            onPick={() => setPickingFor("B")}
+            onClear={() => setProductB(null)}
+          />
+        </View>
 
-        {/* Products List */}
-        <Text style={styles.listTitle}>
-          {activeFilter === 'all' ? 'جميع المنتجات' : `منتجات ${filters.find(f => f.id === activeFilter)?.label}`}
-          {' '}({filtered.length})
-        </Text>
-
-        {filtered.map((product, idx) => (
-          <View key={idx} style={styles.productCard}>
-            <View style={styles.productHeader}>
-              <View style={styles.productLeft}>
-                {product.badge && <Text style={styles.productBadge}>{product.badge}</Text>}
-                <Text style={styles.productName}>{product.name}</Text>
-                <Text style={[styles.productOrgan, { color: product.organColor }]}>{product.organ}</Text>
+        {/* Comparison Table */}
+        {productA && productB && (
+          <View style={[styles.comparisonTable, { backgroundColor: colors.card, borderColor: colors.border }]}>
+            {/* Header */}
+            <View style={[styles.tableHeader, { borderBottomColor: colors.border }]}>
+              <Pressable
+                style={styles.tableHeaderCell}
+                onPress={() => router.push({ pathname: "/product/[id]", params: { id: productA.id } })}
+              >
+                <Text style={[styles.tableHeaderName, { color: colors.primary }]} numberOfLines={2}>
+                  {productA.name_en}
+                </Text>
+              </Pressable>
+              <View style={styles.tableHeaderLabel}>
+                <Text style={[styles.tableHeaderLabelText, { color: colors.muted }]}>المقارنة</Text>
               </View>
-              <View style={styles.productRight}>
-                <Text style={styles.productPrice}>{product.price}</Text>
-                <Text style={[styles.productPps, { color: ppsColors[product.ppsType] }]}>
-                  {product.pps}/حصة
+              <Pressable
+                style={styles.tableHeaderCell}
+                onPress={() => router.push({ pathname: "/product/[id]", params: { id: productB.id } })}
+              >
+                <Text style={[styles.tableHeaderName, { color: colors.secondary }]} numberOfLines={2}>
+                  {productB.name_en}
+                </Text>
+              </Pressable>
+            </View>
+
+            <CompareRow label="التقييم الكلي" valA={productA.score} valB={productB.score} />
+            <CompareRow
+              label="متوسط المكونات"
+              valA={productA.ingredients.reduce((s, i) => s + i.score, 0) / Math.max(productA.ingredients.length, 1)}
+              valB={productB.ingredients.reduce((s, i) => s + i.score, 0) / Math.max(productB.ingredients.length, 1)}
+            />
+            <CompareRow label="عدد المكونات" valA={productA.ingredients.length} valB={productB.ingredients.length} />
+
+            {/* Evidence Level */}
+            <View style={[styles.compareRow, { borderBottomColor: colors.border }]}>
+              <View style={styles.compareCell}>
+                <Text style={[styles.evidenceText, { color: colors.foreground }]} numberOfLines={2}>
+                  {productA.evidence_level}
+                </Text>
+              </View>
+              <View style={styles.compareLabel}>
+                <Text style={[styles.compareLabelText, { color: colors.muted }]}>مستوى الأدلة</Text>
+              </View>
+              <View style={styles.compareCell}>
+                <Text style={[styles.evidenceText, { color: colors.foreground }]} numberOfLines={2}>
+                  {productB.evidence_level}
                 </Text>
               </View>
             </View>
 
-            {/* Score Bar */}
-            <View style={styles.scoreRow}>
-              <View style={styles.scoreBarBg}>
-                <View
-                  style={[
-                    styles.scoreBarFill,
-                    { width: `${product.score}%`, backgroundColor: scoreColors[product.scoreType] },
-                  ]}
-                />
+            {/* Price */}
+            <View style={[styles.compareRow, { borderBottomColor: colors.border }]}>
+              <View style={styles.compareCell}>
+                <Text style={[styles.compareCellText, { color: colors.primary }]}>{productA.price}</Text>
               </View>
-              <Text style={[styles.scoreNum, { color: scoreColors[product.scoreType] }]}>
-                {product.score}/100
-              </Text>
+              <View style={styles.compareLabel}>
+                <Text style={[styles.compareLabelText, { color: colors.muted }]}>السعر</Text>
+              </View>
+              <View style={styles.compareCell}>
+                <Text style={[styles.compareCellText, { color: colors.secondary }]}>{productB.price}</Text>
+              </View>
             </View>
 
-            {/* Key Ingredients */}
-            <Text style={styles.keyIngredients}>{product.keyIngredients}</Text>
+            {/* Strengths */}
+            <View style={[styles.compareTextRow, { borderBottomColor: colors.border }]}>
+              <View style={styles.compareTextCell}>
+                <Text style={[styles.compareTextVal, { color: colors.foreground }]}>{productA.strengths}</Text>
+              </View>
+              <View style={styles.compareLabel}>
+                <Text style={[styles.compareLabelText, { color: colors.muted }]}>نقاط القوة</Text>
+              </View>
+              <View style={styles.compareTextCell}>
+                <Text style={[styles.compareTextVal, { color: colors.foreground }]}>{productB.strengths}</Text>
+              </View>
+            </View>
 
-            {/* Availability */}
-            <Text style={product.available ? styles.availY : styles.availN}>
-              {product.available ? '✅ متوفر' : '❌ نفذ من المخزون'}
-            </Text>
+            {/* Weaknesses */}
+            <View style={[styles.compareTextRow, { borderBottomColor: colors.border }]}>
+              <View style={styles.compareTextCell}>
+                <Text style={[styles.compareTextVal, { color: colors.foreground }]}>{productA.weaknesses}</Text>
+              </View>
+              <View style={styles.compareLabel}>
+                <Text style={[styles.compareLabelText, { color: colors.muted }]}>نقاط الضعف</Text>
+              </View>
+              <View style={styles.compareTextCell}>
+                <Text style={[styles.compareTextVal, { color: colors.foreground }]}>{productB.weaknesses}</Text>
+              </View>
+            </View>
+
+            {/* Best For */}
+            <View style={[styles.compareTextRow, { borderBottomColor: colors.border }]}>
+              <View style={styles.compareTextCell}>
+                <Text style={[styles.compareTextVal, { color: colors.foreground }]}>{productA.best_for}</Text>
+              </View>
+              <View style={styles.compareLabel}>
+                <Text style={[styles.compareLabelText, { color: colors.muted }]}>الأفضل لـ</Text>
+              </View>
+              <View style={styles.compareTextCell}>
+                <Text style={[styles.compareTextVal, { color: colors.foreground }]}>{productB.best_for}</Text>
+              </View>
+            </View>
+
+            {/* Winner */}
+            <View style={[styles.winnerRow, { backgroundColor: colors.success + "15" }]}>
+              <IconSymbol name="trophy.fill" size={20} color={colors.success} />
+              <Text style={[styles.winnerText, { color: colors.success }]}>
+                {productA.score > productB.score
+                  ? `الفائز: ${productA.name_en}`
+                  : productB.score > productA.score
+                  ? `الفائز: ${productB.name_en}`
+                  : "تعادل في التقييم"}
+              </Text>
+            </View>
           </View>
-        ))}
+        )}
 
-        {/* Scientific Note */}
-        <View style={styles.sciNote}>
-          <Text style={styles.sciNoteTitle}>🔬 ملاحظة علمية</Text>
-          <Text style={styles.sciNoteText}>
-            جميع التقييمات مبنية على: جرعة المكوّن الفعّالة سريرياً + شكل المكوّن (امتصاصية) + وجود أدلة RCT/Meta-Analysis + القيمة مقابل السعر + التوفر الفعلي.
-          </Text>
-          <Text style={styles.sciNoteText}>
-            المصادر: PubMed · NIH · Examine.com · Cochrane Reviews
-          </Text>
-        </View>
-
-        <View style={{ height: 20 }} />
+        {(!productA || !productB) && (
+          <View style={styles.hint}>
+            <IconSymbol name="arrow.left.arrow.right" size={40} color={colors.muted} />
+            <Text style={[styles.hintText, { color: colors.muted }]}>اختر منتجين للمقارنة بينهما</Text>
+          </View>
+        )}
       </ScrollView>
+
+      {/* Product Picker Modal */}
+      <Modal visible={pickingFor !== null} animationType="slide" presentationStyle="pageSheet">
+        <View style={[styles.modal, { backgroundColor: colors.background }]}>
+          <View style={[styles.modalHeader, { backgroundColor: colors.surface, borderBottomColor: colors.border }]}>
+            <Pressable onPress={() => { setPickingFor(null); setSearch(""); }}>
+              <IconSymbol name="xmark" size={22} color={colors.muted} />
+            </Pressable>
+            <Text style={[styles.modalTitle, { color: colors.foreground }]}>
+              اختر {pickingFor === "A" ? "المنتج الأول" : "المنتج الثاني"}
+            </Text>
+            <View style={{ width: 22 }} />
+          </View>
+          <View style={[styles.modalSearch, { backgroundColor: colors.surface, borderBottomColor: colors.border }]}>
+            <View style={[styles.searchBox, { backgroundColor: colors.card, borderColor: colors.border }]}>
+              <IconSymbol name="magnifyingglass" size={18} color={colors.muted} />
+              <TextInput
+                style={[styles.searchInput, { color: colors.foreground }]}
+                placeholder="ابحث..."
+                placeholderTextColor={colors.muted}
+                value={search}
+                onChangeText={setSearch}
+                textAlign="right"
+                autoFocus
+              />
+            </View>
+          </View>
+          <FlatList
+            data={filtered}
+            keyExtractor={(item) => item.id}
+            renderItem={({ item }) => {
+              const catColor = CATEGORY_COLORS[item.category] || "#64748B";
+              const catIcon = CATEGORY_ICONS[item.category] || "pills.fill";
+              return (
+                <Pressable
+                  style={({ pressed }) => [
+                    styles.pickerItem,
+                    { backgroundColor: colors.card, borderColor: colors.border },
+                    pressed && { opacity: 0.75 },
+                  ]}
+                  onPress={() => selectProduct(item)}
+                >
+                  <View style={[styles.pickerIcon, { backgroundColor: catColor + "20" }]}>
+                    <IconSymbol name={catIcon as any} size={22} color={catColor} />
+                  </View>
+                  <View style={styles.pickerInfo}>
+                    <Text style={[styles.pickerName, { color: colors.foreground }]}>{item.name_en}</Text>
+                    <Text style={[styles.pickerBrand, { color: colors.muted }]}>{item.brand} · {item.category_ar}</Text>
+                  </View>
+                  <Text style={[styles.pickerScore, { color: colors.primary }]}>{item.score.toFixed(1)}</Text>
+                </Pressable>
+              );
+            }}
+            contentContainerStyle={{ padding: 16, gap: 8 }}
+          />
+        </View>
+      </Modal>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-    backgroundColor: '#000000',
+  container: { flex: 1 },
+  header: { paddingHorizontal: 20, paddingBottom: 12, borderBottomWidth: 0.5 },
+  headerTitle: { fontSize: 22, fontWeight: "800", textAlign: "right" },
+  headerSub: { fontSize: 13, marginTop: 4, textAlign: "right" },
+  slotsRow: { flexDirection: "row-reverse", padding: 16, gap: 12, alignItems: "center" },
+  slot: {
+    flex: 1, borderRadius: 16, padding: 14, alignItems: "center",
+    borderWidth: 1.5, gap: 8, minHeight: 160,
   },
-  header: {
-    backgroundColor: '#111111',
-    paddingHorizontal: 16,
-    paddingTop: 16,
-    paddingBottom: 12,
-    borderBottomWidth: 2,
-    borderBottomColor: '#60a5fa',
-    alignItems: 'center',
+  slotIcon: { width: 56, height: 56, borderRadius: 16, alignItems: "center", justifyContent: "center" },
+  slotName: { fontSize: 13, fontWeight: "700", textAlign: "center" },
+  slotBrand: { fontSize: 11, textAlign: "center" },
+  slotScore: { paddingHorizontal: 10, paddingVertical: 4, borderRadius: 8 },
+  slotScoreText: { fontSize: 13, fontWeight: "700" },
+  slotEmpty: { flex: 1, alignItems: "center", justifyContent: "center", gap: 8 },
+  slotEmptyText: { fontSize: 13, fontWeight: "600" },
+  clearBtn: { position: "absolute", top: 8, left: 8 },
+  vsCircle: { width: 36, height: 36, borderRadius: 18, alignItems: "center", justifyContent: "center" },
+  vsText: { color: "#fff", fontSize: 12, fontWeight: "800" },
+  comparisonTable: { marginHorizontal: 16, borderRadius: 16, borderWidth: 1, overflow: "hidden" },
+  tableHeader: { flexDirection: "row-reverse", borderBottomWidth: 0.5 },
+  tableHeaderCell: { flex: 1, padding: 12, alignItems: "center" },
+  tableHeaderName: { fontSize: 12, fontWeight: "700", textAlign: "center" },
+  tableHeaderLabel: { width: 80, padding: 12, alignItems: "center", justifyContent: "center" },
+  tableHeaderLabelText: { fontSize: 11, fontWeight: "600" },
+  compareRow: { flexDirection: "row-reverse", borderBottomWidth: 0.5 },
+  compareCell: {
+    flex: 1, padding: 12, alignItems: "center",
+    flexDirection: "row-reverse", justifyContent: "center", gap: 4,
   },
-  headerTitle: {
-    fontSize: 18,
-    fontWeight: '900',
-    color: '#f0f0f0',
-    fontFamily: 'Cairo-Black',
-    textAlign: 'center',
+  compareCellText: { fontSize: 16, fontWeight: "700" },
+  evidenceText: { fontSize: 10, textAlign: "center" },
+  compareLabel: { width: 80, padding: 12, alignItems: "center", justifyContent: "center" },
+  compareLabelText: { fontSize: 10, fontWeight: "600", textAlign: "center" },
+  compareTextRow: { flexDirection: "row-reverse", borderBottomWidth: 0.5 },
+  compareTextCell: { flex: 1, padding: 10, alignItems: "flex-end" },
+  compareTextVal: { fontSize: 10, textAlign: "right", lineHeight: 15 },
+  winnerRow: {
+    flexDirection: "row-reverse", alignItems: "center",
+    justifyContent: "center", padding: 14, gap: 8,
   },
-  headerSub: {
-    fontSize: 11,
-    color: '#888888',
-    marginTop: 4,
-    fontFamily: 'Cairo',
-    textAlign: 'center',
+  winnerText: { fontSize: 15, fontWeight: "700" },
+  hint: { alignItems: "center", paddingTop: 60, gap: 12 },
+  hintText: { fontSize: 15, textAlign: "center" },
+  modal: { flex: 1 },
+  modalHeader: {
+    flexDirection: "row-reverse", alignItems: "center", justifyContent: "space-between",
+    paddingHorizontal: 20, paddingVertical: 16, borderBottomWidth: 0.5,
   },
-  sciBadge: {
-    marginTop: 8,
-    backgroundColor: 'rgba(16,185,129,0.08)',
-    borderWidth: 1,
-    borderColor: 'rgba(16,185,129,0.2)',
-    paddingHorizontal: 14,
-    paddingVertical: 4,
-    borderRadius: 20,
+  modalTitle: { fontSize: 18, fontWeight: "700" },
+  modalSearch: { paddingHorizontal: 16, paddingVertical: 10, borderBottomWidth: 0.5 },
+  searchBox: {
+    flexDirection: "row-reverse", alignItems: "center",
+    borderRadius: 12, borderWidth: 1, paddingHorizontal: 12, paddingVertical: 8, gap: 8,
   },
-  sciBadgeText: {
-    fontSize: 11,
-    color: '#34d399',
-    fontFamily: 'Cairo',
-    textAlign: 'center',
+  searchInput: { flex: 1, fontSize: 14 },
+  pickerItem: {
+    flexDirection: "row-reverse", alignItems: "center",
+    borderRadius: 12, padding: 12, borderWidth: 1, gap: 10,
   },
-  filterRow: {
-    flexDirection: 'row',
-    backgroundColor: '#111111',
-    borderBottomWidth: 1,
-    borderBottomColor: '#3a3a3a',
-  },
-  filterBtn: {
-    flex: 1,
-    paddingVertical: 12,
-    alignItems: 'center',
-    borderBottomWidth: 2,
-    borderBottomColor: 'transparent',
-  },
-  filterIcon: {
-    fontSize: 18,
-  },
-  filterLabel: {
-    fontSize: 11,
-    fontWeight: '700',
-    color: '#888888',
-    fontFamily: 'Cairo',
-    marginTop: 2,
-  },
-  scroll: {
-    flex: 1,
-    backgroundColor: '#000000',
-  },
-  content: {
-    padding: 16,
-    backgroundColor: '#000000',
-  },
-  bestSection: {
-    marginBottom: 20,
-  },
-  bestTitle: {
-    fontSize: 14,
-    fontWeight: '700',
-    color: '#e2e8f0',
-    fontFamily: 'Cairo',
-    textAlign: 'right',
-    marginBottom: 12,
-  },
-  bestGrid: {
-    flexDirection: 'row',
-    gap: 8,
-  },
-  bestCard: {
-    flex: 1,
-    backgroundColor: '#1a1a1a',
-    borderRadius: 10,
-    padding: 10,
-    borderWidth: 1,
-    borderColor: '#2a2a2a',
-    borderTopWidth: 2,
-    alignItems: 'center',
-  },
-  bestCardIcon: {
-    fontSize: 22,
-    marginBottom: 4,
-  },
-  bestCardLabel: {
-    fontSize: 10,
-    color: '#888888',
-    fontFamily: 'Cairo',
-    marginBottom: 2,
-  },
-  bestCardName: {
-    fontSize: 10,
-    fontWeight: '700',
-    color: '#f0f0f0',
-    fontFamily: 'Cairo',
-    textAlign: 'center',
-    marginBottom: 4,
-  },
-  bestCardScore: {
-    fontSize: 14,
-    fontWeight: '900',
-    fontFamily: 'Cairo',
-  },
-  listTitle: {
-    fontSize: 13,
-    fontWeight: '700',
-    color: '#c0c0c0',
-    fontFamily: 'Cairo',
-    textAlign: 'right',
-    marginBottom: 12,
-  },
-  productCard: {
-    backgroundColor: '#111111',
-    borderRadius: 12,
-    padding: 14,
-    borderWidth: 1,
-    borderColor: '#2a2a2a',
-    marginBottom: 10,
-    gap: 8,
-  },
-  productHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'flex-start',
-  },
-  productLeft: {
-    flex: 1,
-    alignItems: 'flex-end',
-  },
-  productRight: {
-    alignItems: 'flex-start',
-    marginLeft: 12,
-  },
-  productBadge: {
-    fontSize: 16,
-    marginBottom: 2,
-  },
-  productName: {
-    fontSize: 14,
-    fontWeight: '700',
-    color: '#f0f0f0',
-    fontFamily: 'Cairo-Bold',
-    textAlign: 'right',
-  },
-  productOrgan: {
-    fontSize: 11,
-    fontFamily: 'Cairo',
-    textAlign: 'right',
-  },
-  productPrice: {
-    fontSize: 13,
-    fontWeight: '700',
-    color: '#f0f0f0',
-    fontFamily: 'Cairo-Bold',
-  },
-  productPps: {
-    fontSize: 11,
-    fontWeight: '700',
-    fontFamily: 'Cairo',
-  },
-  scoreRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  scoreBarBg: {
-    flex: 1,
-    height: 8,
-    backgroundColor: '#1a1a1a',
-    borderRadius: 4,
-    overflow: 'hidden',
-    borderWidth: 1,
-    borderColor: '#2a2a2a',
-  },
-  scoreBarFill: {
-    height: '100%',
-    borderRadius: 4,
-  },
-  scoreNum: {
-    fontSize: 12,
-    fontWeight: '700',
-    fontFamily: 'Cairo',
-    minWidth: 50,
-    textAlign: 'right',
-  },
-  keyIngredients: {
-    fontSize: 11,
-    color: '#888888',
-    fontFamily: 'Cairo',
-    textAlign: 'right',
-    lineHeight: 18,
-  },
-  availY: {
-    fontSize: 11,
-    color: '#34d399',
-    fontFamily: 'Cairo',
-    textAlign: 'right',
-  },
-  availN: {
-    fontSize: 11,
-    color: '#f87171',
-    fontFamily: 'Cairo',
-    textAlign: 'right',
-  },
-  sciNote: {
-    backgroundColor: 'rgba(96,165,250,0.05)',
-    borderWidth: 1,
-    borderColor: 'rgba(96,165,250,0.15)',
-    borderRadius: 12,
-    padding: 14,
-    marginTop: 10,
-    gap: 8,
-  },
-  sciNoteTitle: {
-    fontSize: 13,
-    fontWeight: '700',
-    color: '#60a5fa',
-    fontFamily: 'Cairo-Bold',
-    textAlign: 'right',
-  },
-  sciNoteText: {
-    fontSize: 11,
-    color: '#888888',
-    fontFamily: 'Cairo',
-    textAlign: 'right',
-    lineHeight: 18,
-  },
+  pickerIcon: { width: 40, height: 40, borderRadius: 10, alignItems: "center", justifyContent: "center" },
+  pickerInfo: { flex: 1, alignItems: "flex-end" },
+  pickerName: { fontSize: 14, fontWeight: "600" },
+  pickerBrand: { fontSize: 11, marginTop: 2 },
+  pickerScore: { fontSize: 18, fontWeight: "800" },
 });

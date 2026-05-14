@@ -1,24 +1,17 @@
 /** @type {const} */
 const themeColors = {
-  primary:    { light: '#60a5fa', dark: '#60a5fa' },   // أزرق واضح
-  background: { light: '#000000', dark: '#000000' },   // أسود AMOLED دائماً
-  surface:    { light: '#0f0f0f', dark: '#0f0f0f' },   // سطح داكن جداً
-  surface2:   { light: '#1a1a1a', dark: '#1a1a1a' },   // سطح ثانوي
-  foreground: { light: '#ffffff', dark: '#ffffff' },   // أبيض نقي للعناوين
-  muted:      { light: '#aaaaaa', dark: '#aaaaaa' },   // رمادي فاتح للنصوص الثانوية
-  subtle:     { light: '#777777', dark: '#777777' },   // رمادي متوسط للتفاصيل
-  border:     { light: '#1f1f1f', dark: '#1f1f1f' },   // حدود خفيفة جداً
-  border2:    { light: '#2a2a2a', dark: '#2a2a2a' },   // حدود ثانوية
-  success:    { light: '#22c55e', dark: '#4ade80' },   // أخضر
-  warning:    { light: '#f59e0b', dark: '#fbbf24' },   // ذهبي
-  error:      { light: '#ef4444', dark: '#f87171' },   // أحمر
-  // ألوان الأعضاء
-  liver:      { light: '#d97706', dark: '#fbbf24' },   // ذهبي الكبد
-  heart:      { light: '#dc2626', dark: '#f87171' },   // أحمر القلب
-  kidney:     { light: '#7c3aed', dark: '#a78bfa' },   // بنفسجي الكلى
-  // ألوان AI والأدوات
-  aiBlue:     { light: '#2563eb', dark: '#60a5fa' },   // أزرق AI
-  tint:       { light: '#60a5fa', dark: '#60a5fa' },   // لون التمييز
+  primary:    { light: '#0EA5E9', dark: '#38BDF8' },
+  secondary:  { light: '#8B5CF6', dark: '#A78BFA' },
+  background: { light: '#F8FAFC', dark: '#0A0A0A' },
+  surface:    { light: '#FFFFFF', dark: '#111111' },
+  card:       { light: '#F1F5F9', dark: '#1A1A1A' },
+  foreground: { light: '#0F172A', dark: '#F1F5F9' },
+  muted:      { light: '#64748B', dark: '#94A3B8' },
+  border:     { light: '#E2E8F0', dark: '#2A2A2A' },
+  success:    { light: '#10B981', dark: '#34D399' },
+  warning:    { light: '#F59E0B', dark: '#FBBF24' },
+  error:      { light: '#EF4444', dark: '#F87171' },
+  tint:       { light: '#0EA5E9', dark: '#38BDF8' },
 };
 
 module.exports = { themeColors };
