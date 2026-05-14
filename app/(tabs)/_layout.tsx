@@ -1,18 +1,17 @@
 import { Tabs } from "expo-router";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { HapticTab } from "@/components/haptic-tab";
-import { IconSymbol } from "@/components/ui/icon-symbol";
 import { Platform, Text } from "react-native";
 import { COLORS } from "@/constants/styles";
 
 function TabIcon({ emoji, focused }: { emoji: string; focused: boolean }) {
-  return <Text style={{ fontSize: 22, opacity: focused ? 1 : 0.55 }}>{emoji}</Text>;
+  return <Text style={{ fontSize: 20, opacity: focused ? 1 : 0.5 }}>{emoji}</Text>;
 }
 
 export default function TabLayout() {
   const insets = useSafeAreaInsets();
-  const bottomPadding = Platform.OS === "web" ? 12 : Math.max(insets.bottom, 8);
-  const tabBarHeight = 60 + bottomPadding;
+  const bottomPadding = Platform.OS === "web" ? 10 : Math.max(insets.bottom, 6);
+  const tabBarHeight = 58 + bottomPadding;
 
   return (
     <Tabs
@@ -22,15 +21,15 @@ export default function TabLayout() {
         headerShown: false,
         tabBarButton: HapticTab,
         tabBarStyle: {
-          paddingTop: 6,
+          paddingTop: 4,
           paddingBottom: bottomPadding,
           height: tabBarHeight,
-          backgroundColor: '#111111',
+          backgroundColor: '#0a0a0a',
           borderTopColor: COLORS.border,
           borderTopWidth: 1,
         },
         tabBarLabelStyle: {
-          fontSize: 10,
+          fontSize: 9,
           fontFamily: 'Cairo',
           marginTop: 1,
         },
@@ -81,8 +80,36 @@ export default function TabLayout() {
       <Tabs.Screen
         name="ai"
         options={{
-          title: "مساعد AI",
+          title: "AI",
           tabBarIcon: ({ focused }) => <TabIcon emoji="🤖" focused={focused} />,
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: "ملفي",
+          tabBarIcon: ({ focused }) => <TabIcon emoji="👤" focused={focused} />,
+        }}
+      />
+      <Tabs.Screen
+        name="inventory"
+        options={{
+          title: "مخزوني",
+          tabBarIcon: ({ focused }) => <TabIcon emoji="💊" focused={focused} />,
+        }}
+      />
+      <Tabs.Screen
+        name="library"
+        options={{
+          title: "المكتبة",
+          tabBarIcon: ({ focused }) => <TabIcon emoji="📚" focused={focused} />,
+        }}
+      />
+      <Tabs.Screen
+        name="settings"
+        options={{
+          title: "إعدادات",
+          tabBarIcon: ({ focused }) => <TabIcon emoji="⚙️" focused={focused} />,
         }}
       />
     </Tabs>
