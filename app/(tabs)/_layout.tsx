@@ -106,6 +106,13 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
+        name="diagnostics"
+        options={{
+          title: "تشخيص",
+          tabBarIcon: ({ focused }) => <TabIcon emoji="🔬" focused={focused} />,
+        }}
+      />
+      <Tabs.Screen
         name="settings"
         options={{
           title: "إعدادات",
