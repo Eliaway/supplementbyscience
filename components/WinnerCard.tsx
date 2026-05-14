@@ -1,21 +1,21 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import type { WinnerCard as WinnerCardType } from '@/assets/data/organData';
+import { COLORS, FONTS, RADIUS } from '@/constants/styles';
 
 interface WinnerCardProps {
   winner: WinnerCardType;
 }
 
 const typeColors: Record<string, string> = {
-  liver: '#f59e0b',
-  heart: '#ef4444',
-  kidney: '#8b5cf6',
-  compare: '#38bdf8',
+  liver: COLORS.liver,
+  heart: COLORS.heart,
+  kidney: COLORS.kidney,
+  compare: COLORS.compare,
 };
 
 export function WinnerCard({ winner }: WinnerCardProps) {
-  const color = typeColors[winner.type] || '#38bdf8';
-
+  const color = typeColors[winner.type] || COLORS.blue;
   return (
     <View style={[styles.card, { borderLeftColor: color }]}>
       <Text style={styles.badge}>{winner.badge}</Text>
@@ -28,69 +28,33 @@ export function WinnerCard({ winner }: WinnerCardProps) {
           </View>
         ))}
       </View>
-      <Text style={styles.price}>{winner.price}</Text>
+      <Text style={[styles.price, { color }]}>{winner.price}</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: 'rgba(10,22,42,0.8)',
-    borderRadius: 12,
+    backgroundColor: COLORS.bgCard,
+    borderRadius: RADIUS.md,
     padding: 14,
     borderWidth: 1,
-    borderColor: '#0f2040',
+    borderColor: COLORS.border,
     borderLeftWidth: 3,
     marginBottom: 10,
   },
-  badge: {
-    fontSize: 11,
-    color: '#475569',
-    marginBottom: 6,
-    fontFamily: 'Cairo',
-    textAlign: 'right',
-  },
-  name: {
-    fontSize: 14,
-    fontWeight: '700',
-    color: '#e2e8f0',
-    marginBottom: 4,
-    fontFamily: 'Cairo',
-    textAlign: 'right',
-  },
-  reason: {
-    fontSize: 12,
-    color: '#94a3b8',
-    lineHeight: 20,
-    fontFamily: 'Cairo',
-    textAlign: 'right',
-    marginBottom: 6,
-  },
-  citations: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 4,
-    marginBottom: 8,
-  },
+  badge: { fontSize: 11, color: COLORS.textMuted, marginBottom: 5, fontFamily: FONTS.regular, textAlign: 'right' },
+  name: { fontSize: 15, fontWeight: '700', color: COLORS.textPrimary, marginBottom: 5, fontFamily: FONTS.bold, textAlign: 'right' },
+  reason: { fontSize: 13, color: COLORS.textSecondary, lineHeight: 21, fontFamily: FONTS.regular, textAlign: 'right', marginBottom: 8 },
+  citations: { flexDirection: 'row', flexWrap: 'wrap', gap: 5, marginBottom: 8 },
   cite: {
-    backgroundColor: 'rgba(56,189,248,0.08)',
+    backgroundColor: COLORS.blueBg,
     borderWidth: 1,
-    borderColor: 'rgba(56,189,248,0.2)',
+    borderColor: COLORS.blueBorder,
     borderRadius: 6,
-    paddingHorizontal: 6,
-    paddingVertical: 1,
+    paddingHorizontal: 7,
+    paddingVertical: 2,
   },
-  citeText: {
-    fontSize: 10,
-    color: '#38bdf8',
-    fontWeight: '700',
-    fontFamily: 'Cairo',
-  },
-  price: {
-    fontSize: 13,
-    fontWeight: '700',
-    color: '#38bdf8',
-    fontFamily: 'Cairo',
-    textAlign: 'right',
-  },
+  citeText: { fontSize: 10, color: COLORS.blue, fontWeight: '700', fontFamily: FONTS.bold },
+  price: { fontSize: 13, fontWeight: '700', fontFamily: FONTS.bold, textAlign: 'right' },
 });

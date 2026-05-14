@@ -1,20 +1,22 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { COLORS, FONTS } from '@/constants/styles';
 
 interface AppHeaderProps {
   title: string;
   subtitle?: string;
   badge?: string;
+  accentColor?: string;
 }
 
-export function AppHeader({ title, subtitle, badge }: AppHeaderProps) {
+export function AppHeader({ title, subtitle, badge, accentColor = COLORS.blue }: AppHeaderProps) {
   return (
-    <View style={styles.header}>
+    <View style={[styles.header, { borderBottomColor: accentColor }]}>
       <Text style={styles.title}>{title}</Text>
       {subtitle && <Text style={styles.subtitle}>{subtitle}</Text>}
       {badge && (
-        <View style={styles.badge}>
-          <Text style={styles.badgeText}>{badge}</Text>
+        <View style={[styles.badge, { borderColor: COLORS.successBorder, backgroundColor: COLORS.successBg }]}>
+          <Text style={[styles.badgeText, { color: COLORS.success }]}>{badge}</Text>
         </View>
       )}
     </View>
@@ -23,41 +25,37 @@ export function AppHeader({ title, subtitle, badge }: AppHeaderProps) {
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: '#060d1a',
+    backgroundColor: COLORS.bgHeader,
     paddingHorizontal: 16,
-    paddingTop: 16,
+    paddingTop: 14,
     paddingBottom: 12,
     borderBottomWidth: 2,
-    borderBottomColor: '#38bdf8',
     alignItems: 'center',
   },
   title: {
     fontSize: 18,
     fontWeight: '900',
-    color: '#fff',
-    fontFamily: 'Cairo-Black',
+    color: COLORS.textPrimary,
+    fontFamily: FONTS.black,
     textAlign: 'center',
   },
   subtitle: {
     fontSize: 11,
-    color: '#64748b',
-    marginTop: 4,
-    fontFamily: 'Cairo',
+    color: COLORS.textMuted,
+    marginTop: 3,
+    fontFamily: FONTS.regular,
     textAlign: 'center',
   },
   badge: {
-    marginTop: 8,
-    backgroundColor: 'rgba(16,185,129,0.08)',
-    borderWidth: 1,
-    borderColor: 'rgba(16,185,129,0.2)',
+    marginTop: 7,
     paddingHorizontal: 14,
     paddingVertical: 4,
     borderRadius: 20,
+    borderWidth: 1,
   },
   badgeText: {
     fontSize: 11,
-    color: '#34d399',
-    fontFamily: 'Cairo',
+    fontFamily: FONTS.regular,
     textAlign: 'center',
   },
 });

@@ -148,24 +148,24 @@ export default function CompareScreen() {
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: '#060d1a',
+    backgroundColor: '#111111',
     paddingHorizontal: 16,
     paddingTop: 16,
     paddingBottom: 12,
-    borderBottomWidth: 1,
-    borderBottomColor: '#38bdf8',
+    borderBottomWidth: 2,
+    borderBottomColor: '#60a5fa',
     alignItems: 'center',
   },
   headerTitle: {
     fontSize: 18,
     fontWeight: '900',
-    color: '#fff',
-    fontFamily: 'Cairo',
+    color: '#f0f0f0',
+    fontFamily: 'Cairo-Black',
     textAlign: 'center',
   },
   headerSub: {
     fontSize: 11,
-    color: '#64748b',
+    color: '#888888',
     marginTop: 4,
     fontFamily: 'Cairo',
     textAlign: 'center',
@@ -187,9 +187,9 @@ const styles = StyleSheet.create({
   },
   filterRow: {
     flexDirection: 'row',
-    backgroundColor: 'rgba(6,13,26,0.9)',
+    backgroundColor: '#111111',
     borderBottomWidth: 1,
-    borderBottomColor: '#0f2040',
+    borderBottomColor: '#3a3a3a',
   },
   filterBtn: {
     flex: 1,
@@ -204,7 +204,7 @@ const styles = StyleSheet.create({
   filterLabel: {
     fontSize: 11,
     fontWeight: '700',
-    color: '#475569',
+    color: '#888888',
     fontFamily: 'Cairo',
     marginTop: 2,
   },
@@ -231,11 +231,11 @@ const styles = StyleSheet.create({
   },
   bestCard: {
     flex: 1,
-    backgroundColor: 'rgba(10,22,42,0.8)',
+    backgroundColor: '#2a2a2a',
     borderRadius: 10,
     padding: 10,
     borderWidth: 1,
-    borderColor: '#0f2040',
+    borderColor: '#3a3a3a',
     borderTopWidth: 2,
     alignItems: 'center',
   },
@@ -245,14 +245,14 @@ const styles = StyleSheet.create({
   },
   bestCardLabel: {
     fontSize: 10,
-    color: '#64748b',
+    color: '#888888',
     fontFamily: 'Cairo',
     marginBottom: 2,
   },
   bestCardName: {
     fontSize: 10,
     fontWeight: '700',
-    color: '#e2e8f0',
+    color: '#f0f0f0',
     fontFamily: 'Cairo',
     textAlign: 'center',
     marginBottom: 4,
@@ -265,17 +265,17 @@ const styles = StyleSheet.create({
   listTitle: {
     fontSize: 13,
     fontWeight: '700',
-    color: '#94a3b8',
+    color: '#c0c0c0',
     fontFamily: 'Cairo',
     textAlign: 'right',
     marginBottom: 12,
   },
   productCard: {
-    backgroundColor: 'rgba(10,22,42,0.8)',
+    backgroundColor: '#2a2a2a',
     borderRadius: 12,
     padding: 14,
     borderWidth: 1,
-    borderColor: '#0f2040',
+    borderColor: '#3a3a3a',
     marginBottom: 10,
     gap: 8,
   },
@@ -299,8 +299,8 @@ const styles = StyleSheet.create({
   productName: {
     fontSize: 14,
     fontWeight: '700',
-    color: '#e2e8f0',
-    fontFamily: 'Cairo',
+    color: '#f0f0f0',
+    fontFamily: 'Cairo-Bold',
     textAlign: 'right',
   },
   productOrgan: {
@@ -311,8 +311,8 @@ const styles = StyleSheet.create({
   productPrice: {
     fontSize: 13,
     fontWeight: '700',
-    color: '#e2e8f0',
-    fontFamily: 'Cairo',
+    color: '#f0f0f0',
+    fontFamily: 'Cairo-Bold',
   },
   productPps: {
     fontSize: 11,
@@ -327,11 +327,11 @@ const styles = StyleSheet.create({
   scoreBarBg: {
     flex: 1,
     height: 8,
-    backgroundColor: '#0a1628',
+    backgroundColor: '#1a1a1a',
     borderRadius: 4,
     overflow: 'hidden',
     borderWidth: 1,
-    borderColor: '#0f2040',
+    borderColor: '#3a3a3a',
   },
   scoreBarFill: {
     height: '100%',
@@ -346,7 +346,7 @@ const styles = StyleSheet.create({
   },
   keyIngredients: {
     fontSize: 11,
-    color: '#64748b',
+    color: '#888888',
     fontFamily: 'Cairo',
     textAlign: 'right',
     lineHeight: 18,
@@ -364,9 +364,9 @@ const styles = StyleSheet.create({
     textAlign: 'right',
   },
   sciNote: {
-    backgroundColor: 'rgba(56,189,248,0.05)',
+    backgroundColor: 'rgba(96,165,250,0.05)',
     borderWidth: 1,
-    borderColor: 'rgba(56,189,248,0.15)',
+    borderColor: 'rgba(96,165,250,0.15)',
     borderRadius: 12,
     padding: 14,
     marginTop: 10,
@@ -375,13 +375,13 @@ const styles = StyleSheet.create({
   sciNoteTitle: {
     fontSize: 13,
     fontWeight: '700',
-    color: '#38bdf8',
-    fontFamily: 'Cairo',
+    color: '#60a5fa',
+    fontFamily: 'Cairo-Bold',
     textAlign: 'right',
   },
   sciNoteText: {
     fontSize: 11,
-    color: '#64748b',
+    color: '#888888',
     fontFamily: 'Cairo',
     textAlign: 'right',
     lineHeight: 18,

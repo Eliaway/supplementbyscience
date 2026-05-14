@@ -1,7 +1,13 @@
 import { Tabs } from "expo-router";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { Platform, Text } from "react-native";
 import { HapticTab } from "@/components/haptic-tab";
+import { IconSymbol } from "@/components/ui/icon-symbol";
+import { Platform, Text } from "react-native";
+import { COLORS } from "@/constants/styles";
+
+function TabIcon({ emoji, focused }: { emoji: string; focused: boolean }) {
+  return <Text style={{ fontSize: 22, opacity: focused ? 1 : 0.55 }}>{emoji}</Text>;
+}
 
 export default function TabLayout() {
   const insets = useSafeAreaInsets();
@@ -11,19 +17,22 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
+        tabBarActiveTintColor: COLORS.blue,
+        tabBarInactiveTintColor: COLORS.textMuted,
         headerShown: false,
         tabBarButton: HapticTab,
         tabBarStyle: {
-          paddingTop: 8,
+          paddingTop: 6,
           paddingBottom: bottomPadding,
           height: tabBarHeight,
-          backgroundColor: '#060d1a',
-          borderTopColor: '#0f2040',
+          backgroundColor: '#111111',
+          borderTopColor: COLORS.border,
           borderTopWidth: 1,
         },
         tabBarLabelStyle: {
           fontSize: 10,
-          fontWeight: '700',
+          fontFamily: 'Cairo',
+          marginTop: 1,
         },
       }}
     >
@@ -31,44 +40,49 @@ export default function TabLayout() {
         name="index"
         options={{
           title: "الكبد",
-          tabBarActiveTintColor: '#f59e0b',
-          tabBarInactiveTintColor: '#475569',
-          tabBarIcon: ({ color }) => (
-            <Text style={{ fontSize: 20 }}>🟡</Text>
-          ),
+          tabBarIcon: ({ focused }) => <TabIcon emoji="🟡" focused={focused} />,
         }}
       />
       <Tabs.Screen
         name="heart"
         options={{
           title: "القلب",
-          tabBarActiveTintColor: '#ef4444',
-          tabBarInactiveTintColor: '#475569',
-          tabBarIcon: ({ color }) => (
-            <Text style={{ fontSize: 20 }}>❤️</Text>
-          ),
+          tabBarIcon: ({ focused }) => <TabIcon emoji="❤️" focused={focused} />,
         }}
       />
       <Tabs.Screen
         name="kidney"
         options={{
           title: "الكلى",
-          tabBarActiveTintColor: '#8b5cf6',
-          tabBarInactiveTintColor: '#475569',
-          tabBarIcon: ({ color }) => (
-            <Text style={{ fontSize: 20 }}>🟣</Text>
-          ),
+          tabBarIcon: ({ focused }) => <TabIcon emoji="🟣" focused={focused} />,
         }}
       />
       <Tabs.Screen
         name="compare"
         options={{
           title: "مقارنة",
-          tabBarActiveTintColor: '#38bdf8',
-          tabBarInactiveTintColor: '#475569',
-          tabBarIcon: ({ color }) => (
-            <Text style={{ fontSize: 20 }}>📊</Text>
-          ),
+          tabBarIcon: ({ focused }) => <TabIcon emoji="📊" focused={focused} />,
+        }}
+      />
+      <Tabs.Screen
+        name="tools"
+        options={{
+          title: "أدوات",
+          tabBarIcon: ({ focused }) => <TabIcon emoji="🛠️" focused={focused} />,
+        }}
+      />
+      <Tabs.Screen
+        name="schedule"
+        options={{
+          title: "جدولي",
+          tabBarIcon: ({ focused }) => <TabIcon emoji="📅" focused={focused} />,
+        }}
+      />
+      <Tabs.Screen
+        name="ai"
+        options={{
+          title: "مساعد AI",
+          tabBarIcon: ({ focused }) => <TabIcon emoji="🤖" focused={focused} />,
         }}
       />
     </Tabs>

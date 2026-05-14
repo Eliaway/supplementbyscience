@@ -13,4 +13,6 @@ export declare const themeColors: {
   kidney: { light: string; dark: string };
   compare: { light: string; dark: string };
   tint: { light: string; dark: string };
+  ai: { light: string; dark: string };
+  tools: { light: string; dark: string };
 };
