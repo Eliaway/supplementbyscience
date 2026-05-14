@@ -256,11 +256,11 @@ export default function DiagnosticsScreen() {
                 {/* القلب */}
                 <TouchableOpacity
                   style={[styles.organBubble, styles.heartBubble,
-                    { borderColor: organScores ? getScoreColor(organScores.heart) : COLORS.heartColor }]}
+                    { borderColor: organScores ? getScoreColor(organScores.heart) : COLORS.heart }]}
                   onPress={() => setSection('liver_calc')}
                 >
                   <Text style={styles.organEmoji}>❤️</Text>
-                  <Text style={[styles.organScore, { color: organScores ? getScoreColor(organScores.heart) : COLORS.heartColor }]}>
+                  <Text style={[styles.organScore, { color: organScores ? getScoreColor(organScores.heart) : COLORS.heart }]}>
                     {organScores ? organScores.heart : '--'}
                   </Text>
                   <Text style={styles.organName}>القلب</Text>
@@ -269,11 +269,11 @@ export default function DiagnosticsScreen() {
                 {/* الكبد */}
                 <TouchableOpacity
                   style={[styles.organBubble, styles.liverBubble,
-                    { borderColor: organScores ? getScoreColor(organScores.liver) : COLORS.liverColor }]}
+                    { borderColor: organScores ? getScoreColor(organScores.liver) : COLORS.liver }]}
                   onPress={() => setSection('liver_calc')}
                 >
                   <Text style={styles.organEmoji}>🟡</Text>
-                  <Text style={[styles.organScore, { color: organScores ? getScoreColor(organScores.liver) : COLORS.liverColor }]}>
+                  <Text style={[styles.organScore, { color: organScores ? getScoreColor(organScores.liver) : COLORS.liver }]}>
                     {organScores ? organScores.liver : '--'}
                   </Text>
                   <Text style={styles.organName}>الكبد</Text>
@@ -284,11 +284,11 @@ export default function DiagnosticsScreen() {
               <View style={styles.kidneyRow}>
                 <TouchableOpacity
                   style={[styles.organBubble,
-                    { borderColor: organScores ? getScoreColor(organScores.kidney) : COLORS.kidneyColor }]}
+                    { borderColor: organScores ? getScoreColor(organScores.kidney) : COLORS.kidney }]}
                   onPress={() => setSection('liver_calc')}
                 >
                   <Text style={styles.organEmoji}>🟣</Text>
-                  <Text style={[styles.organScore, { color: organScores ? getScoreColor(organScores.kidney) : COLORS.kidneyColor }]}>
+                  <Text style={[styles.organScore, { color: organScores ? getScoreColor(organScores.kidney) : COLORS.kidney }]}>
                     {organScores ? organScores.kidney : '--'}
                   </Text>
                   <Text style={styles.organName}>الكلى</Text>
@@ -316,9 +316,9 @@ export default function DiagnosticsScreen() {
               <View style={styles.summaryCard}>
                 <Text style={styles.summaryTitle}>📊 ملخص الحالة الصحية</Text>
                 {[
-                  { label: 'الكبد', score: organScores.liver, color: COLORS.liverColor },
-                  { label: 'القلب', score: organScores.heart, color: COLORS.heartColor },
-                  { label: 'الكلى', score: organScores.kidney, color: COLORS.kidneyColor },
+                  { label: 'الكبد', score: organScores.liver, color: COLORS.liver },
+                  { label: 'القلب', score: organScores.heart, color: COLORS.heart },
+                  { label: 'الكلى', score: organScores.kidney, color: COLORS.kidney },
                 ].map(o => (
                   <View key={o.label} style={styles.scoreRow}>
                     <View style={styles.scoreBarBg}>
@@ -606,7 +606,7 @@ export default function DiagnosticsScreen() {
               <Text style={styles.groupTitle}>❤️ عوامل خطر القلب</Text>
               {RISK_QUESTIONS.filter(q => q.organ === 'heart').map(q => (
                 <TouchableOpacity key={q.id} style={styles.riskQ} onPress={() => toggleRisk(q.id)}>
-                  <View style={[styles.riskCheck, riskAnswers[q.id] && { ...styles.riskCheckActive, borderColor: COLORS.heartColor, backgroundColor: COLORS.heartBg }]}>
+                  <View style={[styles.riskCheck, riskAnswers[q.id] && { ...styles.riskCheckActive, borderColor: COLORS.heartBorder, backgroundColor: COLORS.heartBg }]}>
                     {riskAnswers[q.id] && <Text style={styles.riskCheckMark}>✓</Text>}
                   </View>
                   <Text style={styles.riskText}>{q.text}</Text>
@@ -634,7 +634,7 @@ export default function DiagnosticsScreen() {
               <Text style={styles.groupTitle}>🟣 عوامل خطر الكلى</Text>
               {RISK_QUESTIONS.filter(q => q.organ === 'kidney').map(q => (
                 <TouchableOpacity key={q.id} style={styles.riskQ} onPress={() => toggleRisk(q.id)}>
-                  <View style={[styles.riskCheck, riskAnswers[q.id] && { ...styles.riskCheckActive, borderColor: COLORS.kidneyColor, backgroundColor: COLORS.kidneyBg }]}>
+                  <View style={[styles.riskCheck, riskAnswers[q.id] && { ...styles.riskCheckActive, borderColor: COLORS.kidneyBorder, backgroundColor: COLORS.kidneyBg }]}>
                     {riskAnswers[q.id] && <Text style={styles.riskCheckMark}>✓</Text>}
                   </View>
                   <Text style={styles.riskText}>{q.text}</Text>
