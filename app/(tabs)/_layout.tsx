@@ -47,10 +47,10 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="courses"
+        name="ai"
         options={{
-          title: "الكورسات",
-          tabBarIcon: ({ color }) => <IconSymbol size={24} name="graduationcap.fill" color={color} />,
+          title: "مساعد AI",
+          tabBarIcon: ({ color }) => <IconSymbol size={24} name="sparkles" color={color} />,
         }}
       />
       <Tabs.Screen
@@ -65,6 +65,12 @@ export default function TabLayout() {
         options={{
           title: "ملفي",
           tabBarIcon: ({ color }) => <IconSymbol size={24} name="person.fill" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="courses"
+        options={{
+          href: null,
         }}
       />
       <Tabs.Screen

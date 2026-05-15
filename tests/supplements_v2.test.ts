@@ -32,7 +32,7 @@ interface SupplementsData {
   products: Product[];
 }
 
-const data = supplementsData as SupplementsData;
+const data = supplementsData as unknown as SupplementsData;
 
 // ── Data Integrity ─────────────────────────────────────────────────────────
 describe("Supplements Data Integrity", () => {
