@@ -4,6 +4,7 @@
  * حاسبة BMI، محلل نمط الحياة، خريطة التفاعلات، تقييم التعب المزمن
  */
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { router } from "expo-router";
 import { useEffect, useState } from "react";
 import {
   ActivityIndicator,
@@ -819,6 +820,27 @@ export default function ToolsScreen() {
               </View>
             </View>
           ))}
+
+          {/* ── Extra Navigation Cards ── */}
+          <View style={[styles.infoCard, { backgroundColor: colors.primary + "10", borderColor: colors.primary + "30", marginTop: 8 }]}>
+            <IconSymbol name="sparkles" size={16} color={colors.primary} />
+            <Text style={[styles.infoText, { color: colors.foreground }]}>أدوات إضافية — انقر للوصول</Text>
+          </View>
+          {[
+            { label: "دليل الجودة والشهادات", icon: "checkmark.seal.fill" as const, route: "/quality-guide", color: colors.success },
+            { label: "الأساطير والحقائق", icon: "exclamationmark.triangle.fill" as const, route: "/myths-facts", color: colors.warning },
+            { label: "حاسبة الجرعات المتقدمة", icon: "pills.fill" as const, route: "/dose-calculator", color: colors.primary },
+            { label: "دليل توقيت المكملات", icon: "clock.fill" as const, route: "/timing-guide", color: colors.error },
+            { label: "اختبار المعرفة العلمية", icon: "brain.head.profile" as const, route: "/knowledge-quiz", color: colors.primary },
+            { label: "الجلد والشعر والجمال", icon: "sparkles" as const, route: "/skin-beauty", color: colors.warning },
+          ].map((item) => (
+            <Pressable key={item.route} style={[styles.extraToolCard, { backgroundColor: colors.card, borderColor: item.color + "40" }]}
+              onPress={() => router.push(item.route as any)}>
+              <IconSymbol name={item.icon} size={22} color={item.color} />
+              <Text style={[styles.extraToolLabel, { color: colors.foreground }]}>{item.label}</Text>
+              <IconSymbol name="chevron.right" size={16} color={colors.muted} />
+            </Pressable>
+          ))}
         </ScrollView>
       )}
     </View>
@@ -934,4 +956,7 @@ const styles = StyleSheet.create({
   fatigueSuppName: { fontSize: 14, fontWeight: "800", textAlign: "right" },
   fatigueSuppDose: { fontSize: 12, textAlign: "right" },
   fatigueSuppReason: { fontSize: 12, lineHeight: 18, textAlign: "right" },
+  // Extra Tool Cards
+  extraToolCard: { flexDirection: "row-reverse", alignItems: "center", gap: 12, padding: 14, borderRadius: 14, borderWidth: 1 },
+  extraToolLabel: { flex: 1, fontSize: 14, fontWeight: "700", textAlign: "right" },
 });
