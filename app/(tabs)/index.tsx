@@ -239,6 +239,48 @@ export default function HomeScreen() {
             <IconSymbol name="chevron.left" size={20} color={colors.accent} />
           </Pressable>
         </View>
+
+        {/* ─── Banner: Protocols ─── */}
+        <View style={[styles.section, { marginTop: 0 }]}>
+          <Pressable
+            style={({ pressed }) => [
+              styles.aiBanner,
+              { backgroundColor: "#22C55E" + "12", borderColor: "#22C55E" + "40" },
+              pressed && { opacity: 0.8 },
+            ]}
+            onPress={() => router.push("/protocols" as any)}
+          >
+            <View style={[styles.aiBannerIcon, { backgroundColor: "#22C55E" + "20" }]}>
+              <IconSymbol name="list.bullet.clipboard.fill" size={28} color="#22C55E" />
+            </View>
+            <View style={styles.aiBannerText}>
+              <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>البروتوكولات المتخصصة</Text>
+              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>كبد • قلب • هرمونات • نوم • دماغ • مناعة • جلد • رياضة</Text>
+            </View>
+            <IconSymbol name="chevron.left" size={20} color="#22C55E" />
+          </Pressable>
+        </View>
+
+        {/* ─── Banner: Library ─── */}
+        <View style={[styles.section, { marginTop: 0 }]}>
+          <Pressable
+            style={({ pressed }) => [
+              styles.aiBanner,
+              { backgroundColor: "#8B5CF6" + "12", borderColor: "#8B5CF6" + "40" },
+              pressed && { opacity: 0.8 },
+            ]}
+            onPress={() => router.push("/(tabs)/library" as any)}
+          >
+            <View style={[styles.aiBannerIcon, { backgroundColor: "#8B5CF6" + "20" }]}>
+              <IconSymbol name="book.fill" size={28} color="#8B5CF6" />
+            </View>
+            <View style={styles.aiBannerText}>
+              <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>المكتبة العلمية</Text>
+              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>مقالات • بدائل غذائية • قائمة WADA • منتجات Vegan</Text>
+            </View>
+            <IconSymbol name="chevron.left" size={20} color="#8B5CF6" />
+          </Pressable>
+        </View>
       </ScrollView>
     </View>
   );

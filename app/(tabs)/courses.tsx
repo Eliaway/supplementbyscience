@@ -275,6 +275,21 @@ export default function CoursesScreen() {
         <View style={[styles.header, { paddingTop: insets.top + 12, backgroundColor: colors.surface, borderBottomColor: colors.border }]}>
           <Text style={[styles.headerTitle, { color: colors.foreground }]}>بناء كورس مخصص</Text>
           <Text style={[styles.headerSub, { color: colors.muted }]}>اختر أهدافك الصحية (يمكن اختيار أكثر من هدف)</Text>
+          <Pressable
+            style={({ pressed }) => [{
+              flexDirection: "row-reverse", alignItems: "center", gap: 8,
+              backgroundColor: "#EC4899" + "12", borderRadius: 12, padding: 10,
+              borderWidth: 1, borderColor: "#EC4899" + "30", marginTop: 10,
+            }, pressed && { opacity: 0.8 }]}
+            onPress={() => router.push("/specialized-courses" as any)}
+          >
+            <IconSymbol name="person.2.fill" size={16} color="#EC4899" />
+            <View style={{ flex: 1 }}>
+              <Text style={{ fontSize: 13, fontWeight: "800", color: colors.foreground, textAlign: "right" }}>كورسات لحالات خاصة</Text>
+              <Text style={{ fontSize: 11, color: colors.muted, textAlign: "right" }}>رياضيين • مرأة • كبار السن • سكري • غدة درقية • صحة نفسية</Text>
+            </View>
+            <IconSymbol name="chevron.left" size={16} color="#EC4899" />
+          </Pressable>
         </View>
         <ScrollView contentContainerStyle={styles.goalsContent} showsVerticalScrollIndicator={false}>
           <View style={styles.goalsGrid}>
