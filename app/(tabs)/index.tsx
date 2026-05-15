@@ -1203,6 +1203,506 @@ export default function HomeScreen() {
             </View>
             <IconSymbol name="chevron.left" size={20} color="#F59E0B" />
           </Pressable>
+
+          {/* Certifications */}
+          <Pressable
+            style={({ pressed }) => [
+              styles.aiBanner,
+              { backgroundColor: "#3B82F6" + "12", borderColor: "#3B82F6" + "40" },
+              pressed && { opacity: 0.8 },
+            ]}
+            onPress={() => router.push("/certifications" as any)}
+          >
+            <View style={[styles.aiBannerIcon, { backgroundColor: "#3B82F6" + "20" }]}>
+              <IconSymbol name="checkmark.seal.fill" size={28} color="#3B82F6" />
+            </View>
+            <View style={styles.aiBannerText}>
+              <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>شهادات الجودة 🏅</Text>
+              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>NSF, USP, Informed Sport • كيف تختار المنتج الموثوق</Text>
+            </View>
+            <IconSymbol name="chevron.left" size={20} color="#3B82F6" />
+          </Pressable>
+
+          {/* Ramadan Supplements */}
+          <Pressable
+            style={({ pressed }) => [
+              styles.aiBanner,
+              { backgroundColor: "#10B981" + "12", borderColor: "#10B981" + "40" },
+              pressed && { opacity: 0.8 },
+            ]}
+            onPress={() => router.push("/ramadan-supplements" as any)}
+          >
+            <View style={[styles.aiBannerIcon, { backgroundColor: "#10B981" + "20" }]}>
+              <IconSymbol name="moon.fill" size={28} color="#10B981" />
+            </View>
+            <View style={styles.aiBannerText}>
+              <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>مكملات رمضان ☪️</Text>
+              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>جدول الإفطار والسحور • نصائح الصيام الصحي</Text>
+            </View>
+            <IconSymbol name="chevron.left" size={20} color="#10B981" />
+          </Pressable>
+
+          {/* Pregnancy Supplements */}
+          <Pressable
+            style={({ pressed }) => [
+              styles.aiBanner,
+              { backgroundColor: "#EC4899" + "12", borderColor: "#EC4899" + "40" },
+              pressed && { opacity: 0.8 },
+            ]}
+            onPress={() => router.push("/pregnancy-supplements" as any)}
+          >
+            <View style={[styles.aiBannerIcon, { backgroundColor: "#EC4899" + "20" }]}>
+              <IconSymbol name="heart.fill" size={28} color="#EC4899" />
+            </View>
+            <View style={styles.aiBannerText}>
+              <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>مكملات الحمل والرضاعة 🤱</Text>
+              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>دليل آمن للأمهات • ما يجب تجنبه</Text>
+            </View>
+            <IconSymbol name="chevron.left" size={20} color="#EC4899" />
+          </Pressable>
+
+          {/* Stress Management */}
+          <Pressable
+            style={({ pressed }) => [
+              styles.aiBanner,
+              { backgroundColor: "#8B5CF6" + "12", borderColor: "#8B5CF6" + "40" },
+              pressed && { opacity: 0.8 },
+            ]}
+            onPress={() => router.push("/stress-management" as any)}
+          >
+            <View style={[styles.aiBannerIcon, { backgroundColor: "#8B5CF6" + "20" }]}>
+              <IconSymbol name="brain.head.profile" size={28} color="#8B5CF6" />
+            </View>
+            <View style={styles.aiBannerText}>
+              <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>إدارة التوتر والقلق 🧘</Text>
+              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>Ashwagandha, L-Theanine • بروتوكول حسب الشدة</Text>
+            </View>
+            <IconSymbol name="chevron.left" size={20} color="#8B5CF6" />
+          </Pressable>
+
+          {/* Storage Guide */}
+          <Pressable
+            style={({ pressed }) => [
+              styles.aiBanner,
+              { backgroundColor: "#F97316" + "12", borderColor: "#F97316" + "40" },
+              pressed && { opacity: 0.8 },
+            ]}
+            onPress={() => router.push("/storage-guide" as any)}
+          >
+            <View style={[styles.aiBannerIcon, { backgroundColor: "#F97316" + "20" }]}>
+              <IconSymbol name="archivebox.fill" size={28} color="#F97316" />
+            </View>
+            <View style={styles.aiBannerText}>
+              <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>دليل التخزين والصلاحية 📦</Text>
+              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>كيف تخزن مكملاتك • علامات الفساد</Text>
+            </View>
+            <IconSymbol name="chevron.left" size={20} color="#F97316" />
+          </Pressable>
+
+          {/* Favorites */}
+          <Pressable
+            style={({ pressed }) => [
+              styles.aiBanner,
+              { backgroundColor: "#EF4444" + "12", borderColor: "#EF4444" + "40" },
+              pressed && { opacity: 0.8 },
+            ]}
+            onPress={() => router.push("/favorites" as any)}
+          >
+            <View style={[styles.aiBannerIcon, { backgroundColor: "#EF4444" + "20" }]}>
+              <IconSymbol name="heart.fill" size={28} color="#EF4444" />
+            </View>
+            <View style={styles.aiBannerText}>
+              <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>المفضلة والمقارنات المحفوظة ❤️</Text>
+              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>منتجاتك المفضلة • مقارناتك المحفوظة</Text>
+            </View>
+            <IconSymbol name="chevron.left" size={20} color="#EF4444" />
+          </Pressable>
+
+          {/* Achievements */}
+          <Pressable
+            style={({ pressed }) => [
+              styles.aiBanner,
+              { backgroundColor: "#F59E0B" + "12", borderColor: "#F59E0B" + "40" },
+              pressed && { opacity: 0.8 },
+            ]}
+            onPress={() => router.push("/achievements" as any)}
+          >
+            <View style={[styles.aiBannerIcon, { backgroundColor: "#F59E0B" + "20" }]}>
+              <IconSymbol name="trophy.fill" size={28} color="#F59E0B" />
+            </View>
+            <View style={styles.aiBannerText}>
+              <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>الإنجازات والنقاط 🏆</Text>
+              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>تتبع تقدمك • اكسب نقاط • افتح مستويات جديدة</Text>
+            </View>
+            <IconSymbol name="chevron.left" size={20} color="#F59E0B" />
+          </Pressable>
+
+          {/* Symptom Tracker */}
+          <Pressable
+            style={({ pressed }) => [
+              styles.aiBanner,
+              { backgroundColor: "#06B6D4" + "12", borderColor: "#06B6D4" + "40" },
+              pressed && { opacity: 0.8 },
+            ]}
+            onPress={() => router.push("/symptom-tracker" as any)}
+          >
+            <View style={[styles.aiBannerIcon, { backgroundColor: "#06B6D4" + "20" }]}>
+              <IconSymbol name="waveform.path" size={28} color="#06B6D4" />
+            </View>
+            <View style={styles.aiBannerText}>
+              <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>متتبع الأعراض 📊</Text>
+              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>سجل أعراضك • تتبع التحسن • ربط بالمكملات</Text>
+            </View>
+            <IconSymbol name="chevron.left" size={20} color="#06B6D4" />
+          </Pressable>
+
+          {/* Protocol Simulator */}
+          <Pressable
+            style={({ pressed }) => [
+              styles.aiBanner,
+              { backgroundColor: "#6366F1" + "12", borderColor: "#6366F1" + "40" },
+              pressed && { opacity: 0.8 },
+            ]}
+            onPress={() => router.push("/protocol-simulator" as any)}
+          >
+            <View style={[styles.aiBannerIcon, { backgroundColor: "#6366F1" + "20" }]}>
+              <IconSymbol name="slider.horizontal.3" size={28} color="#6366F1" />
+            </View>
+            <View style={styles.aiBannerText}>
+              <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>محاكي البروتوكول 🔬</Text>
+              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>صمم بروتوكولك • احسب التكلفة • قيّم الفاعلية</Text>
+            </View>
+            <IconSymbol name="chevron.left" size={20} color="#6366F1" />
+          </Pressable>
+
+          {/* Fasting Supplements */}
+          <Pressable
+            style={({ pressed }) => [
+              styles.aiBanner,
+              { backgroundColor: "#0EA5E9" + "12", borderColor: "#0EA5E9" + "40" },
+              pressed && { opacity: 0.8 },
+            ]}
+            onPress={() => router.push("/fasting-supplements" as any)}
+          >
+            <View style={[styles.aiBannerIcon, { backgroundColor: "#0EA5E9" + "20" }]}>
+              <IconSymbol name="timer" size={28} color="#0EA5E9" />
+            </View>
+            <View style={styles.aiBannerText}>
+              <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>مكملات الصيام المتقطع ⏱</Text>
+              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>ما يكسر الصيام • ما يمكن أخذه • توقيت مثالي</Text>
+            </View>
+            <IconSymbol name="chevron.left" size={20} color="#0EA5E9" />
+          </Pressable>
+
+          {/* Food Compatibility */}
+          <Pressable
+            style={({ pressed }) => [
+              styles.aiBanner,
+              { backgroundColor: "#84CC16" + "12", borderColor: "#84CC16" + "40" },
+              pressed && { opacity: 0.8 },
+            ]}
+            onPress={() => router.push("/food-compatibility" as any)}
+          >
+            <View style={[styles.aiBannerIcon, { backgroundColor: "#84CC16" + "20" }]}>
+              <IconSymbol name="leaf.fill" size={28} color="#84CC16" />
+            </View>
+            <View style={styles.aiBannerText}>
+              <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>التوافق الغذائي 🥗</Text>
+              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>أي مكملات مع أي طعام • ما يعزز الامتصاص</Text>
+            </View>
+            <IconSymbol name="chevron.left" size={20} color="#84CC16" />
+          </Pressable>
+
+          {/* User Reviews */}
+          <Pressable
+            style={({ pressed }) => [
+              styles.aiBanner,
+              { backgroundColor: "#F59E0B" + "12", borderColor: "#F59E0B" + "40" },
+              pressed && { opacity: 0.8 },
+            ]}
+            onPress={() => router.push("/user-reviews" as any)}
+          >
+            <View style={[styles.aiBannerIcon, { backgroundColor: "#F59E0B" + "20" }]}>
+              <IconSymbol name="star.fill" size={28} color="#F59E0B" />
+            </View>
+            <View style={styles.aiBannerText}>
+              <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>تقييمات المستخدمين ⭐</Text>
+              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>تجارب حقيقية • تقييم المنتجات • مشاركة تجربتك</Text>
+            </View>
+                        <IconSymbol name="chevron.left" size={20} color="#F59E0B" />
+          </Pressable>
+
+          {/* ADHD & Neuro */}
+          <Pressable
+            style={({ pressed }) => [
+              styles.aiBanner,
+              { backgroundColor: "#6366F1" + "12", borderColor: "#6366F1" + "40" },
+              pressed && { opacity: 0.8 },
+            ]}
+            onPress={() => router.push("/adhd-neuro" as any)}
+          >
+            <View style={[styles.aiBannerIcon, { backgroundColor: "#6366F1" + "20" }]}>
+              <IconSymbol name="brain.head.profile" size={28} color="#6366F1" />
+            </View>
+            <View style={styles.aiBannerText}>
+              <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>ADHD والجهاز العصبي 🧠</Text>
+              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>مكملات الانتباه • دعم الميلين • الوظائف التنفيذية</Text>
+            </View>
+            <IconSymbol name="chevron.left" size={20} color="#6366F1" />
+          </Pressable>
+
+          {/* Climate Supplements */}
+          <Pressable
+            style={({ pressed }) => [
+              styles.aiBanner,
+              { backgroundColor: "#F97316" + "12", borderColor: "#F97316" + "40" },
+              pressed && { opacity: 0.8 },
+            ]}
+            onPress={() => router.push("/climate-supplements" as any)}
+          >
+            <View style={[styles.aiBannerIcon, { backgroundColor: "#F97316" + "20" }]}>
+              <IconSymbol name="sun.max.fill" size={28} color="#F97316" />
+            </View>
+            <View style={styles.aiBannerText}>
+              <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>مكملات المناخ والبيئة 🌡️</Text>
+              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>حرارة • برد • جفاف • شاشات • شتاء</Text>
+            </View>
+            <IconSymbol name="chevron.left" size={20} color="#F97316" />
+          </Pressable>
+
+          {/* Adaptive Protocols */}
+          <Pressable
+            style={({ pressed }) => [
+              styles.aiBanner,
+              { backgroundColor: "#8B5CF6" + "12", borderColor: "#8B5CF6" + "40" },
+              pressed && { opacity: 0.8 },
+            ]}
+            onPress={() => router.push("/adaptive-protocols" as any)}
+          >
+            <View style={[styles.aiBannerIcon, { backgroundColor: "#8B5CF6" + "20" }]}>
+              <IconSymbol name="moon.fill" size={28} color="#8B5CF6" />
+            </View>
+            <View style={styles.aiBannerText}>
+              <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>البروتوكولات التكيّفية 🌙</Text>
+              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>شيفت ليلي • دافعية • إيبيجينيتيكس • هرمونات</Text>
+            </View>
+            <IconSymbol name="chevron.left" size={20} color="#8B5CF6" />
+          </Pressable>
+
+          {/* Clinical Studies */}
+          <Pressable
+            style={({ pressed }) => [
+              styles.aiBanner,
+              { backgroundColor: "#0EA5E9" + "12", borderColor: "#0EA5E9" + "40" },
+              pressed && { opacity: 0.8 },
+            ]}
+            onPress={() => router.push("/clinical-studies" as any)}
+          >
+            <View style={[styles.aiBannerIcon, { backgroundColor: "#0EA5E9" + "20" }]}>
+              <IconSymbol name="chart.bar.fill" size={28} color="#0EA5E9" />
+            </View>
+            <View style={styles.aiBannerText}>
+              <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>الدراسات السريرية عبر الزمن 📊</Text>
+              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>تطور الأبحاث • مقارنة الدراسات • التوافق العلمي</Text>
+            </View>
+            <IconSymbol name="chevron.left" size={20} color="#0EA5E9" />
+          </Pressable>
+
+          {/* Community */}
+          <Pressable
+            style={({ pressed }) => [
+              styles.aiBanner,
+              { backgroundColor: "#10B981" + "12", borderColor: "#10B981" + "40" },
+              pressed && { opacity: 0.8 },
+            ]}
+            onPress={() => router.push("/community" as any)}
+          >
+            <View style={[styles.aiBannerIcon, { backgroundColor: "#10B981" + "20" }]}>
+              <IconSymbol name="person.3.fill" size={28} color="#10B981" />
+            </View>
+            <View style={styles.aiBannerText}>
+              <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>مجتمع المكملات 👥</Text>
+              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>تحديات • مستشارون • نقاشات علمية</Text>
+            </View>
+            <IconSymbol name="chevron.left" size={20} color="#10B981" />
+          </Pressable>
+
+          {/* Pharmacist Report */}
+          <Pressable
+            style={({ pressed }) => [
+              styles.aiBanner,
+              { backgroundColor: "#3B82F6" + "12", borderColor: "#3B82F6" + "40" },
+              pressed && { opacity: 0.8 },
+            ]}
+            onPress={() => router.push("/pharmacist-report" as any)}
+          >
+            <View style={[styles.aiBannerIcon, { backgroundColor: "#3B82F6" + "20" }]}>
+              <IconSymbol name="doc.text.fill" size={28} color="#3B82F6" />
+            </View>
+            <View style={styles.aiBannerText}>
+              <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>تقرير للصيدلاني والطبيب 📋</Text>
+              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>ملخص طبي احترافي • تصدير • مشاركة</Text>
+            </View>
+            <IconSymbol name="chevron.left" size={20} color="#3B82F6" />
+          </Pressable>
+
+          {/* Price Comparison */}
+          <Pressable
+            style={({ pressed }) => [
+              styles.aiBanner,
+              { backgroundColor: "#22C55E" + "12", borderColor: "#22C55E" + "40" },
+              pressed && { opacity: 0.8 },
+            ]}
+            onPress={() => router.push("/price-comparison" as any)}
+          >
+            <View style={[styles.aiBannerIcon, { backgroundColor: "#22C55E" + "20" }]}>
+              <IconSymbol name="cart.fill" size={28} color="#22C55E" />
+            </View>
+            <View style={styles.aiBannerText}>
+              <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>مقارنة الأسعار والقيمة 💰</Text>
+              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>أفضل قيمة • تكلفة الجرعة • جودة العلامات</Text>
+            </View>
+            <IconSymbol name="chevron.left" size={20} color="#22C55E" />
+          </Pressable>
+
+          {/* Health Alerts */}
+          <Pressable
+            style={({ pressed }) => [
+              styles.aiBanner,
+              { backgroundColor: "#EF4444" + "12", borderColor: "#EF4444" + "40" },
+              pressed && { opacity: 0.8 },
+            ]}
+            onPress={() => router.push("/health-alerts" as any)}
+          >
+            <View style={[styles.aiBannerIcon, { backgroundColor: "#EF4444" + "20" }]}>
+              <IconSymbol name="bell.fill" size={28} color="#EF4444" />
+            </View>
+            <View style={styles.aiBannerText}>
+              <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>الإنذار المبكر الصحي 🔔</Text>
+              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>تنبيهات ذكية • صلاحية المكملات • إشعارات</Text>
+            </View>
+            <IconSymbol name="chevron.left" size={20} color="#EF4444" />
+          </Pressable>
+
+          {/* Absorption Guide Banner */}
+          <Pressable
+            style={[styles.aiBanner, { backgroundColor: "#10B981" + "10", borderColor: "#10B981" + "30" }]}
+            onPress={() => router.push("/absorption-guide" as any)}
+          >
+            <View style={[styles.aiBannerIcon, { backgroundColor: "#10B981" + "20" }]}>
+              <IconSymbol name="arrow.up.circle.fill" size={28} color="#10B981" />
+            </View>
+            <View style={styles.aiBannerText}>
+              <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>دليل تحسين الامتصاص 🔬</Text>
+              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>معززات وعوائق امتصاص كل مكمل • زيادة الفعالية</Text>
+            </View>
+            <IconSymbol name="chevron.left" size={20} color="#10B981" />
+          </Pressable>
+
+          {/* Forms Guide Banner */}
+          <Pressable
+            style={[styles.aiBanner, { backgroundColor: "#8B5CF6" + "10", borderColor: "#8B5CF6" + "30" }]}
+            onPress={() => router.push("/forms-guide" as any)}
+          >
+            <View style={[styles.aiBannerIcon, { backgroundColor: "#8B5CF6" + "20" }]}>
+              <IconSymbol name="list.bullet.rectangle.fill" size={28} color="#8B5CF6" />
+            </View>
+            <View style={styles.aiBannerText}>
+              <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>مقارنة أشكال المكملات 💊</Text>
+              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>Glycinate vs Oxide vs Citrate • أفضل امتصاصاً</Text>
+            </View>
+            <IconSymbol name="chevron.left" size={20} color="#8B5CF6" />
+          </Pressable>
+
+          {/* Genetics Guide Banner */}
+          <Pressable
+            style={[styles.aiBanner, { backgroundColor: "#0EA5E9" + "10", borderColor: "#0EA5E9" + "30" }]}
+            onPress={() => router.push("/genetics-guide" as any)}
+          >
+            <View style={[styles.aiBannerIcon, { backgroundColor: "#0EA5E9" + "20" }]}>
+              <IconSymbol name="testtube.2" size={28} color="#0EA5E9" />
+            </View>
+            <View style={styles.aiBannerText}>
+              <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>الجينات والمكملات 🧬</Text>
+              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>MTHFR • APOE4 • VDR • COMT • بروتوكولات جينية</Text>
+            </View>
+            <IconSymbol name="chevron.left" size={20} color="#0EA5E9" />
+          </Pressable>
+
+          {/* Safety Guide Banner */}
+          <Pressable
+            style={[styles.aiBanner, { backgroundColor: "#EF4444" + "10", borderColor: "#EF4444" + "30" }]}
+            onPress={() => router.push("/safety-guide" as any)}
+          >
+            <View style={[styles.aiBannerIcon, { backgroundColor: "#EF4444" + "20" }]}>
+              <IconSymbol name="exclamationmark.triangle.fill" size={28} color="#EF4444" />
+            </View>
+            <View style={styles.aiBannerText}>
+              <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>دليل الأمان والجرعات ⚠️</Text>
+              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>الحدود الآمنة • أعراض الجرعة الزائدة • تحذيرات</Text>
+            </View>
+            <IconSymbol name="chevron.left" size={20} color="#EF4444" />
+          </Pressable>
+
+          {/* Timing Optimizer Banner */}
+          <Pressable
+            style={[styles.aiBanner, { backgroundColor: "#F59E0B" + "10", borderColor: "#F59E0B" + "30" }]}
+            onPress={() => router.push("/timing-optimizer" as any)}
+          >
+            <View style={[styles.aiBannerIcon, { backgroundColor: "#F59E0B" + "20" }]}>
+              <IconSymbol name="clock.fill" size={28} color="#F59E0B" />
+            </View>
+            <View style={styles.aiBannerText}>
+              <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>محسّن توقيت المكملات ⏰</Text>
+              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>أفضل وقت لكل مكمل • مع الطعام أم بدونه</Text>
+            </View>
+            <IconSymbol name="chevron.left" size={20} color="#F59E0B" />
+          </Pressable>
+
+          {/* Shift Workers Banner */}
+          <Pressable
+            style={[styles.aiBanner, { backgroundColor: "#6366F1" + "10", borderColor: "#6366F1" + "30" }]}
+            onPress={() => router.push("/shift-workers" as any)}
+          >
+            <View style={[styles.aiBannerIcon, { backgroundColor: "#6366F1" + "20" }]}>
+              <IconSymbol name="moon.fill" size={28} color="#6366F1" />
+            </View>
+            <View style={styles.aiBannerText}>
+              <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>مكملات عمال الورديات 🌙</Text>
+              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>حماية من مخاطر العمل الليلي • تعديل الساعة البيولوجية</Text>
+            </View>
+            <IconSymbol name="chevron.left" size={20} color="#6366F1" />
+          </Pressable>
+
+          {/* Athlete Advanced Banner */}
+          <Pressable
+            style={[styles.aiBanner, { backgroundColor: "#EF4444" + "10", borderColor: "#EF4444" + "30" }]}
+            onPress={() => router.push("/athlete-advanced" as any)}
+          >
+            <View style={[styles.aiBannerIcon, { backgroundColor: "#EF4444" + "20" }]}>
+              <IconSymbol name="bolt.fill" size={28} color="#EF4444" />
+            </View>
+            <View style={styles.aiBannerText}>
+              <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>بروتوكولات الرياضيين المتقدمة 🏆</Text>
+              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>قوة • تحمل • رياضات جماعية • قبل/أثناء/بعد التمرين</Text>
+            </View>
+            <IconSymbol name="chevron.left" size={20} color="#EF4444" />
+          </Pressable>
+
+          {/* Mental Health Banner */}
+          <Pressable
+            style={[styles.aiBanner, { backgroundColor: "#8B5CF6" + "10", borderColor: "#8B5CF6" + "30" }]}
+            onPress={() => router.push("/mental-health" as any)}
+          >
+            <View style={[styles.aiBannerIcon, { backgroundColor: "#8B5CF6" + "20" }]}>
+              <IconSymbol name="brain.head.profile" size={28} color="#8B5CF6" />
+            </View>
+            <View style={styles.aiBannerText}>
+              <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>الصحة النفسية والمكملات 🧠</Text>
+              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>اكتئاب • قلق • نوم • تركيز • بروتوكولات مدعومة علمياً</Text>
+            </View>
+            <IconSymbol name="chevron.left" size={20} color="#8B5CF6" />
+          </Pressable>
         </View>
       </ScrollView>
     </View>
