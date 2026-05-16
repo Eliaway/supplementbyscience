@@ -156,6 +156,8 @@ const MAPPING = {
   "arrow.down.to.line": "save-alt",
   "chart.xyaxis.line": "show-chart",
   "waveform": "graphic-eq",
+  "figure.stand": "accessibility",
+  "paintpalette.fill": "palette",
   "waveform.path": "graphic-eq",
   "person.text.rectangle.fill": "badge",
   "list.number": "format-list-numbered",

@@ -4,6 +4,8 @@ import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, router } from "./_core/trpc";
 import { invokeLLM } from "./_core/llm";
+import { transcribeAudio } from "./_core/voiceTranscription";
+import { storagePut } from "./storage";
 
 // ========================
 // مساعد AI — 4 خبراء مستقلون
@@ -59,6 +61,39 @@ const EXPERTS = {
 
 export const appRouter = router({
   system: systemRouter,
+  // ─── تفريغ الصوت ───────────────────────────────────────────────────────────
+  voice: router({
+    transcribe: publicProcedure
+      .input(z.object({
+        audioUrl: z.string(),
+        language: z.string().optional(),
+        prompt: z.string().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        const result = await transcribeAudio(input);
+        if ('error' in result) {
+          throw new Error(result.error);
+        }
+        return result;
+      }),
+  }),
+  // ─── التخزين ───────────────────────────────────────────────────────────────
+  storage: router({
+    uploadBase64: publicProcedure
+      .input(z.object({
+        base64: z.string(),
+        mimeType: z.string().default('application/octet-stream'),
+        filename: z.string().default('file'),
+      }))
+      .mutation(async ({ input }) => {
+        const buffer = Buffer.from(input.base64, 'base64');
+        const result = await storagePut(input.filename, buffer, input.mimeType);
+        // Return absolute URL for transcription service
+        const baseUrl = process.env.BUILT_IN_FORGE_API_URL?.replace(/\/+$/, '') ?? '';
+        const absoluteUrl = result.url.startsWith('http') ? result.url : `${baseUrl}${result.url}`;
+        return { url: absoluteUrl, key: result.key };
+      }),
+  }),
   auth: router({
     me: publicProcedure.query((opts) => opts.ctx.user),
     logout: publicProcedure.mutation(({ ctx }) => {

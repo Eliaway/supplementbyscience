@@ -1,6 +1,8 @@
 import { useRouter } from "expo-router";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { I18nManager, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { useEffect } from "react";
 
 import { IconSymbol } from "@/components/ui/icon-symbol";
 import { useColors } from "@/hooks/use-colors";
@@ -50,6 +52,15 @@ export default function HomeScreen() {
   const { categories, getTopProducts, totalProducts, totalCategories } = useSupplements();
   const topProducts = getTopProducts(5);
 
+  // First-launch: redirect to quick setup
+  useEffect(() => {
+    AsyncStorage.getItem("setup_complete").then((val) => {
+      if (!val) {
+        router.push("/quick-setup" as any);
+      }
+    });
+  }, []);
+
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
       <ScrollView
@@ -63,9 +74,17 @@ export default function HomeScreen() {
               <Text style={[styles.greeting, { color: colors.muted }]}>مرحباً بك في</Text>
               <Text style={[styles.appName, { color: colors.primary }]}>علم المكملات</Text>
             </View>
-            <View style={[styles.headerBadge, { backgroundColor: colors.primary + "18", borderColor: colors.primary + "40" }]}>
-              <IconSymbol name="flask.fill" size={20} color={colors.primary} />
-              <Text style={[styles.headerBadgeText, { color: colors.primary }]}>علمي موثوق</Text>
+            <View style={{ flexDirection: "row-reverse", alignItems: "center", gap: 8 }}>
+              <Pressable
+                onPress={() => router.push("/global-search" as any)}
+                style={({ pressed }) => [styles.searchIconBtn, { backgroundColor: colors.surface, borderColor: colors.border, opacity: pressed ? 0.7 : 1 }]}
+              >
+                <Text style={{ fontSize: 18 }}>🔍</Text>
+              </Pressable>
+              <View style={[styles.headerBadge, { backgroundColor: colors.primary + "18", borderColor: colors.primary + "40" }]}>
+                <IconSymbol name="flask.fill" size={20} color={colors.primary} />
+                <Text style={[styles.headerBadgeText, { color: colors.primary }]}>علمي موثوق</Text>
+              </View>
             </View>
           </View>
 
@@ -2011,6 +2030,141 @@ export default function HomeScreen() {
             </View>
             <IconSymbol name="chevron.left" size={20} color="#7986CB" />
           </Pressable>
+
+          {/* Daily Tips */}
+          <Pressable
+            style={[styles.aiBanner, { backgroundColor: colors.surface, borderColor: "#F59E0B" + "30" }]}
+            onPress={() => router.push("/daily-tips" as any)}
+          >
+            <View style={[styles.aiBannerIcon, { backgroundColor: "#F59E0B" + "20" }]}>
+              <IconSymbol name="sun.max.fill" size={28} color="#F59E0B" />
+            </View>
+            <View style={styles.aiBannerText}>
+              <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>التوصيات اليومية الذكية ☀️</Text>
+              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>نصيحة يومية مخصصة بناءً على ملفك الصحي والموسم</Text>
+            </View>
+            <IconSymbol name="chevron.left" size={20} color="#F59E0B" />
+          </Pressable>
+
+          {/* Voice Assistant */}
+          <Pressable
+            style={[styles.aiBanner, { backgroundColor: colors.surface, borderColor: "#8B5CF6" + "30" }]}
+            onPress={() => router.push("/voice-assistant" as any)}
+          >
+            <View style={[styles.aiBannerIcon, { backgroundColor: "#8B5CF6" + "20" }]}>
+              <IconSymbol name="waveform" size={28} color="#8B5CF6" />
+            </View>
+            <View style={styles.aiBannerText}>
+              <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>المساعد الصوتي 🎙️</Text>
+              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>اسأل مساعدك بالصوت عن المكملات والجرعات</Text>
+            </View>
+            <IconSymbol name="chevron.left" size={20} color="#8B5CF6" />
+          </Pressable>
+
+          {/* Body Map */}
+          <Pressable
+            style={[styles.aiBanner, { backgroundColor: colors.surface, borderColor: "#EC4899" + "30" }]}
+            onPress={() => router.push("/body-map" as any)}
+          >
+            <View style={[styles.aiBannerIcon, { backgroundColor: "#EC4899" + "20" }]}>
+              <IconSymbol name="figure.stand" size={28} color="#EC4899" />
+            </View>
+            <View style={styles.aiBannerText}>
+              <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>خريطة الجسم التفاعلية 🫀</Text>
+              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>اضغط على أي عضو لرؤية المكملات المناسبة له</Text>
+            </View>
+            <IconSymbol name="chevron.left" size={20} color="#EC4899" />
+          </Pressable>
+
+          {/* Mood Tracker */}
+          <Pressable
+            style={[styles.aiBanner, { backgroundColor: colors.surface, borderColor: "#10B981" + "30" }]}
+            onPress={() => router.push("/mood-tracker" as any)}
+          >
+            <View style={[styles.aiBannerIcon, { backgroundColor: "#10B981" + "20" }]}>
+              <IconSymbol name="heart.fill" size={28} color="#10B981" />
+            </View>
+            <View style={styles.aiBannerText}>
+              <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>تتبع المزاج والطاقة 😊</Text>
+              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>سجّل مزاجك يومياً وتابع تأثير المكملات على حياتك</Text>
+            </View>
+            <IconSymbol name="chevron.left" size={20} color="#10B981" />
+          </Pressable>
+
+          {/* Biometric Lock */}
+          <Pressable
+            style={[styles.aiBanner, { backgroundColor: colors.surface, borderColor: "#64748B" + "30" }]}
+            onPress={() => router.push("/biometric-lock" as any)}
+          >
+            <View style={[styles.aiBannerIcon, { backgroundColor: "#64748B" + "20" }]}>
+              <IconSymbol name="lock.fill" size={28} color="#64748B" />
+            </View>
+            <View style={styles.aiBannerText}>
+              <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>قفل التطبيق بالبصمة 🔐</Text>
+              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>حماية بياناتك الصحية ببصمة الإصبع أو الوجه</Text>
+            </View>
+            <IconSymbol name="chevron.left" size={20} color="#64748B" />
+          </Pressable>
+
+          {/* Cost Report */}
+          <Pressable
+            style={[styles.aiBanner, { backgroundColor: colors.surface, borderColor: "#22C55E" + "30" }]}
+            onPress={() => router.push("/cost-report" as any)}
+          >
+            <View style={[styles.aiBannerIcon, { backgroundColor: "#22C55E" + "20" }]}>
+              <IconSymbol name="chart.bar.fill" size={28} color="#22C55E" />
+            </View>
+            <View style={styles.aiBannerText}>
+              <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>تقرير التكلفة الشهرية 💰</Text>
+              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>احسب تكلفة مكملاتك شهرياً وسنوياً مع نصائح التوفير</Text>
+            </View>
+            <IconSymbol name="chevron.left" size={20} color="#22C55E" />
+          </Pressable>
+
+          {/* Challenge 30 */}
+          <Pressable
+            style={[styles.aiBanner, { backgroundColor: colors.surface, borderColor: "#3B82F6" + "30" }]}
+            onPress={() => router.push("/challenge-30" as any)}
+          >
+            <View style={[styles.aiBannerIcon, { backgroundColor: "#3B82F6" + "20" }]}>
+              <IconSymbol name="trophy.fill" size={28} color="#3B82F6" />
+            </View>
+            <View style={styles.aiBannerText}>
+              <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>تحدي 30 يوم 🏆</Text>
+              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>برنامج يومي منظّم لتحقيق أهدافك الصحية خلال شهر</Text>
+            </View>
+            <IconSymbol name="chevron.left" size={20} color="#3B82F6" />
+          </Pressable>
+
+          {/* Product Ratings */}
+          <Pressable
+            style={[styles.aiBanner, { backgroundColor: colors.surface, borderColor: "#D97706" + "30" }]}
+            onPress={() => router.push("/product-ratings" as any)}
+          >
+            <View style={[styles.aiBannerIcon, { backgroundColor: "#D97706" + "20" }]}>
+              <IconSymbol name="star.fill" size={28} color="#D97706" />
+            </View>
+            <View style={styles.aiBannerText}>
+              <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>تقييماتي للمنتجات ⭐</Text>
+              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>سجّل تجربتك مع كل منتج وقيّمه بنظام 5 نجوم</Text>
+            </View>
+            <IconSymbol name="chevron.left" size={20} color="#D97706" />
+          </Pressable>
+
+          {/* Advanced Themes */}
+          <Pressable
+            style={[styles.aiBanner, { backgroundColor: colors.surface, borderColor: "#A855F7" + "30" }]}
+            onPress={() => router.push("/advanced-themes" as any)}
+          >
+            <View style={[styles.aiBannerIcon, { backgroundColor: "#A855F7" + "20" }]}>
+              <IconSymbol name="paintpalette.fill" size={28} color="#A855F7" />
+            </View>
+            <View style={styles.aiBannerText}>
+              <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>الثيمات والألوان 🎨</Text>
+              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>خصّص مظهر التطبيق من 8 ثيمات مختلفة</Text>
+            </View>
+            <IconSymbol name="chevron.left" size={20} color="#A855F7" />
+          </Pressable>
         </View>
       </ScrollView>
     </View>
@@ -2044,6 +2198,14 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
   headerBadgeText: { fontSize: 11, fontWeight: "700", fontFamily: "Cairo-Bold" },
+  searchIconBtn: {
+    width: 38,
+    height: 38,
+    borderRadius: 12,
+    borderWidth: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
 
   // Stats
   statsRow: {
