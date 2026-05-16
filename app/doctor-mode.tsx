@@ -240,7 +240,7 @@ const styles = StyleSheet.create({
   summaryCard: { borderRadius: 14, borderWidth: 1, overflow: "hidden" },
   summaryHeader: { flexDirection: "row-reverse", alignItems: "center", gap: 8, padding: 12, backgroundColor: "#e8f0fb" },
   summaryHeaderText: { fontSize: 13, fontWeight: "700", fontFamily: "Cairo-Bold" },
-  summaryText: { fontFamily: "monospace", fontSize: 11, lineHeight: 18, padding: 12, textAlign: "left", color: "#1a2a3a" },
+  summaryText: { fontFamily: "Cairo", fontSize: 11, lineHeight: 18, padding: 12, textAlign: "right", color: "#1a2a3a" },
   actionsRow: { flexDirection: "row-reverse", gap: 12 },
   actionBtn: { borderRadius: 14, padding: 14, flexDirection: "row-reverse", alignItems: "center", justifyContent: "center", gap: 8 },
   actionBtnText: { fontSize: 14, fontWeight: "700", color: "#fff", fontFamily: "Cairo-Bold" },

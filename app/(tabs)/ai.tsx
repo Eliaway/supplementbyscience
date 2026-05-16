@@ -710,7 +710,7 @@ const styles = StyleSheet.create({
   expertName: { fontSize: 15, fontWeight: "800", textAlign: "right", fontFamily: "Cairo-Black" },
   expertDesc: { fontSize: 11, textAlign: "right", marginTop: 2, fontFamily: "Cairo" },
   analyzeBtn: {
-    flexDirection: "row",
+    flexDirection: "row-reverse",
     alignItems: "center",
     gap: 5,
     paddingHorizontal: 12,
@@ -741,7 +741,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0.5,
   },
   expertChip: {
-    flexDirection: "row",
+    flexDirection: "row-reverse",
     alignItems: "center",
     gap: 6,
     paddingHorizontal: 14,
@@ -775,9 +775,9 @@ const styles = StyleSheet.create({
   quickQText: { fontSize: 12, fontWeight: "600", textAlign: "right", fontFamily: "Cairo-Bold" },
 
   // Messages
-  messageRow: { flexDirection: "row", gap: 8, alignItems: "flex-end" },
+  messageRow: { flexDirection: "row-reverse", gap: 8, alignItems: "flex-end" },
   userRow: { flexDirection: "row-reverse" },
-  assistantRow: { flexDirection: "row" },
+  assistantRow: { flexDirection: "row-reverse" },
   msgAvatar: {
     width: 36,
     height: 36,
@@ -800,13 +800,13 @@ const styles = StyleSheet.create({
 
   // Typing
   typingRow: {
-    flexDirection: "row",
+    flexDirection: "row-reverse",
     gap: 8,
     alignItems: "center",
     paddingBottom: 8,
   },
   typingBubble: {
-    flexDirection: "row",
+    flexDirection: "row-reverse",
     alignItems: "center",
     gap: 8,
     padding: 10,

@@ -8,7 +8,10 @@ import {
   Alert,
   Platform,
   ActivityIndicator,
+  I18nManager,
 } from 'react-native';
+
+I18nManager.forceRTL(true);
 import { useRouter } from 'expo-router';
 import { ScreenContainer } from '@/components/screen-container';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -414,7 +417,7 @@ const styles = StyleSheet.create({
     paddingBottom: 40,
   },
   header: {
-    flexDirection: 'row',
+    flexDirection: 'row-reverse',
     alignItems: 'center',
     justifyContent: 'space-between',
     marginBottom: 20,
@@ -446,7 +449,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     padding: 16,
     marginBottom: 24,
-    flexDirection: 'row',
+    flexDirection: 'row-reverse',
     alignItems: 'center',
     gap: 12,
     borderWidth: 1,
@@ -477,7 +480,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     padding: 16,
     marginBottom: 10,
-    flexDirection: 'row',
+    flexDirection: 'row-reverse',
     alignItems: 'center',
     justifyContent: 'space-between',
     borderWidth: 1,
@@ -488,7 +491,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#1a1a2e',
   },
   optionLeft: {
-    flexDirection: 'row',
+    flexDirection: 'row-reverse',
     alignItems: 'center',
     gap: 12,
     flex: 1,

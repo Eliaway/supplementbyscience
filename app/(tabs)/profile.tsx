@@ -1050,7 +1050,7 @@ const styles = StyleSheet.create({
   },
   headerTitle: { fontSize: 22, fontWeight: "900", fontFamily: "Cairo-Black" },
   editBtn: {
-    flexDirection: "row",
+    flexDirection: "row-reverse",
     alignItems: "center",
     gap: 5,
     paddingHorizontal: 12,
@@ -1093,7 +1093,7 @@ const styles = StyleSheet.create({
   // Tabs
   tabsScroll: { paddingHorizontal: 16, paddingBottom: 12, gap: 8 },
   tab: {
-    flexDirection: "row",
+    flexDirection: "row-reverse",
     alignItems: "center",
     gap: 5,
     paddingHorizontal: 12,
@@ -1167,7 +1167,7 @@ const styles = StyleSheet.create({
 
   // Buttons
   addBtn: {
-    flexDirection: "row",
+    flexDirection: "row-reverse",
     alignItems: "center",
     gap: 5,
     paddingHorizontal: 14,

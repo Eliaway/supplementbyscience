@@ -324,7 +324,7 @@ const styles = StyleSheet.create({
   },
   micIcon: { fontSize: 36 },
   waveContainer: {
-    flexDirection: "row",
+    flexDirection: "row-reverse",
     alignItems: "center",
     gap: 4,
     height: 30,

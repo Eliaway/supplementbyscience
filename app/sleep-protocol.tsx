@@ -3,7 +3,9 @@
  * Features: 46 (بروتوكول النوم العميق), 48 (مؤشر جودة النوم), 110 (شيفت ليلي)
  */
 import { useState } from "react";
-import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
+import { Pressable, ScrollView, StyleSheet, Text, View , I18nManager} from 'react-native';
+
+I18nManager.forceRTL(true);
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useRouter } from "expo-router";
 import { IconSymbol } from "@/components/ui/icon-symbol";
@@ -214,7 +216,7 @@ const styles = StyleSheet.create({
   scoreDesc: { fontSize: 13, textAlign: "right", fontFamily: "Cairo" },
   questionRow: { flexDirection: "row-reverse", alignItems: "center", gap: 10 },
   questionText: { flex: 1, fontSize: 13, textAlign: "right", fontFamily: "Cairo" },
-  questionBtns: { flexDirection: "row", gap: 6 },
+  questionBtns: { flexDirection: "row-reverse", gap: 6 },
   answerBtn: { paddingHorizontal: 10, paddingVertical: 6, borderRadius: 8, borderWidth: 1 },
   scoreResult: { borderRadius: 12, padding: 14, borderWidth: 1, alignItems: "center", gap: 4 },
   scoreNum: { fontSize: 36, fontWeight: "900", fontFamily: "Cairo-Black" },

@@ -984,7 +984,7 @@ const styles = StyleSheet.create({
   articleMeta: { flexDirection: "row-reverse", gap: 10, marginTop: 4, alignItems: "center" },
   articleCategory: { fontSize: 11, fontWeight: "700", fontFamily: "Cairo-Bold" },
   articleReadTime: { fontSize: 11, fontFamily: "Cairo" },
-  readMoreRow: { flexDirection: "row", alignItems: "center", gap: 4 },
+  readMoreRow: { flexDirection: "row-reverse", alignItems: "center", gap: 4 },
   readMoreText: { fontSize: 12, fontFamily: "Cairo" },
 
   // Article Detail

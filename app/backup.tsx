@@ -8,7 +8,10 @@ import {
   Alert,
   ActivityIndicator,
   Platform,
+  I18nManager,
 } from 'react-native';
+
+I18nManager.forceRTL(true);
 import { useRouter } from 'expo-router';
 import { ScreenContainer } from '@/components/screen-container';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -330,7 +333,7 @@ const styles = StyleSheet.create({
     paddingBottom: 40,
   },
   header: {
-    flexDirection: 'row',
+    flexDirection: 'row-reverse',
     alignItems: 'center',
     justifyContent: 'space-between',
     marginBottom: 20,
@@ -366,7 +369,7 @@ const styles = StyleSheet.create({
     borderColor: '#d4af37',
   },
   statusRow: {
-    flexDirection: 'row',
+    flexDirection: 'row-reverse',
     justifyContent: 'space-around',
     alignItems: 'center',
   },
@@ -416,7 +419,7 @@ const styles = StyleSheet.create({
     fontFamily: "Cairo",
   },
   lastBackupDetails: {
-    flexDirection: 'row',
+    flexDirection: 'row-reverse',
     gap: 12,
     justifyContent: 'flex-end',
   },
@@ -442,7 +445,7 @@ const styles = StyleSheet.create({
     fontFamily: "Cairo",
   },
   infoItem: {
-    flexDirection: 'row',
+    flexDirection: 'row-reverse',
     alignItems: 'center',
     paddingVertical: 6,
     borderBottomWidth: 1,
@@ -485,7 +488,7 @@ const styles = StyleSheet.create({
     fontFamily: "Cairo",
   },
   securityFeatures: {
-    flexDirection: 'row',
+    flexDirection: 'row-reverse',
     justifyContent: 'space-around',
   },
   securityFeature: {

@@ -514,7 +514,7 @@ const styles = StyleSheet.create({
   detailIconBg: { width: 64, height: 64, borderRadius: 20, alignItems: "center", justifyContent: "center" },
   detailTitle: { fontSize: 22, fontWeight: "900", fontFamily: "Cairo-Black" },
   detailDesc: { fontSize: 13, lineHeight: 20, textAlign: "center", paddingHorizontal: 16, fontFamily: "Cairo" },
-  detailMeta: { flexDirection: "row", gap: 8 },
+  detailMeta: { flexDirection: "row-reverse", gap: 8 },
   tabBar: { flexDirection: "row-reverse", borderBottomWidth: 0.5 },
   tab: { flex: 1, paddingVertical: 12, alignItems: "center" },
   tabText: { fontSize: 13, fontWeight: "700", fontFamily: "Cairo-Bold" },

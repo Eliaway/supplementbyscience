@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
   input: { flex: 1, borderRadius: 10, borderWidth: 1, paddingHorizontal: 12, paddingVertical: 8, fontSize: 16, fontWeight: "700", fontFamily: "Cairo-Bold" },
   unitText: { fontSize: 13, fontWeight: "700", minWidth: 30, fontFamily: "Cairo-Bold" },
   progressContainer: { flexDirection: "row-reverse", alignItems: "center", gap: 8 },
-  progressBar: { flex: 1, height: 8, borderRadius: 4, overflow: "hidden", flexDirection: "row" },
+  progressBar: { flex: 1, height: 8, borderRadius: 4, overflow: "hidden", flexDirection: "row-reverse" },
   progressFill: { height: "100%" },
   overFill: { height: "100%" },
   pctText: { fontSize: 12, fontWeight: "800", minWidth: 40, textAlign: "right", fontFamily: "Cairo-Black" },
