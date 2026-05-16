@@ -234,8 +234,10 @@ const styles = StyleSheet.create({
   schemeToggleTitle: {
     fontSize: 16,
     fontWeight: "600",
+    fontFamily: "Cairo-Bold",
   },
   schemeToggleSubtitle: {
     fontSize: 12,
+    fontFamily: "Cairo",
   },
 });

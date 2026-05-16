@@ -1048,7 +1048,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingBottom: 12,
   },
-  headerTitle: { fontSize: 22, fontWeight: "900" },
+  headerTitle: { fontSize: 22, fontWeight: "900", fontFamily: "Cairo-Black" },
   editBtn: {
     flexDirection: "row",
     alignItems: "center",
@@ -1058,7 +1058,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     borderWidth: 1,
   },
-  editBtnText: { fontSize: 12, fontWeight: "700" },
+  editBtnText: { fontSize: 12, fontWeight: "700", fontFamily: "Cairo-Bold" },
 
   // Profile Summary
   profileSummary: {
@@ -1079,16 +1079,16 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   profileInfo: { flex: 1, alignItems: "flex-end" },
-  profileName: { fontSize: 16, fontWeight: "800", marginBottom: 2 },
-  profileMeta: { fontSize: 11, marginBottom: 6 },
+  profileName: { fontSize: 16, fontWeight: "800", marginBottom: 2, fontFamily: "Cairo-Black" },
+  profileMeta: { fontSize: 11, marginBottom: 6, fontFamily: "Cairo" },
   progressRow: { flexDirection: "row-reverse", alignItems: "center", gap: 8, width: "100%" },
   progressBar: { flex: 1, height: 4, borderRadius: 2, overflow: "hidden" },
   progressFill: { height: "100%", borderRadius: 2 },
-  progressText: { fontSize: 11, fontWeight: "700" },
+  progressText: { fontSize: 11, fontWeight: "700", fontFamily: "Cairo-Bold" },
   statsCol: { gap: 6 },
   statBadge: { paddingHorizontal: 10, paddingVertical: 4, borderRadius: 8, alignItems: "center" },
-  statBadgeNum: { fontSize: 16, fontWeight: "900" },
-  statBadgeLabel: { fontSize: 9 },
+  statBadgeNum: { fontSize: 16, fontWeight: "900", fontFamily: "Cairo-Black" },
+  statBadgeLabel: { fontSize: 9, fontFamily: "Cairo" },
 
   // Tabs
   tabsScroll: { paddingHorizontal: 16, paddingBottom: 12, gap: 8 },
@@ -1101,7 +1101,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     borderWidth: 1,
   },
-  tabLabel: { fontSize: 12, fontWeight: "700" },
+  tabLabel: { fontSize: 12, fontWeight: "700", fontFamily: "Cairo-Bold" },
 
   // Section
   section: { padding: 16 },
@@ -1111,8 +1111,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: 14,
   },
-  sectionTitle: { fontSize: 16, fontWeight: "800", marginBottom: 10 },
-  sectionSubtitle: { fontSize: 12, marginBottom: 12, marginTop: -8 },
+  sectionTitle: { fontSize: 16, fontWeight: "800", marginBottom: 10, fontFamily: "Cairo-Black" },
+  sectionSubtitle: { fontSize: 12, marginBottom: 12, marginTop: -8, fontFamily: "Cairo" },
 
   // Stats Grid
   statsGrid: {
@@ -1124,8 +1124,8 @@ const styles = StyleSheet.create({
   },
   statGridItem: { flex: 1, alignItems: "center", gap: 4 },
   statGridIcon: { width: 36, height: 36, borderRadius: 10, alignItems: "center", justifyContent: "center" },
-  statGridNum: { fontSize: 20, fontWeight: "900" },
-  statGridLabel: { fontSize: 10 },
+  statGridNum: { fontSize: 20, fontWeight: "900", fontFamily: "Cairo-Black" },
+  statGridLabel: { fontSize: 10, fontFamily: "Cairo" },
 
   // Alert Box
   alertBox: {
@@ -1136,8 +1136,8 @@ const styles = StyleSheet.create({
     gap: 6,
   },
   alertHeader: { flexDirection: "row-reverse", alignItems: "center", gap: 8 },
-  alertTitle: { fontSize: 13, fontWeight: "800" },
-  alertItem: { fontSize: 12, lineHeight: 18, textAlign: "right" },
+  alertTitle: { fontSize: 13, fontWeight: "800", fontFamily: "Cairo-Black" },
+  alertItem: { fontSize: 12, lineHeight: 18, textAlign: "right", fontFamily: "Cairo" },
 
   // Summary Card
   summaryCard: {
@@ -1146,10 +1146,10 @@ const styles = StyleSheet.create({
     padding: 14,
     marginBottom: 12,
   },
-  summaryTitle: { fontSize: 14, fontWeight: "800", marginBottom: 10, textAlign: "right" },
+  summaryTitle: { fontSize: 14, fontWeight: "800", marginBottom: 10, textAlign: "right", fontFamily: "Cairo-Black" },
   tagRow: { flexDirection: "row-reverse", flexWrap: "wrap", gap: 8 },
   tag: { paddingHorizontal: 10, paddingVertical: 5, borderRadius: 20, borderWidth: 1 },
-  tagText: { fontSize: 12, fontWeight: "600" },
+  tagText: { fontSize: 12, fontWeight: "600", fontFamily: "Cairo-Bold" },
 
   // Tag Grid (selectable)
   tagGrid: { flexDirection: "row-reverse", flexWrap: "wrap", gap: 8, marginBottom: 8 },
@@ -1162,8 +1162,8 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     borderWidth: 1,
   },
-  tagIcon: { fontSize: 14 },
-  selectTagText: { fontSize: 12, fontWeight: "600" },
+  tagIcon: { fontSize: 14, fontFamily: "Cairo" },
+  selectTagText: { fontSize: 12, fontWeight: "600", fontFamily: "Cairo-Bold" },
 
   // Buttons
   addBtn: {
@@ -1174,7 +1174,7 @@ const styles = StyleSheet.create({
     paddingVertical: 7,
     borderRadius: 20,
   },
-  addBtnText: { color: "#fff", fontSize: 13, fontWeight: "700" },
+  addBtnText: { color: "#fff", fontSize: 13, fontWeight: "700", fontFamily: "Cairo-Bold" },
   addMedBtn: {
     flexDirection: "row-reverse",
     alignItems: "center",
@@ -1185,7 +1185,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginTop: 4,
   },
-  addMedBtnText: { fontSize: 14, fontWeight: "700" },
+  addMedBtnText: { fontSize: 14, fontWeight: "700", fontFamily: "Cairo-Bold" },
 
   // Supplement Card
   suppCard: {
@@ -1198,12 +1198,12 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   suppCardLeft: { flex: 1, alignItems: "flex-end" },
-  suppName: { fontSize: 14, fontWeight: "700", marginBottom: 2 },
-  suppBrand: { fontSize: 11, marginBottom: 6 },
+  suppName: { fontSize: 14, fontWeight: "700", marginBottom: 2, fontFamily: "Cairo-Bold" },
+  suppBrand: { fontSize: 11, marginBottom: 6, fontFamily: "Cairo" },
   suppMeta: { flexDirection: "row-reverse", gap: 6, marginBottom: 4 },
   metaChip: { paddingHorizontal: 8, paddingVertical: 3, borderRadius: 8 },
-  metaChipText: { fontSize: 11, fontWeight: "600" },
-  suppNotes: { fontSize: 11, fontStyle: "italic" },
+  metaChipText: { fontSize: 11, fontWeight: "600", fontFamily: "Cairo-Bold" },
+  suppNotes: { fontSize: 11, fontStyle: "italic", fontFamily: "Cairo" },
 
   // Hormone Card
   hormCard: {
@@ -1216,12 +1216,12 @@ const styles = StyleSheet.create({
   hormCardTop: { flexDirection: "row-reverse", alignItems: "center", gap: 10 },
   hormIcon: { width: 40, height: 40, borderRadius: 12, alignItems: "center", justifyContent: "center" },
   hormInfo: { flex: 1, alignItems: "flex-end" },
-  hormName: { fontSize: 14, fontWeight: "700" },
-  hormMeta: { fontSize: 11, marginTop: 2 },
-  hormCompany: { fontSize: 11, fontWeight: "600", marginTop: 2 },
-  hormNotes: { fontSize: 11, marginTop: 6, textAlign: "right", fontStyle: "italic" },
+  hormName: { fontSize: 14, fontWeight: "700", fontFamily: "Cairo-Bold" },
+  hormMeta: { fontSize: 11, marginTop: 2, fontFamily: "Cairo" },
+  hormCompany: { fontSize: 11, fontWeight: "600", marginTop: 2, fontFamily: "Cairo-Bold" },
+  hormNotes: { fontSize: 11, marginTop: 6, textAlign: "right", fontStyle: "italic", fontFamily: "Cairo" },
   hormCatSection: { marginBottom: 16 },
-  hormCatTitle: { fontSize: 14, fontWeight: "800", marginBottom: 8, textAlign: "right" },
+  hormCatTitle: { fontSize: 14, fontWeight: "800", marginBottom: 8, textAlign: "right", fontFamily: "Cairo-Black" },
   hormRefRow: {
     flexDirection: "row-reverse",
     justifyContent: "space-between",
@@ -1229,8 +1229,8 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     borderBottomWidth: 0.5,
   },
-  hormRefName: { fontSize: 13, fontWeight: "700", textAlign: "right" },
-  hormRefDose: { fontSize: 11, marginTop: 2, textAlign: "right" },
+  hormRefName: { fontSize: 13, fontWeight: "700", textAlign: "right", fontFamily: "Cairo-Bold" },
+  hormRefDose: { fontSize: 11, marginTop: 2, textAlign: "right", fontFamily: "Cairo" },
   quickAddBtn: { width: 32, height: 32, borderRadius: 10, alignItems: "center", justifyContent: "center" },
 
   // Medication Row
@@ -1241,8 +1241,8 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     borderBottomWidth: 0.5,
   },
-  medName: { fontSize: 13, fontWeight: "700", textAlign: "right" },
-  medMeta: { fontSize: 11, marginTop: 2, textAlign: "right" },
+  medName: { fontSize: 13, fontWeight: "700", textAlign: "right", fontFamily: "Cairo-Bold" },
+  medMeta: { fontSize: 11, marginTop: 2, textAlign: "right", fontFamily: "Cairo" },
 
   // Empty Box
   emptyBox: {
@@ -1252,8 +1252,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     gap: 10,
   },
-  emptyText: { fontSize: 15, fontWeight: "700" },
-  emptySubText: { fontSize: 12, textAlign: "center" },
+  emptyText: { fontSize: 15, fontWeight: "700", fontFamily: "Cairo-Bold" },
+  emptySubText: { fontSize: 12, textAlign: "center", fontFamily: "Cairo" },
 
   // Schedule
   scheduleGroup: {
@@ -1268,9 +1268,9 @@ const styles = StyleSheet.create({
     gap: 8,
     padding: 10,
   },
-  scheduleTime: { fontSize: 13, fontWeight: "800", flex: 1, textAlign: "right" },
+  scheduleTime: { fontSize: 13, fontWeight: "800", flex: 1, textAlign: "right", fontFamily: "Cairo-Black" },
   scheduleCount: { width: 20, height: 20, borderRadius: 10, alignItems: "center", justifyContent: "center" },
-  scheduleCountText: { color: "#fff", fontSize: 11, fontWeight: "700" },
+  scheduleCountText: { color: "#fff", fontSize: 11, fontWeight: "700", fontFamily: "Cairo-Bold" },
   scheduleItem: {
     flexDirection: "row-reverse",
     alignItems: "center",
@@ -1280,8 +1280,8 @@ const styles = StyleSheet.create({
   },
   scheduleItemDot: { width: 8, height: 8, borderRadius: 4 },
   scheduleItemInfo: { flex: 1, alignItems: "flex-end" },
-  scheduleItemName: { fontSize: 13, fontWeight: "700" },
-  scheduleItemDose: { fontSize: 11, marginTop: 2 },
+  scheduleItemName: { fontSize: 13, fontWeight: "700", fontFamily: "Cairo-Bold" },
+  scheduleItemDose: { fontSize: 11, marginTop: 2, fontFamily: "Cairo" },
 
   // Modal
   modal: { flex: 1 },
@@ -1293,7 +1293,7 @@ const styles = StyleSheet.create({
     paddingTop: 52,
     borderBottomWidth: 0.5,
   },
-  modalTitle: { fontSize: 18, fontWeight: "900" },
+  modalTitle: { fontSize: 18, fontWeight: "900", fontFamily: "Cairo-Black" },
   modalBody: { padding: 16 },
 
   // Form
@@ -1304,8 +1304,9 @@ const styles = StyleSheet.create({
     fontSize: 14,
     marginBottom: 14,
     textAlign: "right",
+    fontFamily: "Cairo",
   },
-  inputLabel: { fontSize: 12, fontWeight: "600", marginBottom: 6, textAlign: "right" },
+  inputLabel: { fontSize: 12, fontWeight: "600", marginBottom: 6, textAlign: "right", fontFamily: "Cairo-Bold" },
   timingRow: { flexDirection: "row-reverse", flexWrap: "wrap", gap: 8, marginBottom: 14 },
   timingChip: {
     paddingHorizontal: 12,
@@ -1313,7 +1314,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     borderWidth: 1,
   },
-  timingChipText: { fontSize: 12, fontWeight: "600" },
+  timingChipText: { fontSize: 12, fontWeight: "600", fontFamily: "Cairo-Bold" },
   genderRow: { flexDirection: "row-reverse", gap: 10, marginBottom: 14 },
   genderBtn: {
     flex: 1,
@@ -1322,7 +1323,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     alignItems: "center",
   },
-  genderBtnText: { fontSize: 14, fontWeight: "700" },
+  genderBtnText: { fontSize: 14, fontWeight: "700", fontFamily: "Cairo-Bold" },
   saveBtn: {
     padding: 14,
     borderRadius: 14,
@@ -1330,7 +1331,7 @@ const styles = StyleSheet.create({
     marginTop: 8,
     marginBottom: 32,
   },
-  saveBtnText: { color: "#fff", fontSize: 15, fontWeight: "800" },
+  saveBtnText: { color: "#fff", fontSize: 15, fontWeight: "800", fontFamily: "Cairo-Black" },
 
   // Product picker
   selectedCard: {
@@ -1340,9 +1341,9 @@ const styles = StyleSheet.create({
     marginBottom: 14,
     alignItems: "flex-end",
   },
-  selectedName: { fontSize: 14, fontWeight: "800" },
-  selectedBrand: { fontSize: 11, marginTop: 2 },
-  changeBtn: { fontSize: 12, fontWeight: "700", marginTop: 6 },
+  selectedName: { fontSize: 14, fontWeight: "800", fontFamily: "Cairo-Black" },
+  selectedBrand: { fontSize: 11, marginTop: 2, fontFamily: "Cairo" },
+  changeBtn: { fontSize: 12, fontWeight: "700", marginTop: 6, fontFamily: "Cairo-Bold" },
   productPickRow: {
     flexDirection: "row-reverse",
     justifyContent: "space-between",
@@ -1352,8 +1353,8 @@ const styles = StyleSheet.create({
     padding: 12,
     marginBottom: 8,
   },
-  productPickName: { fontSize: 13, fontWeight: "700", textAlign: "right" },
-  productPickBrand: { fontSize: 11, marginTop: 2, textAlign: "right" },
+  productPickName: { fontSize: 13, fontWeight: "700", textAlign: "right", fontFamily: "Cairo-Bold" },
+  productPickBrand: { fontSize: 11, marginTop: 2, textAlign: "right", fontFamily: "Cairo" },
   scoreMini: { paddingHorizontal: 8, paddingVertical: 4, borderRadius: 8 },
-  scoreMiniText: { fontSize: 12, fontWeight: "800" },
+  scoreMiniText: { fontSize: 12, fontWeight: "800", fontFamily: "Cairo-Black" },
 });

@@ -432,12 +432,14 @@ const styles = StyleSheet.create({
     color: '#d4af37',
     fontSize: 18,
     fontWeight: 'bold',
+    fontFamily: "Cairo",
   },
   title: {
     fontSize: 20,
     fontWeight: 'bold',
     color: '#ffffff',
     textAlign: 'center',
+    fontFamily: "Cairo",
   },
   descCard: {
     backgroundColor: '#1a1a2e',
@@ -452,6 +454,7 @@ const styles = StyleSheet.create({
   },
   descIcon: {
     fontSize: 32,
+    fontFamily: "Cairo",
   },
   descText: {
     flex: 1,
@@ -459,6 +462,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 22,
     textAlign: 'right',
+    fontFamily: "Cairo",
   },
   sectionTitle: {
     color: '#d4af37',
@@ -466,6 +470,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 12,
     textAlign: 'right',
+    fontFamily: "Cairo",
   },
   optionCard: {
     backgroundColor: '#1a1a1a',
@@ -490,12 +495,14 @@ const styles = StyleSheet.create({
   },
   optionIcon: {
     fontSize: 28,
+    fontFamily: "Cairo",
   },
   optionLabel: {
     color: '#ffffff',
     fontSize: 15,
     fontWeight: '600',
     textAlign: 'right',
+    fontFamily: "Cairo",
   },
   optionLabelSelected: {
     color: '#d4af37',
@@ -505,6 +512,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     marginTop: 2,
     textAlign: 'right',
+    fontFamily: "Cairo",
   },
   radio: {
     width: 22,
@@ -540,12 +548,14 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 10,
     textAlign: 'right',
+    fontFamily: "Cairo",
   },
   infoItem: {
     color: '#aaa',
     fontSize: 13,
     lineHeight: 24,
     textAlign: 'right',
+    fontFamily: "Cairo",
   },
   exportBtn: {
     backgroundColor: '#d4af37',
@@ -561,6 +571,7 @@ const styles = StyleSheet.create({
     color: '#000',
     fontSize: 16,
     fontWeight: 'bold',
+    fontFamily: "Cairo",
   },
   printBtn: {
     backgroundColor: '#1a1a2e',
@@ -575,6 +586,7 @@ const styles = StyleSheet.create({
     color: '#d4af37',
     fontSize: 16,
     fontWeight: 'bold',
+    fontFamily: "Cairo",
   },
   disclaimer: {
     backgroundColor: '#1a1000',
@@ -589,5 +601,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
     lineHeight: 20,
     textAlign: 'right',
+    fontFamily: "Cairo",
   },
 });

@@ -212,7 +212,7 @@ export default function HomeScreen() {
               <IconSymbol name="sparkles" size={28} color={colors.primary} />
             </View>
             <View style={styles.aiBannerText}>
-              <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>مساعد AI المتخصص</Text>
+              <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>المساعد الذكي المتخصص</Text>
               <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>تحليل التحاليل المخبرية • خبير الهرمونات • توصيات مخصصة</Text>
             </View>
             <IconSymbol name="chevron.left" size={20} color={colors.primary} />
@@ -276,7 +276,7 @@ export default function HomeScreen() {
             </View>
             <View style={styles.aiBannerText}>
               <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>المكتبة العلمية</Text>
-              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>مقالات • بدائل غذائية • قائمة WADA • منتجات Vegan</Text>
+              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>مقالات • بدائل غذائية • قائمة المحظورات الرياضية • منتجات نباتية</Text>
             </View>
             <IconSymbol name="chevron.left" size={20} color="#8B5CF6" />
           </Pressable>
@@ -464,7 +464,7 @@ export default function HomeScreen() {
             </View>
             <View style={styles.aiBannerText}>
               <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>الطول العمر ومكافحة الشيخوخة</Text>
-              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>NAD+ • الأوتوفاجي • التيلومير • Senolytics • الميتوكوندريا</Text>
+              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>مضادات الشيخوخة • الأوتوفاجي • التيلومير • إزالة الخلايا الشائخة • الميتوكوندريا</Text>
             </View>
             <IconSymbol name="chevron.left" size={20} color="#F59E0B" />
           </Pressable>
@@ -548,7 +548,7 @@ export default function HomeScreen() {
             </View>
             <View style={styles.aiBannerText}>
               <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>محور الأمعاء والدماغ</Text>
-              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>Gut-Brain Axis • بروبيوتيك نفسي • ناقلات عصبية</Text>
+              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>محور الأمعاء والدماغ • بروبيوتيك نفسي • ناقلات عصبية</Text>
             </View>
             <IconSymbol name="chevron.left" size={20} color="#10B981" />
           </Pressable>
@@ -653,7 +653,7 @@ export default function HomeScreen() {
             </View>
             <View style={styles.aiBannerText}>
               <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>مكملات الأطفال والمراهقين</Text>
-              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>دليل آمن حسب الفئة العمرية • ADHD • النمو</Text>
+              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>دليل آمن حسب الفئة العمرية • اضطراب التركيز • النمو</Text>
             </View>
             <IconSymbol name="chevron.left" size={20} color="#8B5CF6" />
           </Pressable>
@@ -695,7 +695,7 @@ export default function HomeScreen() {
             </View>
             <View style={styles.aiBannerText}>
               <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>مكملات المسافر</Text>
-              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>Jet Lag • مرض الارتفاع • الوقاية أثناء السفر</Text>
+              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>اضطراب الرحلات الجوية • مرض الارتفاع • الوقاية أثناء السفر</Text>
             </View>
             <IconSymbol name="chevron.left" size={20} color="#6366F1" />
           </Pressable>
@@ -1178,7 +1178,7 @@ export default function HomeScreen() {
             </View>
             <View style={styles.aiBannerText}>
               <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>بروتوكولات إضافية</Text>
-              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>خصوبة • زهايمر • عظام • NAD+ • أوتوفاجي</Text>
+              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>خصوبة • زهايمر • عظام • مضادات الشيخوخة • أوتوفاجي</Text>
             </View>
             <IconSymbol name="chevron.left" size={20} color="#6366F1" />
           </Pressable>
@@ -1432,7 +1432,7 @@ export default function HomeScreen() {
                         <IconSymbol name="chevron.left" size={20} color="#F59E0B" />
           </Pressable>
 
-          {/* ADHD & Neuro */}
+          {/* اضطراب التركيز والجهاز العصبي */}
           <Pressable
             style={({ pressed }) => [
               styles.aiBanner,
@@ -1445,7 +1445,7 @@ export default function HomeScreen() {
               <IconSymbol name="brain.head.profile" size={28} color="#6366F1" />
             </View>
             <View style={styles.aiBannerText}>
-              <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>ADHD والجهاز العصبي 🧠</Text>
+              <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>اضطراب التركيز والانتباه والجهاز العصبي 🧠</Text>
               <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>مكملات الانتباه • دعم الميلين • الوظائف التنفيذية</Text>
             </View>
             <IconSymbol name="chevron.left" size={20} color="#6366F1" />
@@ -1624,7 +1624,7 @@ export default function HomeScreen() {
             </View>
             <View style={styles.aiBannerText}>
               <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>الجينات والمكملات 🧬</Text>
-              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>MTHFR • APOE4 • VDR • COMT • بروتوكولات جينية</Text>
+              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>تحليل الطفرات الجينية • بروتوكولات مخصصة حسب الجينات</Text>
             </View>
             <IconSymbol name="chevron.left" size={20} color="#0EA5E9" />
           </Pressable>
@@ -1789,7 +1789,7 @@ export default function HomeScreen() {
             </View>
             <View style={styles.aiBannerText}>
               <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>التعب المزمن والفيبروميالجيا ⚡</Text>
-              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>بروتوكولات CFS • دعم الميتوكوندريا • إدارة الألم المزمن</Text>
+              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>بروتوكولات التعب المزمن • دعم الميتوكوندريا • إدارة الألم</Text>
             </View>
             <IconSymbol name="chevron.left" size={20} color="#F59E0B" />
           </Pressable>
@@ -1804,7 +1804,7 @@ export default function HomeScreen() {
             </View>
             <View style={styles.aiBannerText}>
               <Text style={[styles.aiBannerTitle, { color: colors.foreground }]}>التعافي من كوفيد وما بعده 🦠</Text>
-              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>بروتوكولات 3 مراحل • Long COVID • خريطة الأعراض والمكملات</Text>
+              <Text style={[styles.aiBannerDesc, { color: colors.muted }]}>بروتوكولات 3 مراحل • أعراض ما بعد كوفيد • خريطة الأعراض والمكملات</Text>
             </View>
             <IconSymbol name="chevron.left" size={20} color="#EF4444" />
           </Pressable>
@@ -2032,8 +2032,8 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   headerLeft: { alignItems: "flex-end" },
-  greeting: { fontSize: 12, marginBottom: 2 },
-  appName: { fontSize: 26, fontWeight: "900", letterSpacing: -0.5 },
+  greeting: { fontSize: 12, marginBottom: 2, fontFamily: "Cairo" },
+  appName: { fontSize: 26, fontWeight: "900", letterSpacing: -0.5, fontFamily: "Cairo-Black" },
   headerBadge: {
     flexDirection: "row",
     alignItems: "center",
@@ -2043,7 +2043,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     borderWidth: 1,
   },
-  headerBadgeText: { fontSize: 11, fontWeight: "700" },
+  headerBadgeText: { fontSize: 11, fontWeight: "700", fontFamily: "Cairo-Bold" },
 
   // Stats
   statsRow: {
@@ -2054,8 +2054,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
   },
   statItem: { flex: 1, alignItems: "center", gap: 3 },
-  statValue: { fontSize: 18, fontWeight: "800" },
-  statLabel: { fontSize: 10, fontWeight: "500" },
+  statValue: { fontSize: 18, fontWeight: "800", fontFamily: "Cairo-Black" },
+  statLabel: { fontSize: 10, fontWeight: "500", fontFamily: "Cairo" },
 
   // Sections
   section: { paddingHorizontal: 16, marginTop: 24 },
@@ -2065,8 +2065,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: 14,
   },
-  sectionTitle: { fontSize: 17, fontWeight: "800", marginBottom: 14 },
-  seeAll: { fontSize: 13, fontWeight: "600" },
+  sectionTitle: { fontSize: 17, fontWeight: "800", marginBottom: 14, fontFamily: "Cairo-Black" },
+  seeAll: { fontSize: 13, fontWeight: "600", fontFamily: "Cairo-Bold" },
 
   // Quick Actions
   quickGrid: {
@@ -2088,8 +2088,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  quickTitle: { fontSize: 14, fontWeight: "800" },
-  quickDesc: { fontSize: 11, lineHeight: 16 },
+  quickTitle: { fontSize: 14, fontWeight: "800", fontFamily: "Cairo-Black" },
+  quickDesc: { fontSize: 11, lineHeight: 18, fontFamily: "Cairo" },
 
   // Categories horizontal scroll
   categoriesScroll: {
@@ -2112,8 +2112,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  chipName: { fontSize: 13, fontWeight: "700", textAlign: "right" },
-  chipCount: { fontSize: 10, fontWeight: "600", textAlign: "right" },
+  chipName: { fontSize: 13, fontWeight: "700", textAlign: "right", fontFamily: "Cairo-Bold" },
+  chipCount: { fontSize: 10, fontWeight: "600", textAlign: "right", fontFamily: "Cairo" },
 
   // Product rows
   productRow: {
@@ -2132,7 +2132,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  rankText: { fontSize: 12, fontWeight: "800" },
+  rankText: { fontSize: 12, fontWeight: "800", fontFamily: "Cairo-Black" },
   productIcon: {
     width: 44,
     height: 44,
@@ -2141,10 +2141,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   productInfo: { flex: 1, alignItems: "flex-end", gap: 3 },
-  productName: { fontSize: 14, fontWeight: "700" },
-  productBrand: { fontSize: 11 },
+  productName: { fontSize: 14, fontWeight: "700", fontFamily: "Cairo-Bold" },
+  productBrand: { fontSize: 11, fontFamily: "Cairo" },
   catBadge: { paddingHorizontal: 7, paddingVertical: 2, borderRadius: 6 },
-  catBadgeText: { fontSize: 10, fontWeight: "600" },
+  catBadgeText: { fontSize: 10, fontWeight: "600", fontFamily: "Cairo-Bold" },
   scorePill: {
     alignItems: "center",
     justifyContent: "center",
@@ -2154,7 +2154,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     gap: 2,
   },
-  scoreNum: { fontSize: 16, fontWeight: "900" },
+  scoreNum: { fontSize: 16, fontWeight: "900", fontFamily: "Cairo-Black" },
 
   // AI Banner
   aiBanner: {
@@ -2173,6 +2173,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   aiBannerText: { flex: 1, alignItems: "flex-end", gap: 4 },
-  aiBannerTitle: { fontSize: 15, fontWeight: "800" },
-  aiBannerDesc: { fontSize: 11, textAlign: "right", lineHeight: 16 },
+  aiBannerTitle: { fontSize: 15, fontWeight: "800", fontFamily: "Cairo-Black" },
+  aiBannerDesc: { fontSize: 11, textAlign: "right", lineHeight: 18, fontFamily: "Cairo" },
 });

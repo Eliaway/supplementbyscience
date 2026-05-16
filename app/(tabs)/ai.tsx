@@ -623,14 +623,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingBottom: 12,
   },
-  headerTitle: { fontSize: 22, fontWeight: "900", textAlign: "right" },
-  headerSub: { fontSize: 12, textAlign: "right" },
+  headerTitle: { fontSize: 22, fontWeight: "900", textAlign: "right", fontFamily: "Cairo-Black" },
+  headerSub: { fontSize: 12, textAlign: "right", fontFamily: "Cairo" },
   aiBadge: {
     paddingHorizontal: 12,
     paddingVertical: 5,
     borderRadius: 12,
   },
-  aiBadgeText: { fontSize: 13, fontWeight: "900" },
+  aiBadgeText: { fontSize: 13, fontWeight: "900", fontFamily: "Cairo-Black" },
 
   // Main Tabs
   tabRow: {
@@ -647,7 +647,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2,
     borderBottomColor: "transparent",
   },
-  mainTabText: { fontSize: 13, fontWeight: "700" },
+  mainTabText: { fontSize: 13, fontWeight: "700", fontFamily: "Cairo-Bold" },
 
   // Warning / Profile Card
   warningBox: {
@@ -659,8 +659,8 @@ const styles = StyleSheet.create({
     marginBottom: 14,
     alignItems: "flex-start",
   },
-  warningTitle: { fontSize: 13, fontWeight: "800", marginBottom: 4, textAlign: "right" },
-  warningText: { fontSize: 12, lineHeight: 18, textAlign: "right" },
+  warningTitle: { fontSize: 13, fontWeight: "800", marginBottom: 4, textAlign: "right", fontFamily: "Cairo-Black" },
+  warningText: { fontSize: 12, lineHeight: 18, textAlign: "right", fontFamily: "Cairo" },
   profileCard: {
     flexDirection: "row-reverse",
     gap: 8,
@@ -670,7 +670,7 @@ const styles = StyleSheet.create({
     marginBottom: 14,
     alignItems: "center",
   },
-  profileCardText: { fontSize: 13, fontWeight: "600", flex: 1, textAlign: "right" },
+  profileCardText: { fontSize: 13, fontWeight: "600", flex: 1, textAlign: "right", fontFamily: "Cairo-Bold" },
 
   // Analyze All Button
   analyzeAllBtn: {
@@ -682,7 +682,7 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     marginBottom: 16,
   },
-  analyzeAllText: { color: "#fff", fontSize: 15, fontWeight: "800" },
+  analyzeAllText: { color: "#fff", fontSize: 15, fontWeight: "800", fontFamily: "Cairo-Black" },
 
   // Expert Card
   expertCard: {
@@ -706,9 +706,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  expertEmojiText: { fontSize: 22 },
-  expertName: { fontSize: 15, fontWeight: "800", textAlign: "right" },
-  expertDesc: { fontSize: 11, textAlign: "right", marginTop: 2 },
+  expertEmojiText: { fontSize: 22, fontFamily: "Cairo" },
+  expertName: { fontSize: 15, fontWeight: "800", textAlign: "right", fontFamily: "Cairo-Black" },
+  expertDesc: { fontSize: 11, textAlign: "right", marginTop: 2, fontFamily: "Cairo" },
   analyzeBtn: {
     flexDirection: "row",
     alignItems: "center",
@@ -718,20 +718,20 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     borderWidth: 1,
   },
-  analyzeBtnText: { fontSize: 12, fontWeight: "700" },
+  analyzeBtnText: { fontSize: 12, fontWeight: "700", fontFamily: "Cairo-Bold" },
   loadingBox: {
     flexDirection: "row-reverse",
     alignItems: "center",
     gap: 10,
     padding: 12,
   },
-  loadingText: { fontSize: 13 },
+  loadingText: { fontSize: 13, fontFamily: "Cairo" },
   analysisBox: {
     borderRadius: 12,
     borderWidth: 1,
     padding: 12,
   },
-  analysisText: { fontSize: 13, lineHeight: 22, textAlign: "right" },
+  analysisText: { fontSize: 13, lineHeight: 22, textAlign: "right", fontFamily: "Cairo" },
 
   // Expert Selector (Chat)
   expertSelector: {
@@ -749,15 +749,15 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     borderWidth: 1,
   },
-  expertChipEmoji: { fontSize: 16 },
-  expertChipName: { fontSize: 12, fontWeight: "700" },
+  expertChipEmoji: { fontSize: 16, fontFamily: "Cairo" },
+  expertChipName: { fontSize: 12, fontWeight: "700", fontFamily: "Cairo-Bold" },
 
   // Chat
   emptyChat: { alignItems: "center", paddingTop: 32, gap: 8 },
-  emptyChatEmoji: { fontSize: 56 },
-  emptyChatTitle: { fontSize: 20, fontWeight: "900" },
-  emptyChatDesc: { fontSize: 13, textAlign: "center" },
-  emptyChatHint: { fontSize: 12, textAlign: "center", marginTop: 4 },
+  emptyChatEmoji: { fontSize: 56, fontFamily: "Cairo" },
+  emptyChatTitle: { fontSize: 20, fontWeight: "900", fontFamily: "Cairo-Black" },
+  emptyChatDesc: { fontSize: 13, textAlign: "center", fontFamily: "Cairo" },
+  emptyChatHint: { fontSize: 12, textAlign: "center", marginTop: 4, fontFamily: "Cairo" },
   quickQGrid: {
     flexDirection: "row-reverse",
     flexWrap: "wrap",
@@ -772,7 +772,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     borderWidth: 1,
   },
-  quickQText: { fontSize: 12, fontWeight: "600", textAlign: "right" },
+  quickQText: { fontSize: 12, fontWeight: "600", textAlign: "right", fontFamily: "Cairo-Bold" },
 
   // Messages
   messageRow: { flexDirection: "row", gap: 8, alignItems: "flex-end" },
@@ -786,7 +786,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     flexShrink: 0,
   },
-  msgAvatarText: { fontSize: 18 },
+  msgAvatarText: { fontSize: 18, fontFamily: "Cairo" },
   messageBubble: {
     maxWidth: "80%",
     padding: 12,
@@ -795,8 +795,8 @@ const styles = StyleSheet.create({
   },
   userBubble: { borderBottomRightRadius: 4 },
   assistantBubble: { borderWidth: 1, borderBottomLeftRadius: 4 },
-  expertLabel: { fontSize: 11, fontWeight: "800", textAlign: "right" },
-  messageText: { fontSize: 13, lineHeight: 20, textAlign: "right" },
+  expertLabel: { fontSize: 11, fontWeight: "800", textAlign: "right", fontFamily: "Cairo-Black" },
+  messageText: { fontSize: 13, lineHeight: 20, textAlign: "right", fontFamily: "Cairo" },
 
   // Typing
   typingRow: {
@@ -813,7 +813,7 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     borderWidth: 1,
   },
-  typingText: { fontSize: 12 },
+  typingText: { fontSize: 12, fontFamily: "Cairo" },
 
   // Input
   inputRow: {
@@ -832,6 +832,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     fontSize: 14,
     maxHeight: 100,
+    fontFamily: "Cairo",
   },
   sendBtn: {
     width: 42,

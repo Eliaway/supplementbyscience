@@ -29,6 +29,7 @@ export default function TabLayout() {
         tabBarLabelStyle: {
           fontSize: 10,
           fontWeight: "600",
+          fontFamily: "Cairo-Bold",
         },
       }}
     >
@@ -49,7 +50,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="ai"
         options={{
-          title: "مساعد AI",
+          title: "مساعد ذكي",
           tabBarIcon: ({ color }) => <IconSymbol size={24} name="sparkles" color={color} />,
         }}
       />

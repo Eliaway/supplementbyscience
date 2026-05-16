@@ -348,12 +348,14 @@ const styles = StyleSheet.create({
     color: '#d4af37',
     fontSize: 18,
     fontWeight: 'bold',
+    fontFamily: "Cairo",
   },
   title: {
     fontSize: 20,
     fontWeight: 'bold',
     color: '#ffffff',
     textAlign: 'center',
+    fontFamily: "Cairo",
   },
   statusCard: {
     backgroundColor: '#1a1a2e',
@@ -377,11 +379,13 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: 'bold',
     marginBottom: 4,
+    fontFamily: "Cairo",
   },
   statusLabel: {
     color: '#888',
     fontSize: 12,
     textAlign: 'center',
+    fontFamily: "Cairo",
   },
   statusDivider: {
     width: 1,
@@ -402,12 +406,14 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 4,
     textAlign: 'right',
+    fontFamily: "Cairo",
   },
   lastBackupDate: {
     color: '#aaa',
     fontSize: 13,
     marginBottom: 8,
     textAlign: 'right',
+    fontFamily: "Cairo",
   },
   lastBackupDetails: {
     flexDirection: 'row',
@@ -417,6 +423,7 @@ const styles = StyleSheet.create({
   lastBackupDetail: {
     color: '#888',
     fontSize: 12,
+    fontFamily: "Cairo",
   },
   infoCard: {
     backgroundColor: '#111',
@@ -432,6 +439,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 12,
     textAlign: 'right',
+    fontFamily: "Cairo",
   },
   infoItem: {
     flexDirection: 'row',
@@ -444,11 +452,13 @@ const styles = StyleSheet.create({
   },
   infoItemIcon: {
     fontSize: 16,
+    fontFamily: "Cairo",
   },
   infoItemText: {
     color: '#aaa',
     fontSize: 13,
     textAlign: 'right',
+    fontFamily: "Cairo",
   },
   securityCard: {
     backgroundColor: '#0d0d1f',
@@ -464,6 +474,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 8,
     textAlign: 'right',
+    fontFamily: "Cairo",
   },
   securityText: {
     color: '#aaa',
@@ -471,6 +482,7 @@ const styles = StyleSheet.create({
     lineHeight: 20,
     marginBottom: 12,
     textAlign: 'right',
+    fontFamily: "Cairo",
   },
   securityFeatures: {
     flexDirection: 'row',
@@ -482,11 +494,13 @@ const styles = StyleSheet.create({
   },
   securityFeatureIcon: {
     fontSize: 20,
+    fontFamily: "Cairo",
   },
   securityFeatureText: {
     color: '#888',
     fontSize: 11,
     textAlign: 'center',
+    fontFamily: "Cairo",
   },
   backupBtn: {
     backgroundColor: '#d4af37',
@@ -502,6 +516,7 @@ const styles = StyleSheet.create({
     color: '#000',
     fontSize: 16,
     fontWeight: 'bold',
+    fontFamily: "Cairo",
   },
   restoreBtn: {
     backgroundColor: '#1a1a2e',
@@ -516,6 +531,7 @@ const styles = StyleSheet.create({
     color: '#d4af37',
     fontSize: 16,
     fontWeight: 'bold',
+    fontFamily: "Cairo",
   },
   clearBtn: {
     backgroundColor: '#1a0000',
@@ -530,6 +546,7 @@ const styles = StyleSheet.create({
     color: '#ff5555',
     fontSize: 15,
     fontWeight: '600',
+    fontFamily: "Cairo",
   },
   tip: {
     backgroundColor: '#111',
@@ -543,5 +560,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
     lineHeight: 20,
     textAlign: 'right',
+    fontFamily: "Cairo",
   },
 });
