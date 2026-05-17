@@ -1,9 +1,11 @@
-function readPackage(pkg, context) {
-  return pkg;
-}
-
 module.exports = {
   hooks: {
-    readPackage
-  }
+    readPackageJson: async (pkg) => {
+      if (['esbuild', 'unrs-resolver'].includes(pkg.name)) {
+        pkg.pnpm = pkg.pnpm || {};
+        pkg.pnpm.allowBuild = true;
+      }
+      return pkg;
+    },
+  },
 };
