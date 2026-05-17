@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لوحة المستخدم — Supplement by Science</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --bg2: #111118;
+      --bg3: #1a1a24;
+      --border: #2a2a3a;
+      --primary: #7c3aed;
+      --primary-light: #a78bfa;
+      --gold: #f59e0b;
+      --gold-light: #fcd34d;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --success: #10b981;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      direction: rtl;
+    }
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(10, 10, 15, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 50;
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+    .nav-logo {
+      width: 32px; height: 32px;
+      background: linear-gradient(135deg, var(--primary), #4f46e5);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+    }
+    .nav-title { font-size: 1rem; font-weight: 700; color: var(--text); }
+    .nav-title span { color: var(--primary-light); }
+    .nav-right { display: flex; align-items: center; gap: 1rem; }
+    .user-chip {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      padding: 0.4rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+    }
+    .btn-logout {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 0.4rem 1rem;
+      border-radius: 8px;
+      font-family: 'Cairo', sans-serif;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-logout:hover { border-color: #ef4444; color: #fca5a5; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+    .welcome-banner {
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.15), rgba(79, 70, 229, 0.05));
+      border: 1px solid rgba(124, 58, 237, 0.2);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .welcome-text h2 { font-size: 1.5rem; font-weight: 800; margin-bottom: 0.25rem; }
+    .welcome-text p { color: var(--text-muted); font-size: 0.9rem; }
+    .welcome-icon { font-size: 3rem; }
+    .quick-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .quick-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.5rem;
+      text-align: center;
+      text-decoration: none;
+      color: var(--text);
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .quick-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+    .quick-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+    .quick-title { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.25rem; }
+    .quick-desc { font-size: 0.8rem; color: var(--text-muted); }
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+    .product-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.25rem;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .product-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+    .card-brand {
+      font-size: 0.75rem;
+      color: var(--primary-light);
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+    .card-name { font-size: 1rem; font-weight: 700; margin-bottom: 0.25rem; }
+    .card-cat { font-size: 0.8rem; color: var(--text-dim); margin-bottom: 0.75rem; }
+    .card-score {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .score-num { font-size: 0.9rem; font-weight: 700; color: var(--gold-light); }
+    .score-bar {
+      flex: 1;
+      height: 4px;
+      background: var(--bg3);
+      border-radius: 2px;
+      margin: 0 0.75rem;
+      overflow: hidden;
+    }
+    .score-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), var(--gold));
+      border-radius: 2px;
+    }
+    .auth-overlay {
+      position: fixed;
+      inset: 0;
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .auth-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2.5rem;
+      max-width: 380px;
+      width: 90%;
+      text-align: center;
+    }
+    .auth-card h2 { font-size: 1.3rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .auth-card p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
+    .btn-login {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 10px;
+      font-family: 'Cairo', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+
+<div class="auth-overlay" id="authOverlay">
+  <div class="auth-card">
+    <div style="font-size: 2rem; margin-bottom: 1rem;">🔐</div>
+    <h2>تسجيل الدخول مطلوب</h2>
+    <p>يجب تسجيل الدخول للوصول إلى لوحة المستخدم</p>
+    <a href="/login.html" class="btn-login">تسجيل الدخول</a>
+  </div>
+</div>
+
+<nav>
+  <a href="/" class="nav-brand">
+    <div class="nav-logo">💊</div>
+    <div class="nav-title">Supplement <span>by Science</span></div>
+  </a>
+  <div class="nav-right">
+    <div class="user-chip">
+      <span>👤</span>
+      <span id="userName">...</span>
+    </div>
+    <button class="btn-logout" onclick="logout()">خروج</button>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="welcome-banner">
+    <div class="welcome-text">
+      <h2>مرحباً، <span id="welcomeName" style="color: var(--primary-light);">...</span>!</h2>
+      <p>استعرض أحدث المنتجات المُقيَّمة علمياً واحصل على توصيات مخصصة</p>
+    </div>
+    <div class="welcome-icon">🧬</div>
+  </div>
+
+  <div class="quick-links">
+    <a href="/#products" class="quick-card">
+      <div class="quick-icon">💊</div>
+      <div class="quick-title">استعراض المنتجات</div>
+      <div class="quick-desc">40 منتج مُقيَّم علمياً</div>
+    </a>
+    <div class="quick-card" onclick="window.location.href='/#features'">
+      <div class="quick-icon">🔬</div>
+      <div class="quick-title">التقييم العلمي</div>
+      <div class="quick-desc">منهجية التقييم والمصادر</div>
+    </div>
+    <div class="quick-card" onclick="alert('قريباً: تطبيق الموبايل مع مساعد AI شخصي!')">
+      <div class="quick-icon">📱</div>
+      <div class="quick-title">تطبيق الموبايل</div>
+      <div class="quick-desc">قريباً — مساعد AI شخصي</div>
+    </div>
+  </div>
+
+  <div class="section-title">🏆 أعلى المنتجات تقييماً</div>
+  <div class="products-grid" id="productsGrid">
+    <div style="text-align:center; padding: 2rem; color: var(--text-muted);">جاري التحميل...</div>
+  </div>
+</div>
+
+<script>
+const token = localStorage.getItem('token');
+const user = JSON.parse(localStorage.getItem('user') || '{}');
+
+function checkAuth() {
+  if (!token) {
+    document.getElementById('authOverlay').style.display = 'flex';
+    return false;
+  }
+  document.getElementById('authOverlay').style.display = 'none';
+  document.getElementById('userName').textContent = user.name || 'مستخدم';
+  document.getElementById('welcomeName').textContent = user.name || 'مستخدم';
+  return true;
+}
+
+function logout() {
+  localStorage.removeItem('token');
+  localStorage.removeItem('user');
+  window.location.href = '/';
+}
+
+async function loadProducts() {
+  try {
+    const res = await fetch('/api/supplements');
+    const data = await res.json();
+    const top = [...(data.products || [])].sort((a, b) => b.score - a.score).slice(0, 12);
+    const grid = document.getElementById('productsGrid');
+    grid.innerHTML = top.map(p => `
+      <div class="product-card" onclick="window.location.href='/#products'">
+        <div class="card-brand">${p.brand}</div>
+        <div class="card-name">${p.name_ar || p.name_en}</div>
+        <div class="card-cat">${p.category_ar || ''}</div>
+        <div class="card-score">
+          <span class="score-num">⭐ ${p.score}/10</span>
+          <div class="score-bar"><div class="score-fill" style="width: ${p.score * 10}%"></div></div>
+          <span style="font-size: 0.8rem; color: var(--text-dim);">${p.price || ''}</span>
+        </div>
+      </div>
+    `).join('');
+  } catch (e) {}
+}
+
+if (checkAuth()) {
+  loadProducts();
+}
+</script>
+</body>
+</html>

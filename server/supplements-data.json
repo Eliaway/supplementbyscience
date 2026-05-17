@@ -1,0 +1,2466 @@
+{
+  "version": "1.0",
+  "total_products": 40,
+  "categories": {
+    "liver": {
+      "id": "liver",
+      "name_ar": "الكبد والتخلص من السموم",
+      "count": 5,
+      "products": [
+        "infinis_liver",
+        "core_liver",
+        "apollon_liver",
+        "apollon_tudca",
+        "morphogen_liver"
+      ]
+    },
+    "heart": {
+      "id": "heart",
+      "name_ar": "القلب والأوعية الدموية",
+      "count": 4,
+      "products": [
+        "infinis_heart",
+        "core_heart",
+        "apollon_heart",
+        "morphogen_heart"
+      ]
+    },
+    "kidney": {
+      "id": "kidney",
+      "name_ar": "الكلى والمسالك البولية",
+      "count": 4,
+      "products": [
+        "infinis_kidney",
+        "core_kidney",
+        "apollon_kidney",
+        "morphogen_kidney"
+      ]
+    },
+    "brain": {
+      "id": "brain",
+      "name_ar": "الدماغ والإدراك",
+      "count": 3,
+      "products": [
+        "infinis_brain",
+        "apollon_mind",
+        "morphogen_brain"
+      ]
+    },
+    "mood": {
+      "id": "mood",
+      "name_ar": "التوتر والمزاج",
+      "count": 3,
+      "products": [
+        "infinis_calm",
+        "apollon_chill",
+        "morphogen_calm"
+      ]
+    },
+    "vitamins": {
+      "id": "vitamins",
+      "name_ar": "الفيتامينات والمعادن",
+      "count": 7,
+      "products": [
+        "infinis_magnis",
+        "infinis_omega",
+        "core_magnesium",
+        "core_vitd3k2",
+        "apollon_omega",
+        "morphogen_omega",
+        "morphogen_multi"
+      ]
+    },
+    "metabolism": {
+      "id": "metabolism",
+      "name_ar": "التمثيل الغذائي",
+      "count": 2,
+      "products": [
+        "infinis_glp1",
+        "morphogen_glucose"
+      ]
+    },
+    "prostate": {
+      "id": "prostate",
+      "name_ar": "البروستاتا",
+      "count": 2,
+      "products": [
+        "core_prostate",
+        "morphogen_prostate"
+      ]
+    },
+    "longevity": {
+      "id": "longevity",
+      "name_ar": "طول العمر والشيخوخة",
+      "count": 1,
+      "products": [
+        "core_nmn"
+      ]
+    },
+    "hormones": {
+      "id": "hormones",
+      "name_ar": "الهرمونات والغدد",
+      "count": 4,
+      "products": [
+        "apollon_specialist",
+        "morphogen_test",
+        "morphogen_thyroid",
+        "morphogen_women"
+      ]
+    },
+    "sleep": {
+      "id": "sleep",
+      "name_ar": "النوم والتعافي",
+      "count": 1,
+      "products": [
+        "morphogen_sleep"
+      ]
+    },
+    "general": {
+      "id": "general",
+      "name_ar": "الصحة العامة",
+      "count": 4,
+      "products": [
+        "morphogen_adaptogen",
+        "morphogen_joint",
+        "morphogen_biome",
+        "morphogen_nutrigreens"
+      ]
+    }
+  },
+  "products": [
+    {
+      "id": "infinis_liver",
+      "name_en": "LIVER",
+      "name_ar": "صحة الكبد",
+      "brand": "Infinis Nutrition",
+      "category": "liver",
+      "category_ar": "الكبد والتخلص من السموم",
+      "price": "$49.99",
+      "url": "https://infinisnutrition.com/products/liver",
+      "score": 9.0,
+      "evidence_level": "قوي جداً ⭐⭐⭐⭐⭐",
+      "recommendation": "موصى به بشدة ✅✅",
+      "ingredients": [
+        {
+          "name": "TUDCA (Tauroursodeoxycholic Acid)",
+          "dose": "500mg",
+          "score": 9.5,
+          "note": "أقوى مادة لحماية الكبد - مثبتة سريرياً"
+        },
+        {
+          "name": "Milk Thistle (Silymarin 80%)",
+          "dose": "500mg",
+          "score": 9.0,
+          "note": "معيار ذهبي لحماية الكبد"
+        },
+        {
+          "name": "NAC (N-Acetyl Cysteine)",
+          "dose": "600mg",
+          "score": 9.0,
+          "note": "يرفع الغلوتاثيون - مضاد أكسدة قوي"
+        },
+        {
+          "name": "Alpha Lipoic Acid",
+          "dose": "300mg",
+          "score": 8.5,
+          "note": "مضاد أكسدة ثنائي الذوبان"
+        },
+        {
+          "name": "Artichoke Extract",
+          "dose": "300mg",
+          "score": 8.0,
+          "note": "يحفز إنتاج الصفراء"
+        },
+        {
+          "name": "Dandelion Root",
+          "dose": "200mg",
+          "score": 7.5,
+          "note": "دعم طبيعي للكبد"
+        }
+      ],
+      "key_ingredients": [
+        "TUDCA 500mg",
+        "Milk Thistle 500mg",
+        "NAC 600mg",
+        "Alpha Lipoic Acid 300mg"
+      ],
+      "strengths": "جرعة TUDCA استثنائية (500mg) + NAC عالي الجودة + تركيبة شاملة لحماية الكبد",
+      "weaknesses": "سعر مرتفع نسبياً",
+      "best_for": "مستخدمو الأدوية والمكملات، حماية الكبد، التخلص من السموم",
+      "warnings": "استشر الطبيب عند أمراض الكبد المزمنة",
+      "food_sources": "الشوك، الهندباء، الثوم، البيض، الأفوكادو",
+      "drug_interactions": "قد يؤثر على امتصاص بعض الأدوية",
+      "serving_size": "3 كبسولات",
+      "servings_per_container": 30,
+      "description": "تركيبة متكاملة لحماية الكبد ودعم وظائفه بأعلى جرعة من TUDCA في السوق"
+    },
+    {
+      "id": "infinis_heart",
+      "name_en": "HEART",
+      "name_ar": "صحة القلب",
+      "brand": "Infinis Nutrition",
+      "category": "heart",
+      "category_ar": "القلب والأوعية الدموية",
+      "price": "$54.99",
+      "url": "https://infinisnutrition.com/products/heart",
+      "score": 9.0,
+      "evidence_level": "قوي جداً ⭐⭐⭐⭐⭐",
+      "recommendation": "موصى به بشدة ✅✅",
+      "ingredients": [
+        {
+          "name": "CoQ10 (Ubiquinol)",
+          "dose": "200mg",
+          "score": 9.5,
+          "note": "شكل ubiquinol الأكثر امتصاصاً"
+        },
+        {
+          "name": "Omega-3 (EPA/DHA)",
+          "dose": "1000mg",
+          "score": 9.5,
+          "note": "معيار ذهبي لصحة القلب"
+        },
+        {
+          "name": "Berberine HCl",
+          "dose": "500mg",
+          "score": 9.0,
+          "note": "يخفض الكوليسترول والسكر"
+        },
+        {
+          "name": "Magnesium Glycinate",
+          "dose": "200mg",
+          "score": 9.0,
+          "note": "أفضل أشكال المغنيسيوم للقلب"
+        },
+        {
+          "name": "Hawthorn Berry Extract",
+          "dose": "300mg",
+          "score": 8.5,
+          "note": "يقوي عضلة القلب"
+        },
+        {
+          "name": "Nattokinase",
+          "dose": "100mg",
+          "score": 8.5,
+          "note": "يحسن تدفق الدم"
+        }
+      ],
+      "key_ingredients": [
+        "CoQ10 Ubiquinol 200mg",
+        "Berberine 500mg",
+        "Nattokinase 100mg",
+        "Hawthorn 300mg"
+      ],
+      "strengths": "CoQ10 بشكل Ubiquinol الأفضل امتصاصاً + Berberine بجرعة فعّالة + Nattokinase نادر",
+      "weaknesses": "لا يحتوي على Vitamin K2",
+      "best_for": "صحة القلب، ضغط الدم، الكوليسترول، الدورة الدموية",
+      "warnings": "Berberine قد يتفاعل مع أدوية السكري والضغط",
+      "food_sources": "السمك الدهني، المكسرات، الزيتون، الأفوكادو",
+      "drug_interactions": "Berberine + أدوية السكري = تأثير مضاعف",
+      "serving_size": "3 كبسولات",
+      "servings_per_container": 30,
+      "description": "تركيبة شاملة لصحة القلب والأوعية الدموية بمكونات مثبتة علمياً"
+    },
+    {
+      "id": "infinis_kidney",
+      "name_en": "KIDNEY",
+      "name_ar": "صحة الكلى",
+      "brand": "Infinis Nutrition",
+      "category": "kidney",
+      "category_ar": "الكلى والمسالك البولية",
+      "price": "$44.99",
+      "url": "https://infinisnutrition.com/products/kidney",
+      "score": 8.5,
+      "evidence_level": "قوي ⭐⭐⭐⭐",
+      "recommendation": "موصى به ✅",
+      "ingredients": [
+        {
+          "name": "Astragalus Root Extract",
+          "dose": "500mg",
+          "score": 8.5,
+          "note": "يحمي الكلى ويحسن الترشيح"
+        },
+        {
+          "name": "Cranberry Extract (PAC 36mg)",
+          "dose": "400mg",
+          "score": 8.0,
+          "note": "يمنع التصاق البكتيريا"
+        },
+        {
+          "name": "Nettle Leaf Extract",
+          "dose": "300mg",
+          "score": 7.5,
+          "note": "مدر للبول طبيعي"
+        },
+        {
+          "name": "Dandelion Root",
+          "dose": "250mg",
+          "score": 7.5,
+          "note": "دعم الكلى والكبد"
+        },
+        {
+          "name": "Uva Ursi Extract",
+          "dose": "200mg",
+          "score": 7.5,
+          "note": "مضاد بكتيري للمسالك"
+        },
+        {
+          "name": "Parsley Leaf",
+          "dose": "200mg",
+          "score": 7.0,
+          "note": "مدر طبيعي"
+        }
+      ],
+      "key_ingredients": [
+        "Astragalus 500mg",
+        "Cranberry PAC 36mg",
+        "Nettle 300mg",
+        "Uva Ursi 200mg"
+      ],
+      "strengths": "Astragalus بجرعة عالية + Cranberry بمعيار PAC محدد",
+      "weaknesses": "لا يحتوي على Potassium Citrate",
+      "best_for": "حماية الكلى، التهابات المسالك البولية، الحصى الكلوية",
+      "warnings": "تناول مع كميات كافية من الماء",
+      "food_sources": "الماء، التوت البري، البقدونس، الخيار",
+      "drug_interactions": "مدرات البول قد تتفاعل مع أدوية الضغط",
+      "serving_size": "2 كبسولة",
+      "servings_per_container": 30,
+      "description": "تركيبة متخصصة لحماية الكلى ودعم وظائف المسالك البولية"
+    },
+    {
+      "id": "infinis_brain",
+      "name_en": "BRAIN",
+      "name_ar": "صحة الدماغ",
+      "brand": "Infinis Nutrition",
+      "category": "brain",
+      "category_ar": "الدماغ والإدراك",
+      "price": "$59.99",
+      "url": "https://infinisnutrition.com/products/brain",
+      "score": 9.0,
+      "evidence_level": "قوي جداً ⭐⭐⭐⭐⭐",
+      "recommendation": "موصى به بشدة ✅✅",
+      "ingredients": [
+        {
+          "name": "Lion's Mane Mushroom (8:1 Extract)",
+          "dose": "1000mg",
+          "score": 9.0,
+          "note": "ينمي عوامل النمو العصبي NGF"
+        },
+        {
+          "name": "Alpha GPC",
+          "dose": "300mg",
+          "score": 9.0,
+          "note": "أفضل مصدر للكولين للدماغ"
+        },
+        {
+          "name": "Bacopa Monnieri (50% Bacosides)",
+          "dose": "300mg",
+          "score": 8.5,
+          "note": "يحسن الذاكرة طويلة المدى"
+        },
+        {
+          "name": "Phosphatidylserine",
+          "dose": "200mg",
+          "score": 8.5,
+          "note": "يحمي أغشية خلايا الدماغ"
+        },
+        {
+          "name": "Rhodiola Rosea (3% Rosavins)",
+          "dose": "200mg",
+          "score": 8.5,
+          "note": "يقلل التعب الذهني"
+        },
+        {
+          "name": "Huperzine A",
+          "dose": "200mcg",
+          "score": 8.0,
+          "note": "يثبط تحلل الأسيتيل كولين"
+        }
+      ],
+      "key_ingredients": [
+        "Lion's Mane 1000mg",
+        "Alpha GPC 300mg",
+        "Bacopa 300mg",
+        "Phosphatidylserine 200mg"
+      ],
+      "strengths": "تركيبة شاملة للإدراك + Lion's Mane بتركيز 8:1 عالي الجودة",
+      "weaknesses": "Huperzine A يحتاج cycling (لا تستخدم يومياً)",
+      "best_for": "تحسين الذاكرة، التركيز، الإدراك، الوقاية من التدهور المعرفي",
+      "warnings": "Huperzine A: خذ استراحة أسبوعين كل شهر",
+      "food_sources": "الأسماك، البيض، المكسرات، التوت، الخضروات الورقية",
+      "drug_interactions": "قد يتفاعل مع أدوية الكولينستراز",
+      "serving_size": "3 كبسولات",
+      "servings_per_container": 30,
+      "description": "تركيبة نوتروبيك متكاملة لتعزيز الإدراك والذاكرة والتركيز"
+    },
+    {
+      "id": "infinis_calm",
+      "name_en": "CALM",
+      "name_ar": "الهدوء والاسترخاء",
+      "brand": "Infinis Nutrition",
+      "category": "mood",
+      "category_ar": "التوتر والمزاج",
+      "price": "$44.99",
+      "url": "https://infinisnutrition.com/products/calm",
+      "score": 8.5,
+      "evidence_level": "قوي ⭐⭐⭐⭐",
+      "recommendation": "موصى به ✅",
+      "ingredients": [
+        {
+          "name": "Ashwagandha (KSM-66)",
+          "dose": "600mg",
+          "score": 9.0,
+          "note": "يخفض الكورتيزول - أفضل استخلاص"
+        },
+        {
+          "name": "L-Theanine",
+          "dose": "200mg",
+          "score": 9.0,
+          "note": "هدوء دون نعاس"
+        },
+        {
+          "name": "Magnesium Glycinate",
+          "dose": "200mg",
+          "score": 9.0,
+          "note": "يهدئ الجهاز العصبي"
+        },
+        {
+          "name": "Lemon Balm Extract",
+          "dose": "300mg",
+          "score": 8.0,
+          "note": "يقلل القلق"
+        },
+        {
+          "name": "Passionflower Extract",
+          "dose": "250mg",
+          "score": 7.5,
+          "note": "مهدئ طبيعي"
+        },
+        {
+          "name": "GABA",
+          "dose": "500mg",
+          "score": 7.0,
+          "note": "ناقل عصبي مثبط"
+        }
+      ],
+      "key_ingredients": [
+        "Ashwagandha KSM-66 600mg",
+        "L-Theanine 200mg",
+        "Magnesium Glycinate 200mg"
+      ],
+      "strengths": "KSM-66 هو أفضل استخلاص للأشواغاندا + L-Theanine بجرعة فعّالة",
+      "weaknesses": "GABA امتصاصه محدود عبر الفم",
+      "best_for": "التوتر، القلق، تحسين المزاج، النوم",
+      "warnings": "قد يسبب نعاساً خفيفاً",
+      "food_sources": "الشاي الأخضر، الموز، المكسرات، الحليب",
+      "drug_interactions": "لا تجمع مع مضادات القلق الدوائية دون استشارة",
+      "serving_size": "3 كبسولات",
+      "servings_per_container": 30,
+      "description": "تركيبة طبيعية للتخلص من التوتر وتحسين المزاج والاسترخاء"
+    },
+    {
+      "id": "infinis_magnis",
+      "name_en": "MAGNIS",
+      "name_ar": "المغنيسيوم المتكامل",
+      "brand": "Infinis Nutrition",
+      "category": "vitamins",
+      "category_ar": "الفيتامينات والمعادن",
+      "price": "$34.99",
+      "url": "https://infinisnutrition.com/products/magnis",
+      "score": 9.0,
+      "evidence_level": "قوي جداً ⭐⭐⭐⭐⭐",
+      "recommendation": "موصى به بشدة ✅✅",
+      "ingredients": [
+        {
+          "name": "Magnesium Glycinate",
+          "dose": "200mg",
+          "score": 9.0,
+          "note": "الأفضل للنوم والأعصاب"
+        },
+        {
+          "name": "Magnesium Malate",
+          "dose": "200mg",
+          "score": 8.5,
+          "note": "الأفضل للطاقة والعضلات"
+        },
+        {
+          "name": "Magnesium Taurate",
+          "dose": "150mg",
+          "score": 8.5,
+          "note": "الأفضل للقلب"
+        },
+        {
+          "name": "Magnesium L-Threonate",
+          "dose": "144mg",
+          "score": 9.0,
+          "note": "الوحيد الذي يعبر الحاجز الدموي الدماغي"
+        }
+      ],
+      "key_ingredients": [
+        "Mg Glycinate 200mg",
+        "Mg Malate 200mg",
+        "Mg Taurate 150mg",
+        "Mg L-Threonate 144mg"
+      ],
+      "strengths": "4 أشكال مغنيسيوم تغطي جميع الأعضاء - نادر في السوق",
+      "weaknesses": "سعر مرتفع مقارنة بالمغنيسيوم الأحادي",
+      "best_for": "النوم، الأعصاب، القلب، الدماغ، العضلات",
+      "warnings": "الجرعات العالية قد تسبب إسهالاً",
+      "food_sources": "المكسرات، البذور، الخضروات الورقية، الشوكولاتة الداكنة",
+      "drug_interactions": "قد يقلل امتصاص بعض المضادات الحيوية",
+      "serving_size": "3 كبسولات",
+      "servings_per_container": 30,
+      "description": "مزيج فريد من 4 أشكال مغنيسيوم لتغطية احتياجات الجسم كاملة"
+    },
+    {
+      "id": "infinis_omega",
+      "name_en": "OMEGA-3 rTG",
+      "name_ar": "أوميغا-3 عالي الجودة",
+      "brand": "Infinis Nutrition",
+      "category": "vitamins",
+      "category_ar": "الفيتامينات والمعادن",
+      "price": "$39.99",
+      "url": "https://infinisnutrition.com/products/omega-3-rtg",
+      "score": 9.5,
+      "evidence_level": "قوي جداً ⭐⭐⭐⭐⭐",
+      "recommendation": "موصى به بشدة ✅✅",
+      "ingredients": [
+        {
+          "name": "EPA (Eicosapentaenoic Acid)",
+          "dose": "660mg",
+          "score": 9.5,
+          "note": "مضاد للالتهاب - صحة القلب"
+        },
+        {
+          "name": "DHA (Docosahexaenoic Acid)",
+          "dose": "440mg",
+          "score": 9.5,
+          "note": "صحة الدماغ والعيون"
+        },
+        {
+          "name": "rTG Form (Re-esterified Triglyceride)",
+          "dose": "1500mg total",
+          "score": 9.5,
+          "note": "أعلى امتصاص - 70% أفضل من EE"
+        }
+      ],
+      "key_ingredients": [
+        "EPA 660mg",
+        "DHA 440mg",
+        "rTG Form (أعلى امتصاص)"
+      ],
+      "strengths": "شكل rTG الأعلى امتصاصاً في السوق + نسبة EPA/DHA مثالية",
+      "weaknesses": "سعر أعلى من الأوميغا العادي",
+      "best_for": "القلب، الدماغ، الالتهابات، الكوليسترول، الصحة العامة",
+      "warnings": "قد يزيد وقت النزيف - احذر قبل العمليات",
+      "food_sources": "السلمون، السردين، الماكريل، الرنجة",
+      "drug_interactions": "مخففات الدم: استشر الطبيب",
+      "serving_size": "2 كبسولة",
+      "servings_per_container": 30,
+      "description": "أوميغا-3 بشكل rTG الأعلى امتصاصاً مع نسبة EPA/DHA مثالية"
+    },
+    {
+      "id": "infinis_glp1",
+      "name_en": "GLP-1",
+      "name_ar": "دعم GLP-1 الطبيعي",
+      "brand": "Infinis Nutrition",
+      "category": "metabolism",
+      "category_ar": "التمثيل الغذائي",
+      "price": "$64.99",
+      "url": "https://infinisnutrition.com/products/glp-1",
+      "score": 8.0,
+      "evidence_level": "متوسط-قوي ⭐⭐⭐",
+      "recommendation": "جيد 👍",
+      "ingredients": [
+        {
+          "name": "Berberine HCl",
+          "dose": "500mg",
+          "score": 9.0,
+          "note": "يحاكي تأثير GLP-1 طبيعياً"
+        },
+        {
+          "name": "Bitter Melon Extract",
+          "dose": "400mg",
+          "score": 7.5,
+          "note": "يحسن حساسية الإنسولين"
+        },
+        {
+          "name": "Chromium Picolinate",
+          "dose": "200mcg",
+          "score": 8.0,
+          "note": "يحسن استجابة الإنسولين"
+        },
+        {
+          "name": "Gymnema Sylvestre",
+          "dose": "400mg",
+          "score": 7.5,
+          "note": "يقلل الشهية للسكر"
+        },
+        {
+          "name": "Alpha Lipoic Acid",
+          "dose": "300mg",
+          "score": 8.5,
+          "note": "يحسن حساسية الإنسولين"
+        }
+      ],
+      "key_ingredients": [
+        "Berberine 500mg",
+        "Alpha Lipoic Acid 300mg",
+        "Chromium 200mcg"
+      ],
+      "strengths": "Berberine بجرعة فعّالة + دعم طبيعي لمسار GLP-1",
+      "weaknesses": "ليس بديلاً للأدوية الدوائية مثل Ozempic",
+      "best_for": "التحكم في السكر، فقدان الوزن، حساسية الإنسولين",
+      "warnings": "لا يغني عن أدوية السكري المقررة",
+      "food_sources": "القرفة، الخل، الخضروات الورقية",
+      "drug_interactions": "أدوية السكري: مراقبة السكر بدقة",
+      "serving_size": "3 كبسولات",
+      "servings_per_container": 30,
+      "description": "دعم طبيعي لمسار GLP-1 لتحسين التحكم في السكر وإدارة الوزن"
+    },
+    {
+      "id": "core_liver",
+      "name_en": "CORE LIVER",
+      "name_ar": "صحة الكبد - Core",
+      "brand": "Core Nutritionals",
+      "category": "liver",
+      "category_ar": "الكبد والتخلص من السموم",
+      "price": "$39.99",
+      "url": "https://www.corenutritionals.com/products/core-liver",
+      "score": 8.5,
+      "evidence_level": "قوي ⭐⭐⭐⭐",
+      "recommendation": "موصى به ✅",
+      "ingredients": [
+        {
+          "name": "TUDCA",
+          "dose": "250mg",
+          "score": 9.5,
+          "note": "حماية الكبد - جرعة معتدلة"
+        },
+        {
+          "name": "Milk Thistle (80% Silymarin)",
+          "dose": "600mg",
+          "score": 9.0,
+          "note": "أعلى جرعة Silymarin"
+        },
+        {
+          "name": "NAC",
+          "dose": "500mg",
+          "score": 9.0,
+          "note": "رافع الغلوتاثيون"
+        },
+        {
+          "name": "Artichoke Extract",
+          "dose": "450mg",
+          "score": 8.0,
+          "note": "دعم إنتاج الصفراء"
+        }
+      ],
+      "key_ingredients": [
+        "TUDCA 250mg",
+        "Milk Thistle 600mg",
+        "NAC 500mg",
+        "Artichoke 450mg"
+      ],
+      "strengths": "Milk Thistle بأعلى جرعة + NAC قوي",
+      "weaknesses": "TUDCA بنصف جرعة Infinis",
+      "best_for": "حماية الكبد، التخلص من السموم، دعم الصفراء",
+      "warnings": "استشر الطبيب عند أمراض الكبد",
+      "food_sources": "الشوك، الهندباء، الثوم، البيض",
+      "drug_interactions": "قد يؤثر على استقلاب بعض الأدوية",
+      "serving_size": "3 كبسولات",
+      "servings_per_container": 30,
+      "description": "تركيبة Core لحماية الكبد بجرعة عالية من Milk Thistle"
+    },
+    {
+      "id": "core_heart",
+      "name_en": "CORE HEART",
+      "name_ar": "صحة القلب - Core",
+      "brand": "Core Nutritionals",
+      "category": "heart",
+      "category_ar": "القلب والأوعية الدموية",
+      "price": "$44.99",
+      "url": "https://www.corenutritionals.com/products/core-heart",
+      "score": 8.5,
+      "evidence_level": "قوي ⭐⭐⭐⭐",
+      "recommendation": "موصى به ✅",
+      "ingredients": [
+        {
+          "name": "CoQ10 (Ubiquinone)",
+          "dose": "200mg",
+          "score": 8.5,
+          "note": "شكل Ubiquinone - أقل امتصاصاً من Ubiquinol"
+        },
+        {
+          "name": "Omega-3 (EPA+DHA)",
+          "dose": "1000mg",
+          "score": 9.5,
+          "note": "معيار ذهبي"
+        },
+        {
+          "name": "Hawthorn Berry",
+          "dose": "500mg",
+          "score": 8.5,
+          "note": "يقوي عضلة القلب"
+        },
+        {
+          "name": "Garlic Extract (Allicin)",
+          "dose": "400mg",
+          "score": 8.5,
+          "note": "يخفض الكوليسترول والضغط"
+        },
+        {
+          "name": "Vitamin K2 (MK-7)",
+          "dose": "100mcg",
+          "score": 9.0,
+          "note": "يمنع تكلس الشرايين"
+        }
+      ],
+      "key_ingredients": [
+        "CoQ10 200mg",
+        "Omega-3 1000mg",
+        "Hawthorn 500mg",
+        "Vitamin K2 MK-7 100mcg"
+      ],
+      "strengths": "يحتوي على K2 MK-7 النادر + Hawthorn بجرعة عالية",
+      "weaknesses": "CoQ10 بشكل Ubiquinone أقل امتصاصاً",
+      "best_for": "صحة القلب، الكوليسترول، ضغط الدم، صحة الشرايين",
+      "warnings": "K2 قد يتفاعل مع مضادات التخثر",
+      "food_sources": "السمك الدهني، الثوم، الزيتون، المكسرات",
+      "drug_interactions": "Warfarin + K2: استشر الطبيب",
+      "serving_size": "3 كبسولات",
+      "servings_per_container": 30,
+      "description": "تركيبة Core لصحة القلب مع K2 MK-7 لصحة الشرايين"
+    },
+    {
+      "id": "core_kidney",
+      "name_en": "CORE KIDNEY",
+      "name_ar": "صحة الكلى - Core",
+      "brand": "Core Nutritionals",
+      "category": "kidney",
+      "category_ar": "الكلى والمسالك البولية",
+      "price": "$39.99",
+      "url": "https://www.corenutritionals.com/products/core-kidney",
+      "score": 8.0,
+      "evidence_level": "قوي ⭐⭐⭐⭐",
+      "recommendation": "موصى به ✅",
+      "ingredients": [
+        {
+          "name": "Astragalus Root",
+          "dose": "600mg",
+          "score": 8.5,
+          "note": "أعلى جرعة Astragalus"
+        },
+        {
+          "name": "Cranberry Extract",
+          "dose": "500mg",
+          "score": 8.0,
+          "note": "منع التهابات المسالك"
+        },
+        {
+          "name": "Potassium Citrate",
+          "dose": "200mg",
+          "score": 8.0,
+          "note": "يمنع تكوّن حصى الكلى"
+        },
+        {
+          "name": "Chanca Piedra",
+          "dose": "400mg",
+          "score": 7.5,
+          "note": "عشبة حصى الكلى التقليدية"
+        }
+      ],
+      "key_ingredients": [
+        "Astragalus 600mg",
+        "Cranberry 500mg",
+        "Potassium Citrate 200mg",
+        "Chanca Piedra 400mg"
+      ],
+      "strengths": "Potassium Citrate لمنع الحصى + Astragalus بجرعة عالية",
+      "weaknesses": "لا يحتوي على Uva Ursi",
+      "best_for": "حماية الكلى، منع الحصى، التهابات المسالك",
+      "warnings": "Potassium: احذر عند أمراض الكلى المتقدمة",
+      "food_sources": "الماء، التوت البري، الليمون، البقدونس",
+      "drug_interactions": "مدرات البول + Potassium: مراقبة مستويات البوتاسيوم",
+      "serving_size": "3 كبسولات",
+      "servings_per_container": 30,
+      "description": "تركيبة Core لحماية الكلى مع Potassium Citrate لمنع الحصى"
+    },
+    {
+      "id": "core_prostate",
+      "name_en": "CORE PROSTATE",
+      "name_ar": "صحة البروستاتا",
+      "brand": "Core Nutritionals",
+      "category": "prostate",
+      "category_ar": "البروستاتا",
+      "price": "$44.99",
+      "url": "https://www.corenutritionals.com/products/core-prostate",
+      "score": 8.5,
+      "evidence_level": "قوي ⭐⭐⭐⭐",
+      "recommendation": "موصى به ✅",
+      "ingredients": [
+        {
+          "name": "Saw Palmetto (45% Fatty Acids)",
+          "dose": "320mg",
+          "score": 8.5,
+          "note": "معيار ذهبي لصحة البروستاتا"
+        },
+        {
+          "name": "Beta-Sitosterol",
+          "dose": "300mg",
+          "score": 8.5,
+          "note": "يقلل أعراض BPH"
+        },
+        {
+          "name": "Pygeum Africanum",
+          "dose": "100mg",
+          "score": 8.0,
+          "note": "يقلل التهاب البروستاتا"
+        },
+        {
+          "name": "Zinc (Bisglycinate)",
+          "dose": "30mg",
+          "score": 9.0,
+          "note": "ضروري لصحة البروستاتا"
+        },
+        {
+          "name": "Lycopene",
+          "dose": "10mg",
+          "score": 8.5,
+          "note": "مضاد أكسدة للبروستاتا"
+        },
+        {
+          "name": "Selenium",
+          "dose": "200mcg",
+          "score": 8.0,
+          "note": "يحمي من سرطان البروستاتا"
+        }
+      ],
+      "key_ingredients": [
+        "Saw Palmetto 320mg",
+        "Beta-Sitosterol 300mg",
+        "Zinc 30mg",
+        "Lycopene 10mg"
+      ],
+      "strengths": "تركيبة شاملة + Saw Palmetto بتركيز 45% + Zinc بشكل Bisglycinate",
+      "weaknesses": "لا يحتوي على Stinging Nettle",
+      "best_for": "تضخم البروستاتا الحميد، صحة البروستاتا، الوقاية",
+      "warnings": "استشر الطبيب عند ارتفاع PSA",
+      "food_sources": "الطماطم، بذور اليقطين، الزنك في المحار",
+      "drug_interactions": "Saw Palmetto + أدوية الهرمونات: استشر الطبيب",
+      "serving_size": "3 كبسولات",
+      "servings_per_container": 30,
+      "description": "تركيبة Core الشاملة لصحة البروستاتا بمكونات مثبتة سريرياً"
+    },
+    {
+      "id": "core_magnesium",
+      "name_en": "CORE MAGNESIUM",
+      "name_ar": "مغنيسيوم Core",
+      "brand": "Core Nutritionals",
+      "category": "vitamins",
+      "category_ar": "الفيتامينات والمعادن",
+      "price": "$24.99",
+      "url": "https://www.corenutritionals.com/products/core-magnesium",
+      "score": 8.5,
+      "evidence_level": "قوي ⭐⭐⭐⭐",
+      "recommendation": "موصى به ✅",
+      "ingredients": [
+        {
+          "name": "Magnesium Glycinate",
+          "dose": "300mg",
+          "score": 9.0,
+          "note": "أفضل امتصاص وأقل إسهالاً"
+        },
+        {
+          "name": "Magnesium Malate",
+          "dose": "200mg",
+          "score": 8.5,
+          "note": "للطاقة والعضلات"
+        }
+      ],
+      "key_ingredients": [
+        "Mg Glycinate 300mg",
+        "Mg Malate 200mg"
+      ],
+      "strengths": "جرعة عالية + شكلان عالي الامتصاص",
+      "weaknesses": "لا يحتوي على Mg L-Threonate للدماغ",
+      "best_for": "النوم، التوتر، العضلات، الطاقة",
+      "warnings": "الجرعات العالية قد تسبب إسهالاً",
+      "food_sources": "المكسرات، البذور، الخضروات الورقية",
+      "drug_interactions": "قد يقلل امتصاص المضادات الحيوية",
+      "serving_size": "2 كبسولة",
+      "servings_per_container": 30,
+      "description": "مغنيسيوم Core بشكلين عالي الامتصاص للنوم والعضلات"
+    },
+    {
+      "id": "core_vitd3k2",
+      "name_en": "CORE VITAMIN D3+K2",
+      "name_ar": "فيتامين D3+K2",
+      "brand": "Core Nutritionals",
+      "category": "vitamins",
+      "category_ar": "الفيتامينات والمعادن",
+      "price": "$19.99",
+      "url": "https://www.corenutritionals.com/products/core-vitamin-d3-k2",
+      "score": 9.0,
+      "evidence_level": "قوي جداً ⭐⭐⭐⭐⭐",
+      "recommendation": "موصى به بشدة ✅✅",
+      "ingredients": [
+        {
+          "name": "Vitamin D3 (Cholecalciferol)",
+          "dose": "5000 IU",
+          "score": 9.5,
+          "note": "الجرعة المثالية لمعظم الناس"
+        },
+        {
+          "name": "Vitamin K2 (MK-7)",
+          "dose": "100mcg",
+          "score": 9.0,
+          "note": "يوجّه الكالسيوم للعظام لا الشرايين"
+        }
+      ],
+      "key_ingredients": [
+        "Vitamin D3 5000 IU",
+        "Vitamin K2 MK-7 100mcg"
+      ],
+      "strengths": "الثنائي المثالي - D3 يرفع الكالسيوم وK2 يوجهه للعظام",
+      "weaknesses": "لا يحتوي على Magnesium (ضروري لتفعيل D3)",
+      "best_for": "العظام، المناعة، الهرمونات، صحة القلب",
+      "warnings": "جرعات عالية جداً من D3 قد تسبب تسمماً",
+      "food_sources": "الشمس، الأسماك الدهنية، صفار البيض",
+      "drug_interactions": "Warfarin + K2: استشر الطبيب",
+      "serving_size": "1 كبسولة",
+      "servings_per_container": 90,
+      "description": "الثنائي المثالي D3+K2 لصحة العظام والمناعة والقلب"
+    },
+    {
+      "id": "core_nmn",
+      "name_en": "CORE NMN",
+      "name_ar": "NMN - طول العمر",
+      "brand": "Core Nutritionals",
+      "category": "longevity",
+      "category_ar": "طول العمر والشيخوخة",
+      "price": "$59.99",
+      "url": "https://www.corenutritionals.com/products/core-nmn",
+      "score": 8.5,
+      "evidence_level": "قوي ⭐⭐⭐⭐",
+      "recommendation": "موصى به ✅",
+      "ingredients": [
+        {
+          "name": "NMN (Nicotinamide Mononucleotide)",
+          "dose": "500mg",
+          "score": 9.0,
+          "note": "يرفع NAD+ للطاقة الخلوية"
+        },
+        {
+          "name": "Resveratrol",
+          "dose": "200mg",
+          "score": 8.0,
+          "note": "ينشط Sirtuins"
+        },
+        {
+          "name": "TMG (Trimethylglycine)",
+          "dose": "500mg",
+          "score": 8.0,
+          "note": "يمنع استنزاف المثيل"
+        }
+      ],
+      "key_ingredients": [
+        "NMN 500mg",
+        "Resveratrol 200mg",
+        "TMG 500mg"
+      ],
+      "strengths": "NMN + Resveratrol + TMG = تركيبة طول العمر الكاملة",
+      "weaknesses": "الأبحاث البشرية لا تزال محدودة",
+      "best_for": "طول العمر، الطاقة الخلوية، الشيخوخة الصحية",
+      "warnings": "الأبحاث البشرية لا تزال في مراحل مبكرة",
+      "food_sources": "البروكلي، الأفوكادو، الطماطم، العنب الأحمر",
+      "drug_interactions": "لا تفاعلات معروفة حتى الآن",
+      "serving_size": "2 كبسولة",
+      "servings_per_container": 30,
+      "description": "تركيبة طول العمر بـ NMN + Resveratrol + TMG لتعزيز NAD+"
+    },
+    {
+      "id": "apollon_liver",
+      "name_en": "LIVER LOVER",
+      "name_ar": "محب الكبد",
+      "brand": "Apollon Nutrition",
+      "category": "liver",
+      "category_ar": "الكبد والتخلص من السموم",
+      "price": "$44.99",
+      "url": "https://www.apollonnutrition.com/products/liver-lover",
+      "score": 8.5,
+      "evidence_level": "قوي ⭐⭐⭐⭐",
+      "recommendation": "موصى به ✅",
+      "ingredients": [
+        {
+          "name": "TUDCA",
+          "dose": "500mg",
+          "score": 9.5,
+          "note": "جرعة عالية مماثلة لـ Infinis"
+        },
+        {
+          "name": "Milk Thistle (Silymarin)",
+          "dose": "400mg",
+          "score": 9.0,
+          "note": "حماية الكبد"
+        },
+        {
+          "name": "NAC",
+          "dose": "400mg",
+          "score": 9.0,
+          "note": "رافع الغلوتاثيون"
+        },
+        {
+          "name": "Betaine (TMG)",
+          "dose": "500mg",
+          "score": 8.0,
+          "note": "يدعم الكبد الدهني"
+        }
+      ],
+      "key_ingredients": [
+        "TUDCA 500mg",
+        "Milk Thistle 400mg",
+        "NAC 400mg",
+        "Betaine 500mg"
+      ],
+      "strengths": "TUDCA 500mg + Betaine لدعم الكبد الدهني",
+      "weaknesses": "لا يحتوي على Alpha Lipoic Acid",
+      "best_for": "حماية الكبد، الكبد الدهني، التخلص من السموم",
+      "warnings": "استشر الطبيب عند أمراض الكبد",
+      "food_sources": "الشوك، الهندباء، الثوم",
+      "drug_interactions": "قد يؤثر على استقلاب الأدوية",
+      "serving_size": "3 كبسولات",
+      "servings_per_container": 30,
+      "description": "Liver Lover من Apollon بجرعة عالية من TUDCA وBetaine"
+    },
+    {
+      "id": "apollon_tudca",
+      "name_en": "TUDCA",
+      "name_ar": "TUDCA المركّز",
+      "brand": "Apollon Nutrition",
+      "category": "liver",
+      "category_ar": "الكبد والتخلص من السموم",
+      "price": "$39.99",
+      "url": "https://www.apollonnutrition.com/products/tudca",
+      "score": 9.0,
+      "evidence_level": "قوي جداً ⭐⭐⭐⭐⭐",
+      "recommendation": "موصى به بشدة ✅✅",
+      "ingredients": [
+        {
+          "name": "TUDCA (Tauroursodeoxycholic Acid)",
+          "dose": "1000mg",
+          "score": 9.5,
+          "note": "أعلى جرعة TUDCA في السوق"
+        }
+      ],
+      "key_ingredients": [
+        "TUDCA 1000mg (أعلى جرعة)"
+      ],
+      "strengths": "أعلى جرعة TUDCA في السوق - مثالي للحماية الشديدة",
+      "weaknesses": "منتج أحادي - لا مكونات مساعدة",
+      "best_for": "الحماية القصوى للكبد، أثناء استخدام الأدوية الثقيلة",
+      "warnings": "الجرعات العالية جداً: استشر الطبيب",
+      "food_sources": "الصفراء الحيوانية (مصدر طبيعي)",
+      "drug_interactions": "قد يؤثر على استقلاب الأدوية",
+      "serving_size": "2 كبسولة",
+      "servings_per_container": 30,
+      "description": "TUDCA نقي بجرعة 1000mg - الأعلى في السوق للحماية القصوى"
+    },
+    {
+      "id": "apollon_heart",
+      "name_en": "FULL OF HEART",
+      "name_ar": "صحة القلب الشاملة",
+      "brand": "Apollon Nutrition",
+      "category": "heart",
+      "category_ar": "القلب والأوعية الدموية",
+      "price": "$49.99",
+      "url": "https://www.apollonnutrition.com/products/full-of-heart",
+      "score": 8.5,
+      "evidence_level": "قوي ⭐⭐⭐⭐",
+      "recommendation": "موصى به ✅",
+      "ingredients": [
+        {
+          "name": "CoQ10 (Ubiquinol)",
+          "dose": "200mg",
+          "score": 9.5,
+          "note": "أفضل شكل CoQ10"
+        },
+        {
+          "name": "Hawthorn Berry",
+          "dose": "600mg",
+          "score": 8.5,
+          "note": "أعلى جرعة Hawthorn"
+        },
+        {
+          "name": "Garlic Extract",
+          "dose": "500mg",
+          "score": 8.5,
+          "note": "يخفض الكوليسترول"
+        },
+        {
+          "name": "Magnesium Taurate",
+          "dose": "200mg",
+          "score": 8.5,
+          "note": "أفضل مغنيسيوم للقلب"
+        }
+      ],
+      "key_ingredients": [
+        "CoQ10 Ubiquinol 200mg",
+        "Hawthorn 600mg",
+        "Garlic 500mg",
+        "Mg Taurate 200mg"
+      ],
+      "strengths": "Hawthorn بأعلى جرعة + Mg Taurate المتخصص للقلب",
+      "weaknesses": "لا يحتوي على Berberine أو Nattokinase",
+      "best_for": "صحة القلب، ضغط الدم، الدورة الدموية",
+      "warnings": "Garlic قد يزيد وقت النزيف",
+      "food_sources": "الثوم، الزيتون، السمك الدهني",
+      "drug_interactions": "مضادات التخثر + Garlic: احذر",
+      "serving_size": "3 كبسولات",
+      "servings_per_container": 30,
+      "description": "Full of Heart من Apollon بأعلى جرعة Hawthorn ومغنيسيوم القلب"
+    },
+    {
+      "id": "apollon_kidney",
+      "name_en": "KIDNEY KINDNESS",
+      "name_ar": "لطف الكلى",
+      "brand": "Apollon Nutrition",
+      "category": "kidney",
+      "category_ar": "الكلى والمسالك البولية",
+      "price": "$39.99",
+      "url": "https://www.apollonnutrition.com/products/kidney-kindness",
+      "score": 8.0,
+      "evidence_level": "متوسط-قوي ⭐⭐⭐",
+      "recommendation": "جيد 👍",
+      "ingredients": [
+        {
+          "name": "Astragalus Root",
+          "dose": "500mg",
+          "score": 8.5,
+          "note": "حماية الكلى"
+        },
+        {
+          "name": "Cranberry Extract",
+          "dose": "400mg",
+          "score": 8.0,
+          "note": "منع التهابات المسالك"
+        },
+        {
+          "name": "Nettle Root",
+          "dose": "300mg",
+          "score": 7.5,
+          "note": "مدر طبيعي"
+        },
+        {
+          "name": "Juniper Berry",
+          "dose": "200mg",
+          "score": 7.0,
+          "note": "مضاد بكتيري تقليدي"
+        }
+      ],
+      "key_ingredients": [
+        "Astragalus 500mg",
+        "Cranberry 400mg",
+        "Nettle 300mg"
+      ],
+      "strengths": "تركيبة بسيطة وفعّالة",
+      "weaknesses": "لا يحتوي على Potassium Citrate أو Uva Ursi",
+      "best_for": "حماية الكلى، التهابات المسالك البولية",
+      "warnings": "تناول مع كميات كافية من الماء",
+      "food_sources": "الماء، التوت البري، الليمون",
+      "drug_interactions": "مدرات البول: مراقبة الضغط",
+      "serving_size": "2 كبسولة",
+      "servings_per_container": 30,
+      "description": "Kidney Kindness من Apollon لحماية الكلى ودعم المسالك البولية"
+    },
+    {
+      "id": "apollon_omega",
+      "name_en": "OMEGA SUPREME",
+      "name_ar": "أوميغا سوبريم",
+      "brand": "Apollon Nutrition",
+      "category": "vitamins",
+      "category_ar": "الفيتامينات والمعادن",
+      "price": "$34.99",
+      "url": "https://www.apollonnutrition.com/products/omega-supreme",
+      "score": 8.5,
+      "evidence_level": "قوي ⭐⭐⭐⭐",
+      "recommendation": "موصى به ✅",
+      "ingredients": [
+        {
+          "name": "EPA",
+          "dose": "600mg",
+          "score": 9.5,
+          "note": "مضاد للالتهاب"
+        },
+        {
+          "name": "DHA",
+          "dose": "400mg",
+          "score": 9.5,
+          "note": "صحة الدماغ"
+        },
+        {
+          "name": "Vitamin E (as d-Alpha Tocopherol)",
+          "dose": "10 IU",
+          "score": 8.0,
+          "note": "يمنع أكسدة الأوميغا"
+        }
+      ],
+      "key_ingredients": [
+        "EPA 600mg",
+        "DHA 400mg",
+        "Vitamin E"
+      ],
+      "strengths": "نسبة EPA/DHA جيدة + Vitamin E لمنع الأكسدة",
+      "weaknesses": "شكل EE (Ethyl Ester) أقل امتصاصاً من rTG",
+      "best_for": "القلب، الدماغ، الالتهابات، الصحة العامة",
+      "warnings": "قد يزيد وقت النزيف",
+      "food_sources": "السلمون، السردين، الماكريل",
+      "drug_interactions": "مخففات الدم: استشر الطبيب",
+      "serving_size": "2 كبسولة",
+      "servings_per_container": 60,
+      "description": "Omega Supreme من Apollon بنسبة EPA/DHA مثالية"
+    },
+    {
+      "id": "apollon_chill",
+      "name_en": "CHILL PILLS",
+      "name_ar": "حبوب الهدوء",
+      "brand": "Apollon Nutrition",
+      "category": "mood",
+      "category_ar": "التوتر والمزاج",
+      "price": "$39.99",
+      "url": "https://www.apollonnutrition.com/products/chill-pills",
+      "score": 8.0,
+      "evidence_level": "قوي ⭐⭐⭐⭐",
+      "recommendation": "موصى به ✅",
+      "ingredients": [
+        {
+          "name": "Ashwagandha (KSM-66)",
+          "dose": "600mg",
+          "score": 9.0,
+          "note": "يخفض الكورتيزول"
+        },
+        {
+          "name": "L-Theanine",
+          "dose": "200mg",
+          "score": 9.0,
+          "note": "هدوء دون نعاس"
+        },
+        {
+          "name": "Valerian Root",
+          "dose": "300mg",
+          "score": 7.5,
+          "note": "مهدئ طبيعي"
+        },
+        {
+          "name": "Chamomile Extract",
+          "dose": "200mg",
+          "score": 7.5,
+          "note": "يقلل القلق"
+        }
+      ],
+      "key_ingredients": [
+        "Ashwagandha KSM-66 600mg",
+        "L-Theanine 200mg",
+        "Valerian 300mg"
+      ],
+      "strengths": "KSM-66 + L-Theanine = الثنائي المثالي للهدوء",
+      "weaknesses": "لا يحتوي على Magnesium",
+      "best_for": "التوتر، القلق، الاسترخاء",
+      "warnings": "Valerian قد يسبب نعاساً",
+      "food_sources": "الشاي الأخضر، الموز، الحليب",
+      "drug_interactions": "لا تجمع مع المهدئات الدوائية",
+      "serving_size": "2 كبسولة",
+      "servings_per_container": 30,
+      "description": "Chill Pills من Apollon للتوتر والقلق بـ KSM-66 وL-Theanine"
+    },
+    {
+      "id": "apollon_mind",
+      "name_en": "MIND GAMES",
+      "name_ar": "ألعاب العقل",
+      "brand": "Apollon Nutrition",
+      "category": "brain",
+      "category_ar": "الدماغ والإدراك",
+      "price": "$54.99",
+      "url": "https://www.apollonnutrition.com/products/mind-games",
+      "score": 8.5,
+      "evidence_level": "قوي ⭐⭐⭐⭐",
+      "recommendation": "موصى به ✅",
+      "ingredients": [
+        {
+          "name": "Alpha GPC",
+          "dose": "300mg",
+          "score": 9.0,
+          "note": "أفضل مصدر كولين"
+        },
+        {
+          "name": "Lion's Mane (8:1)",
+          "dose": "500mg",
+          "score": 9.0,
+          "note": "نمو الخلايا العصبية"
+        },
+        {
+          "name": "Bacopa Monnieri",
+          "dose": "300mg",
+          "score": 8.5,
+          "note": "الذاكرة طويلة المدى"
+        },
+        {
+          "name": "Rhodiola Rosea",
+          "dose": "300mg",
+          "score": 8.5,
+          "note": "يقلل التعب الذهني"
+        },
+        {
+          "name": "Noopept",
+          "dose": "30mg",
+          "score": 8.0,
+          "note": "نوتروبيك قوي"
+        }
+      ],
+      "key_ingredients": [
+        "Alpha GPC 300mg",
+        "Lion's Mane 500mg",
+        "Noopept 30mg",
+        "Rhodiola 300mg"
+      ],
+      "strengths": "Noopept نادر + تركيبة شاملة للإدراك",
+      "weaknesses": "Noopept: أبحاث بشرية محدودة",
+      "best_for": "التركيز، الذاكرة، الإدراك، الأداء الذهني",
+      "warnings": "Noopept: لا تستخدم لفترات طويلة دون استراحة",
+      "food_sources": "الأسماك، البيض، المكسرات، التوت",
+      "drug_interactions": "قد يتفاعل مع أدوية الكولينستراز",
+      "serving_size": "3 كبسولات",
+      "servings_per_container": 30,
+      "description": "Mind Games من Apollon بـ Noopept ومكونات نوتروبيك متقدمة"
+    },
+    {
+      "id": "apollon_specialist",
+      "name_en": "THE SPECIALIST",
+      "name_ar": "المتخصص",
+      "brand": "Apollon Nutrition",
+      "category": "hormones",
+      "category_ar": "الهرمونات والغدد",
+      "price": "$59.99",
+      "url": "https://www.apollonnutrition.com/products/the-specialist",
+      "score": 8.5,
+      "evidence_level": "قوي ⭐⭐⭐⭐",
+      "recommendation": "موصى به ✅",
+      "ingredients": [
+        {
+          "name": "Ashwagandha (KSM-66)",
+          "dose": "600mg",
+          "score": 9.0,
+          "note": "يرفع التستوستيرون ويخفض الكورتيزول"
+        },
+        {
+          "name": "Fadogia Agrestis",
+          "dose": "600mg",
+          "score": 7.5,
+          "note": "يحفز LH - أبحاث محدودة"
+        },
+        {
+          "name": "Tongkat Ali (LJ100)",
+          "dose": "200mg",
+          "score": 8.5,
+          "note": "يرفع التستوستيرون الحر"
+        },
+        {
+          "name": "Zinc (Bisglycinate)",
+          "dose": "30mg",
+          "score": 9.0,
+          "note": "ضروري لإنتاج التستوستيرون"
+        },
+        {
+          "name": "Boron",
+          "dose": "10mg",
+          "score": 8.0,
+          "note": "يرفع التستوستيرون الحر"
+        },
+        {
+          "name": "Vitamin D3",
+          "dose": "3000 IU",
+          "score": 9.0,
+          "note": "هرمون ضروري للتستوستيرون"
+        }
+      ],
+      "key_ingredients": [
+        "Ashwagandha KSM-66 600mg",
+        "Tongkat Ali LJ100 200mg",
+        "Zinc 30mg",
+        "Fadogia 600mg"
+      ],
+      "strengths": "LJ100 هو أفضل استخلاص Tongkat Ali + تركيبة شاملة",
+      "weaknesses": "Fadogia Agrestis: أبحاث بشرية محدودة",
+      "best_for": "رفع التستوستيرون الطبيعي، الطاقة، الرغبة الجنسية",
+      "warnings": "Fadogia: لا تستخدم لفترات طويلة - مراقبة الكبد",
+      "food_sources": "البيض، اللحوم الحمراء، المحار، المكسرات",
+      "drug_interactions": "أدوية الهرمونات: استشر الطبيب",
+      "serving_size": "4 كبسولات",
+      "servings_per_container": 30,
+      "description": "The Specialist من Apollon لدعم التستوستيرون الطبيعي"
+    },
+    {
+      "id": "morphogen_liver",
+      "name_en": "LIVER+TUDCA",
+      "name_ar": "الكبد + TUDCA",
+      "brand": "Morphogen Nutrition",
+      "category": "liver",
+      "category_ar": "الكبد والتخلص من السموم",
+      "price": "$49.99",
+      "url": "https://www.morphogennutrition.com/products/liver-tudca",
+      "score": 9.0,
+      "evidence_level": "قوي جداً ⭐⭐⭐⭐⭐",
+      "recommendation": "موصى به بشدة ✅✅",
+      "ingredients": [
+        {
+          "name": "TUDCA",
+          "dose": "500mg",
+          "score": 9.5,
+          "note": "جرعة عالية"
+        },
+        {
+          "name": "Milk Thistle (80% Silymarin)",
+          "dose": "500mg",
+          "score": 9.0,
+          "note": "حماية الكبد"
+        },
+        {
+          "name": "NAC",
+          "dose": "600mg",
+          "score": 9.0,
+          "note": "أعلى جرعة NAC"
+        },
+        {
+          "name": "Schisandra Berry",
+          "dose": "300mg",
+          "score": 8.0,
+          "note": "مضاد أكسدة للكبد"
+        },
+        {
+          "name": "Phosphatidylcholine",
+          "dose": "300mg",
+          "score": 8.5,
+          "note": "يحمي أغشية خلايا الكبد"
+        }
+      ],
+      "key_ingredients": [
+        "TUDCA 500mg",
+        "NAC 600mg",
+        "Milk Thistle 500mg",
+        "Phosphatidylcholine 300mg"
+      ],
+      "strengths": "NAC بأعلى جرعة (600mg) + Phosphatidylcholine نادر",
+      "weaknesses": "سعر مرتفع",
+      "best_for": "حماية الكبد، التخلص من السموم، الكبد الدهني",
+      "warnings": "استشر الطبيب عند أمراض الكبد",
+      "food_sources": "الشوك، الهندباء، البيض، الثوم",
+      "drug_interactions": "قد يؤثر على استقلاب الأدوية",
+      "serving_size": "3 كبسولات",
+      "servings_per_container": 30,
+      "description": "LIVER+TUDCA من Morphogen بأعلى جرعة NAC وPhosphatidylcholine"
+    },
+    {
+      "id": "morphogen_heart",
+      "name_en": "HEART+LIPIDS",
+      "name_ar": "القلب + الدهون",
+      "brand": "Morphogen Nutrition",
+      "category": "heart",
+      "category_ar": "القلب والأوعية الدموية",
+      "price": "$54.99",
+      "url": "https://www.morphogennutrition.com/products/heart-lipids",
+      "score": 9.0,
+      "evidence_level": "قوي جداً ⭐⭐⭐⭐⭐",
+      "recommendation": "موصى به بشدة ✅✅",
+      "ingredients": [
+        {
+          "name": "CoQ10 (Ubiquinol)",
+          "dose": "200mg",
+          "score": 9.5,
+          "note": "أفضل شكل CoQ10"
+        },
+        {
+          "name": "Berberine HCl",
+          "dose": "600mg",
+          "score": 9.0,
+          "note": "أعلى جرعة Berberine"
+        },
+        {
+          "name": "Red Yeast Rice (Monacolin K)",
+          "dose": "600mg",
+          "score": 8.5,
+          "note": "يخفض الكوليسترول"
+        },
+        {
+          "name": "Nattokinase",
+          "dose": "2000 FU",
+          "score": 8.5,
+          "note": "يحسن تدفق الدم"
+        },
+        {
+          "name": "Vitamin K2 (MK-7)",
+          "dose": "200mcg",
+          "score": 9.0,
+          "note": "أعلى جرعة K2"
+        },
+        {
+          "name": "Omega-3 (rTG)",
+          "dose": "1000mg",
+          "score": 9.5,
+          "note": "أفضل شكل أوميغا-3"
+        }
+      ],
+      "key_ingredients": [
+        "CoQ10 Ubiquinol 200mg",
+        "Berberine 600mg",
+        "Nattokinase 2000FU",
+        "K2 MK-7 200mcg"
+      ],
+      "strengths": "أشمل تركيبة لصحة القلب والدهون - Berberine أعلى جرعة",
+      "weaknesses": "Red Yeast Rice يحتاج مراقبة طبية",
+      "best_for": "الكوليسترول، صحة القلب، الدورة الدموية، الدهون",
+      "warnings": "Red Yeast Rice: استشر الطبيب - قد يؤثر على الكبد",
+      "food_sources": "السمك الدهني، الثوم، الزيتون، الأفوكادو",
+      "drug_interactions": "Statins + Red Yeast Rice: لا تجمع",
+      "serving_size": "4 كبسولات",
+      "servings_per_container": 30,
+      "description": "HEART+LIPIDS من Morphogen - الأشمل لصحة القلب والكوليسترول"
+    },
+    {
+      "id": "morphogen_kidney",
+      "name_en": "KIDNEY+BLOOD PRESSURE",
+      "name_ar": "الكلى + ضغط الدم",
+      "brand": "Morphogen Nutrition",
+      "category": "kidney",
+      "category_ar": "الكلى والمسالك البولية",
+      "price": "$49.99",
+      "url": "https://www.morphogennutrition.com/products/kidney-blood-pressure",
+      "score": 8.5,
+      "evidence_level": "قوي ⭐⭐⭐⭐",
+      "recommendation": "موصى به ✅",
+      "ingredients": [
+        {
+          "name": "Astragalus Root",
+          "dose": "500mg",
+          "score": 8.5,
+          "note": "حماية الكلى"
+        },
+        {
+          "name": "Hibiscus Extract",
+          "dose": "400mg",
+          "score": 8.5,
+          "note": "يخفض ضغط الدم"
+        },
+        {
+          "name": "Potassium Citrate",
+          "dose": "300mg",
+          "score": 8.0,
+          "note": "يمنع الحصى"
+        },
+        {
+          "name": "Celery Seed Extract",
+          "dose": "300mg",
+          "score": 7.5,
+          "note": "مدر طبيعي وخافض للضغط"
+        },
+        {
+          "name": "Olive Leaf Extract",
+          "dose": "250mg",
+          "score": 8.0,
+          "note": "يخفض ضغط الدم"
+        }
+      ],
+      "key_ingredients": [
+        "Astragalus 500mg",
+        "Hibiscus 400mg",
+        "Potassium Citrate 300mg",
+        "Olive Leaf 250mg"
+      ],
+      "strengths": "الوحيد الذي يجمع صحة الكلى مع خفض ضغط الدم",
+      "weaknesses": "لا يحتوي على Cranberry",
+      "best_for": "حماية الكلى، ضغط الدم، منع الحصى",
+      "warnings": "Potassium: احذر عند أمراض الكلى المتقدمة",
+      "food_sources": "الكركديه، الزيتون، الليمون، الخيار",
+      "drug_interactions": "أدوية الضغط + Hibiscus: تأثير مضاعف",
+      "serving_size": "3 كبسولات",
+      "servings_per_container": 30,
+      "description": "KIDNEY+BLOOD PRESSURE من Morphogen - الوحيد الجامع للكلى وضغط الدم"
+    },
+    {
+      "id": "morphogen_brain",
+      "name_en": "BRAIN",
+      "name_ar": "الدماغ - Morphogen",
+      "brand": "Morphogen Nutrition",
+      "category": "brain",
+      "category_ar": "الدماغ والإدراك",
+      "price": "$59.99",
+      "url": "https://www.morphogennutrition.com/products/brain",
+      "score": 9.0,
+      "evidence_level": "قوي جداً ⭐⭐⭐⭐⭐",
+      "recommendation": "موصى به بشدة ✅✅",
+      "ingredients": [
+        {
+          "name": "Lion's Mane (10:1 Extract)",
+          "dose": "1500mg",
+          "score": 9.0,
+          "note": "أعلى تركيز Lion's Mane"
+        },
+        {
+          "name": "Alpha GPC",
+          "dose": "400mg",
+          "score": 9.0,
+          "note": "أعلى جرعة Alpha GPC"
+        },
+        {
+          "name": "Bacopa Monnieri (55% Bacosides)",
+          "dose": "400mg",
+          "score": 8.5,
+          "note": "أعلى تركيز Bacosides"
+        },
+        {
+          "name": "Phosphatidylserine",
+          "dose": "300mg",
+          "score": 8.5,
+          "note": "أعلى جرعة PS"
+        },
+        {
+          "name": "Acetyl-L-Carnitine",
+          "dose": "1000mg",
+          "score": 8.5,
+          "note": "طاقة الخلايا العصبية"
+        },
+        {
+          "name": "Uridine Monophosphate",
+          "dose": "250mg",
+          "score": 8.0,
+          "note": "يبني الروابط العصبية"
+        }
+      ],
+      "key_ingredients": [
+        "Lion's Mane 10:1 1500mg",
+        "Alpha GPC 400mg",
+        "ALCAR 1000mg",
+        "Bacopa 400mg"
+      ],
+      "strengths": "أعلى جرعات في جميع المكونات - الأشمل لصحة الدماغ",
+      "weaknesses": "سعر مرتفع",
+      "best_for": "الذاكرة، التركيز، الإدراك، الوقاية من التدهور المعرفي",
+      "warnings": "Alpha GPC بجرعات عالية قد يسبب صداعاً",
+      "food_sources": "الأسماك، البيض، المكسرات، التوت الأزرق",
+      "drug_interactions": "قد يتفاعل مع أدوية الكولينستراز",
+      "serving_size": "4 كبسولات",
+      "servings_per_container": 30,
+      "description": "BRAIN من Morphogen - الأشمل والأعلى جرعات لصحة الدماغ"
+    },
+    {
+      "id": "morphogen_test",
+      "name_en": "TEST",
+      "name_ar": "دعم التستوستيرون",
+      "brand": "Morphogen Nutrition",
+      "category": "hormones",
+      "category_ar": "الهرمونات والغدد",
+      "price": "$64.99",
+      "url": "https://www.morphogennutrition.com/products/test",
+      "score": 8.5,
+      "evidence_level": "قوي ⭐⭐⭐⭐",
+      "recommendation": "موصى به ✅",
+      "ingredients": [
+        {
+          "name": "Ashwagandha (KSM-66)",
+          "dose": "600mg",
+          "score": 9.0,
+          "note": "يرفع التستوستيرون"
+        },
+        {
+          "name": "Tongkat Ali (LJ100)",
+          "dose": "300mg",
+          "score": 8.5,
+          "note": "أعلى جرعة LJ100"
+        },
+        {
+          "name": "Shilajit (Primavie)",
+          "dose": "250mg",
+          "score": 8.5,
+          "note": "يرفع التستوستيرون والطاقة"
+        },
+        {
+          "name": "Zinc (Bisglycinate)",
+          "dose": "30mg",
+          "score": 9.0,
+          "note": "ضروري للتستوستيرون"
+        },
+        {
+          "name": "Magnesium (Glycinate)",
+          "dose": "300mg",
+          "score": 9.0,
+          "note": "يرفع التستوستيرون الحر"
+        },
+        {
+          "name": "Vitamin D3",
+          "dose": "5000 IU",
+          "score": 9.0,
+          "note": "هرمون ضروري"
+        }
+      ],
+      "key_ingredients": [
+        "Tongkat Ali LJ100 300mg",
+        "Shilajit Primavie 250mg",
+        "Ashwagandha 600mg",
+        "Zinc 30mg"
+      ],
+      "strengths": "Shilajit Primavie (أفضل استخلاص) + LJ100 بأعلى جرعة",
+      "weaknesses": "سعر مرتفع",
+      "best_for": "رفع التستوستيرون الطبيعي، الطاقة، الرغبة الجنسية، التعافي",
+      "warnings": "لا تستخدم مع أدوية الهرمونات دون استشارة",
+      "food_sources": "البيض، اللحوم الحمراء، المحار، المكسرات",
+      "drug_interactions": "أدوية الهرمونات: استشر الطبيب",
+      "serving_size": "4 كبسولات",
+      "servings_per_container": 30,
+      "description": "TEST من Morphogen بـ Shilajit Primavie وLJ100 لدعم التستوستيرون"
+    },
+    {
+      "id": "morphogen_thyroid",
+      "name_en": "THYROID",
+      "name_ar": "صحة الغدة الدرقية",
+      "brand": "Morphogen Nutrition",
+      "category": "hormones",
+      "category_ar": "الهرمونات والغدد",
+      "price": "$49.99",
+      "url": "https://www.morphogennutrition.com/products/thyroid",
+      "score": 8.5,
+      "evidence_level": "قوي ⭐⭐⭐⭐",
+      "recommendation": "موصى به ✅",
+      "ingredients": [
+        {
+          "name": "Iodine (from Kelp)",
+          "dose": "150mcg",
+          "score": 9.0,
+          "note": "ضروري لهرمونات الغدة الدرقية"
+        },
+        {
+          "name": "Selenium (Selenomethionine)",
+          "dose": "200mcg",
+          "score": 9.0,
+          "note": "يحول T4 إلى T3"
+        },
+        {
+          "name": "Zinc (Bisglycinate)",
+          "dose": "15mg",
+          "score": 8.5,
+          "note": "ضروري لوظيفة الغدة"
+        },
+        {
+          "name": "Ashwagandha (KSM-66)",
+          "dose": "300mg",
+          "score": 8.5,
+          "note": "يدعم الغدة الدرقية"
+        },
+        {
+          "name": "Guggul Extract",
+          "dose": "250mg",
+          "score": 7.5,
+          "note": "يحفز الغدة الدرقية"
+        },
+        {
+          "name": "Bladderwrack",
+          "dose": "200mg",
+          "score": 7.5,
+          "note": "مصدر اليود الطبيعي"
+        }
+      ],
+      "key_ingredients": [
+        "Iodine 150mcg",
+        "Selenium 200mcg",
+        "Zinc 15mg",
+        "Ashwagandha 300mg"
+      ],
+      "strengths": "الوحيد المتخصص للغدة الدرقية + Selenium بشكل Selenomethionine",
+      "weaknesses": "لا يحتوي على L-Tyrosine",
+      "best_for": "دعم الغدة الدرقية، التعب، الوزن، التمثيل الغذائي",
+      "warnings": "لا يغني عن أدوية الغدة الدرقية",
+      "food_sources": "الأسماك البحرية، مأكولات البحر، المكسرات البرازيلية",
+      "drug_interactions": "أدوية الغدة الدرقية: استشر الطبيب",
+      "serving_size": "3 كبسولات",
+      "servings_per_container": 30,
+      "description": "THYROID من Morphogen - المتخصص الوحيد لدعم الغدة الدرقية"
+    },
+    {
+      "id": "morphogen_calm",
+      "name_en": "CALM",
+      "name_ar": "الهدوء - Morphogen",
+      "brand": "Morphogen Nutrition",
+      "category": "mood",
+      "category_ar": "التوتر والمزاج",
+      "price": "$44.99",
+      "url": "https://www.morphogennutrition.com/products/calm",
+      "score": 8.5,
+      "evidence_level": "قوي ⭐⭐⭐⭐",
+      "recommendation": "موصى به ✅",
+      "ingredients": [
+        {
+          "name": "Ashwagandha (KSM-66)",
+          "dose": "600mg",
+          "score": 9.0,
+          "note": "يخفض الكورتيزول"
+        },
+        {
+          "name": "Magnesium Glycinate",
+          "dose": "300mg",
+          "score": 9.0,
+          "note": "يهدئ الجهاز العصبي"
+        },
+        {
+          "name": "L-Theanine",
+          "dose": "400mg",
+          "score": 9.0,
+          "note": "أعلى جرعة L-Theanine"
+        },
+        {
+          "name": "Saffron Extract (Affron)",
+          "dose": "28mg",
+          "score": 8.5,
+          "note": "يحسن المزاج - مثبت سريرياً"
+        },
+        {
+          "name": "5-HTP",
+          "dose": "100mg",
+          "score": 8.0,
+          "note": "يرفع السيروتونين"
+        }
+      ],
+      "key_ingredients": [
+        "Ashwagandha 600mg",
+        "L-Theanine 400mg",
+        "Saffron Affron 28mg",
+        "5-HTP 100mg"
+      ],
+      "strengths": "Saffron Affron (أفضل استخلاص زعفران) + L-Theanine بأعلى جرعة",
+      "weaknesses": "5-HTP: لا تجمع مع مضادات الاكتئاب",
+      "best_for": "التوتر، الاكتئاب الخفيف، تحسين المزاج، النوم",
+      "warnings": "5-HTP: لا تجمع مع SSRIs - خطر متلازمة السيروتونين",
+      "food_sources": "الموز، الديك الرومي، المكسرات، الشاي الأخضر",
+      "drug_interactions": "SSRIs + 5-HTP: خطر متلازمة السيروتونين",
+      "serving_size": "3 كبسولات",
+      "servings_per_container": 30,
+      "description": "CALM من Morphogen بـ Saffron Affron و5-HTP لتحسين المزاج"
+    },
+    {
+      "id": "morphogen_sleep",
+      "name_en": "SLEEP",
+      "name_ar": "النوم - Morphogen",
+      "brand": "Morphogen Nutrition",
+      "category": "sleep",
+      "category_ar": "النوم والتعافي",
+      "price": "$44.99",
+      "url": "https://www.morphogennutrition.com/products/sleep",
+      "score": 8.5,
+      "evidence_level": "قوي ⭐⭐⭐⭐",
+      "recommendation": "موصى به ✅",
+      "ingredients": [
+        {
+          "name": "Magnesium Glycinate",
+          "dose": "400mg",
+          "score": 9.0,
+          "note": "أفضل مغنيسيوم للنوم"
+        },
+        {
+          "name": "Ashwagandha (KSM-66)",
+          "dose": "300mg",
+          "score": 9.0,
+          "note": "يحسن جودة النوم"
+        },
+        {
+          "name": "L-Theanine",
+          "dose": "200mg",
+          "score": 9.0,
+          "note": "يحسن جودة النوم"
+        },
+        {
+          "name": "Melatonin",
+          "dose": "3mg",
+          "score": 8.5,
+          "note": "ينظم دورة النوم"
+        },
+        {
+          "name": "Valerian Root",
+          "dose": "400mg",
+          "score": 7.5,
+          "note": "مهدئ طبيعي"
+        },
+        {
+          "name": "Apigenin (from Chamomile)",
+          "dose": "50mg",
+          "score": 8.0,
+          "note": "يرتبط بمستقبلات GABA"
+        }
+      ],
+      "key_ingredients": [
+        "Mg Glycinate 400mg",
+        "Melatonin 3mg",
+        "Apigenin 50mg",
+        "Ashwagandha 300mg"
+      ],
+      "strengths": "Apigenin نادر + Melatonin بجرعة مثالية (3mg لا أكثر)",
+      "weaknesses": "Valerian قد يسبب نعاساً في اليوم التالي",
+      "best_for": "الأرق، جودة النوم، التعافي، الاسترخاء الليلي",
+      "warnings": "لا تقد السيارة بعد تناوله",
+      "food_sources": "الكرز، الموز، الحليب، الشاي البابونج",
+      "drug_interactions": "المهدئات + Melatonin: استشر الطبيب",
+      "serving_size": "3 كبسولات",
+      "servings_per_container": 30,
+      "description": "SLEEP من Morphogen بـ Apigenin وMelatonin لنوم عميق ومريح"
+    },
+    {
+      "id": "morphogen_prostate",
+      "name_en": "MEN'S HEALTH+LIBIDO",
+      "name_ar": "صحة الرجل + الرغبة",
+      "brand": "Morphogen Nutrition",
+      "category": "prostate",
+      "category_ar": "البروستاتا",
+      "price": "$59.99",
+      "url": "https://www.morphogennutrition.com/products/mens-health-libido",
+      "score": 8.5,
+      "evidence_level": "قوي ⭐⭐⭐⭐",
+      "recommendation": "موصى به ✅",
+      "ingredients": [
+        {
+          "name": "Saw Palmetto (45% Fatty Acids)",
+          "dose": "320mg",
+          "score": 8.5,
+          "note": "صحة البروستاتا"
+        },
+        {
+          "name": "Maca Root (4:1 Extract)",
+          "dose": "1500mg",
+          "score": 8.0,
+          "note": "يرفع الرغبة الجنسية"
+        },
+        {
+          "name": "Zinc (Bisglycinate)",
+          "dose": "30mg",
+          "score": 9.0,
+          "note": "ضروري للتستوستيرون"
+        },
+        {
+          "name": "Fenugreek Extract",
+          "dose": "600mg",
+          "score": 8.0,
+          "note": "يرفع التستوستيرون الحر"
+        },
+        {
+          "name": "Stinging Nettle Root",
+          "dose": "300mg",
+          "score": 7.5,
+          "note": "يقلل SHBG"
+        },
+        {
+          "name": "Lycopene",
+          "dose": "10mg",
+          "score": 8.5,
+          "note": "مضاد أكسدة للبروستاتا"
+        }
+      ],
+      "key_ingredients": [
+        "Saw Palmetto 320mg",
+        "Maca 1500mg",
+        "Fenugreek 600mg",
+        "Stinging Nettle 300mg"
+      ],
+      "strengths": "يجمع صحة البروستاتا مع الرغبة الجنسية - Maca بجرعة عالية",
+      "weaknesses": "لا يحتوي على Beta-Sitosterol",
+      "best_for": "صحة البروستاتا، الرغبة الجنسية، التستوستيرون الحر",
+      "warnings": "استشر الطبيب عند ارتفاع PSA",
+      "food_sources": "الطماطم، بذور اليقطين، الزنك في المحار",
+      "drug_interactions": "أدوية الهرمونات: استشر الطبيب",
+      "serving_size": "4 كبسولات",
+      "servings_per_container": 30,
+      "description": "MEN'S HEALTH+LIBIDO من Morphogen لصحة البروستاتا والرغبة الجنسية"
+    },
+    {
+      "id": "morphogen_omega",
+      "name_en": "OMEGA",
+      "name_ar": "أوميغا - Morphogen",
+      "brand": "Morphogen Nutrition",
+      "category": "vitamins",
+      "category_ar": "الفيتامينات والمعادن",
+      "price": "$34.99",
+      "url": "https://www.morphogennutrition.com/products/omega",
+      "score": 9.0,
+      "evidence_level": "قوي جداً ⭐⭐⭐⭐⭐",
+      "recommendation": "موصى به بشدة ✅✅",
+      "ingredients": [
+        {
+          "name": "EPA (rTG form)",
+          "dose": "720mg",
+          "score": 9.5,
+          "note": "أعلى EPA بشكل rTG"
+        },
+        {
+          "name": "DHA (rTG form)",
+          "dose": "480mg",
+          "score": 9.5,
+          "note": "أعلى DHA بشكل rTG"
+        },
+        {
+          "name": "Astaxanthin",
+          "dose": "4mg",
+          "score": 8.5,
+          "note": "يمنع أكسدة الأوميغا"
+        }
+      ],
+      "key_ingredients": [
+        "EPA rTG 720mg",
+        "DHA rTG 480mg",
+        "Astaxanthin 4mg"
+      ],
+      "strengths": "rTG + Astaxanthin = أفضل أوميغا-3 في السوق",
+      "weaknesses": "سعر أعلى من المنافسين",
+      "best_for": "القلب، الدماغ، الالتهابات، الصحة العامة",
+      "warnings": "قد يزيد وقت النزيف",
+      "food_sources": "السلمون، السردين، الماكريل",
+      "drug_interactions": "مخففات الدم: استشر الطبيب",
+      "serving_size": "2 كبسولة",
+      "servings_per_container": 30,
+      "description": "OMEGA من Morphogen بشكل rTG وAstaxanthin - الأفضل في السوق"
+    },
+    {
+      "id": "morphogen_multi",
+      "name_en": "MULTI",
+      "name_ar": "المتعدد الشامل",
+      "brand": "Morphogen Nutrition",
+      "category": "vitamins",
+      "category_ar": "الفيتامينات والمعادن",
+      "price": "$44.99",
+      "url": "https://www.morphogennutrition.com/products/multi",
+      "score": 8.5,
+      "evidence_level": "قوي ⭐⭐⭐⭐",
+      "recommendation": "موصى به ✅",
+      "ingredients": [
+        {
+          "name": "Vitamin A (Beta-Carotene)",
+          "dose": "5000 IU",
+          "score": 8.0,
+          "note": "المناعة والرؤية"
+        },
+        {
+          "name": "Vitamin C (Ascorbic Acid)",
+          "dose": "500mg",
+          "score": 9.0,
+          "note": "مضاد أكسدة قوي"
+        },
+        {
+          "name": "Vitamin D3",
+          "dose": "2000 IU",
+          "score": 9.0,
+          "note": "المناعة والعظام"
+        },
+        {
+          "name": "Vitamin E (Mixed Tocopherols)",
+          "dose": "200 IU",
+          "score": 8.5,
+          "note": "مضاد أكسدة"
+        },
+        {
+          "name": "B-Complex (Methylated)",
+          "dose": "Full spectrum",
+          "score": 9.0,
+          "note": "أشكال methylated للامتصاص الأفضل"
+        },
+        {
+          "name": "Zinc (Bisglycinate)",
+          "dose": "15mg",
+          "score": 9.0,
+          "note": "المناعة والتستوستيرون"
+        },
+        {
+          "name": "Selenium",
+          "dose": "100mcg",
+          "score": 8.5,
+          "note": "مضاد أكسدة"
+        },
+        {
+          "name": "Magnesium (Glycinate)",
+          "dose": "100mg",
+          "score": 8.5,
+          "note": "أكثر من 300 وظيفة"
+        }
+      ],
+      "key_ingredients": [
+        "B-Complex Methylated",
+        "Vitamin D3 2000IU",
+        "Zinc Bisglycinate 15mg",
+        "Vitamin C 500mg"
+      ],
+      "strengths": "B-Complex بأشكال methylated - امتصاص أفضل للجميع",
+      "weaknesses": "Vitamin D3 بجرعة منخفضة نسبياً",
+      "best_for": "الصحة العامة، المناعة، الطاقة، سد الفجوات الغذائية",
+      "warnings": "لا تتجاوز الجرعة الموصى بها",
+      "food_sources": "الخضروات، الفواكه، اللحوم، الأسماك",
+      "drug_interactions": "قد يتفاعل مع بعض الأدوية",
+      "serving_size": "4 كبسولات",
+      "servings_per_container": 30,
+      "description": "MULTI من Morphogen بفيتامينات ومعادن بأشكال عالية الامتصاص"
+    },
+    {
+      "id": "morphogen_adaptogen",
+      "name_en": "ADAPTOGEN",
+      "name_ar": "المتكيف",
+      "brand": "Morphogen Nutrition",
+      "category": "general",
+      "category_ar": "الصحة العامة",
+      "price": "$49.99",
+      "url": "https://www.morphogennutrition.com/products/adaptogen",
+      "score": 8.5,
+      "evidence_level": "قوي ⭐⭐⭐⭐",
+      "recommendation": "موصى به ✅",
+      "ingredients": [
+        {
+          "name": "Ashwagandha (KSM-66)",
+          "dose": "600mg",
+          "score": 9.0,
+          "note": "يخفض الكورتيزول"
+        },
+        {
+          "name": "Rhodiola Rosea (3% Rosavins)",
+          "dose": "400mg",
+          "score": 8.5,
+          "note": "يقاوم التعب"
+        },
+        {
+          "name": "Eleuthero (Siberian Ginseng)",
+          "dose": "400mg",
+          "score": 8.0,
+          "note": "يرفع الطاقة"
+        },
+        {
+          "name": "Holy Basil (Tulsi)",
+          "dose": "300mg",
+          "score": 7.5,
+          "note": "يقلل التوتر"
+        },
+        {
+          "name": "Schisandra Berry",
+          "dose": "300mg",
+          "score": 7.5,
+          "note": "يحسن الأداء"
+        },
+        {
+          "name": "Reishi Mushroom",
+          "dose": "500mg",
+          "score": 8.0,
+          "note": "يدعم المناعة"
+        }
+      ],
+      "key_ingredients": [
+        "Ashwagandha 600mg",
+        "Rhodiola 400mg",
+        "Reishi 500mg",
+        "Eleuthero 400mg"
+      ],
+      "strengths": "أشمل تركيبة للمتكيفات - 6 أعشاب متكيفة",
+      "weaknesses": "قد يكون التأثير تراكمياً (يحتاج أسابيع)",
+      "best_for": "التوتر المزمن، الطاقة، المناعة، الأداء العام",
+      "warnings": "قد يتفاعل مع أدوية المناعة",
+      "food_sources": "الفطر، الأعشاب، الشاي الأخضر",
+      "drug_interactions": "أدوية المناعة: استشر الطبيب",
+      "serving_size": "3 كبسولات",
+      "servings_per_container": 30,
+      "description": "ADAPTOGEN من Morphogen - أشمل تركيبة للمتكيفات الطبيعية"
+    },
+    {
+      "id": "morphogen_joint",
+      "name_en": "JOINT+INFLAMMATION",
+      "name_ar": "المفاصل + الالتهاب",
+      "brand": "Morphogen Nutrition",
+      "category": "general",
+      "category_ar": "الصحة العامة",
+      "price": "$49.99",
+      "url": "https://www.morphogennutrition.com/products/joint-inflammation",
+      "score": 8.5,
+      "evidence_level": "قوي ⭐⭐⭐⭐",
+      "recommendation": "موصى به ✅",
+      "ingredients": [
+        {
+          "name": "Curcumin (BCM-95)",
+          "dose": "1000mg",
+          "score": 9.0,
+          "note": "BCM-95 أعلى امتصاص للكركمين"
+        },
+        {
+          "name": "Boswellia (65% AKBA)",
+          "dose": "500mg",
+          "score": 9.0,
+          "note": "يثبط الالتهاب بقوة"
+        },
+        {
+          "name": "Collagen Type II (UC-II)",
+          "dose": "40mg",
+          "score": 8.5,
+          "note": "UC-II أفضل من الكولاجين العادي"
+        },
+        {
+          "name": "Glucosamine Sulfate",
+          "dose": "1500mg",
+          "score": 8.0,
+          "note": "يبني الغضروف"
+        },
+        {
+          "name": "MSM",
+          "dose": "1000mg",
+          "score": 7.5,
+          "note": "يقلل ألم المفاصل"
+        }
+      ],
+      "key_ingredients": [
+        "Curcumin BCM-95 1000mg",
+        "Boswellia 65% AKBA 500mg",
+        "UC-II Collagen 40mg"
+      ],
+      "strengths": "BCM-95 + Boswellia 65% AKBA = أقوى مضاد التهاب طبيعي",
+      "weaknesses": "Glucosamine: يحتاج 8-12 أسبوع لظهور النتائج",
+      "best_for": "آلام المفاصل، الالتهابات، الغضروف، التعافي",
+      "warnings": "Glucosamine: احذر عند حساسية المحار",
+      "food_sources": "الكركم، الزنجبيل، الأسماك، مرق العظام",
+      "drug_interactions": "مضادات التخثر + Curcumin: احذر",
+      "serving_size": "4 كبسولات",
+      "servings_per_container": 30,
+      "description": "JOINT+INFLAMMATION من Morphogen بـ BCM-95 وBoswellia لمضاد الالتهاب"
+    },
+    {
+      "id": "morphogen_biome",
+      "name_en": "BIOME",
+      "name_ar": "صحة الأمعاء",
+      "brand": "Morphogen Nutrition",
+      "category": "general",
+      "category_ar": "الصحة العامة",
+      "price": "$44.99",
+      "url": "https://www.morphogennutrition.com/products/biome",
+      "score": 8.0,
+      "evidence_level": "قوي ⭐⭐⭐⭐",
+      "recommendation": "موصى به ✅",
+      "ingredients": [
+        {
+          "name": "Lactobacillus acidophilus",
+          "dose": "10 Billion CFU",
+          "score": 8.5,
+          "note": "أكثر سلالات البروبيوتيك دراسةً"
+        },
+        {
+          "name": "Bifidobacterium longum",
+          "dose": "5 Billion CFU",
+          "score": 8.5,
+          "note": "يدعم المناعة"
+        },
+        {
+          "name": "Saccharomyces boulardii",
+          "dose": "5 Billion CFU",
+          "score": 8.5,
+          "note": "يعالج الإسهال"
+        },
+        {
+          "name": "Prebiotic Fiber (FOS)",
+          "dose": "2000mg",
+          "score": 8.0,
+          "note": "يغذي البروبيوتيك"
+        },
+        {
+          "name": "L-Glutamine",
+          "dose": "2000mg",
+          "score": 8.5,
+          "note": "يعالج تسرب الأمعاء"
+        }
+      ],
+      "key_ingredients": [
+        "Probiotics 20B CFU",
+        "L-Glutamine 2000mg",
+        "Prebiotic FOS 2000mg"
+      ],
+      "strengths": "L-Glutamine لعلاج تسرب الأمعاء + Prebiotics + Probiotics",
+      "weaknesses": "يحتاج تبريداً للحفاظ على الفعالية",
+      "best_for": "صحة الأمعاء، المناعة، الهضم، تسرب الأمعاء",
+      "warnings": "ابدأ بجرعة منخفضة لتجنب الانتفاخ",
+      "food_sources": "الزبادي، الكيفير، المخللات، الألياف",
+      "drug_interactions": "المضادات الحيوية: خذ البروبيوتيك بعد ساعتين",
+      "serving_size": "2 كبسولة",
+      "servings_per_container": 30,
+      "description": "BIOME من Morphogen لصحة الأمعاء بـ L-Glutamine وProbiotics"
+    },
+    {
+      "id": "morphogen_women",
+      "name_en": "WOMEN'S HEALTH",
+      "name_ar": "صحة المرأة",
+      "brand": "Morphogen Nutrition",
+      "category": "hormones",
+      "category_ar": "الهرمونات والغدد",
+      "price": "$49.99",
+      "url": "https://www.morphogennutrition.com/products/womens-health",
+      "score": 8.0,
+      "evidence_level": "قوي ⭐⭐⭐⭐",
+      "recommendation": "موصى به ✅",
+      "ingredients": [
+        {
+          "name": "Vitex (Chasteberry)",
+          "dose": "400mg",
+          "score": 8.0,
+          "note": "يوازن هرمونات المرأة"
+        },
+        {
+          "name": "DIM (Diindolylmethane)",
+          "dose": "200mg",
+          "score": 8.5,
+          "note": "يوازن الإستروجين"
+        },
+        {
+          "name": "Maca Root",
+          "dose": "1000mg",
+          "score": 8.0,
+          "note": "يدعم الهرمونات والطاقة"
+        },
+        {
+          "name": "Iron (Bisglycinate)",
+          "dose": "18mg",
+          "score": 8.5,
+          "note": "لمنع فقر الدم"
+        },
+        {
+          "name": "Folate (Methylfolate)",
+          "dose": "800mcg",
+          "score": 9.0,
+          "note": "أفضل شكل حمض الفوليك"
+        }
+      ],
+      "key_ingredients": [
+        "DIM 200mg",
+        "Vitex 400mg",
+        "Maca 1000mg",
+        "Methylfolate 800mcg"
+      ],
+      "strengths": "DIM لتوازن الإستروجين + Methylfolate (أفضل من Folic Acid)",
+      "weaknesses": "Vitex يحتاج 3 أشهر لظهور النتائج",
+      "best_for": "توازن الهرمونات، PMS، الخصوبة، الطاقة",
+      "warnings": "استشر الطبيب إذا كنت حاملاً",
+      "food_sources": "الخضروات الصليبية، الكتان، التوفو",
+      "drug_interactions": "حبوب منع الحمل + Vitex: استشر الطبيب",
+      "serving_size": "3 كبسولات",
+      "servings_per_container": 30,
+      "description": "WOMEN'S HEALTH من Morphogen بـ DIM وVitex لتوازن هرمونات المرأة"
+    },
+    {
+      "id": "morphogen_glucose",
+      "name_en": "GLUCOSE",
+      "name_ar": "التحكم في السكر",
+      "brand": "Morphogen Nutrition",
+      "category": "metabolism",
+      "category_ar": "التمثيل الغذائي",
+      "price": "$44.99",
+      "url": "https://www.morphogennutrition.com/products/glucose",
+      "score": 8.5,
+      "evidence_level": "قوي ⭐⭐⭐⭐",
+      "recommendation": "موصى به ✅",
+      "ingredients": [
+        {
+          "name": "Berberine HCl",
+          "dose": "500mg",
+          "score": 9.0,
+          "note": "يخفض السكر بفعالية"
+        },
+        {
+          "name": "Chromium Picolinate",
+          "dose": "400mcg",
+          "score": 8.0,
+          "note": "يحسن استجابة الإنسولين"
+        },
+        {
+          "name": "Cinnamon Extract (MHCP)",
+          "dose": "500mg",
+          "score": 8.0,
+          "note": "يحاكي الإنسولين"
+        },
+        {
+          "name": "Alpha Lipoic Acid",
+          "dose": "600mg",
+          "score": 8.5,
+          "note": "أعلى جرعة ALA"
+        },
+        {
+          "name": "Gymnema Sylvestre",
+          "dose": "400mg",
+          "score": 7.5,
+          "note": "يقلل الشهية للسكر"
+        }
+      ],
+      "key_ingredients": [
+        "Berberine 500mg",
+        "ALA 600mg",
+        "Cinnamon MHCP 500mg",
+        "Chromium 400mcg"
+      ],
+      "strengths": "ALA بأعلى جرعة + Berberine + Cinnamon MHCP",
+      "weaknesses": "لا يحتوي على Bitter Melon",
+      "best_for": "مقاومة الإنسولين، التحكم في السكر، الوزن",
+      "warnings": "لا يغني عن أدوية السكري",
+      "food_sources": "القرفة، الخل، الخضروات الورقية",
+      "drug_interactions": "أدوية السكري: مراقبة السكر بدقة",
+      "serving_size": "3 كبسولات",
+      "servings_per_container": 30,
+      "description": "GLUCOSE من Morphogen للتحكم في السكر ومقاومة الإنسولين"
+    },
+    {
+      "id": "morphogen_nutrigreens",
+      "name_en": "NUTRIGREENS",
+      "name_ar": "الخضروات المركّزة",
+      "brand": "Morphogen Nutrition",
+      "category": "general",
+      "category_ar": "الصحة العامة",
+      "price": "$49.99",
+      "url": "https://www.morphogennutrition.com/products/nutrigreens",
+      "score": 8.0,
+      "evidence_level": "قوي ⭐⭐⭐⭐",
+      "recommendation": "موصى به ✅",
+      "ingredients": [
+        {
+          "name": "Spirulina",
+          "dose": "2000mg",
+          "score": 8.5,
+          "note": "بروتين + مضاد أكسدة"
+        },
+        {
+          "name": "Chlorella",
+          "dose": "1000mg",
+          "score": 8.0,
+          "note": "يزيل المعادن الثقيلة"
+        },
+        {
+          "name": "Wheatgrass",
+          "dose": "1000mg",
+          "score": 7.5,
+          "note": "كلوروفيل + إنزيمات"
+        },
+        {
+          "name": "Broccoli Sprout Extract",
+          "dose": "500mg",
+          "score": 9.0,
+          "note": "Sulforaphane - مضاد سرطان"
+        },
+        {
+          "name": "Ashwagandha",
+          "dose": "300mg",
+          "score": 9.0,
+          "note": "مضاد للتوتر"
+        }
+      ],
+      "key_ingredients": [
+        "Spirulina 2000mg",
+        "Broccoli Sprout 500mg",
+        "Chlorella 1000mg"
+      ],
+      "strengths": "Broccoli Sprout (Sulforaphane) - مضاد أكسدة استثنائي",
+      "weaknesses": "الطعم قد يكون قوياً",
+      "best_for": "الصحة العامة، المناعة، التخلص من السموم، الطاقة",
+      "warnings": "Chlorella: ابدأ بجرعة منخفضة",
+      "food_sources": "الخضروات الورقية، البروكلي، الطحالب",
+      "drug_interactions": "قد يتفاعل مع مضادات التخثر",
+      "serving_size": "2 ملعقة",
+      "servings_per_container": 30,
+      "description": "NUTRIGREENS من Morphogen بـ Sulforaphane وSpirulina للصحة العامة"
+    }
+  ]
+}
