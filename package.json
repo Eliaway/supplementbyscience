@@ -101,9 +101,8 @@
       "esbuild",
       "unrs-resolver",
       "@parcel/watcher",
-      "better-sqlite3",
-      "canvas",
-      "sharp"
+      "better-sqlite3"
     ]
-  }
+  },
+  "type": "module"
 }
