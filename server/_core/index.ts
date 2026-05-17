@@ -440,8 +440,25 @@ async function startServer() {
   app.use("/api/trpc", createExpressMiddleware({ router: appRouter, createContext }));
 
   app.get("*", (req, res) => {
+    if (req.path.startsWith("/api/")) {
+      res.status(404).json({ error: "Not found" });
+      return;
+    }
+    // Try to serve the exact file first
+    const exactPath = path.join(publicDir, req.path);
+    if (fs.existsSync(exactPath) && fs.statSync(exactPath).isFile()) {
+      res.sendFile(exactPath);
+      return;
+    }
+    // For directory paths like /admin/ or /user/, serve their index.html
+    const dirIndexPath = path.join(publicDir, req.path, "index.html");
+    if (fs.existsSync(dirIndexPath)) {
+      res.sendFile(dirIndexPath);
+      return;
+    }
+    // Fallback to main index.html for SPA routing
     const indexPath = path.join(publicDir, "index.html");
-    if (fs.existsSync(indexPath) && !req.path.startsWith("/api/")) {
+    if (fs.existsSync(indexPath)) {
       res.sendFile(indexPath);
     } else {
       res.status(404).json({ error: "Not found" });

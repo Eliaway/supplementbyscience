@@ -241,12 +241,12 @@
   </div>
 
   <div class="quick-links">
-    <a href="/#products" class="quick-card">
+    <a href="/#supplements-section" class="quick-card">
       <div class="quick-icon">💊</div>
       <div class="quick-title">استعراض المنتجات</div>
       <div class="quick-desc">40 منتج مُقيَّم علمياً</div>
     </a>
-    <div class="quick-card" onclick="window.location.href='/#features'">
+    <div class="quick-card" onclick="window.location.href='/#features-section'">
       <div class="quick-icon">🔬</div>
       <div class="quick-title">التقييم العلمي</div>
       <div class="quick-desc">منهجية التقييم والمصادر</div>
@@ -292,7 +292,7 @@ async function loadProducts() {
     const top = [...(data.products || [])].sort((a, b) => b.score - a.score).slice(0, 12);
     const grid = document.getElementById('productsGrid');
     grid.innerHTML = top.map(p => `
-      <div class="product-card" onclick="window.location.href='/#products'">
+      <div class="product-card" onclick="window.location.href='/#supplements-section'">
         <div class="card-brand">${p.brand}</div>
         <div class="card-name">${p.name_ar || p.name_en}</div>
         <div class="card-cat">${p.category_ar || ''}</div>
