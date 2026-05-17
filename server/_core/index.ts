@@ -439,7 +439,7 @@ async function startServer() {
 
   app.use("/api/trpc", createExpressMiddleware({ router: appRouter, createContext }));
 
-  app.get("*", (req, res) => {
+  app.get("*", (req: import('express').Request, res: import('express').Response) => {
     if (req.path.startsWith("/api/")) {
       res.status(404).json({ error: "Not found" });
       return;
