@@ -95,5 +95,15 @@
     "typescript": "~5.9.3",
     "vitest": "^2.1.9"
   },
-  "packageManager": "pnpm@11.1.2"
+  "packageManager": "pnpm@11.1.2",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "unrs-resolver",
+      "@parcel/watcher",
+      "better-sqlite3",
+      "canvas",
+      "sharp"
+    ]
+  }
 }
