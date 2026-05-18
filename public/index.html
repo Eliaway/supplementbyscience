@@ -2382,32 +2382,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ======= NAVIGATION =======
 function renderNav() {
-  const nav = document.getElementById('mainNav');
-  const navItems = [
-    { id:'home', icon:'🏠', label:'الرئيسية' },
-    { id:'supplements', icon:'💊', label:'المكملات' },
-    { id:'protocols', icon:'📋', label:'البروتوكولات' },
-    { id:'products', icon:'🏪', label:'المنتجات' },
-    { id:'courses', icon:'🎓', label:'الكورسات' },
-    { id:'tools', icon:'🔧', label:'الأدوات' },
-    { id:'library', icon:'📚', label:'المكتبة' },
-    { id:'profile', icon:'👤', label:'ملفي الصحي' },
-    { id:'ai', icon:'🤖', label:'مساعد AI' },
-  ];
-  nav.innerHTML = navItems.map(item => `
-    <button onclick="showSection('${item.id}')" id="nav-${item.id}" 
-      class="nav-btn ${currentSection===item.id?'active':''}">
-      <span class="nav-icon">${item.icon}</span>
-      <span class="nav-label">${item.label}</span>
-    </button>
-  `).join('');
+  // Update active state on all nav-link buttons
+  document.querySelectorAll('.nav-link').forEach(btn => {
+    btn.classList.remove('active');
+    const onclick = btn.getAttribute('onclick') || '';
+    if (onclick.includes("'" + currentSection + "'") || onclick.includes('"' + currentSection + '"')) {
+      btn.classList.add('active');
+    }
+  });
 }
 
 function showSection(section) {
   currentSection = section;
-  document.querySelectorAll('.section').forEach(s => s.style.display = 'none');
+  document.querySelectorAll('.page-section').forEach(s => {
+    s.style.display = 'none';
+    s.classList.remove('active');
+  });
   const el = document.getElementById('section-' + section);
-  if (el) el.style.display = 'block';
+  if (el) {
+    el.style.display = 'block';
+    el.classList.add('active');
+  }
   renderNav();
   window.scrollTo(0, 0);
   const renderers = {
