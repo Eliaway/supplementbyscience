@@ -402,11 +402,11 @@ let modalType = '';
 let editingId = null;
 let supplements = [];
 let users = [];
-let protocols = JSON.parse(localStorage.getItem('adm_protocols') || '[]');
-let products = JSON.parse(localStorage.getItem('adm_products') || '[]');
-let articles = JSON.parse(localStorage.getItem('adm_articles') || '[]');
-let courses = JSON.parse(localStorage.getItem('adm_courses') || '[]');
-let glossary = JSON.parse(localStorage.getItem('adm_glossary') || '[]');
+let protocols = [];
+let products = [];
+let articles = [];
+let courses = [];
+let glossary = [];
 let announcements = JSON.parse(localStorage.getItem('adm_announcements') || '[]');
 
 // AUTH
@@ -468,12 +468,22 @@ function updateClock() {
 }
 
 async function loadData() {
-  const [suppData, usersData] = await Promise.all([
+  const [suppData, usersData, protoData, prodData, artData, courseData, glossData] = await Promise.all([
     apiGet('/api/scientific/supplements'),
-    apiGet('/api/admin/users')
+    apiGet('/api/admin/users'),
+    apiGet('/api/protocols'),
+    apiGet('/api/products'),
+    apiGet('/api/articles'),
+    apiGet('/api/courses'),
+    apiGet('/api/glossary')
   ]);
   if (suppData) supplements = suppData.supplements || [];
   if (usersData) users = Array.isArray(usersData) ? usersData : [];
+  if (protoData) protocols = protoData.protocols || [];
+  if (prodData) products = prodData.products || [];
+  if (artData) articles = artData.articles || [];
+  if (courseData) courses = courseData.courses || [];
+  if (glossData) glossary = glossData.glossary || [];
   updateStats();
 }
 
@@ -484,6 +494,9 @@ function updateStats() {
   document.getElementById('stat-users').textContent = users.filter(u=>u.role==='user').length;
   document.getElementById('stat-articles').textContent = articles.length;
   document.getElementById('stat-courses').textContent = courses.length;
+  // Update glossary stat if element exists
+  const glossEl = document.getElementById('stat-glossary');
+  if (glossEl) glossEl.textContent = glossary.length;
 }
 
 // NAVIGATION
@@ -742,59 +755,134 @@ function deleteSupplement(id) {
   updateStats(); renderSupplements(); toast('تم الحذف','success');
 }
 
-function saveProtocol() {
+async function saveProtocol() {
   const title = g('f-title');
   if (!title) { toast('العنوان مطلوب','error'); return; }
   const item = {title,emoji:g('f-emoji'),category:g('f-cat'),duration:g('f-duration'),description:g('f-desc'),supplements:gLines('f-supplements'),benefits:gLines('f-benefits')};
-  if (editingId!==null) protocols[editingId]=item; else protocols.push(item);
-  localStorage.setItem('adm_protocols',JSON.stringify(protocols));
-  updateStats(); closeModal(); renderProtocols(); toast('تم حفظ البروتوكول ✅','success');
+  try {
+    let res;
+    if (editingId!==null) {
+      const proto = protocols[editingId];
+      res = await fetch('/api/protocols/'+(proto.id||editingId), {method:'PUT',headers:{'Content-Type':'application/json','Authorization':'Bearer '+token},body:JSON.stringify(item)});
+    } else {
+      res = await fetch('/api/protocols', {method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+token},body:JSON.stringify(item)});
+    }
+    const data = await res.json();
+    if (data.success || data.protocol) {
+      const protoData = await apiGet('/api/protocols');
+      if (protoData) protocols = protoData.protocols || [];
+      updateStats(); closeModal(); renderProtocols(); toast('تم حفظ البروتوكول ✅','success');
+    } else toast(data.error||'خطأ في الحفظ','error');
+  } catch(e) { toast('خطأ في الاتصال','error'); }
 }
 
-function saveProduct() {
+async function saveProduct() {
   const name = g('f-name');
   if (!name) { toast('اسم المنتج مطلوب','error'); return; }
   const item = {name,brand:g('f-brand'),category:g('f-cat'),rating:parseFloat(g('f-rating')||'8'),emoji:g('f-emoji'),country:g('f-country'),description:g('f-desc'),pros:gLines('f-pros'),cons:gLines('f-cons')};
-  if (editingId!==null) products[editingId]=item; else products.push(item);
-  localStorage.setItem('adm_products',JSON.stringify(products));
-  updateStats(); closeModal(); renderProducts(); toast('تم حفظ المنتج ✅','success');
+  try {
+    let res;
+    if (editingId!==null) {
+      const prod = products[editingId];
+      res = await fetch('/api/products/'+(prod.id||editingId), {method:'PUT',headers:{'Content-Type':'application/json','Authorization':'Bearer '+token},body:JSON.stringify(item)});
+    } else {
+      res = await fetch('/api/products', {method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+token},body:JSON.stringify(item)});
+    }
+    const data = await res.json();
+    if (data.success || data.product) {
+      const prodData = await apiGet('/api/products');
+      if (prodData) products = prodData.products || [];
+      updateStats(); closeModal(); renderProducts(); toast('تم حفظ المنتج ✅','success');
+    } else toast(data.error||'خطأ في الحفظ','error');
+  } catch(e) { toast('خطأ في الاتصال','error'); }
 }
 
-function saveArticle() {
+async function saveArticle() {
   const title = g('f-title');
   if (!title) { toast('العنوان مطلوب','error'); return; }
-  const item = {title,emoji:g('f-emoji'),category:g('f-cat'),readTime:parseInt(g('f-readtime')||'5'),summary:g('f-summary'),content:g('f-content'),references:gLines('f-refs')};
-  if (editingId!==null) articles[editingId]=item; else articles.push(item);
-  localStorage.setItem('adm_articles',JSON.stringify(articles));
-  updateStats(); closeModal(); renderArticles(); toast('تم حفظ المقالة ✅','success');
+  const item = {title,emoji:g('f-emoji'),category:g('f-cat'),readTime:parseInt(g('f-readtime')||'5'),summary:g('f-summary'),content:g('f-content'),references:gLines('f-refs'),date:new Date().toISOString().split('T')[0]};
+  try {
+    let res;
+    if (editingId!==null) {
+      const art = articles[editingId];
+      res = await fetch('/api/articles/'+(art.id||editingId), {method:'PUT',headers:{'Content-Type':'application/json','Authorization':'Bearer '+token},body:JSON.stringify(item)});
+    } else {
+      res = await fetch('/api/articles', {method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+token},body:JSON.stringify(item)});
+    }
+    const data = await res.json();
+    if (data.success || data.article) {
+      const artData = await apiGet('/api/articles');
+      if (artData) articles = artData.articles || [];
+      updateStats(); closeModal(); renderArticles(); toast('تم حفظ المقالة ✅','success');
+    } else toast(data.error||'خطأ في الحفظ','error');
+  } catch(e) { toast('خطأ في الاتصال','error'); }
 }
 
-function saveCourse() {
+async function saveCourse() {
   const title = g('f-title');
   if (!title) { toast('العنوان مطلوب','error'); return; }
   const item = {title,emoji:g('f-emoji'),level:g('f-level'),duration:g('f-duration'),lessons:parseInt(g('f-lessons')||'10'),color:g('f-color'),description:g('f-desc'),topics:gLines('f-topics')};
-  if (editingId!==null) courses[editingId]=item; else courses.push(item);
-  localStorage.setItem('adm_courses',JSON.stringify(courses));
-  updateStats(); closeModal(); renderCourses(); toast('تم حفظ الكورس ✅','success');
+  try {
+    let res;
+    if (editingId!==null) {
+      const course = courses[editingId];
+      res = await fetch('/api/courses/'+(course.id||editingId), {method:'PUT',headers:{'Content-Type':'application/json','Authorization':'Bearer '+token},body:JSON.stringify(item)});
+    } else {
+      res = await fetch('/api/courses', {method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+token},body:JSON.stringify(item)});
+    }
+    const data = await res.json();
+    if (data.success || data.course) {
+      const courseData = await apiGet('/api/courses');
+      if (courseData) courses = courseData.courses || [];
+      updateStats(); closeModal(); renderCourses(); toast('تم حفظ الكورس ✅','success');
+    } else toast(data.error||'خطأ في الحفظ','error');
+  } catch(e) { toast('خطأ في الاتصال','error'); }
 }
 
-function saveGlossaryItem() {
+async function saveGlossaryItem() {
   const term = g('f-term');
   if (!term) { toast('المصطلح مطلوب','error'); return; }
-  const item = {term,translation:g('f-translation'),category:g('f-cat'),definition:g('f-def')};
-  if (editingId!==null) glossary[editingId]=item; else glossary.push(item);
-  localStorage.setItem('adm_glossary',JSON.stringify(glossary));
-  closeModal(); renderGlossary(); toast('تم حفظ المصطلح ✅','success');
+  const item = {term,ar:g('f-translation'),translation:g('f-translation'),category:g('f-cat'),definition:g('f-def')};
+  try {
+    let res;
+    if (editingId!==null) {
+      const gItem = glossary[editingId];
+      res = await fetch('/api/glossary/'+(gItem.id||editingId), {method:'PUT',headers:{'Content-Type':'application/json','Authorization':'Bearer '+token},body:JSON.stringify(item)});
+    } else {
+      res = await fetch('/api/glossary', {method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+token},body:JSON.stringify(item)});
+    }
+    const data = await res.json();
+    if (data.success || data.term) {
+      const glossData = await apiGet('/api/glossary');
+      if (glossData) glossary = glossData.glossary || [];
+      closeModal(); renderGlossary(); toast('تم حفظ المصطلح ✅','success');
+    } else toast(data.error||'خطأ في الحفظ','error');
+  } catch(e) { toast('خطأ في الاتصال','error'); }
 }
 
-function deleteItem(type, idx) {
+async function deleteItem(type, idx) {
   if (!confirm('هل أنت متأكد من الحذف؟')) return;
   const stores = {protocol:protocols,product:products,article:articles,course:courses,glossary};
-  const keys = {protocol:'adm_protocols',product:'adm_products',article:'adm_articles',course:'adm_courses',glossary:'adm_glossary'};
-  stores[type].splice(idx,1);
-  localStorage.setItem(keys[type],JSON.stringify(stores[type]));
-  const renderers = {protocol:renderProtocols,product:renderProducts,article:renderArticles,course:renderCourses,glossary:renderGlossary};
-  renderers[type]?.(); updateStats(); toast('تم الحذف','success');
+  const urlMap = {protocol:'/api/protocols',product:'/api/products',article:'/api/articles',course:'/api/courses',glossary:'/api/glossary'};
+  const item = stores[type]?.[idx];
+  if (!item) return;
+  const itemId = item.id || idx;
+  try {
+    const res = await fetch(urlMap[type]+'/'+itemId, {method:'DELETE',headers:{'Authorization':'Bearer '+token}});
+    const data = await res.json();
+    if (data.success) {
+      // Reload from API
+      const apiUrls = {protocol:'/api/protocols',product:'/api/products',article:'/api/articles',course:'/api/courses',glossary:'/api/glossary'};
+      const freshData = await apiGet(apiUrls[type]);
+      if (type==='protocol' && freshData) protocols = freshData.protocols||[];
+      if (type==='product' && freshData) products = freshData.products||[];
+      if (type==='article' && freshData) articles = freshData.articles||[];
+      if (type==='course' && freshData) courses = freshData.courses||[];
+      if (type==='glossary' && freshData) glossary = freshData.glossary||[];
+      const renderers = {protocol:renderProtocols,product:renderProducts,article:renderArticles,course:renderCourses,glossary:renderGlossary};
+      renderers[type]?.(); updateStats(); toast('تم الحذف','success');
+    } else toast(data.error||'خطأ في الحذف','error');
+  } catch(e) { toast('خطأ في الاتصال','error'); }
 }
 
 async function deleteUser(id) {

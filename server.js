@@ -27,25 +27,44 @@ async function initAdmin() {
   console.log(`[auth] Admin initialized: ${ADMIN_EMAIL}`);
 }
 
-// Load scientific data
+// ============ DATA HELPERS ============
+
+function loadJsonData(filename, defaultValue) {
+  const filePath = path.join(__dirname, "data", filename);
+  if (fs.existsSync(filePath)) {
+    try {
+      return JSON.parse(fs.readFileSync(filePath, "utf-8"));
+    } catch (e) {
+      console.error(`[data] Error loading ${filename}:`, e.message);
+      return defaultValue;
+    }
+  }
+  return defaultValue;
+}
+
+function saveJsonData(filename, data) {
+  const filePath = path.join(__dirname, "data", filename);
+  fs.writeFileSync(filePath, JSON.stringify(data, null, 2), "utf-8");
+}
+
+// Load scientific data (cached)
 let scientificData = null;
 function getScientificData() {
   if (!scientificData) {
-    const dataFile = path.join(__dirname, "data", "scientific-supplements.json");
-    if (fs.existsSync(dataFile)) {
-      scientificData = JSON.parse(fs.readFileSync(dataFile, "utf-8"));
-    } else {
-      scientificData = { supplements: [], diseases: [], allergies: [], medications: [], goals: [] };
-    }
+    scientificData = loadJsonData("scientific-supplements.json", {
+      supplements: [], diseases: [], allergies: [], medications: [], goals: []
+    });
   }
   return scientificData;
 }
 
-// Load supplements data
-let supplementsData = { products: [], categories: {} };
-const supplementsFile = path.join(__dirname, "data", "supplements-data.json");
-if (fs.existsSync(supplementsFile)) {
-  supplementsData = JSON.parse(fs.readFileSync(supplementsFile, "utf-8"));
+// Load supplements data (cached)
+let supplementsData = null;
+function getSupplementsData() {
+  if (!supplementsData) {
+    supplementsData = loadJsonData("supplements-data.json", { products: [], categories: {} });
+  }
+  return supplementsData;
 }
 
 // Middleware
@@ -253,16 +272,237 @@ async function startServer() {
     res.json({ results, checkedAt: new Date().toISOString() });
   });
 
-  // ============ SUPPLEMENTS API ============
+  // ============ SUPPLEMENTS (PRODUCTS) API ============
 
   app.get("/api/supplements", (_req, res) => {
-    res.json({ products: supplementsData.products || [], categories: supplementsData.categories || {}, total: (supplementsData.products || []).length });
+    const data = getSupplementsData();
+    res.json({ products: data.products || [], categories: data.categories || {}, total: (data.products || []).length });
   });
 
   app.get("/api/supplements/:id", (req, res) => {
-    const product = (supplementsData.products || []).find(p => p.id === req.params.id);
+    const data = getSupplementsData();
+    const product = (data.products || []).find(p => p.id === req.params.id);
     if (!product) { res.status(404).json({ error: "المنتج غير موجود" }); return; }
     res.json(product);
+  });
+
+  // ============ PROTOCOLS API ============
+
+  app.get("/api/protocols", (_req, res) => {
+    const protocols = loadJsonData("protocols.json", []);
+    res.json({ protocols, total: protocols.length });
+  });
+
+  app.get("/api/protocols/:id", (req, res) => {
+    const protocols = loadJsonData("protocols.json", []);
+    const protocol = protocols.find(p => p.id === req.params.id);
+    if (!protocol) { res.status(404).json({ error: "البروتوكول غير موجود" }); return; }
+    res.json(protocol);
+  });
+
+  app.post("/api/protocols", adminMiddleware, (req, res) => {
+    const protocols = loadJsonData("protocols.json", []);
+    const newProtocol = { ...req.body, id: req.body.id || Date.now().toString(), createdAt: new Date().toISOString() };
+    protocols.push(newProtocol);
+    saveJsonData("protocols.json", protocols);
+    res.json({ success: true, protocol: newProtocol });
+  });
+
+  app.put("/api/protocols/:id", adminMiddleware, (req, res) => {
+    const protocols = loadJsonData("protocols.json", []);
+    const idx = protocols.findIndex(p => p.id === req.params.id);
+    if (idx === -1) { res.status(404).json({ error: "البروتوكول غير موجود" }); return; }
+    protocols[idx] = { ...protocols[idx], ...req.body, id: req.params.id, updatedAt: new Date().toISOString() };
+    saveJsonData("protocols.json", protocols);
+    res.json({ success: true, protocol: protocols[idx] });
+  });
+
+  app.delete("/api/protocols/:id", adminMiddleware, (req, res) => {
+    const protocols = loadJsonData("protocols.json", []);
+    const idx = protocols.findIndex(p => p.id === req.params.id);
+    if (idx === -1) { res.status(404).json({ error: "البروتوكول غير موجود" }); return; }
+    protocols.splice(idx, 1);
+    saveJsonData("protocols.json", protocols);
+    res.json({ success: true });
+  });
+
+  // ============ PRODUCTS API ============
+
+  app.get("/api/products", (_req, res) => {
+    const products = loadJsonData("products.json", []);
+    res.json({ products, total: products.length });
+  });
+
+  app.get("/api/products/:id", (req, res) => {
+    const products = loadJsonData("products.json", []);
+    const product = products.find(p => p.id === req.params.id);
+    if (!product) { res.status(404).json({ error: "المنتج غير موجود" }); return; }
+    res.json(product);
+  });
+
+  app.post("/api/products", adminMiddleware, (req, res) => {
+    const products = loadJsonData("products.json", []);
+    const newProduct = { ...req.body, id: req.body.id || Date.now().toString(), createdAt: new Date().toISOString() };
+    products.push(newProduct);
+    saveJsonData("products.json", products);
+    res.json({ success: true, product: newProduct });
+  });
+
+  app.put("/api/products/:id", adminMiddleware, (req, res) => {
+    const products = loadJsonData("products.json", []);
+    const idx = products.findIndex(p => p.id === req.params.id);
+    if (idx === -1) { res.status(404).json({ error: "المنتج غير موجود" }); return; }
+    products[idx] = { ...products[idx], ...req.body, id: req.params.id, updatedAt: new Date().toISOString() };
+    saveJsonData("products.json", products);
+    res.json({ success: true, product: products[idx] });
+  });
+
+  app.delete("/api/products/:id", adminMiddleware, (req, res) => {
+    const products = loadJsonData("products.json", []);
+    const idx = products.findIndex(p => p.id === req.params.id);
+    if (idx === -1) { res.status(404).json({ error: "المنتج غير موجود" }); return; }
+    products.splice(idx, 1);
+    saveJsonData("products.json", products);
+    res.json({ success: true });
+  });
+
+  // ============ ARTICLES API ============
+
+  app.get("/api/articles", (_req, res) => {
+    const articles = loadJsonData("articles.json", []);
+    const { category, featured } = _req.query;
+    let filtered = articles;
+    if (category) filtered = filtered.filter(a => a.category === category);
+    if (featured === "true") filtered = filtered.filter(a => a.featured);
+    res.json({ articles: filtered, total: filtered.length });
+  });
+
+  app.get("/api/articles/:id", (req, res) => {
+    const articles = loadJsonData("articles.json", []);
+    const article = articles.find(a => a.id === req.params.id);
+    if (!article) { res.status(404).json({ error: "المقالة غير موجودة" }); return; }
+    res.json(article);
+  });
+
+  app.post("/api/articles", adminMiddleware, (req, res) => {
+    const articles = loadJsonData("articles.json", []);
+    const newArticle = { ...req.body, id: req.body.id || Date.now().toString(), date: req.body.date || new Date().toISOString().split("T")[0] };
+    articles.push(newArticle);
+    saveJsonData("articles.json", articles);
+    res.json({ success: true, article: newArticle });
+  });
+
+  app.put("/api/articles/:id", adminMiddleware, (req, res) => {
+    const articles = loadJsonData("articles.json", []);
+    const idx = articles.findIndex(a => a.id === req.params.id);
+    if (idx === -1) { res.status(404).json({ error: "المقالة غير موجودة" }); return; }
+    articles[idx] = { ...articles[idx], ...req.body, id: req.params.id };
+    saveJsonData("articles.json", articles);
+    res.json({ success: true, article: articles[idx] });
+  });
+
+  app.delete("/api/articles/:id", adminMiddleware, (req, res) => {
+    const articles = loadJsonData("articles.json", []);
+    const idx = articles.findIndex(a => a.id === req.params.id);
+    if (idx === -1) { res.status(404).json({ error: "المقالة غير موجودة" }); return; }
+    articles.splice(idx, 1);
+    saveJsonData("articles.json", articles);
+    res.json({ success: true });
+  });
+
+  // ============ COURSES API ============
+
+  app.get("/api/courses", (_req, res) => {
+    const courses = loadJsonData("courses.json", []);
+    const { level, featured } = _req.query;
+    let filtered = courses;
+    if (level) filtered = filtered.filter(c => c.level === level);
+    if (featured === "true") filtered = filtered.filter(c => c.featured);
+    res.json({ courses: filtered, total: filtered.length });
+  });
+
+  app.get("/api/courses/:id", (req, res) => {
+    const courses = loadJsonData("courses.json", []);
+    const course = courses.find(c => c.id === req.params.id);
+    if (!course) { res.status(404).json({ error: "الكورس غير موجود" }); return; }
+    res.json(course);
+  });
+
+  app.post("/api/courses", adminMiddleware, (req, res) => {
+    const courses = loadJsonData("courses.json", []);
+    const newCourse = { ...req.body, id: req.body.id || Date.now().toString() };
+    courses.push(newCourse);
+    saveJsonData("courses.json", courses);
+    res.json({ success: true, course: newCourse });
+  });
+
+  app.put("/api/courses/:id", adminMiddleware, (req, res) => {
+    const courses = loadJsonData("courses.json", []);
+    const idx = courses.findIndex(c => c.id === req.params.id);
+    if (idx === -1) { res.status(404).json({ error: "الكورس غير موجود" }); return; }
+    courses[idx] = { ...courses[idx], ...req.body, id: req.params.id };
+    saveJsonData("courses.json", courses);
+    res.json({ success: true, course: courses[idx] });
+  });
+
+  app.delete("/api/courses/:id", adminMiddleware, (req, res) => {
+    const courses = loadJsonData("courses.json", []);
+    const idx = courses.findIndex(c => c.id === req.params.id);
+    if (idx === -1) { res.status(404).json({ error: "الكورس غير موجود" }); return; }
+    courses.splice(idx, 1);
+    saveJsonData("courses.json", courses);
+    res.json({ success: true });
+  });
+
+  // ============ GLOSSARY API ============
+
+  app.get("/api/glossary", (_req, res) => {
+    const glossary = loadJsonData("glossary.json", []);
+    const { category, search } = _req.query;
+    let filtered = glossary;
+    if (category) filtered = filtered.filter(g => g.category === category);
+    if (search) {
+      const q = search.toLowerCase();
+      filtered = filtered.filter(g =>
+        g.term.toLowerCase().includes(q) ||
+        g.ar.includes(search) ||
+        g.definition.includes(search)
+      );
+    }
+    res.json({ glossary: filtered, total: filtered.length });
+  });
+
+  app.get("/api/glossary/:id", (req, res) => {
+    const glossary = loadJsonData("glossary.json", []);
+    const term = glossary.find(g => g.id === req.params.id);
+    if (!term) { res.status(404).json({ error: "المصطلح غير موجود" }); return; }
+    res.json(term);
+  });
+
+  app.post("/api/glossary", adminMiddleware, (req, res) => {
+    const glossary = loadJsonData("glossary.json", []);
+    const newTerm = { ...req.body, id: req.body.id || req.body.term?.toLowerCase().replace(/\s+/g, "-") || Date.now().toString() };
+    glossary.push(newTerm);
+    saveJsonData("glossary.json", glossary);
+    res.json({ success: true, term: newTerm });
+  });
+
+  app.put("/api/glossary/:id", adminMiddleware, (req, res) => {
+    const glossary = loadJsonData("glossary.json", []);
+    const idx = glossary.findIndex(g => g.id === req.params.id);
+    if (idx === -1) { res.status(404).json({ error: "المصطلح غير موجود" }); return; }
+    glossary[idx] = { ...glossary[idx], ...req.body, id: req.params.id };
+    saveJsonData("glossary.json", glossary);
+    res.json({ success: true, term: glossary[idx] });
+  });
+
+  app.delete("/api/glossary/:id", adminMiddleware, (req, res) => {
+    const glossary = loadJsonData("glossary.json", []);
+    const idx = glossary.findIndex(g => g.id === req.params.id);
+    if (idx === -1) { res.status(404).json({ error: "المصطلح غير موجود" }); return; }
+    glossary.splice(idx, 1);
+    saveJsonData("glossary.json", glossary);
+    res.json({ success: true });
   });
 
   // ============ ADMIN API ============
@@ -282,12 +522,51 @@ async function startServer() {
 
   app.get("/api/admin/stats", adminMiddleware, (_req, res) => {
     const data = getScientificData();
+    const protocols = loadJsonData("protocols.json", []);
+    const products = loadJsonData("products.json", []);
+    const articles = loadJsonData("articles.json", []);
+    const courses = loadJsonData("courses.json", []);
+    const glossary = loadJsonData("glossary.json", []);
     res.json({
       totalUsers: webUsers.filter(u => u.role === "user").length,
-      totalProducts: (supplementsData.products || []).length,
       totalScientificSupplements: (data.supplements || []).length,
+      totalProtocols: protocols.length,
+      totalProducts: products.length,
+      totalArticles: articles.length,
+      totalCourses: courses.length,
+      totalGlossaryTerms: glossary.length,
       usersWithProfile: webUsers.filter(u => u.role === "user" && u.healthProfile).length,
     });
+  });
+
+  // Admin CRUD for scientific supplements
+  app.post("/api/admin/supplements", adminMiddleware, (req, res) => {
+    const data = getScientificData();
+    const newSupp = { ...req.body, id: req.body.id || Date.now().toString() };
+    data.supplements.push(newSupp);
+    saveJsonData("scientific-supplements.json", data);
+    scientificData = null; // Reset cache
+    res.json({ success: true, supplement: newSupp });
+  });
+
+  app.put("/api/admin/supplements/:id", adminMiddleware, (req, res) => {
+    const data = getScientificData();
+    const idx = data.supplements.findIndex(s => s.id === req.params.id);
+    if (idx === -1) { res.status(404).json({ error: "المكمل غير موجود" }); return; }
+    data.supplements[idx] = { ...data.supplements[idx], ...req.body, id: req.params.id };
+    saveJsonData("scientific-supplements.json", data);
+    scientificData = null; // Reset cache
+    res.json({ success: true, supplement: data.supplements[idx] });
+  });
+
+  app.delete("/api/admin/supplements/:id", adminMiddleware, (req, res) => {
+    const data = getScientificData();
+    const idx = data.supplements.findIndex(s => s.id === req.params.id);
+    if (idx === -1) { res.status(404).json({ error: "المكمل غير موجود" }); return; }
+    data.supplements.splice(idx, 1);
+    saveJsonData("scientific-supplements.json", data);
+    scientificData = null; // Reset cache
+    res.json({ success: true });
   });
 
   app.get("/api/health", (_req, res) => { res.json({ ok: true, timestamp: Date.now() }); });
