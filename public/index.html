@@ -821,7 +821,7 @@ body {
   width: 100%; max-width: 520px;
   min-height: 100vh;
   display: flex; flex-direction: column;
-  padding: 20px 0;
+  padding: 60px 0 20px;
 }
 .onb-logo {
   text-align: center; margin-bottom: 32px;
@@ -1011,6 +1011,293 @@ body {
   display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
   margin-bottom: 16px;
 }
+
+/* ======= USER DROPDOWN MENU ======= */
+.user-menu-dropdown {
+  position: absolute; top: 60px; left: 16px;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 16px; padding: 8px; min-width: 200px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3); z-index: 9998;
+  animation: fadeIn 0.2s ease;
+}
+.user-menu-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 11px 14px; border-radius: 10px;
+  cursor: pointer; transition: background 0.15s;
+  font-size: 14px; font-weight: 600; color: var(--text);
+}
+.user-menu-item:hover { background: var(--bg3); }
+.user-menu-item.danger { color: #f87171; }
+.user-menu-divider { height: 1px; background: var(--border); margin: 4px 0; }
+
+/* ======= DASHBOARD ======= */
+.dash-container { max-width: 900px; margin: 0 auto; padding: 0 4px; }
+.dash-header {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  margin-bottom: 24px; padding: 24px; background: var(--card);
+  border: 1px solid var(--border); border-radius: 20px;
+}
+.dash-greeting-text { font-size: 22px; font-weight: 900; margin-bottom: 4px; }
+.dash-date { font-size: 13px; color: var(--text3); }
+.dash-streak { text-align: center; }
+.dash-streak-icon { font-size: 28px; }
+.dash-streak-val { font-size: 28px; font-weight: 900; color: #f97316; }
+.dash-streak-label { font-size: 11px; color: var(--text3); }
+.dash-stats {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+  margin-bottom: 20px;
+}
+@media(max-width:600px) { .dash-stats { grid-template-columns: repeat(2, 1fr); } }
+.dash-stat-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 16px; padding: 16px;
+  display: flex; align-items: center; gap: 12px;
+}
+.dash-stat-icon {
+  width: 44px; height: 44px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; flex-shrink: 0;
+}
+.dash-stat-val { font-size: 22px; font-weight: 900; }
+.dash-stat-label { font-size: 11px; color: var(--text3); }
+.dash-progress-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 16px; padding: 20px; margin-bottom: 20px;
+}
+.dash-progress-header {
+  display: flex; justify-content: space-between;
+  font-size: 14px; font-weight: 700; margin-bottom: 10px;
+}
+.dash-progress-bar {
+  height: 10px; background: var(--bg3); border-radius: 100px;
+  overflow: hidden; margin-bottom: 8px;
+}
+.dash-progress-fill {
+  height: 100%; border-radius: 100px;
+  transition: width 0.6s ease;
+}
+.dash-progress-sub { font-size: 12px; color: var(--text3); }
+.dash-section {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 20px; padding: 20px; margin-bottom: 16px;
+}
+.dash-section-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 16px;
+}
+.dash-section-title { font-size: 16px; font-weight: 800; }
+.dash-action-btn {
+  font-size: 13px; color: var(--primary-light); background: none;
+  border: none; cursor: pointer; font-weight: 600;
+}
+.dash-empty {
+  text-align: center; padding: 32px; color: var(--text3);
+  font-size: 14px;
+}
+.checklist { display: flex; flex-direction: column; gap: 8px; }
+.checklist-item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 14px; border-radius: 12px;
+  background: var(--bg3); border: 1px solid var(--border);
+  cursor: pointer; transition: all 0.2s;
+}
+.checklist-item.done { opacity: 0.6; background: rgba(16,185,129,0.08); border-color: rgba(16,185,129,0.3); }
+.checklist-check { font-size: 18px; flex-shrink: 0; }
+.checklist-emoji { font-size: 20px; flex-shrink: 0; }
+.checklist-body { flex: 1; }
+.checklist-name { font-size: 14px; font-weight: 700; }
+.checklist-meta { font-size: 12px; color: var(--text3); }
+.checklist-badge {
+  font-size: 11px; color: var(--accent); font-weight: 700;
+  background: rgba(16,185,129,0.1); padding: 3px 8px; border-radius: 100px;
+}
+.warnings-list { display: flex; flex-direction: column; gap: 8px; }
+.warning-item {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 12px; border-radius: 10px;
+  background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.3);
+}
+.warning-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+.warning-text { font-size: 13px; color: var(--text2); line-height: 1.5; }
+.goals-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.goal-chip {
+  padding: 6px 14px; border-radius: 100px;
+  background: rgba(99,102,241,0.15); border: 1px solid var(--primary);
+  color: var(--primary-light); font-size: 13px; font-weight: 600;
+}
+.quick-actions {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+}
+@media(max-width:500px) { .quick-actions { grid-template-columns: repeat(2, 1fr); } }
+.quick-action-btn {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  padding: 16px 8px; border-radius: 14px;
+  background: var(--bg3); border: 1px solid var(--border);
+  cursor: pointer; transition: all 0.2s; font-size: 13px; font-weight: 700;
+  color: var(--text);
+}
+.quick-action-btn:hover { border-color: var(--primary); background: rgba(99,102,241,0.08); }
+
+/* ======= MY SUPPLEMENTS ======= */
+.my-section-header {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  margin-bottom: 20px;
+}
+.my-section-title { font-size: 22px; font-weight: 900; margin-bottom: 4px; }
+.my-section-sub { font-size: 13px; color: var(--text3); }
+.my-summary-bar {
+  display: flex; align-items: center; justify-content: center; gap: 0;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 16px; padding: 16px; margin-bottom: 20px;
+}
+.my-summary-item { text-align: center; flex: 1; }
+.my-summary-val { font-size: 24px; font-weight: 900; display: block; }
+.my-summary-label { font-size: 12px; color: var(--text3); }
+.my-summary-divider { width: 1px; height: 40px; background: var(--border); }
+.my-empty {
+  text-align: center; padding: 60px 20px;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 20px; color: var(--text3);
+}
+.my-empty h3 { font-size: 18px; color: var(--text); margin-bottom: 8px; }
+.my-supps-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+.my-supp-card {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 16px; border-radius: 16px;
+  background: var(--card); border: 1px solid var(--border);
+  transition: all 0.2s;
+}
+.my-supp-card.done { opacity: 0.6; border-color: rgba(16,185,129,0.3); }
+.my-supp-left { display: flex; align-items: center; gap: 12px; }
+.my-supp-emoji { font-size: 28px; flex-shrink: 0; }
+.my-supp-name { font-size: 15px; font-weight: 800; }
+.my-supp-en { font-size: 11px; color: var(--text3); }
+.my-supp-dose { font-size: 12px; color: var(--primary-light); font-weight: 600; margin-top: 2px; }
+.my-supp-notes { font-size: 11px; color: var(--text3); margin-top: 2px; }
+.my-supp-right { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+.my-check-btn {
+  padding: 7px 14px; border-radius: 100px; font-size: 12px; font-weight: 700;
+  border: 1.5px solid var(--border); background: var(--bg3); color: var(--text);
+  cursor: pointer; transition: all 0.2s; white-space: nowrap;
+}
+.my-check-btn.done { background: rgba(16,185,129,0.15); border-color: var(--accent); color: var(--accent); }
+.my-supp-actions { display: flex; gap: 4px; }
+.my-icon-btn {
+  width: 30px; height: 30px; border-radius: 8px;
+  background: var(--bg3); border: 1px solid var(--border);
+  cursor: pointer; font-size: 14px; display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+}
+.my-icon-btn:hover { border-color: var(--primary); }
+.my-icon-btn.danger:hover { border-color: #f87171; background: rgba(239,68,68,0.1); }
+.my-week-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 20px; padding: 20px;
+}
+.my-week-title { font-size: 15px; font-weight: 800; margin-bottom: 16px; }
+.my-week-bars { display: flex; gap: 8px; align-items: flex-end; height: 100px; }
+.my-week-bar-col { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.my-week-bar-wrap {
+  flex: 1; width: 100%; background: var(--bg3); border-radius: 6px;
+  display: flex; align-items: flex-end; overflow: hidden; min-height: 60px;
+}
+.my-week-bar-fill { width: 100%; border-radius: 6px; transition: height 0.6s ease; min-height: 4px; }
+.my-week-day { font-size: 10px; color: var(--text3); }
+.my-week-day.today { color: var(--primary-light); font-weight: 700; }
+.my-week-pct { font-size: 10px; color: var(--text3); }
+
+/* ======= MY PROTOCOLS ======= */
+.my-protocols-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+.my-protocol-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 20px; padding: 18px; display: flex; flex-direction: column; gap: 12px;
+}
+.my-protocol-header { display: flex; align-items: flex-start; gap: 12px; }
+.my-protocol-icon { font-size: 28px; flex-shrink: 0; }
+.my-protocol-info { flex: 1; }
+.my-protocol-name { font-size: 15px; font-weight: 800; }
+.my-protocol-goal { font-size: 12px; color: var(--text3); }
+.my-protocol-actions { display: flex; gap: 4px; }
+.my-protocol-supps { display: flex; flex-direction: column; gap: 6px; }
+.my-protocol-supp-item { display: flex; align-items: center; gap: 8px; font-size: 13px; }
+.my-protocol-supp-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--primary); flex-shrink: 0; }
+.my-protocol-supp-name { flex: 1; font-weight: 600; }
+.my-protocol-supp-dose { font-size: 11px; color: var(--text3); }
+.my-protocol-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 8px; border-top: 1px solid var(--border); }
+.my-protocol-activate-btn {
+  font-size: 12px; font-weight: 700; color: var(--primary-light);
+  background: rgba(99,102,241,0.1); border: 1px solid var(--primary);
+  padding: 5px 12px; border-radius: 100px; cursor: pointer; transition: all 0.2s;
+}
+.my-protocol-activate-btn:hover { background: var(--primary); color: white; }
+
+/* ======= MODAL ======= */
+.my-modal {
+  position: fixed; inset: 0; z-index: 9990;
+  background: rgba(0,0,0,0.7); display: flex;
+  align-items: center; justify-content: center; padding: 20px;
+}
+.my-modal.hidden { display: none; }
+.my-modal-box {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 20px; width: 100%; max-width: 520px;
+  max-height: 90vh; overflow-y: auto;
+  animation: fadeIn 0.2s ease;
+}
+.my-modal-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 18px 20px; border-bottom: 1px solid var(--border);
+  font-size: 16px; font-weight: 800; position: sticky; top: 0;
+  background: var(--card); z-index: 1;
+}
+.my-modal-body { padding: 20px; }
+.my-modal-section { margin-bottom: 16px; }
+.my-modal-section-title { font-size: 13px; font-weight: 700; color: var(--text2); margin-bottom: 8px; }
+.my-modal-divider {
+  text-align: center; font-size: 12px; color: var(--text3);
+  margin: 16px 0; position: relative;
+}
+.my-modal-divider::before, .my-modal-divider::after {
+  content: ''; position: absolute; top: 50%; width: 40%; height: 1px;
+  background: var(--border);
+}
+.my-modal-divider::before { left: 0; }
+.my-modal-divider::after { right: 0; }
+.my-modal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.my-form-group { display: flex; flex-direction: column; gap: 5px; }
+.my-form-group label { font-size: 12px; font-weight: 600; color: var(--text2); }
+.my-input {
+  padding: 10px 12px; border-radius: 10px;
+  background: var(--bg3); border: 1px solid var(--border);
+  color: var(--text); font-size: 14px; font-family: inherit;
+  outline: none; transition: border-color 0.2s; text-align: right;
+}
+.my-input:focus { border-color: var(--primary); }
+.supp-search-results {
+  background: var(--bg3); border: 1px solid var(--border);
+  border-radius: 10px; overflow: hidden; margin-top: 4px;
+}
+.supp-search-item {
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 12px; cursor: pointer; transition: background 0.15s;
+  font-size: 13px; border-bottom: 1px solid var(--border);
+}
+.supp-search-item:last-child { border-bottom: none; }
+.supp-search-item:hover { background: rgba(99,102,241,0.1); }
+.supp-search-empty { padding: 12px; text-align: center; color: var(--text3); font-size: 13px; }
+.icon-picker { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+.icon-pick-btn {
+  width: 36px; height: 36px; border-radius: 8px; font-size: 18px;
+  background: var(--bg3); border: 1.5px solid var(--border);
+  cursor: pointer; transition: all 0.15s; display: flex; align-items: center; justify-content: center;
+}
+.icon-pick-btn.selected { border-color: var(--primary); background: rgba(99,102,241,0.15); }
+.prot-supp-row {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 0; border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+.prot-supp-row:last-child { border-bottom: none; }
 </style>
 </head>
 <body>
@@ -1047,6 +1334,9 @@ body {
     <button class="nav-link" onclick="showSection('library')">المكتبة</button>
     <button class="nav-link" onclick="showSection('ai')">مساعد AI</button>
     <button class="nav-link" onclick="showSection('profile')">ملفي الصحي</button>
+    <button class="nav-link" onclick="showSection('dashboard')">🏠 داشبورد</button>
+    <button class="nav-link" onclick="showSection('my-supplements')">💊 مكملاتي</button>
+    <button class="nav-link" onclick="showSection('my-protocols')">📋 بروتوكولاتي</button>
   </div>
   <div style="display:flex;align-items:center;gap:8px">
     <div id="navUserChip" style="display:none" class="onb-user-chip" onclick="showUserMenu()"></div>
@@ -1066,6 +1356,9 @@ body {
   <button onclick="showSection('library'); toggleMobileMenu()" class="nav-link">📚 المكتبة</button>
   <button onclick="showSection('ai'); toggleMobileMenu()" class="nav-link">🤖 مساعد AI</button>
   <button onclick="showSection('profile'); toggleMobileMenu()" class="nav-link">👤 ملفي الصحي</button>
+  <button onclick="showSection('dashboard'); toggleMobileMenu()" class="nav-link">🏠 داشبورد</button>
+  <button onclick="showSection('my-supplements'); toggleMobileMenu()" class="nav-link">💊 مكملاتي</button>
+  <button onclick="showSection('my-protocols'); toggleMobileMenu()" class="nav-link">📋 بروتوكولاتي</button>
   <button onclick="toggleMobileMenu()" style="color:var(--text3); margin-top:20px; font-size:24px; background:none; border:none; cursor:pointer;">✕</button>
 </div>
 
@@ -1773,6 +2066,48 @@ body {
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ======= DASHBOARD SECTION ======= -->
+<section id="section-dashboard" class="page-section">
+  <div class="sticky-section-header">
+    <span style="font-size:22px">🏠</span>
+    <div>
+      <div style="font-weight:800;font-size:16px">لوحة التحكم الشخصية</div>
+      <div style="font-size:12px;color:var(--text3)">متابعة مكملاتك وأهدافك اليومية</div>
+    </div>
+  </div>
+  <div class="section-container">
+    <div id="dashboardContent"><!-- rendered by JS --></div>
+  </div>
+</section>
+
+<!-- ======= MY SUPPLEMENTS SECTION ======= -->
+<section id="section-my-supplements" class="page-section">
+  <div class="sticky-section-header">
+    <span style="font-size:22px">💊</span>
+    <div>
+      <div style="font-weight:800;font-size:16px">مكملاتي</div>
+      <div style="font-size:12px;color:var(--text3)">إدارة مكملاتك وتتبع جرعاتك اليومية</div>
+    </div>
+  </div>
+  <div class="section-container">
+    <div id="mySupplementsContent"><!-- rendered by JS --></div>
+  </div>
+</section>
+
+<!-- ======= MY PROTOCOLS SECTION ======= -->
+<section id="section-my-protocols" class="page-section">
+  <div class="sticky-section-header">
+    <span style="font-size:22px">📋</span>
+    <div>
+      <div style="font-weight:800;font-size:16px">بروتوكولاتي</div>
+      <div style="font-size:12px;color:var(--text3)">بروتوكولاتك المحفوظة والمخصصة</div>
+    </div>
+  </div>
+  <div class="section-container">
+    <div id="myProtocolsContent"><!-- rendered by JS --></div>
   </div>
 </section>
 
@@ -2854,6 +3189,9 @@ function showSection(section) {
     library: renderLibrary,
     profile: renderProfile,
     ai: renderAI,
+    dashboard: renderDashboard,
+    'my-supplements': renderMySupplements,
+    'my-protocols': renderMyProtocols,
   };
   if (renderers[section]) renderers[section]();
 }
@@ -4575,32 +4913,89 @@ function showLoginOverlay() {
 }
 
 function showUserMenu() {
+  // Remove existing dropdown if open
+  const existing = document.getElementById('userMenuDropdown');
+  if (existing) { existing.remove(); return; }
+
   const isGuest = onbIsGuest;
-  if (isGuest) {
-    if (confirm('هل تريد إنشاء حساب لحفظ بياناتك؟')) {
-      localStorage.removeItem('onbSetupDone');
-      localStorage.removeItem('onbIsGuest');
-      onbIsGuest = false;
-      document.getElementById('onboardingOverlay').classList.remove('hidden');
-      onbAuthMode = 'register';
-      renderOnbStep(0);
-    }
-  } else {
-    if (confirm('هل تريد تسجيل الخروج؟')) {
-      localStorage.removeItem('onbToken');
-      localStorage.removeItem('onbUser');
-      localStorage.removeItem('onbSetupDone');
-      localStorage.removeItem('token');
-      localStorage.removeItem('user');
-      onbToken = null;
-      onbCurrentUser = null;
-      onbIsGuest = false;
-      updateNavUserChip();
-      document.getElementById('onboardingOverlay').classList.remove('hidden');
-      renderOnbStep(0);
-    }
-  }
+  const userName = (onbCurrentUser && onbCurrentUser.name) ? onbCurrentUser.name : 'زائر';
+  const userEmail = (onbCurrentUser && onbCurrentUser.email) ? onbCurrentUser.email : '';
+
+  const dropdown = document.createElement('div');
+  dropdown.id = 'userMenuDropdown';
+  dropdown.className = 'user-menu-dropdown';
+  dropdown.innerHTML = `
+    <div style="padding:12px 14px 10px;border-bottom:1px solid var(--border);margin-bottom:4px">
+      <div style="font-size:14px;font-weight:800">${userName}</div>
+      ${userEmail ? `<div style="font-size:12px;color:var(--text3)">${userEmail}</div>` : ''}
+      ${isGuest ? '<div style="font-size:11px;color:var(--accent2);margin-top:2px">زائر غير مسجل</div>' : ''}
+    </div>
+    <div class="user-menu-item" onclick="showSection('dashboard');closeUserMenu()">
+      <span>🏠</span> <span>لوحة التحكم</span>
+    </div>
+    <div class="user-menu-item" onclick="showSection('my-supplements');closeUserMenu()">
+      <span>💊</span> <span>مكملاتي</span>
+    </div>
+    <div class="user-menu-item" onclick="showSection('my-protocols');closeUserMenu()">
+      <span>📋</span> <span>بروتوكولاتي</span>
+    </div>
+    <div class="user-menu-item" onclick="showSection('profile');closeUserMenu()">
+      <span>👤</span> <span>ملفي الصحي</span>
+    </div>
+    <div class="user-menu-divider"></div>
+    ${isGuest ? `
+      <div class="user-menu-item" onclick="doRegisterFromGuest()">
+        <span>✨</span> <span>إنشاء حساب</span>
+      </div>
+    ` : `
+      <div class="user-menu-item danger" onclick="doLogout()">
+        <span>🚪</span> <span>تسجيل الخروج</span>
+      </div>
+    `}
+  `;
+  document.body.appendChild(dropdown);
+
+  // Close on outside click
+  setTimeout(() => {
+    document.addEventListener('click', function handler(e) {
+      if (!dropdown.contains(e.target) && !document.getElementById('navUserChip').contains(e.target)) {
+        dropdown.remove();
+        document.removeEventListener('click', handler);
+      }
+    });
+  }, 50);
+}
+
+function closeUserMenu() {
+  const d = document.getElementById('userMenuDropdown');
+  if (d) d.remove();
+}
+
+function doLogout() {
+  closeUserMenu();
+  localStorage.removeItem('onbToken');
+  localStorage.removeItem('onbUser');
+  localStorage.removeItem('onbSetupDone');
+  localStorage.removeItem('token');
+  localStorage.removeItem('user');
+  onbToken = null;
+  onbCurrentUser = null;
+  onbIsGuest = false;
+  updateNavUserChip();
+  document.getElementById('onboardingOverlay').classList.remove('hidden');
+  renderOnbStep(0);
+}
+
+function doRegisterFromGuest() {
+  closeUserMenu();
+  localStorage.removeItem('onbSetupDone');
+  localStorage.removeItem('onbIsGuest');
+  onbIsGuest = false;
+  document.getElementById('onboardingOverlay').classList.remove('hidden');
+  onbAuthMode = 'register';
+  renderOnbStep(0);
 }
 </script>
+<script src="/my-stack.js"></script>
 </body>
 </html>
