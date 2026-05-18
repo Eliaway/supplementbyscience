@@ -259,6 +259,20 @@ body {
 .filter-chip:hover { border-color: var(--primary); color: var(--text); }
 .filter-chip.active { background: var(--primary); color: white; border-color: var(--primary); }
 
+/* ======= FILTER TABS ======= */
+.filter-tabs { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; overflow-x: auto; padding-bottom: 4px; }
+.filter-tab {
+  padding: 8px 16px; border-radius: 100px;
+  background: var(--bg3); color: var(--text2);
+  border: 1px solid var(--border); cursor: pointer;
+  font-size: 13px; font-weight: 600; transition: all 0.2s;
+  white-space: nowrap; flex-shrink: 0;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+.filter-tab:hover { border-color: var(--primary); color: var(--text); }
+.filter-tab.active { background: var(--primary); color: white; border-color: var(--primary); }
+
 /* ======= PROTOCOL CARD ======= */
 .protocol-card {
   background: var(--card); border: 1px solid var(--border);
@@ -794,9 +808,227 @@ body {
 .quiz-score-display { text-align: center; padding: 32px; }
 .quiz-score-num { font-size: 64px; font-weight: 900; color: var(--primary-light); }
 .quiz-score-label { font-size: 16px; color: var(--text2); margin-top: 8px; }
+
+/* ======= ONBOARDING OVERLAY ======= */
+#onboardingOverlay {
+  position: fixed; inset: 0; z-index: 9999;
+  background: var(--bg);
+  display: flex; align-items: center; justify-content: center;
+  overflow-y: auto; padding: 20px;
+}
+#onboardingOverlay.hidden { display: none; }
+.onb-container {
+  width: 100%; max-width: 520px;
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  padding: 20px 0;
+}
+.onb-logo {
+  text-align: center; margin-bottom: 32px;
+}
+.onb-logo-icon {
+  width: 64px; height: 64px; border-radius: 18px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 32px; margin-bottom: 12px;
+}
+.onb-logo-title { font-size: 22px; font-weight: 900; }
+.onb-logo-sub { font-size: 13px; color: var(--text3); margin-top: 4px; }
+.onb-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 20px; padding: 28px;
+  animation: fadeIn 0.3s ease;
+}
+.onb-step-label {
+  font-size: 12px; color: var(--text3); margin-bottom: 8px;
+  font-weight: 600; letter-spacing: 0.5px;
+}
+.onb-progress-bar {
+  height: 4px; background: var(--bg3); border-radius: 100px;
+  margin-bottom: 28px; overflow: hidden;
+}
+.onb-progress-fill {
+  height: 100%; background: linear-gradient(90deg, var(--primary), var(--accent));
+  border-radius: 100px; transition: width 0.4s ease;
+}
+.onb-title {
+  font-size: 26px; font-weight: 900; margin-bottom: 6px;
+  line-height: 1.3;
+}
+.onb-subtitle { font-size: 14px; color: var(--text3); margin-bottom: 24px; }
+.onb-goal-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;
+  margin-bottom: 24px;
+}
+.onb-goal-card {
+  padding: 16px 12px; border-radius: 14px;
+  border: 2px solid var(--border); background: var(--bg3);
+  text-align: center; cursor: pointer; transition: all 0.2s;
+  -webkit-tap-highlight-color: transparent;
+}
+.onb-goal-card:hover { border-color: var(--primary); }
+.onb-goal-card.selected {
+  border-color: var(--primary);
+  background: rgba(99,102,241,0.15);
+}
+.onb-goal-emoji { font-size: 28px; margin-bottom: 6px; }
+.onb-goal-label { font-size: 13px; font-weight: 700; line-height: 1.3; }
+.onb-age-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+.onb-age-item {
+  padding: 16px 20px; border-radius: 14px;
+  border: 2px solid var(--border); background: var(--bg3);
+  cursor: pointer; transition: all 0.2s; font-size: 15px; font-weight: 700;
+  -webkit-tap-highlight-color: transparent;
+}
+.onb-age-item:hover { border-color: var(--primary); }
+.onb-age-item.selected { border-color: var(--primary); background: rgba(99,102,241,0.15); color: var(--primary-light); }
+.onb-activity-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;
+  margin-bottom: 24px;
+}
+.onb-activity-card {
+  padding: 20px 12px; border-radius: 14px;
+  border: 2px solid var(--border); background: var(--bg3);
+  text-align: center; cursor: pointer; transition: all 0.2s;
+  -webkit-tap-highlight-color: transparent;
+}
+.onb-activity-card:hover { border-color: var(--primary); }
+.onb-activity-card.selected { border-color: var(--primary); background: rgba(99,102,241,0.15); }
+.onb-activity-emoji { font-size: 32px; margin-bottom: 8px; }
+.onb-activity-label { font-size: 14px; font-weight: 700; }
+.onb-disease-search {
+  width: 100%; padding: 10px 14px; border-radius: 10px;
+  background: var(--bg3); border: 1px solid var(--border);
+  color: var(--text); font-size: 14px; font-family: inherit;
+  outline: none; margin-bottom: 12px; text-align: right;
+}
+.onb-disease-search:focus { border-color: var(--primary); }
+.onb-disease-cats { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
+.onb-cat-btn {
+  padding: 5px 12px; border-radius: 100px;
+  background: var(--bg3); border: 1px solid var(--border);
+  color: var(--text2); cursor: pointer; font-size: 11px; font-weight: 600;
+  transition: all 0.2s; white-space: nowrap;
+}
+.onb-cat-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+.onb-disease-list {
+  max-height: 280px; overflow-y: auto; display: flex; flex-wrap: wrap; gap: 8px;
+  margin-bottom: 16px;
+}
+.onb-disease-chip {
+  padding: 7px 14px; border-radius: 100px;
+  background: var(--bg3); border: 1px solid var(--border);
+  color: var(--text2); cursor: pointer; font-size: 12px; font-weight: 600;
+  transition: all 0.2s; display: flex; align-items: center; gap: 5px;
+  -webkit-tap-highlight-color: transparent;
+}
+.onb-disease-chip:hover { border-color: var(--primary); }
+.onb-disease-chip.selected { background: rgba(239,68,68,0.15); border-color: #f87171; color: #fca5a5; }
+.onb-allergy-chip.selected { background: rgba(245,158,11,0.15); border-color: #fbbf24; color: #fde68a; }
+.onb-none-chip.selected { background: rgba(16,185,129,0.15); border-color: var(--accent); color: #6ee7b7; }
+.onb-summary-card {
+  background: var(--bg3); border: 1px solid var(--border);
+  border-radius: 14px; padding: 20px; margin-bottom: 16px;
+}
+.onb-summary-row {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  padding: 10px 0; border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+.onb-summary-row:last-child { border-bottom: none; }
+.onb-summary-label { color: var(--text3); font-size: 12px; }
+.onb-summary-value { font-weight: 700; text-align: left; max-width: 65%; }
+.onb-btn-primary {
+  width: 100%; padding: 14px; border-radius: 14px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  border: none; color: white; font-size: 16px; font-weight: 800;
+  cursor: pointer; transition: all 0.2s; font-family: inherit;
+  margin-bottom: 10px;
+}
+.onb-btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+.onb-btn-secondary {
+  width: 100%; padding: 12px; border-radius: 14px;
+  background: transparent; border: 1px solid var(--border);
+  color: var(--text2); font-size: 14px; font-weight: 600;
+  cursor: pointer; transition: all 0.2s; font-family: inherit;
+}
+.onb-btn-secondary:hover { border-color: var(--text2); color: var(--text); }
+.onb-skip-btn {
+  display: block; text-align: center; margin-top: 12px;
+  color: var(--text3); font-size: 12px; cursor: pointer;
+  text-decoration: underline;
+}
+.onb-skip-btn:hover { color: var(--text2); }
+.onb-auth-tabs {
+  display: flex; gap: 0; margin-bottom: 24px;
+  border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+}
+.onb-auth-tab {
+  flex: 1; padding: 12px; border: none; background: transparent;
+  color: var(--text2); font-size: 14px; font-weight: 700;
+  cursor: pointer; transition: all 0.2s; font-family: inherit;
+}
+.onb-auth-tab.active { background: var(--primary); color: white; }
+.onb-form-group { margin-bottom: 14px; }
+.onb-form-label { font-size: 12px; font-weight: 600; color: var(--text2); margin-bottom: 6px; display: block; }
+.onb-form-input {
+  width: 100%; padding: 11px 14px; border-radius: 10px;
+  background: var(--bg3); border: 1px solid var(--border);
+  color: var(--text); font-size: 14px; font-family: inherit;
+  outline: none; transition: border-color 0.2s; text-align: right;
+}
+.onb-form-input:focus { border-color: var(--primary); }
+.onb-divider {
+  display: flex; align-items: center; gap: 12px; margin: 16px 0;
+  color: var(--text3); font-size: 12px;
+}
+.onb-divider::before, .onb-divider::after {
+  content: ''; flex: 1; height: 1px; background: var(--border);
+}
+.onb-guest-btn {
+  width: 100%; padding: 12px; border-radius: 14px;
+  background: var(--bg3); border: 1px solid var(--border);
+  color: var(--text); font-size: 14px; font-weight: 700;
+  cursor: pointer; transition: all 0.2s; font-family: inherit;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+.onb-guest-btn:hover { border-color: var(--text2); }
+.onb-alert {
+  padding: 10px 14px; border-radius: 10px; margin-bottom: 12px;
+  font-size: 13px; display: none;
+}
+.onb-alert.show { display: block; }
+.onb-alert.error { background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3); color: #fca5a5; }
+.onb-alert.success { background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.3); color: #6ee7b7; }
+.onb-user-chip {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 12px; border-radius: 100px;
+  background: rgba(99,102,241,0.15); border: 1px solid var(--primary);
+  color: var(--primary-light); font-size: 13px; font-weight: 700;
+  cursor: pointer;
+}
+.onb-personal-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+  margin-bottom: 16px;
+}
 </style>
 </head>
 <body>
+
+<!-- ======= ONBOARDING OVERLAY ======= -->
+<div id="onboardingOverlay">
+  <div class="onb-container">
+    <div class="onb-logo">
+      <div class="onb-logo-icon">🔬</div>
+      <div class="onb-logo-title">علم المكملات</div>
+      <div class="onb-logo-sub">المنصة العلمية الشاملة للمكملات الغذائية</div>
+    </div>
+    <div class="onb-card" id="onbCard">
+      <!-- Content injected by JS -->
+    </div>
+  </div>
+</div>
+
 <!-- ======= NAVBAR ======= -->
 <nav class="navbar">
   <a class="nav-brand" href="#" onclick="showSection('home')">
@@ -816,7 +1048,11 @@ body {
     <button class="nav-link" onclick="showSection('ai')">مساعد AI</button>
     <button class="nav-link" onclick="showSection('profile')">ملفي الصحي</button>
   </div>
-  <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+  <div style="display:flex;align-items:center;gap:8px">
+    <div id="navUserChip" style="display:none" class="onb-user-chip" onclick="showUserMenu()"></div>
+    <button id="navLoginBtn" class="nav-btn" onclick="showLoginOverlay()" style="display:none">تسجيل الدخول</button>
+    <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+  </div>
 </nav>
 
 <!-- Mobile Nav -->
@@ -1026,6 +1262,17 @@ body {
     <div class="cards-grid" id="supplementsGrid"></div>
   </div>
 </section>
+
+<!-- Generic Modal (used by supplements, products, courses, glossary) -->
+<div class="modal-overlay" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title" id="modal-title"></div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
 
 <!-- Supplement Detail Modal -->
 <div class="modal-overlay" id="suppModal" onclick="closeSuppModal(event)">
@@ -2372,12 +2619,172 @@ let supplementStack = JSON.parse(localStorage.getItem('supplementStack') || '[]'
 let savedProtocols = JSON.parse(localStorage.getItem('savedProtocols') || '[]');
 let darkMode = localStorage.getItem('darkMode') === 'true';
 
+// ======= ONBOARDING STATE =======
+let onbStep = 0; // 0=welcome/auth, 1=goals, 2=age, 3=activity, 4=diseases, 5=allergies, 6=personal, 7=summary
+let onbSelectedGoals = [];
+let onbSelectedAge = '';
+let onbSelectedActivity = '';
+let onbSelectedDiseases = [];
+let onbSelectedAllergies = [];
+let onbDiseaseFilter = 'all';
+let onbDiseaseSearch = '';
+let onbAuthMode = 'register'; // 'login' | 'register'
+let onbCurrentUser = JSON.parse(localStorage.getItem('onbUser') || 'null');
+let onbToken = localStorage.getItem('onbToken') || null;
+let onbIsGuest = localStorage.getItem('onbIsGuest') === 'true';
+
+const ONB_GOALS = [
+  {id:'energy', label:'تحسين الطاقة والحيوية', emoji:'⚡'},
+  {id:'immunity', label:'تقوية المناعة', emoji:'🛡️'},
+  {id:'muscle', label:'بناء العضلات', emoji:'💪'},
+  {id:'sleep', label:'تحسين النوم', emoji:'😴'},
+  {id:'brain', label:'تحسين التركيز والذاكرة', emoji:'🧠'},
+  {id:'joints', label:'صحة المفاصل والعظام', emoji:'🦴'},
+  {id:'heart', label:'صحة القلب والأوعية', emoji:'❤️'},
+  {id:'skin', label:'صحة الجلد والشعر', emoji:'✨'},
+  {id:'weight', label:'إدارة الوزن', emoji:'⚖️'},
+  {id:'hormones', label:'توازن الهرمونات', emoji:'🔬'},
+  {id:'digestion', label:'صحة الجهاز الهضمي', emoji:'🫃'},
+  {id:'longevity', label:'مكافحة الشيخوخة', emoji:'♾️'},
+];
+
+const ONB_AGE_GROUPS = [
+  {id:'teen', label:'15-20 سنة'},
+  {id:'young', label:'21-35 سنة'},
+  {id:'adult', label:'36-50 سنة'},
+  {id:'senior', label:'51+ سنة'},
+];
+
+const ONB_ACTIVITY = [
+  {id:'sedentary', label:'قليل النشاط', emoji:'🪑'},
+  {id:'moderate', label:'نشاط معتدل', emoji:'🚶'},
+  {id:'active', label:'نشيط', emoji:'🏃'},
+  {id:'athlete', label:'رياضي محترف', emoji:'🏆'},
+];
+
+const ONB_DISEASES = [
+  // قلب وأوعية
+  {id:'hypertension', label:'ارتفاع ضغط الدم', cat:'cardiovascular', icon:'🩺'},
+  {id:'heart_disease', label:'أمراض القلب', cat:'cardiovascular', icon:'❤️'},
+  {id:'high_cholesterol', label:'ارتفاع الكوليسترول', cat:'cardiovascular', icon:'💉'},
+  {id:'atrial_fibrillation', label:'الرجفان الأذيني', cat:'cardiovascular', icon:'💓'},
+  {id:'stroke_history', label:'تاريخ سكتة دماغية', cat:'cardiovascular', icon:'🧠'},
+  // الغدد الصماء
+  {id:'diabetes_t1', label:'سكري النوع الأول', cat:'endocrine', icon:'🩸'},
+  {id:'diabetes_t2', label:'سكري النوع الثاني', cat:'endocrine', icon:'🩸'},
+  {id:'prediabetes', label:'مقدمات السكري', cat:'endocrine', icon:'🩸'},
+  {id:'hypothyroidism', label:'قصور الغدة الدرقية', cat:'endocrine', icon:'🦋'},
+  {id:'hyperthyroidism', label:'فرط نشاط الغدة الدرقية', cat:'endocrine', icon:'🦋'},
+  {id:'pcos', label:'تكيس المبايض', cat:'endocrine', icon:'⚕️'},
+  // الكلى
+  {id:'kidney_disease_ckd', label:'الفشل الكلوي المزمن', cat:'kidney', icon:'🫘'},
+  {id:'kidney_stones', label:'حصوات الكلى', cat:'kidney', icon:'🫘'},
+  // الكبد
+  {id:'fatty_liver', label:'الكبد الدهني', cat:'liver', icon:'🫀'},
+  {id:'hepatitis_b', label:'التهاب الكبد ب', cat:'liver', icon:'🫀'},
+  {id:'hepatitis_c', label:'التهاب الكبد ج', cat:'liver', icon:'🫀'},
+  {id:'cirrhosis', label:'تليف الكبد', cat:'liver', icon:'🫀'},
+  // الجهاز الهضمي
+  {id:'ibs', label:'القولون العصبي', cat:'digestive', icon:'🫃'},
+  {id:'ibd_crohn', label:'مرض كرون', cat:'digestive', icon:'🫃'},
+  {id:'ibd_colitis', label:'التهاب القولون التقرحي', cat:'digestive', icon:'🫃'},
+  {id:'gerd', label:'ارتجاع المريء', cat:'digestive', icon:'🫃'},
+  {id:'peptic_ulcer', label:'قرحة المعدة', cat:'digestive', icon:'🫃'},
+  {id:'celiac', label:'مرض السيلياك', cat:'digestive', icon:'🌾'},
+  // مناعة ذاتية
+  {id:'lupus', label:'الذئبة الحمراء', cat:'autoimmune', icon:'🛡️'},
+  {id:'rheumatoid_arthritis', label:'التهاب المفاصل الروماتويدي', cat:'autoimmune', icon:'🦴'},
+  {id:'ms', label:'التصلب المتعدد', cat:'autoimmune', icon:'🧠'},
+  {id:'psoriasis', label:'الصدفية', cat:'autoimmune', icon:'🔴'},
+  {id:'hashimoto', label:'هاشيموتو', cat:'autoimmune', icon:'🦋'},
+  // الجهاز التنفسي
+  {id:'asthma', label:'الربو', cat:'respiratory', icon:'🫁'},
+  {id:'copd', label:'الانسداد الرئوي المزمن', cat:'respiratory', icon:'🫁'},
+  {id:'sleep_apnea', label:'انقطاع النفس أثناء النوم', cat:'respiratory', icon:'😴'},
+  // عضلات وعظام
+  {id:'osteoporosis', label:'هشاشة العظام', cat:'musculoskeletal', icon:'🦴'},
+  {id:'osteoarthritis', label:'التهاب المفاصل التنكسي', cat:'musculoskeletal', icon:'🦴'},
+  {id:'gout', label:'النقرس', cat:'musculoskeletal', icon:'🦶'},
+  {id:'fibromyalgia', label:'الفيبروميالجيا', cat:'musculoskeletal', icon:'💪'},
+  // عصبية
+  {id:'migraine', label:'الصداع النصفي', cat:'neurological', icon:'🧠'},
+  {id:'epilepsy', label:'الصرع', cat:'neurological', icon:'⚡'},
+  {id:'parkinsons', label:'باركنسون', cat:'neurological', icon:'🧠'},
+  {id:'alzheimers', label:'الزهايمر', cat:'neurological', icon:'🧠'},
+  {id:'adhd', label:'اضطراب ADHD', cat:'neurological', icon:'🧠'},
+  // نفسية
+  {id:'depression', label:'الاكتئاب', cat:'mental_health', icon:'🧠'},
+  {id:'anxiety', label:'القلق المزمن', cat:'mental_health', icon:'😰'},
+  {id:'bipolar', label:'الاضطراب ثنائي القطب', cat:'mental_health', icon:'🧠'},
+  // دم
+  {id:'anemia_iron', label:'فقر الدم بنقص الحديد', cat:'blood', icon:'🩸'},
+  {id:'anemia_b12', label:'فقر الدم بنقص ب12', cat:'blood', icon:'🩸'},
+  {id:'thalassemia', label:'الثلاسيميا', cat:'blood', icon:'🩸'},
+  {id:'bleeding_disorder', label:'اضطراب التخثر', cat:'blood', icon:'🩸'},
+  // أيضي
+  {id:'obesity', label:'السمنة المفرطة', cat:'metabolic', icon:'⚖️'},
+  {id:'metabolic_syndrome', label:'متلازمة التمثيل الغذائي', cat:'metabolic', icon:'🔬'},
+  // أخرى
+  {id:'cancer_active', label:'سرطان نشط (تحت العلاج)', cat:'other', icon:'⚕️'},
+  {id:'pregnancy', label:'الحمل', cat:'other', icon:'🤰'},
+  {id:'breastfeeding', label:'الرضاعة الطبيعية', cat:'other', icon:'🤱'},
+  {id:'organ_transplant', label:'زراعة الأعضاء', cat:'other', icon:'⚕️'},
+];
+
+const ONB_DISEASE_CATS = [
+  {id:'all', label:'الكل'},
+  {id:'cardiovascular', label:'❤️ القلب'},
+  {id:'endocrine', label:'🦋 الغدد'},
+  {id:'digestive', label:'🫃 الهضم'},
+  {id:'mental_health', label:'🧠 نفسية'},
+  {id:'neurological', label:'⚡ عصبية'},
+  {id:'autoimmune', label:'🛡️ مناعة'},
+  {id:'musculoskeletal', label:'🦴 عظام'},
+  {id:'kidney', label:'🫘 الكلى'},
+  {id:'liver', label:'🫀 الكبد'},
+  {id:'blood', label:'🩸 الدم'},
+  {id:'respiratory', label:'🫁 تنفس'},
+  {id:'metabolic', label:'🔬 أيضي'},
+  {id:'other', label:'⚕️ أخرى'},
+];
+
+const ONB_ALLERGIES = [
+  {id:'fish', label:'حساسية الأسماك', icon:'🐟'},
+  {id:'shellfish', label:'حساسية المحار', icon:'🦐'},
+  {id:'eggs', label:'حساسية البيض', icon:'🥚'},
+  {id:'milk_dairy', label:'حساسية الحليب والألبان', icon:'🥛'},
+  {id:'lactose_intolerance', label:'عدم تحمل اللاكتوز', icon:'🥛'},
+  {id:'gluten', label:'حساسية الغلوتين', icon:'🌾'},
+  {id:'nuts_tree', label:'حساسية المكسرات', icon:'🥜'},
+  {id:'peanuts', label:'حساسية الفول السوداني', icon:'🥜'},
+  {id:'soy', label:'حساسية الصويا', icon:'🫘'},
+  {id:'wheat', label:'حساسية القمح', icon:'🌾'},
+  {id:'sesame', label:'حساسية السمسم', icon:'🌱'},
+  {id:'sulfites', label:'حساسية الكبريتيت', icon:'⚗️'},
+  {id:'iodine', label:'حساسية اليود', icon:'⚗️'},
+  {id:'aspirin_nsaids', label:'حساسية الأسبرين/NSAIDs', icon:'💊'},
+  {id:'penicillin', label:'حساسية البنسلين', icon:'💊'},
+  {id:'sulfa', label:'حساسية السلفا', icon:'💊'},
+  {id:'latex', label:'حساسية اللاتكس', icon:'🧤'},
+  {id:'pollen', label:'حساسية حبوب اللقاح', icon:'🌸'},
+  {id:'dust_mites', label:'حساسية عث الغبار', icon:'🌫️'},
+  {id:'nickel', label:'حساسية النيكل', icon:'🔩'},
+];
+
 // ======= INIT =======
 document.addEventListener('DOMContentLoaded', () => {
   if (darkMode) document.body.classList.add('dark');
   renderNav();
   showSection('home');
   renderHome();
+  // Check if onboarding is needed
+  const setupDone = localStorage.getItem('onbSetupDone');
+  if (!setupDone) {
+    renderOnbStep(0);
+  } else {
+    document.getElementById('onboardingOverlay').classList.add('hidden');
+    updateNavUserChip();
+  }
 });
 
 // ======= NAVIGATION =======
@@ -2563,7 +2970,7 @@ function showSuppDetail(id) {
       <button class="btn-primary" onclick="addToStack('${s.id}')">+ أضف لروتيني</button>
     </div>
   `;
-  modal.style.display = 'flex';
+  modal.classList.add('open');
 }
 
 function addToStack(id) {
@@ -2628,8 +3035,9 @@ function showProtocolDetail(id, tab) {
   const data = PROTOCOLS_DATA[tab] || [];
   const p = data.find(x=>x.id===id);
   if (!p) return;
-  const modal = document.getElementById('modal');
-  const body = document.getElementById('modal-body');
+  const modal = document.getElementById('protocolModal');
+  const body = document.getElementById('protocolModalBody');
+  document.getElementById('protocolModalTitle').textContent = p.name;
   body.innerHTML = `
     <div class="modal-protocol">
       <div class="modal-header-supp">
@@ -2640,7 +3048,7 @@ function showProtocolDetail(id, tab) {
           <div class="tags">${p.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
         </div>
       </div>
-      <h3>قائمة المكملات المقترحة</h3>
+      <h3>قائمة المكملات المقترحة (${p.supplements.length} مكمل)</h3>
       <div class="protocol-full-list">
         ${p.supplements.map((s,i)=>`
           <div class="proto-full-item">
@@ -2659,11 +3067,11 @@ function showProtocolDetail(id, tab) {
       </div>
       <div class="protocol-actions">
         <button class="btn-primary" onclick="saveProtocol('${id}','${tab}')">💾 احفظ البروتوكول</button>
-        <button class="btn-secondary" onclick="closeModal()">إغلاق</button>
+        <button class="btn-secondary" onclick="closeProtocolModal()">إغلاق</button>
       </div>
     </div>
   `;
-  modal.style.display = 'flex';
+  modal.classList.add('open');
 }
 
 function saveProtocol(id, tab) {
@@ -2775,7 +3183,7 @@ function showProductDetail(id) {
       </div>
     </div>
   `;
-  modal.style.display = 'flex';
+  modal.classList.add('open');
 }
 
 // ======= COURSES =======
@@ -2841,7 +3249,7 @@ function showCourseDetail(id) {
       </div>
     </div>
   `;
-  modal.style.display = 'flex';
+  modal.classList.add('open');
 }
 
 // ======= TOOLS =======
@@ -3161,7 +3569,7 @@ function showArticle(id) {
       <div class="article-content">${a.content}</div>
     </div>
   `;
-  modal.style.display = 'flex';
+  modal.classList.add('open');
 }
 
 // ======= PROFILE =======
@@ -3435,7 +3843,27 @@ function scrollChatToBottom() {
 
 // ======= UTILITIES =======
 function closeModal() {
-  document.getElementById('modal').style.display = 'none';
+  document.getElementById('modal').classList.remove('open');
+}
+function closeSuppModal(e) {
+  if (!e || e.target === document.getElementById('suppModal')) {
+    document.getElementById('suppModal').classList.remove('open');
+  }
+}
+function closeProtocolModal(e) {
+  if (!e || e.target === document.getElementById('protocolModal')) {
+    document.getElementById('protocolModal').classList.remove('open');
+  }
+}
+function closeProductModal(e) {
+  if (!e || e.target === document.getElementById('productModal')) {
+    document.getElementById('productModal').classList.remove('open');
+  }
+}
+function closeArticleModal(e) {
+  if (!e || e.target === document.getElementById('articleModal')) {
+    document.getElementById('articleModal').classList.remove('open');
+  }
 }
 
 function showToast(msg) {
@@ -3451,10 +3879,514 @@ function toggleDark() {
   localStorage.setItem('darkMode', darkMode);
 }
 
-// Close modal on backdrop click
-document.getElementById('modal').addEventListener('click', function(e) {
-  if (e.target === this) closeModal();
-});
+// Modal open helpers
+function openModal(title, html) {
+  document.getElementById('modal-title').textContent = title || '';
+  document.getElementById('modal-body').innerHTML = html;
+  document.getElementById('modal').classList.add('open');
+}
+
+// ======= ONBOARDING FUNCTIONS =======
+function renderOnbStep(step) {
+  onbStep = step;
+  const card = document.getElementById('onbCard');
+  const totalSteps = 7;
+  const progress = step === 0 ? 0 : Math.round((step / totalSteps) * 100);
+
+  let html = '';
+
+  if (step === 0) {
+    // Welcome / Auth step
+    html = `
+      <div class="onb-step-label">مرحباً بك 👋</div>
+      <div class="onb-title">ابدأ رحلتك الصحية</div>
+      <div class="onb-subtitle">سنخصص التوصيات والتحذيرات بناءً على ملفك الصحي</div>
+      <div class="onb-auth-tabs">
+        <button class="onb-auth-tab ${onbAuthMode==='register'?'active':''}" onclick="onbSetAuthMode('register')"> إنشاء حساب</button>
+        <button class="onb-auth-tab ${onbAuthMode==='login'?'active':''}" onclick="onbSetAuthMode('login')"> تسجيل الدخول</button>
+      </div>
+      <div id="onbAuthAlert" class="onb-alert"></div>
+      ${onbAuthMode === 'register' ? `
+        <div class="onb-form-group">
+          <label class="onb-form-label">الاسم الكامل</label>
+          <input type="text" class="onb-form-input" id="onbRegName" placeholder="محمد أحمد" autocomplete="name">
+        </div>
+        <div class="onb-form-group">
+          <label class="onb-form-label">البريد الإلكتروني</label>
+          <input type="email" class="onb-form-input" id="onbRegEmail" placeholder="example@email.com" autocomplete="email">
+        </div>
+        <div class="onb-form-group">
+          <label class="onb-form-label">كلمة المرور (6 أحرف على الأقل)</label>
+          <input type="password" class="onb-form-input" id="onbRegPassword" placeholder="••••••••" autocomplete="new-password">
+        </div>
+        <button class="onb-btn-primary" id="onbRegBtn" onclick="onbDoRegister()">إنشاء حساب والمتابعة →</button>
+      ` : `
+        <div class="onb-form-group">
+          <label class="onb-form-label">البريد الإلكتروني</label>
+          <input type="email" class="onb-form-input" id="onbLoginEmail" placeholder="example@email.com" autocomplete="email">
+        </div>
+        <div class="onb-form-group">
+          <label class="onb-form-label">كلمة المرور</label>
+          <input type="password" class="onb-form-input" id="onbLoginPassword" placeholder="••••••••" autocomplete="current-password">
+        </div>
+        <button class="onb-btn-primary" id="onbLoginBtn" onclick="onbDoLogin()">تسجيل الدخول →</button>
+      `}
+      <div class="onb-divider">أو</div>
+      <button class="onb-guest-btn" onclick="onbContinueAsGuest()">👤 متابعة كزائر دون تسجيل</button>
+    `;
+  } else if (step === 1) {
+    // Goals
+    html = `
+      <div class="onb-step-label">الخطوة 1 من 6</div>
+      <div class="onb-progress-bar"><div class="onb-progress-fill" style="width:${progress}%"></div></div>
+      <div class="onb-title">ما هدفك الرئيسي؟</div>
+      <div class="onb-subtitle">اختر حتى 4 أهداف</div>
+      <div class="onb-goal-grid">
+        ${ONB_GOALS.map(g=>`
+          <div class="onb-goal-card ${onbSelectedGoals.includes(g.id)?'selected':''}" onclick="onbToggleGoal('${g.id}')">
+            <div class="onb-goal-emoji">${g.emoji}</div>
+            <div class="onb-goal-label">${g.label}</div>
+          </div>
+        `).join('')}
+      </div>
+      <button class="onb-btn-primary" onclick="onbNextStep()" ${onbSelectedGoals.length===0?'disabled style="opacity:0.5;cursor:not-allowed"':''}>التالي →</button>
+      <span class="onb-skip-btn" onclick="onbSkip()">تخطي الإعداد</span>
+    `;
+  } else if (step === 2) {
+    // Age
+    html = `
+      <div class="onb-step-label">الخطوة 2 من 6</div>
+      <div class="onb-progress-bar"><div class="onb-progress-fill" style="width:${progress}%"></div></div>
+      <div class="onb-title">ما فئتك العمرية؟</div>
+      <div class="onb-subtitle">لتخصيص التوصيات</div>
+      <div class="onb-age-list">
+        ${ONB_AGE_GROUPS.map(a=>`
+          <div class="onb-age-item ${onbSelectedAge===a.id?'selected':''}" onclick="onbSelectAge('${a.id}')">${a.label}</div>
+        `).join('')}
+      </div>
+      <button class="onb-btn-primary" onclick="onbNextStep()" ${!onbSelectedAge?'disabled style="opacity:0.5;cursor:not-allowed"':''}>التالي →</button>
+      <button class="onb-btn-secondary" onclick="renderOnbStep(1)">← السابق</button>
+      <span class="onb-skip-btn" onclick="onbSkip()">تخطي الإعداد</span>
+    `;
+  } else if (step === 3) {
+    // Activity
+    html = `
+      <div class="onb-step-label">الخطوة 3 من 6</div>
+      <div class="onb-progress-bar"><div class="onb-progress-fill" style="width:${progress}%"></div></div>
+      <div class="onb-title">مستوى نشاطك البدني؟</div>
+      <div class="onb-subtitle">يؤثر على احتياجاتك</div>
+      <div class="onb-activity-grid">
+        ${ONB_ACTIVITY.map(a=>`
+          <div class="onb-activity-card ${onbSelectedActivity===a.id?'selected':''}" onclick="onbSelectActivity('${a.id}')">
+            <div class="onb-activity-emoji">${a.emoji}</div>
+            <div class="onb-activity-label">${a.label}</div>
+          </div>
+        `).join('')}
+      </div>
+      <button class="onb-btn-primary" onclick="onbNextStep()" ${!onbSelectedActivity?'disabled style="opacity:0.5;cursor:not-allowed"':''}>التالي →</button>
+      <button class="onb-btn-secondary" onclick="renderOnbStep(2)">← السابق</button>
+      <span class="onb-skip-btn" onclick="onbSkip()">تخطي الإعداد</span>
+    `;
+  } else if (step === 4) {
+    // Diseases
+    const filtered = ONB_DISEASES.filter(d => {
+      const matchCat = onbDiseaseFilter === 'all' || d.cat === onbDiseaseFilter;
+      const matchSearch = !onbDiseaseSearch || d.label.includes(onbDiseaseSearch);
+      return matchCat && matchSearch;
+    });
+    html = `
+      <div class="onb-step-label">الخطوة 4 من 6</div>
+      <div class="onb-progress-bar"><div class="onb-progress-fill" style="width:${progress}%"></div></div>
+      <div class="onb-title">هل لديك أمراض مزمنة؟</div>
+      <div class="onb-subtitle">اختر كل ما ينطبق عليك — سيساعدنا في تجنب التعارضات وتخصيص الجرعات</div>
+      <input class="onb-disease-search" type="text" placeholder="🔍 ابحث عن مرض..." value="${onbDiseaseSearch}" oninput="onbDiseaseSearch=this.value;renderOnbStep(4)" id="onbDiseaseSearchInput">
+      <div class="onb-disease-cats">
+        ${ONB_DISEASE_CATS.map(c=>`<button class="onb-cat-btn ${onbDiseaseFilter===c.id?'active':''}" onclick="onbDiseaseFilter='${c.id}';renderOnbStep(4)">${c.label}</button>`).join('')}
+      </div>
+      <div class="onb-disease-list">
+        <div class="onb-disease-chip onb-none-chip ${onbSelectedDiseases.includes('none')?'selected':''}" onclick="onbToggleDisease('none')">✅ لا يوجد أمراض</div>
+        ${filtered.map(d=>`
+          <div class="onb-disease-chip ${onbSelectedDiseases.includes(d.id)?'selected':''}" onclick="onbToggleDisease('${d.id}')">${d.icon} ${d.label}</div>
+        `).join('')}
+      </div>
+      <button class="onb-btn-primary" onclick="onbNextStep()">التالي →</button>
+      <button class="onb-btn-secondary" onclick="renderOnbStep(3)">← السابق</button>
+      <span class="onb-skip-btn" onclick="onbSkip()">تخطي الإعداد</span>
+    `;
+  } else if (step === 5) {
+    // Allergies
+    html = `
+      <div class="onb-step-label">الخطوة 5 من 6</div>
+      <div class="onb-progress-bar"><div class="onb-progress-fill" style="width:${progress}%"></div></div>
+      <div class="onb-title">هل لديك حساسية أو تحسس؟</div>
+      <div class="onb-subtitle">مهم جداً لتجنب مكملات تحتوي على مسببات الحساسية</div>
+      <div class="onb-disease-list">
+        <div class="onb-disease-chip onb-none-chip ${onbSelectedAllergies.includes('none')?'selected':''}" onclick="onbToggleAllergy('none')">✅ لا يوجد حساسية</div>
+        ${ONB_ALLERGIES.map(a=>`
+          <div class="onb-disease-chip onb-allergy-chip ${onbSelectedAllergies.includes(a.id)?'selected':''}" onclick="onbToggleAllergy('${a.id}')">${a.icon} ${a.label}</div>
+        `).join('')}
+      </div>
+      <button class="onb-btn-primary" onclick="onbNextStep()">التالي →</button>
+      <button class="onb-btn-secondary" onclick="renderOnbStep(4)">← السابق</button>
+      <span class="onb-skip-btn" onclick="onbSkip()">تخطي الإعداد</span>
+    `;
+  } else if (step === 6) {
+    // Personal info
+    const savedPersonal = JSON.parse(localStorage.getItem('onbPersonal') || '{}');
+    html = `
+      <div class="onb-step-label">الخطوة 6 من 6</div>
+      <div class="onb-progress-bar"><div class="onb-progress-fill" style="width:${progress}%"></div></div>
+      <div class="onb-title">بياناتك الشخصية</div>
+      <div class="onb-subtitle">اختيارية — تساعد في تخصيص الجرعات</div>
+      <div class="onb-personal-grid">
+        <div class="onb-form-group">
+          <label class="onb-form-label">الجنس</label>
+          <select class="onb-form-input" id="onbGender">
+            <option value="" ${!savedPersonal.gender?'selected':''}>اختر...</option>
+            <option value="male" ${savedPersonal.gender==='male'?'selected':''}>ذكر</option>
+            <option value="female" ${savedPersonal.gender==='female'?'selected':''}>أنثى</option>
+          </select>
+        </div>
+        <div class="onb-form-group">
+          <label class="onb-form-label">الوزن (كغ)</label>
+          <input type="number" class="onb-form-input" id="onbWeight" placeholder="70" value="${savedPersonal.weight||''}" min="30" max="300">
+        </div>
+        <div class="onb-form-group">
+          <label class="onb-form-label">الطول (سم)</label>
+          <input type="number" class="onb-form-input" id="onbHeight" placeholder="175" value="${savedPersonal.height||''}" min="100" max="250">
+        </div>
+        <div class="onb-form-group">
+          <label class="onb-form-label">التدخين</label>
+          <select class="onb-form-input" id="onbSmoking">
+            <option value="" ${!savedPersonal.smoking?'selected':''}>اختر...</option>
+            <option value="no" ${savedPersonal.smoking==='no'?'selected':''}>لا</option>
+            <option value="yes" ${savedPersonal.smoking==='yes'?'selected':''}>نعم</option>
+            <option value="ex" ${savedPersonal.smoking==='ex'?'selected':''}>سابق</option>
+          </select>
+        </div>
+      </div>
+      <button class="onb-btn-primary" onclick="onbSavePersonalAndFinish()">إنهاء وعرض ملفي →</button>
+      <button class="onb-btn-secondary" onclick="renderOnbStep(5)">← السابق</button>
+    `;
+  } else if (step === 7) {
+    // Summary
+    const ageLabel = ONB_AGE_GROUPS.find(a=>a.id===onbSelectedAge)?.label || 'غير محدد';
+    const actLabel = ONB_ACTIVITY.find(a=>a.id===onbSelectedActivity)?.label || 'غير محدد';
+    const goalsLabels = onbSelectedGoals.map(id=>ONB_GOALS.find(g=>g.id===id)?.label).filter(Boolean).join('، ');
+    const disLabels = onbSelectedDiseases.filter(d=>d!=='none').map(id=>ONB_DISEASES.find(d=>d.id===id)?.label).filter(Boolean).join('، ');
+    const allergyLabels = onbSelectedAllergies.filter(a=>a!=='none').map(id=>ONB_ALLERGIES.find(a=>a.id===id)?.label).filter(Boolean).join('، ');
+    const userName = onbCurrentUser?.name || 'زائر';
+    html = `
+      <div style="text-align:center;margin-bottom:20px">
+        <div style="font-size:48px;margin-bottom:8px">🎉</div>
+        <div class="onb-title">ملفك الصحي جاهز!</div>
+        <div class="onb-subtitle">سنخصص التطبيق لك</div>
+      </div>
+      <div class="onb-summary-card">
+        <div class="onb-summary-row">
+          <span class="onb-summary-label">المستخدم</span>
+          <span class="onb-summary-value">${userName}</span>
+        </div>
+        <div class="onb-summary-row">
+          <span class="onb-summary-label">أهدافك</span>
+          <span class="onb-summary-value">${goalsLabels || 'غير محدد'}</span>
+        </div>
+        <div class="onb-summary-row">
+          <span class="onb-summary-label">الفئة العمرية</span>
+          <span class="onb-summary-value">${ageLabel}</span>
+        </div>
+        <div class="onb-summary-row">
+          <span class="onb-summary-label">النشاط البدني</span>
+          <span class="onb-summary-value">${actLabel}</span>
+        </div>
+        <div class="onb-summary-row">
+          <span class="onb-summary-label">الحالات الصحية</span>
+          <span class="onb-summary-value">${disLabels || 'لا يوجد'}</span>
+        </div>
+        <div class="onb-summary-row">
+          <span class="onb-summary-label">الحساسية</span>
+          <span class="onb-summary-value">${allergyLabels || 'لا يوجد'}</span>
+        </div>
+      </div>
+      <div class="onb-alert alert-info show" style="background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.3);color:var(--primary-light);display:block">
+        ℹ️ سيستخدم التطبيق هذه المعلومات لتخصيص التوصيات والتحذيرات لك
+      </div>
+      <button class="onb-btn-primary" onclick="onbFinish()">🚀 ابدأ الاستخدام</button>
+    `;
+  }
+
+  card.innerHTML = html;
+  // Restore focus for disease search
+  if (step === 4 && onbDiseaseSearch) {
+    const inp = document.getElementById('onbDiseaseSearchInput');
+    if (inp) { inp.focus(); inp.setSelectionRange(inp.value.length, inp.value.length); }
+  }
+}
+
+function onbSetAuthMode(mode) {
+  onbAuthMode = mode;
+  renderOnbStep(0);
+}
+
+function onbToggleGoal(id) {
+  if (onbSelectedGoals.includes(id)) {
+    onbSelectedGoals = onbSelectedGoals.filter(g=>g!==id);
+  } else if (onbSelectedGoals.length < 4) {
+    onbSelectedGoals.push(id);
+  } else {
+    showToast('يمكنك اختيار حتى 4 أهداف فقط');
+    return;
+  }
+  renderOnbStep(1);
+}
+
+function onbSelectAge(id) {
+  onbSelectedAge = id;
+  renderOnbStep(2);
+}
+
+function onbSelectActivity(id) {
+  onbSelectedActivity = id;
+  renderOnbStep(3);
+}
+
+function onbToggleDisease(id) {
+  if (id === 'none') {
+    onbSelectedDiseases = onbSelectedDiseases.includes('none') ? [] : ['none'];
+  } else {
+    onbSelectedDiseases = onbSelectedDiseases.filter(d=>d!=='none');
+    if (onbSelectedDiseases.includes(id)) {
+      onbSelectedDiseases = onbSelectedDiseases.filter(d=>d!==id);
+    } else {
+      onbSelectedDiseases.push(id);
+    }
+  }
+  renderOnbStep(4);
+}
+
+function onbToggleAllergy(id) {
+  if (id === 'none') {
+    onbSelectedAllergies = onbSelectedAllergies.includes('none') ? [] : ['none'];
+  } else {
+    onbSelectedAllergies = onbSelectedAllergies.filter(a=>a!=='none');
+    if (onbSelectedAllergies.includes(id)) {
+      onbSelectedAllergies = onbSelectedAllergies.filter(a=>a!==id);
+    } else {
+      onbSelectedAllergies.push(id);
+    }
+  }
+  renderOnbStep(5);
+}
+
+function onbNextStep() {
+  renderOnbStep(onbStep + 1);
+}
+
+function onbSavePersonalAndFinish() {
+  const personal = {
+    gender: document.getElementById('onbGender')?.value || '',
+    weight: document.getElementById('onbWeight')?.value || '',
+    height: document.getElementById('onbHeight')?.value || '',
+    smoking: document.getElementById('onbSmoking')?.value || '',
+  };
+  localStorage.setItem('onbPersonal', JSON.stringify(personal));
+  renderOnbStep(7);
+}
+
+function onbFinish() {
+  // Save profile to localStorage
+  const personal = JSON.parse(localStorage.getItem('onbPersonal') || '{}');
+  const profile = {
+    goals: onbSelectedGoals,
+    ageGroup: onbSelectedAge,
+    activityLevel: onbSelectedActivity,
+    diseases: onbSelectedDiseases.filter(d=>d!=='none'),
+    allergies: onbSelectedAllergies.filter(a=>a!=='none'),
+    gender: personal.gender || '',
+    weight: personal.weight || '',
+    height: personal.height || '',
+    smokingStatus: personal.smoking || '',
+    completedAt: new Date().toISOString(),
+  };
+  localStorage.setItem('healthProfile', JSON.stringify(profile));
+  profileData = profile;
+  localStorage.setItem('onbSetupDone', '1');
+
+  // Save to server if logged in
+  if (onbToken && !onbIsGuest) {
+    fetch('/api/profile', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + onbToken },
+      body: JSON.stringify(profile)
+    }).catch(()=>{});
+  }
+
+  document.getElementById('onboardingOverlay').classList.add('hidden');
+  updateNavUserChip();
+  showToast('مرحباً! تم تخصيص المنصة لك 🎉');
+}
+
+function onbSkip() {
+  localStorage.setItem('onbSetupDone', '1');
+  localStorage.setItem('onbIsGuest', 'true');
+  onbIsGuest = true;
+  document.getElementById('onboardingOverlay').classList.add('hidden');
+  updateNavUserChip();
+}
+
+function onbContinueAsGuest() {
+  localStorage.setItem('onbIsGuest', 'true');
+  onbIsGuest = true;
+  renderOnbStep(1);
+}
+
+async function onbDoRegister() {
+  const name = document.getElementById('onbRegName')?.value?.trim();
+  const email = document.getElementById('onbRegEmail')?.value?.trim();
+  const password = document.getElementById('onbRegPassword')?.value;
+  const alertEl = document.getElementById('onbAuthAlert');
+
+  if (!name || !email || !password) {
+    alertEl.textContent = 'يرجى ملء جميع الحقول';
+    alertEl.className = 'onb-alert error show';
+    return;
+  }
+  if (password.length < 6) {
+    alertEl.textContent = 'كلمة المرور يجب أن تكون 6 أحرف على الأقل';
+    alertEl.className = 'onb-alert error show';
+    return;
+  }
+  const btn = document.getElementById('onbRegBtn');
+  btn.disabled = true; btn.textContent = 'جاري إنشاء الحساب...';
+  try {
+    const res = await fetch('/api/auth/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, password })
+    });
+    const data = await res.json();
+    if (!res.ok) {
+      alertEl.textContent = data.error || 'حدث خطأ';
+      alertEl.className = 'onb-alert error show';
+      btn.disabled = false; btn.textContent = 'إنشاء حساب والمتابعة →';
+      return;
+    }
+    onbToken = data.token;
+    onbCurrentUser = data.user;
+    localStorage.setItem('onbToken', data.token);
+    localStorage.setItem('onbUser', JSON.stringify(data.user));
+    localStorage.setItem('token', data.token);
+    localStorage.setItem('user', JSON.stringify(data.user));
+    alertEl.textContent = 'تم إنشاء الحساب بنجاح! جاري المتابعة...';
+    alertEl.className = 'onb-alert success show';
+    setTimeout(() => renderOnbStep(1), 800);
+  } catch(e) {
+    alertEl.textContent = 'حدث خطأ في الاتصال بالخادم';
+    alertEl.className = 'onb-alert error show';
+    btn.disabled = false; btn.textContent = 'إنشاء حساب والمتابعة →';
+  }
+}
+
+async function onbDoLogin() {
+  const email = document.getElementById('onbLoginEmail')?.value?.trim();
+  const password = document.getElementById('onbLoginPassword')?.value;
+  const alertEl = document.getElementById('onbAuthAlert');
+
+  if (!email || !password) {
+    alertEl.textContent = 'يرجى إدخال البريد وكلمة المرور';
+    alertEl.className = 'onb-alert error show';
+    return;
+  }
+  const btn = document.getElementById('onbLoginBtn');
+  btn.disabled = true; btn.textContent = 'جاري تسجيل الدخول...';
+  try {
+    const res = await fetch('/api/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password })
+    });
+    const data = await res.json();
+    if (!res.ok) {
+      alertEl.textContent = data.error || 'حدث خطأ';
+      alertEl.className = 'onb-alert error show';
+      btn.disabled = false; btn.textContent = 'تسجيل الدخول →';
+      return;
+    }
+    onbToken = data.token;
+    onbCurrentUser = data.user;
+    localStorage.setItem('onbToken', data.token);
+    localStorage.setItem('onbUser', JSON.stringify(data.user));
+    localStorage.setItem('token', data.token);
+    localStorage.setItem('user', JSON.stringify(data.user));
+    alertEl.textContent = 'تم تسجيل الدخول بنجاح!';
+    alertEl.className = 'onb-alert success show';
+    // If user has profile, skip to summary
+    if (data.user.hasProfile) {
+      localStorage.setItem('onbSetupDone', '1');
+      setTimeout(() => {
+        document.getElementById('onboardingOverlay').classList.add('hidden');
+        updateNavUserChip();
+      }, 800);
+    } else {
+      setTimeout(() => renderOnbStep(1), 800);
+    }
+  } catch(e) {
+    alertEl.textContent = 'حدث خطأ في الاتصال بالخادم';
+    alertEl.className = 'onb-alert error show';
+    btn.disabled = false; btn.textContent = 'تسجيل الدخول →';
+  }
+}
+
+function updateNavUserChip() {
+  const chip = document.getElementById('navUserChip');
+  const loginBtn = document.getElementById('navLoginBtn');
+  if (onbCurrentUser && !onbIsGuest) {
+    chip.textContent = '👤 ' + onbCurrentUser.name;
+    chip.style.display = 'inline-flex';
+    if (loginBtn) loginBtn.style.display = 'none';
+  } else if (onbIsGuest) {
+    chip.textContent = '👤 زائر';
+    chip.style.display = 'inline-flex';
+    if (loginBtn) loginBtn.style.display = 'none';
+  } else {
+    chip.style.display = 'none';
+    if (loginBtn) loginBtn.style.display = 'block';
+  }
+}
+
+function showLoginOverlay() {
+  document.getElementById('onboardingOverlay').classList.remove('hidden');
+  onbAuthMode = 'login';
+  renderOnbStep(0);
+}
+
+function showUserMenu() {
+  const isGuest = onbIsGuest;
+  if (isGuest) {
+    if (confirm('هل تريد إنشاء حساب لحفظ بياناتك؟')) {
+      localStorage.removeItem('onbSetupDone');
+      localStorage.removeItem('onbIsGuest');
+      onbIsGuest = false;
+      document.getElementById('onboardingOverlay').classList.remove('hidden');
+      onbAuthMode = 'register';
+      renderOnbStep(0);
+    }
+  } else {
+    if (confirm('هل تريد تسجيل الخروج؟')) {
+      localStorage.removeItem('onbToken');
+      localStorage.removeItem('onbUser');
+      localStorage.removeItem('onbSetupDone');
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
+      onbToken = null;
+      onbCurrentUser = null;
+      onbIsGuest = false;
+      updateNavUserChip();
+      document.getElementById('onboardingOverlay').classList.remove('hidden');
+      renderOnbStep(0);
+    }
+  }
+}
 </script>
 </body>
 </html>
