@@ -1731,16 +1731,28 @@ body {
 
         <div class="profile-section">
           <div class="profile-section-title">🏥 الأمراض المزمنة</div>
-          <div class="checkbox-group" id="profileDiseases">
-            <label class="checkbox-item" onclick="this.classList.toggle('selected')"><input type="checkbox" value="diabetes">🩸 السكري</label>
-            <label class="checkbox-item" onclick="this.classList.toggle('selected')"><input type="checkbox" value="hypertension">💔 ضغط الدم</label>
-            <label class="checkbox-item" onclick="this.classList.toggle('selected')"><input type="checkbox" value="thyroid">🦋 الغدة الدرقية</label>
-            <label class="checkbox-item" onclick="this.classList.toggle('selected')"><input type="checkbox" value="liver">🫀 مشاكل الكبد</label>
-            <label class="checkbox-item" onclick="this.classList.toggle('selected')"><input type="checkbox" value="kidney">🫘 مشاكل الكلى</label>
-            <label class="checkbox-item" onclick="this.classList.toggle('selected')"><input type="checkbox" value="heart">❤️ أمراض القلب</label>
-            <label class="checkbox-item" onclick="this.classList.toggle('selected')"><input type="checkbox" value="autoimmune">🔴 مناعة ذاتية</label>
-            <label class="checkbox-item" onclick="this.classList.toggle('selected')"><input type="checkbox" value="none">✅ لا يوجد</label>
+          <div style="margin-bottom:10px">
+            <input type="text" class="form-input" id="profileDiseaseSearch" placeholder="🔍 ابحث عن مرض..." oninput="filterProfileDiseases()" style="margin-bottom:8px">
+            <div class="filter-chips" id="profileDiseaseCats">
+              <div class="filter-chip active" onclick="setProfileDiseaseCat('all',this)">الكل</div>
+              <div class="filter-chip" onclick="setProfileDiseaseCat('cardiovascular',this)">❤️ قلب</div>
+              <div class="filter-chip" onclick="setProfileDiseaseCat('endocrine',this)">🦋 غدد</div>
+              <div class="filter-chip" onclick="setProfileDiseaseCat('digestive',this)">🫃 هضم</div>
+              <div class="filter-chip" onclick="setProfileDiseaseCat('mental_health',this)">🧠 نفسية</div>
+              <div class="filter-chip" onclick="setProfileDiseaseCat('neurological',this)">⚡ عصبية</div>
+              <div class="filter-chip" onclick="setProfileDiseaseCat('autoimmune',this)">🛡️ مناعة</div>
+              <div class="filter-chip" onclick="setProfileDiseaseCat('musculoskeletal',this)">🦴 عظام</div>
+              <div class="filter-chip" onclick="setProfileDiseaseCat('kidney',this)">🫘 كلى</div>
+              <div class="filter-chip" onclick="setProfileDiseaseCat('liver',this)">🫀 كبد</div>
+              <div class="filter-chip" onclick="setProfileDiseaseCat('blood',this)">🩸 دم</div>
+              <div class="filter-chip" onclick="setProfileDiseaseCat('respiratory',this)">🫁 تنفس</div>
+              <div class="filter-chip" onclick="setProfileDiseaseCat('other',this)">⚕️ أخرى</div>
+            </div>
           </div>
+          <div class="checkbox-group" id="profileDiseases" style="max-height:250px;overflow-y:auto">
+            <!-- Populated by JS -->
+          </div>
+          <div id="profileDiseasesSelected" style="margin-top:10px;font-size:12px;color:var(--accent)"></div>
         </div>
 
         <div class="profile-section">
@@ -2785,6 +2797,26 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('onboardingOverlay').classList.add('hidden');
     updateNavUserChip();
   }
+  // Initialize profile disease list
+  renderProfileDiseases();
+  // Auto-populate diseases from onboarding if available
+  if (profileData.diseases && profileData.diseases.length) {
+    profileSelectedDiseases = profileData.diseases;
+    renderProfileDiseases();
+  }
+  // Pre-fill profile form from onboarding data
+  if (profileData.gender) {
+    const gEl = document.getElementById('profileGender');
+    if (gEl) gEl.value = profileData.gender;
+  }
+  if (profileData.weight) {
+    const wEl = document.getElementById('profileWeight');
+    if (wEl) wEl.value = profileData.weight;
+  }
+  if (profileData.height) {
+    const hEl = document.getElementById('profileHeight');
+    if (hEl) hEl.value = profileData.height;
+  }
 });
 
 // ======= NAVIGATION =======
@@ -3625,11 +3657,25 @@ function renderProfile() {
         </div>
       </div>
       <div class="profile-section">
+        <h3>🏥 الأمراض المزمنة والحالات الصحية</h3>
+        ${(profileData.diseases||[]).length ? `
+          <div style="margin-bottom:10px;padding:10px;background:rgba(239,68,68,0.1);border-radius:8px;border:1px solid rgba(239,68,68,0.3)">
+            <div style="font-size:12px;color:#ef4444;font-weight:700;margin-bottom:6px">⚠️ تحذيرات مبنية على حالتك الصحية:</div>
+            ${(profileData.diseases||[]).map(id => {
+              const d = PROFILE_DISEASES.find(x=>x.id===id);
+              return d ? `<div style="font-size:12px;margin-bottom:4px">${d.icon} <strong>${d.label}:</strong> ${d.warning}</div>` : '';
+            }).join('')}
+          </div>
+        ` : ''}
+        <div style="font-size:12px;color:var(--text3);margin-bottom:8px">الحالات المختارة: ${(profileData.diseases||[]).length ? (profileData.diseases||[]).map(id=>PROFILE_DISEASES.find(d=>d.id===id)?.label).filter(Boolean).join('، ') : 'لا يوجد'}</div>
+        <button class="btn-secondary" style="font-size:12px;padding:6px 12px" onclick="showSection('profile');setTimeout(()=>document.getElementById('profileDiseaseSearch')?.scrollIntoView({behavior:'smooth'}),300)">تعديل الأمراض</button>
+      </div>
+      <div class="profile-section">
         <h3>📊 معلوماتي الصحية</h3>
         <div class="health-form">
           <div class="form-row">
             <label>العمر</label>
-            <input type="number" value="${profileData.age||''}" onchange="updateProfile('age',this.value)" placeholder="السنوات">
+            <input type="number" value="${profileData.age||\'\'}" onchange="updateProfile('age',this.value)" placeholder="السنوات">
           </div>
           <div class="form-row">
             <label>الجنس</label>
@@ -3641,16 +3687,22 @@ function renderProfile() {
           </div>
           <div class="form-row">
             <label>الوزن (كغ)</label>
-            <input type="number" value="${profileData.weight||''}" onchange="updateProfile('weight',this.value)" placeholder="كغ">
+            <input type="number" value="${profileData.weight||\'\'}" onchange="updateProfile('weight',this.value)" placeholder="كغ">
           </div>
           <div class="form-row">
             <label>الطول (سم)</label>
-            <input type="number" value="${profileData.height||''}" onchange="updateProfile('height',this.value)" placeholder="سم">
+            <input type="number" value="${profileData.height||\'\'}" onchange="updateProfile('height',this.value)" placeholder="سم">
           </div>
         </div>
       </div>
     </div>
   `;
+  // After rendering, populate the disease list in the static profile section
+  setTimeout(() => renderProfileDiseases(), 50);
+  // Auto-populate from onboarding data
+  if (profileData.diseases && profileData.diseases.length) {
+    profileSelectedDiseases = profileData.diseases;
+  }
 }
 
 function removeFromStack(id) {
@@ -3675,6 +3727,63 @@ function toggleGoal(goal, checked) {
 function updateProfile(key, value) {
   profileData[key] = value;
   localStorage.setItem('healthProfile', JSON.stringify(profileData));
+}
+
+function generateProfile() {
+  // Collect data from the static profile form
+  const age = document.getElementById('profileAge')?.value;
+  const gender = document.getElementById('profileGender')?.value;
+  const weight = document.getElementById('profileWeight')?.value;
+  const height = document.getElementById('profileHeight')?.value;
+  const activity = document.getElementById('profileActivity')?.value;
+  const meds = document.getElementById('profileMeds')?.value;
+
+  // Get selected goals
+  const goals = [];
+  document.querySelectorAll('#profileGoals .checkbox-item.selected input').forEach(inp => goals.push(inp.value));
+
+  // Merge with existing profileData
+  profileData.age = age || profileData.age;
+  profileData.gender = gender || profileData.gender;
+  profileData.weight = weight || profileData.weight;
+  profileData.height = height || profileData.height;
+  profileData.activityLevel = activity || profileData.activityLevel;
+  profileData.medications = meds || profileData.medications;
+  if (goals.length) profileData.goals = goals;
+  if (profileSelectedDiseases.length) profileData.diseases = profileSelectedDiseases.filter(d=>d!=='none');
+
+  localStorage.setItem('healthProfile', JSON.stringify(profileData));
+
+  // Generate warnings based on diseases
+  const warnings = (profileData.diseases||[]).map(id => {
+    const d = PROFILE_DISEASES.find(x=>x.id===id);
+    return d ? `<li>${d.icon} <strong>${d.label}:</strong> ${d.warning}</li>` : '';
+  }).filter(Boolean).join('');
+
+  const resultEl = document.getElementById('profileResult');
+  if (resultEl) {
+    resultEl.innerHTML = `
+      <div class="card">
+        <div style="font-size:24px;margin-bottom:12px">🎉 تم إنشاء ملفك الصحي!</div>
+        <div class="profile-summary">
+          <div class="summary-row"><span>العمر</span><strong>${age || 'غير محدد'}</strong></div>
+          <div class="summary-row"><span>الجنس</span><strong>${gender === 'male' ? 'ذكر' : gender === 'female' ? 'أنثى' : 'غير محدد'}</strong></div>
+          <div class="summary-row"><span>الوزن / الطول</span><strong>${weight||'?'} كغ / ${height||'?'} سم</strong></div>
+          <div class="summary-row"><span>النشاط</span><strong>${activity||'غير محدد'}</strong></div>
+          <div class="summary-row"><span>الأهداف</span><strong>${goals.join('، ') || 'غير محدد'}</strong></div>
+          <div class="summary-row"><span>الأمراض</span><strong>${(profileData.diseases||[]).map(id=>PROFILE_DISEASES.find(d=>d.id===id)?.label).filter(Boolean).join('، ') || 'لا يوجد'}</strong></div>
+        </div>
+        ${warnings ? `
+          <div style="margin-top:16px;padding:12px;background:rgba(239,68,68,0.1);border-radius:8px;border:1px solid rgba(239,68,68,0.3)">
+            <div style="font-weight:700;color:#ef4444;margin-bottom:8px">⚠️ تحذيرات مهمة بناءً على حالتك الصحية:</div>
+            <ul style="margin:0;padding-right:16px;font-size:13px;line-height:1.8">${warnings}</ul>
+          </div>
+        ` : '<div style="color:#22c55e;margin-top:12px">✅ لا تحذيرات خاصة لحالتك</div>'}
+        <button class="btn-primary" style="margin-top:16px;width:100%" onclick="showSection('ai')">🤖 اسأل مساعد AI لتخصيص خطتك</button>
+      </div>
+    `;
+  }
+  showToast('تم حفظ ملفك الصحي ✅');
 }
 
 // ======= AI =======
@@ -4335,6 +4444,111 @@ async function onbDoLogin() {
     alertEl.className = 'onb-alert error show';
     btn.disabled = false; btn.textContent = 'تسجيل الدخول →';
   }
+}
+
+// ======= PROFILE DISEASE DATABASE =======
+let profileDiseaseFilter = 'all';
+const PROFILE_DISEASES = [
+  {id:'hypertension', label:'ارتفاع ضغط الدم', cat:'cardiovascular', icon:'🩺', warning:'تجنب الكافيين الزائد ومكملات الصوديوم'},
+  {id:'heart_disease', label:'أمراض القلب', cat:'cardiovascular', icon:'❤️', warning:'استشارة طبية قبل أي مكمل'},
+  {id:'high_cholesterol', label:'ارتفاع الكوليسترول', cat:'cardiovascular', icon:'💉', warning:'تجنب فيتامين D الزائد'},
+  {id:'atrial_fibrillation', label:'الرجفان الأذيني', cat:'cardiovascular', icon:'💓', warning:'تفاعل مع مخففات الدم'},
+  {id:'stroke_history', label:'تاريخ سكتة دماغية', cat:'cardiovascular', icon:'🧠', warning:'تجنب المكملات المخففة للدم'},
+  {id:'diabetes_t1', label:'سكري النوع الأول', cat:'endocrine', icon:'🩸', warning:'الكروم يؤثر على الأنسولين'},
+  {id:'diabetes_t2', label:'سكري النوع الثاني', cat:'endocrine', icon:'🩸', warning:'الكروم يؤثر على سكر الدم'},
+  {id:'prediabetes', label:'مقدمات السكري', cat:'endocrine', icon:'🩸', warning:'مراقبة سكر الدم عند استخدام الكروم'},
+  {id:'hypothyroidism', label:'قصور الغدة الدرقية', cat:'endocrine', icon:'🦋', warning:'اليود والسيلينيوم بتوجيه طبي'},
+  {id:'hyperthyroidism', label:'فرط نشاط الغدة الدرقية', cat:'endocrine', icon:'🦋', warning:'تجنب اليود والكافيين'},
+  {id:'pcos', label:'تكيس المبايض', cat:'endocrine', icon:'⚕️', warning:'الإينوزيتول مفيد لكن بإشراف طبي'},
+  {id:'kidney_disease_ckd', label:'الفشل الكلوي المزمن', cat:'kidney', icon:'🫘', warning:'تجنب البروتين الزائد والبوتاسيوم'},
+  {id:'kidney_stones', label:'حصوات الكلى', cat:'kidney', icon:'🫘', warning:'تجنب فيتامين C الزائد والكالسيوم الزائد'},
+  {id:'fatty_liver', label:'الكبد الدهني', cat:'liver', icon:'🫀', warning:'تجنب فيتامين A الزائد'},
+  {id:'hepatitis_b', label:'التهاب الكبد ب', cat:'liver', icon:'🫀', warning:'استشارة طبية قبل أي مكمل'},
+  {id:'hepatitis_c', label:'التهاب الكبد ج', cat:'liver', icon:'🫀', warning:'استشارة طبية قبل أي مكمل'},
+  {id:'cirrhosis', label:'تليف الكبد', cat:'liver', icon:'🫀', warning:'تجنب فيتامين A والحديد الزائد'},
+  {id:'ibs', label:'القولون العصبي', cat:'digestive', icon:'🫃', warning:'البروبيوتيك مفيد بشكل عام'},
+  {id:'ibd_crohn', label:'مرض كرون', cat:'digestive', icon:'🫃', warning:'تجنب المغنيسيوم الزائد'},
+  {id:'ibd_colitis', label:'التهاب القولون التقرحي', cat:'digestive', icon:'🫃', warning:'استشارة طبية قبل مكملات الحديد'},
+  {id:'gerd', label:'ارتجاع المريء', cat:'digestive', icon:'🫃', warning:'تجنب الكافيين والحمضيات'},
+  {id:'peptic_ulcer', label:'قرحة المعدة', cat:'digestive', icon:'🫃', warning:'تجنب الأسبرين والمسكنات الحمضية'},
+  {id:'celiac', label:'مرض السيلياك', cat:'digestive', icon:'🌾', warning:'تجنب أي مكمل يحتوي على غلوتين'},
+  {id:'lupus', label:'الذئبة الحمراء', cat:'autoimmune', icon:'🛡️', warning:'تجنب فيتامين D الزائد'},
+  {id:'rheumatoid_arthritis', label:'التهاب المفاصل الروماتويدي', cat:'autoimmune', icon:'🦴', warning:'الميثوتريكسات تتفاعل مع حمض الفوليك'},
+  {id:'ms', label:'التصلب المتعدد', cat:'autoimmune', icon:'🧠', warning:'فيتامين D مهم جداً'},
+  {id:'psoriasis', label:'الصدفية', cat:'autoimmune', icon:'🔴', warning:'فيتامين D وأوميغا-3 مفيدان'},
+  {id:'hashimoto', label:'هاشيموتو', cat:'autoimmune', icon:'🦋', warning:'اليود بتوجيه طبي فقط'},
+  {id:'asthma', label:'الربو', cat:'respiratory', icon:'🫁', warning:'تجنب المكملات المحفزة للالتهاب'},
+  {id:'copd', label:'الانسداد الرئوي المزمن', cat:'respiratory', icon:'🫁', warning:'فيتامين D ومضادات الأكسدة مفيدة'},
+  {id:'sleep_apnea', label:'انقطاع النفس أثناء النوم', cat:'respiratory', icon:'😴', warning:'المغنيسيوم وفيتامين D مفيدان'},
+  {id:'osteoporosis', label:'هشاشة العظام', cat:'musculoskeletal', icon:'🦴', warning:'الكالسيوم وفيتامين D ضروريان'},
+  {id:'osteoarthritis', label:'التهاب المفاصل التنكسي', cat:'musculoskeletal', icon:'🦴', warning:'الكولاجين والكركمين مفيدان'},
+  {id:'gout', label:'النقرس', cat:'musculoskeletal', icon:'🦶', warning:'تجنب فيتامين C الزائد'},
+  {id:'fibromyalgia', label:'الفيبروميالجيا', cat:'musculoskeletal', icon:'💪', warning:'المغنيسيوم وفيتامين D مفيدان'},
+  {id:'migraine', label:'الصداع النصفي', cat:'neurological', icon:'🧠', warning:'المغنيسيوم وريبوفلافين مفيدان'},
+  {id:'epilepsy', label:'الصرع', cat:'neurological', icon:'⚡', warning:'تجنب حمض الجينكو بيلوبا'},
+  {id:'parkinsons', label:'باركنسون', cat:'neurological', icon:'🧠', warning:'استشارة طبية قبل أي مكمل'},
+  {id:'alzheimers', label:'الزهايمر', cat:'neurological', icon:'🧠', warning:'أوميغا-3 وفيتامين D مفيدان'},
+  {id:'adhd', label:'اضطراب ADHD', cat:'neurological', icon:'🧠', warning:'أوميغا-3 والزينك مفيدان'},
+  {id:'depression', label:'الاكتئاب', cat:'mental_health', icon:'🧠', warning:'الأدوية النفسية تتفاعل مع كثير من المكملات'},
+  {id:'anxiety', label:'القلق المزمن', cat:'mental_health', icon:'😰', warning:'تجنب الكافيين والمنبهات'},
+  {id:'bipolar', label:'الاضطراب ثنائي القطب', cat:'mental_health', icon:'🧠', warning:'استشارة طبية قبل أي مكمل'},
+  {id:'anemia_iron', label:'فقر الدم بنقص الحديد', cat:'blood', icon:'🩸', warning:'فيتامين C يحسن امتصاص الحديد'},
+  {id:'anemia_b12', label:'فقر الدم بنقص ب12', cat:'blood', icon:'🩸', warning:'فيتامين B12 ضروري'},
+  {id:'thalassemia', label:'الثلاسيميا', cat:'blood', icon:'🩸', warning:'تجنب الحديد الزائد'},
+  {id:'bleeding_disorder', label:'اضطراب التخثر', cat:'blood', icon:'🩸', warning:'تجنب أوميغا-3 وفيتامين E الزائد'},
+  {id:'obesity', label:'السمنة المفرطة', cat:'metabolic', icon:'⚖️', warning:'فيتامين D والمغنيسيوم مفيدان'},
+  {id:'metabolic_syndrome', label:'متلازمة التمثيل الغذائي', cat:'metabolic', icon:'🔬', warning:'البربرين والكروم مفيدان'},
+  {id:'cancer_active', label:'سرطان نشط (تحت العلاج)', cat:'other', icon:'⚕️', warning:'استشارة طبية إلزامية قبل أي مكمل'},
+  {id:'pregnancy', label:'الحمل', cat:'other', icon:'🤰', warning:'تجنب فيتامين A الزائد وبعض الأعشاب'},
+  {id:'breastfeeding', label:'الرضاعة الطبيعية', cat:'other', icon:'🤱', warning:'استشارة طبية قبل أي مكمل'},
+  {id:'organ_transplant', label:'زراعة الأعضاء', cat:'other', icon:'⚕️', warning:'تفاعلات خطيرة مع مثبطات المناعة'},
+];
+
+let profileSelectedDiseases = [];
+
+function renderProfileDiseases() {
+  const container = document.getElementById('profileDiseases');
+  if (!container) return;
+  const search = document.getElementById('profileDiseaseSearch')?.value?.trim() || '';
+  const filtered = PROFILE_DISEASES.filter(d => {
+    const matchCat = profileDiseaseFilter === 'all' || d.cat === profileDiseaseFilter;
+    const matchSearch = !search || d.label.includes(search);
+    return matchCat && matchSearch;
+  });
+  container.innerHTML = [
+    `<label class="checkbox-item ${profileSelectedDiseases.includes('none')?'selected':''}" onclick="toggleProfileDisease('none')">✅ لا يوجد أمراض</label>`,
+    ...filtered.map(d => `<label class="checkbox-item ${profileSelectedDiseases.includes(d.id)?'selected':''}" onclick="toggleProfileDisease('${d.id}')">${d.icon} ${d.label}</label>`)
+  ].join('');
+  const selEl = document.getElementById('profileDiseasesSelected');
+  if (selEl) {
+    const sel = profileSelectedDiseases.filter(d=>d!=='none');
+    selEl.textContent = sel.length ? `✅ مختار: ${sel.map(id=>PROFILE_DISEASES.find(d=>d.id===id)?.label).filter(Boolean).join('، ')}` : '';
+  }
+}
+
+function toggleProfileDisease(id) {
+  if (id === 'none') {
+    profileSelectedDiseases = profileSelectedDiseases.includes('none') ? [] : ['none'];
+  } else {
+    profileSelectedDiseases = profileSelectedDiseases.filter(d=>d!=='none');
+    if (profileSelectedDiseases.includes(id)) {
+      profileSelectedDiseases = profileSelectedDiseases.filter(d=>d!==id);
+    } else {
+      profileSelectedDiseases.push(id);
+    }
+  }
+  renderProfileDiseases();
+}
+
+function setProfileDiseaseCat(cat, el) {
+  profileDiseaseFilter = cat;
+  document.querySelectorAll('#profileDiseaseCats .filter-chip').forEach(c=>c.classList.remove('active'));
+  if (el) el.classList.add('active');
+  renderProfileDiseases();
+}
+
+function filterProfileDiseases() {
+  renderProfileDiseases();
 }
 
 function updateNavUserChip() {
