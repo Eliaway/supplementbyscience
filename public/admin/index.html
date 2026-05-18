@@ -538,19 +538,23 @@ function renderSupplements() {
 
 function renderProtocols() {
   const q = document.getElementById('proto-search')?.value?.toLowerCase() || '';
-  const filtered = protocols.filter(p=>(p.title||'').toLowerCase().includes(q));
+  const filtered = protocols.filter(p=>((p.title||p.name||'').toLowerCase().includes(q)));
   document.getElementById('proto-count').textContent = filtered.length;
-  document.getElementById('proto-tbody').innerHTML = filtered.length ? filtered.map((p,i)=>`
+  document.getElementById('proto-tbody').innerHTML = filtered.length ? filtered.map((p,i)=>{
+    const displayName = p.title || p.name || '-';
+    const supps = (p.supplements||[]).slice(0,3).map(s=>typeof s==='object'?(s.name||''):String(s)).filter(Boolean);
+    return `
     <tr>
-      <td><strong>${p.emoji||'📋'} ${p.title}</strong></td>
+      <td><strong>${p.emoji||'📋'} ${displayName}</strong></td>
       <td><span class="badge badge-blue">${p.category||'-'}</span></td>
-      <td style="font-size:12px">${(p.supplements||[]).slice(0,3).join('، ')}</td>
+      <td style="font-size:12px">${supps.join('، ')}</td>
       <td>${p.duration||'-'}</td>
       <td><div class="act-cell">
         <button class="btn-sm btn-info" onclick="editItem('protocol',${i})">✏️ تعديل</button>
         <button class="btn-sm btn-danger" onclick="deleteItem('protocol',${i})">🗑️</button>
       </div></td>
-    </tr>`).join('') : '<tr><td colspan="5" style="text-align:center;color:var(--text-dim);padding:40px">لا توجد بروتوكولات</td></tr>';
+    </tr>`;
+  }).join('') : '<tr><td colspan="5" style="text-align:center;color:var(--text-dim);padding:40px">لا توجد بروتوكولات</td></tr>';
 }
 
 function renderProducts() {
@@ -698,12 +702,15 @@ function getForm(type, d) {
     <div class="form-row single"><div class="field"><label>الفوائد (كل فائدة في سطر)</label><textarea id="f-benefits">${arr('benefits')}</textarea></div></div>
     <div class="form-row single"><div class="field"><label>المصادر الغذائية</label><input id="f-food" value="${v('food_sources')}"></div></div>
     <div class="form-row single"><div class="field"><label>التحذيرات</label><textarea id="f-warnings">${v('warnings')}</textarea></div></div>`;
-  if (type==='protocol') return `
-    <div class="form-row"><div class="field"><label>العنوان *</label><input id="f-title" value="${v('title')}"></div><div class="field"><label>الإيموجي</label><input id="f-emoji" value="${v('emoji','📋')}"></div></div>
+  if (type==='protocol') {
+    const suppArr = (d?.supplements||[]).map(s=>typeof s==='object'?(s.name||''):String(s)).filter(Boolean);
+    return `
+    <div class="form-row"><div class="field"><label>العنوان *</label><input id="f-title" value="${d?.title||d?.name||''}"></div><div class="field"><label>الإيموجي</label><input id="f-emoji" value="${v('emoji','📋')}"></div></div>
     <div class="form-row"><div class="field"><label>الفئة</label><select id="f-cat"><option value="organs">صحة الأعضاء</option><option value="goals">الأهداف</option><option value="sports">الرياضة</option><option value="special">حالات خاصة</option><option value="longevity">طول العمر</option></select></div><div class="field"><label>المدة</label><input id="f-duration" value="${v('duration','3 أشهر')}"></div></div>
     <div class="form-row single"><div class="field"><label>الوصف</label><textarea id="f-desc">${v('description')}</textarea></div></div>
-    <div class="form-row single"><div class="field"><label>المكملات (كل مكمل في سطر)</label><textarea id="f-supplements">${arr('supplements')}</textarea></div></div>
+    <div class="form-row single"><div class="field"><label>المكملات (كل مكمل في سطر)</label><textarea id="f-supplements">${suppArr.join('\n')}</textarea></div></div>
     <div class="form-row single"><div class="field"><label>الفوائد (كل فائدة في سطر)</label><textarea id="f-benefits">${arr('benefits')}</textarea></div></div>`;
+  }
   if (type==='product') return `
     <div class="form-row"><div class="field"><label>اسم المنتج *</label><input id="f-name" value="${v('name')}"></div><div class="field"><label>العلامة التجارية</label><input id="f-brand" value="${v('brand')}"></div></div>
     <div class="form-row"><div class="field"><label>الفئة</label><input id="f-cat" value="${v('category')}"></div><div class="field"><label>التقييم (0-10)</label><input id="f-rating" type="number" min="0" max="10" step="0.1" value="${v('rating','8')}"></div></div>
